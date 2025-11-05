@@ -368,16 +368,21 @@ def handle_agent_response(agent_executor, prompt: str, difficulty: str, exp_mana
                 st.markdown(copy_button_html, unsafe_allow_html=True)
 
             with col_save:
-                # 파일명 생성
+                # 파일명 생성 (마크다운 형식)
                 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-                filename = f"response_{timestamp}.txt"
+                filename = f"response_{timestamp}.md"
+
+                # 마크다운 형식으로 저장 내용 구성
+                markdown_content = f"# LLM 답변\n\n"
+                markdown_content += f"**생성 시간**: {datetime.now().strftime('%Y년 %m월 %d일 %H:%M:%S')}\n\n"
+                markdown_content += f"---\n\n{answer_for_export}"
 
                 # 다운로드 버튼
                 st.download_button(
                     label="💾 저장",
-                    data=answer_for_export,
+                    data=markdown_content,
                     file_name=filename,
-                    mime="text/plain",
+                    mime="text/markdown",
                     use_container_width=True,
                     key=f"save_{hash(answer_for_export)}"
                 )
@@ -631,15 +636,15 @@ def render_chat_export_buttons():
             st.markdown(export_copy_html, unsafe_allow_html=True)
 
         with col_export_save:
-            # 전체 채팅 저장 버튼
+            # 전체 채팅 저장 버튼 (마크다운 형식)
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            filename = f"chat_history_{timestamp}.txt"
+            filename = f"chat_history_{timestamp}.md"
 
             st.download_button(
                 label="💾 전체 대화 저장",
                 data=chat_content,
                 file_name=filename,
-                mime="text/plain",
+                mime="text/markdown",
                 use_container_width=True,
                 key=f"export_save_{unique_id}"
             )
