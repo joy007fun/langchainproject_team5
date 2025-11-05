@@ -153,7 +153,8 @@ class ExperimentManager:
         # 실제 사용하는 설정 파일만 복사
         config_files = [
             "configs/db_config.yaml",
-            "configs/model_config.yaml"
+            "configs/model_config.yaml",
+            "configs/multi_request_patterns.yaml"
         ]
 
         for config_file in config_files:
