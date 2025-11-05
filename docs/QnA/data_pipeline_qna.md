@@ -338,13 +338,22 @@ chunk.metadata = {
 
 **설정 위치:**
 ```python
-# src/database/vector_store.py
+# src/database/embeddings.py
 from langchain_openai import OpenAIEmbeddings
 
-embeddings = OpenAIEmbeddings(
-    model="text-embedding-3-small",  # 모델명
-    dimensions=1536                   # 벡터 차원
-)
+DEFAULT_EMBEDDING_MODEL = "text-embedding-3-small"
+
+def get_embeddings(model: Optional[str] = None) -> OpenAIEmbeddings:
+    model_name = model or DEFAULT_EMBEDDING_MODEL
+    return OpenAIEmbeddings(model=model_name)
+```
+
+**사용:**
+```python
+# src/database/vector_store.py
+from .embeddings import get_embeddings
+
+embeddings = get_embeddings()  # text-embedding-3-small (1536 차원)
 ```
 
 **모델 비교:**
@@ -1102,11 +1111,14 @@ python scripts/data/load_embeddings.py
 
 **방법:**
 ```python
-# src/database/vector_store.py
-embeddings = OpenAIEmbeddings(
-    model="text-embedding-3-large",  # small → large
-    dimensions=3072                   # 1536 → 3072
-)
+# src/database/embeddings.py
+DEFAULT_EMBEDDING_MODEL = "text-embedding-3-large"  # small → large
+```
+
+또는 실행 시 환경변수 설정:
+```bash
+# .env 파일
+EMBEDDING_MODEL=text-embedding-3-large
 ```
 
 **주의사항:**
