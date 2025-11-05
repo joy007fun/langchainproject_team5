@@ -85,6 +85,21 @@ def _format_markdown(results: List[Dict[str, Any]]) -> str:
     if not results:
         return "관련 논문을 찾을 수 없습니다."
 
+    # ✅ 유사도 점수 검증: 최소 하나의 결과가 임계값 이하(유사도 높음)여야 함
+    SIMILARITY_THRESHOLD = 0.5  # distance 기준 (낮을수록 유사, pgvector cosine distance)
+    has_relevant_result = False
+
+    for r in results:
+        score = r.get("score")
+        # score가 None이 아니고 임계값 이하(유사도 높음)인 경우
+        if score is not None and score <= SIMILARITY_THRESHOLD:
+            has_relevant_result = True
+            break
+
+    # 모든 결과의 유사도가 낮으면 (score가 모두 임계값 초과) 실패 처리
+    if not has_relevant_result:
+        return "관련 논문을 찾을 수 없습니다."
+
     lines: List[str] = ["## 검색된 논문\n"]
     for i, r in enumerate(results, 1):
         score_str = f"{r['score']:.4f}" if r.get("score") is not None else "N/A"
