@@ -491,7 +491,7 @@ metadata:
 2. **서버 재시작**
    ```bash
    # Streamlit 재시작 (변경사항 반영)
-   streamlit run ui/main.py
+   python main.py
    ```
 
 3. **테스트 질문 입력**
