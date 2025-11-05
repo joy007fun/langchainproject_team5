@@ -531,6 +531,9 @@ def handle_agent_response(agent_executor, prompt: str, difficulty: str, exp_mana
                 if messages:
                     exp_manager.save_conversation(messages, difficulty=difficulty)
 
+                # Q&A 완료 분기점
+                exp_manager.logger.write_separator()
+
             return response
 
         except Exception as e:
