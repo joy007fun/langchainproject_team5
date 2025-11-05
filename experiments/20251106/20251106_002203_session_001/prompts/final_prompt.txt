@@ -1,0 +1,131 @@
+[SYSTEM PROMPT - beginner]
+당신은 논문을 쉽게 설명하는 친절한 전문가입니다.
+
+답변 규칙:
+- 검색된 논문들을 번호로 정리하세요
+- 각 논문마다:
+  1. 제목 (저자, 연도)
+  2. 핵심 내용 3-5줄 요약
+  3. 왜 이 논문이 중요한지
+  4. 유사도 점수 (있으면)
+- 전문 용어는 괄호로 쉽게 설명
+- 최대 5개까지만 소개
+- 친근하고 이해하기 쉬운 톤
+
+[USER PROMPT]
+[논문 검색 결과]
+## 검색된 논문
+
+### 1. Evidence of behavior consistent with self-interest and altruism in an artificially intelligent agent
+- **저자**: Tim Johnson, Nick Obradovich
+- **출판일**: 2023-01-05
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2301.02330v1
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: N/A
+
+Supplementary Materials 6 
+ 
+Computer Code and Data Sets to Facilitate Replication  
+ The study used computer code, written in R, for all parts of the investigation : to implement the 
+experiment by querying the OpenAI API, to organize data, to perform text analyses that identified 
+errone ous responses*, and to analyze the study data. Access to the computer code can be found using the 
+links below. Users of the computer code also will need to download the datasets listed below and change 
+file paths in the computer code to read the data sets from either their local files or from the  data set...
+
+---
+
+### 2. Retrieval-Augmented Generation: A Comprehensive Survey of Architectures, Enhancements, and Robustness Frontiers
+- **저자**: Chaitanya Sharma
+- **출판일**: 2025-05-28
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2506.00054v1
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: N/A
+
+each LLM as a user of the search engine. uRAG’s training protocol enables evaluation and optimization of retrieval
+Manuscript submitted to ACM
+
+---
+
+### 3. Neural Machine Translation
+- **저자**: Philipp Koehn
+- **출판일**: 2017-09-22
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/1709.07809v1
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: N/A
+
+112 Bibliography
+
+---
+
+### 4. MedicalBERT: enhancing biomedical natural language processing using pretrained BERT-based model
+- **저자**: K. Sahit Reddy, N. Ragavenderan, Vasanth K., Ganesh N. Naik, Vishalakshi Prabhu, Nagaraja G. S
+- **출판일**: 2025-07-06
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2507.08013v2
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: N/A
+
+D : Data Curation  
+O : Writing - Original Draft  
+E : Writing - Review &  Editing Vi :  Visualization  
+Su :  Supervision  
+P :  Project administration  
+Fu :  Funding acquisition  
+ 
+ 
+ 
+CONFLICT OF INTEREST STATEMENT  
+Authors state no conflict of interest.  
+ 
+ 
+DATA AVAILABILITY  
+The data that support the findings of this study will be available in 
+https://github.com/ksahitreddy/MedicalBERT  following a 2 -month embargo from the date of publication to 
+allow for the commercialization of research findings.  
+ 
+ 
+REFERENCES  
+[1] J. Devlin, M. -W. Chang, K. Lee, K. T. Google, and A. I. La...
+
+---
+
+### 5. The 3rd Place Solution of CCIR CUP 2025: A Framework for Retrieval-Augmented Generation in Multi-Turn Legal Conversation
+- **저자**: Da Li, Zecheng Fang, Qiang Yan, Wei Huang, Xuanpu Luo
+- **출판일**: 2025-10-17
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2510.15722v1
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: N/A
+
+In legal information retrieval systems, semantic matching tech-
+niques demonstrate constrained effectiveness in addressing user
+queries, which frequently necessitate keyword-dependent matching
+mechanisms. We adopt a multi-route retrieval strategy. In addition
+to dense retrieval, we utilize BM25 to expand the candidate set
+by retrieving relevant legal provisions based on keywords derived
+from query rewriting.
+4.3 Legal Literature Filtering
+Given the applicability of legal articles, there is no need to search
+the entire corpus for relevant candidates when answering user
+questions. User questions...
+
+---
+
+
+[질문]
+관련 논문 찾아줘 저장해줘
+
+위 검색 결과를 바탕으로 질문에 답변해주세요.
+
+===== 메타데이터 =====
+tool: search_paper
+difficulty: easy
+level: beginner
