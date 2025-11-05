@@ -343,5 +343,4 @@ def check_pipeline_or_fallback(state: AgentState) -> str:
 ---
 
 *작성일: 2025-11-05*
-*작성자: Claude Code*
 *실험 폴더: experiments/20251105/*
