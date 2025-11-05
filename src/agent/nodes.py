@@ -85,8 +85,25 @@ def router_node(state: AgentState, exp_manager=None):
     # LLM 호출
     raw_response = llm_client.llm.invoke(routing_prompt).content.strip()  # 도구 선택
 
+    # 마크다운 코드 펜스 제거 (LLM이 ```json ... ``` 형식으로 응답하는 경우 처리)
+    cleaned_response = raw_response
+    if "```" in cleaned_response:
+        # ```json, ```, 또는 ```python 등 모든 코드 펜스 제거
+        lines = cleaned_response.split("\n")
+        lines = [line for line in lines if not line.strip().startswith("```")]
+        cleaned_response = "\n".join(lines).strip()
+
     # 응답 파싱: 첫 번째 단어만 추출
-    tool_choice = raw_response.split()[0] if raw_response else "general"
+    tool_choice = cleaned_response.split()[0] if cleaned_response else "general"
+
+    # 유효한 도구 목록
+    valid_tools = ["general", "glossary", "search_paper", "web_search", "summarize", "text2sql", "save_file"]
+
+    # 유효하지 않은 도구명이면 general로 폴백
+    if tool_choice not in valid_tools:
+        if exp_manager:
+            exp_manager.logger.write(f"⚠️ 유효하지 않은 도구: {tool_choice} → general로 폴백", print_error=True)
+        tool_choice = "general"
 
     # 로깅
     if exp_manager:
