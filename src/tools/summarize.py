@@ -47,6 +47,52 @@ def summarize_node(state: AgentState, exp_manager=None):
         tool_logger = exp_manager.get_tool_logger('summarize')
         tool_logger.write(f"논문 요약 노드 실행 - 질문: {question}, 난이도: {difficulty}")
 
+    # ============================================================ #
+    #           파이프라인 모드: 이전 도구 결과 사용               #
+    # ============================================================ #
+    tool_pipeline = state.get("tool_pipeline", [])
+    pipeline_index = state.get("pipeline_index", 0)
+    tool_result = state.get("tool_result", "")
+
+    # 파이프라인 실행 중이고 이전 도구 결과가 있으면 바로 요약
+    if tool_pipeline and pipeline_index > 1 and tool_result:
+        if tool_logger:
+            tool_logger.write(f"파이프라인 모드: 이전 도구 결과 사용 ({len(tool_result)} 글자)")
+
+        # 난이도별 LLM 초기화
+        llm_client = LLMClient.from_difficulty(
+            difficulty=difficulty,
+            logger=exp_manager.logger if exp_manager else None
+        )
+
+        # 요약 프롬프트 템플릿 로드
+        summarize_template_str = get_summarize_template(difficulty=difficulty)
+        summarize_prompt = PromptTemplate(
+            template=summarize_template_str,
+            input_variables=["text"]
+        )
+
+        # load_summarize_chain 사용 (stuff 방식)
+        chain = load_summarize_chain(
+            llm=llm_client.llm,
+            chain_type="stuff",
+            prompt=summarize_prompt
+        )
+
+        # 이전 도구 결과를 Document 형식으로 변환
+        from langchain.schema import Document
+        doc = Document(page_content=tool_result, metadata={"source": "pipeline"})
+
+        # 요약 실행
+        summary = chain.run([doc])
+
+        if tool_logger:
+            tool_logger.write(f"파이프라인 요약 완료: {len(summary)} 글자")
+
+        state["final_answer"] = summary
+        state["tool_result"] = summary
+        return state
+
     try:
         # ============================================================ #
         #              1단계: 논문 제목 추출 (LLM 사용)               #
