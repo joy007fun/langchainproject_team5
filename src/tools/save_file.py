@@ -64,10 +64,59 @@ def save_file_node(state: AgentState, exp_manager=None):
         content_to_save = "\n".join(content_lines)
     else:
         # 단일 답변 저장: LLM 답변만 저장 (사용자 질문 제외)
-        # 우선순위: tool_result → final_answer → messages의 마지막 assistant 답변
-        content_to_save = ""
+        # 우선순위: final_answers (다중 수준) → tool_result → final_answer → messages
+
+        # 우선순위 0: final_answers (난이도별 다중 답변)
+        final_answers = state.get("final_answers", {})
+        if final_answers and isinstance(final_answers, dict) and len(final_answers) > 0:
+            # final_answers가 있으면 각 수준별로 별도 파일 저장
+            if exp_manager:
+                exp_manager.logger.write(f"저장 출처: final_answers ({len(final_answers)}개 수준)")
+
+            # 저장 카운터 증가 (세션별 누적 번호)
+            save_counter = state.get("save_counter", 0) + 1
+            state["save_counter"] = save_counter
+
+            # 타임스탬프 생성
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+            # 수준별 레이블
+            level_labels = {
+                "elementary": "초등학생용(8-13세)",
+                "beginner": "초급자용(14-22세)",
+                "intermediate": "중급자용(23-30세)",
+                "advanced": "고급자용(30세 이상)"
+            }
+
+            saved_files = []
+            for level, content in final_answers.items():
+                if not content or not content.strip():
+                    continue
+
+                # 파일명 형식: 날짜_시간_response_번호_수준.md
+                filename = f"{timestamp}_response_{save_counter}_{level}.md"
+
+                if exp_manager:
+                    # ExperimentManager의 save_output 메서드 사용
+                    file_path = exp_manager.save_output(filename, content)
+                    exp_manager.logger.write(f"파일 저장 완료: {file_path} ({level_labels.get(level, level)})")
+                    saved_files.append(f"- {level_labels.get(level, level)}: {file_path}")
+                else:
+                    # ExperimentManager 없을 때 (테스트 환경)
+                    output_dir = "outputs"
+                    os.makedirs(output_dir, exist_ok=True)
+                    file_path = os.path.join(output_dir, filename)
+                    with open(file_path, 'w', encoding='utf-8') as f:
+                        f.write(content)
+                    saved_files.append(f"- {level_labels.get(level, level)}: {file_path}")
+
+            # 성공 메시지 구성
+            answer = f"난이도별 답변이 각각 저장되었습니다.\n저장된 파일:\n" + "\n".join(saved_files)
+            state["final_answer"] = answer
+            return state
 
         # 우선순위 1: tool_result (파이프라인 실행 결과)
+        content_to_save = ""
         tool_result = state.get("tool_result", "")
         if tool_result and tool_result.strip():
             content_to_save = tool_result
