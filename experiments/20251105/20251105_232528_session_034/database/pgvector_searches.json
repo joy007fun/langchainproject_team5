@@ -1,0 +1,22 @@
+[
+  {
+    "tool": "glossary",
+    "collection": "glossary_embeddings",
+    "query_text": "Vision Transformer가 뭐야?",
+    "search_mode": "hybrid",
+    "top_k": 3,
+    "with_scores": true,
+    "result_length": 258,
+    "timestamp": "2025-11-05T23:25:39.920539"
+  },
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "관련 논문 찾아줘",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 4114,
+    "timestamp": "2025-11-05T23:25:52.911116"
+  }
+]

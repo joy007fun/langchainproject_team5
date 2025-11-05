@@ -65,26 +65,48 @@ def summarize_node(state: AgentState, exp_manager=None):
             logger=exp_manager.logger if exp_manager else None
         )
 
-        # 요약 프롬프트 템플릿 로드
-        summarize_template_str = get_summarize_template(difficulty=difficulty)
-        summarize_prompt = PromptTemplate(
-            template=summarize_template_str,
-            input_variables=["text"]
-        )
+        # 파이프라인 모드: 간단한 요약 프롬프트 사용
+        from langchain.schema import SystemMessage, HumanMessage
 
-        # load_summarize_chain 사용 (stuff 방식)
-        chain = load_summarize_chain(
-            llm=llm_client.llm,
-            chain_type="stuff",
-            prompt=summarize_prompt
-        )
+        # 난이도별 시스템 프롬프트
+        if difficulty == "easy":
+            system_content = """당신은 논문을 쉽게 설명하는 친절한 AI 어시스턴트입니다.
 
-        # 이전 도구 결과를 Document 형식으로 변환
-        from langchain.schema import Document
-        doc = Document(page_content=tool_result, metadata={"source": "pipeline"})
+답변 규칙:
+- 핵심 아이디어를 3-5개 포인트로 정리하세요
+- 전문 용어는 쉬운 말로 풀어서 설명하세요
+- 다음 구조로 요약하세요:
+  1. 주요 내용
+  2. 핵심 포인트
+  3. 한 줄 요약
+- 친근하고 이해하기 쉬운 톤 유지"""
+        else:  # hard
+            system_content = """당신은 논문을 기술적으로 분석하는 전문 연구자입니다.
 
-        # 요약 실행
-        summary = chain.run([doc])
+답변 규칙:
+- 다음 구조로 체계적으로 요약하세요:
+  1. 연구 배경 및 동기
+  2. 제안하는 방법론
+  3. 주요 결과
+  4. 기여도 및 한계점
+- 기술적 세부사항을 포함하세요
+- 비판적 관점을 유지하세요"""
+
+        user_content = f"""다음 내용을 요약해주세요:
+
+{tool_result}
+
+요약:"""
+
+        # 메시지 구성
+        messages = [
+            SystemMessage(content=system_content),
+            HumanMessage(content=user_content)
+        ]
+
+        # LLM 호출
+        response = llm_client.llm.invoke(messages)
+        summary = response.content
 
         if tool_logger:
             tool_logger.write(f"파이프라인 요약 완료: {len(summary)} 글자")

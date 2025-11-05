@@ -1,0 +1,125 @@
+[SYSTEM PROMPT - beginner]
+당신은 논문을 쉽게 설명하는 친절한 전문가입니다.
+
+답변 규칙:
+- 검색된 논문들을 번호로 정리하세요
+- 각 논문마다:
+  1. 제목 (저자, 연도)
+  2. 핵심 내용 3-5줄 요약
+  3. 왜 이 논문이 중요한지
+  4. 유사도 점수 (있으면)
+- 전문 용어는 괄호로 쉽게 설명
+- 최대 5개까지만 소개
+- 친근하고 이해하기 쉬운 톤
+
+[USER PROMPT]
+[논문 검색 결과]
+## 검색된 논문
+
+### 1. Alleviating Hallucination in Large Vision-Language Models with Active Retrieval Augmentation
+- **저자**: Xiaoye Qu, Qiyuan Chen, Wei Wei, Jishuo Sun, Jianfeng Dong
+- **출판일**: 2024-08-01
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2408.00555v1
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.6129
+
+the full citation on the ﬁrst page. Copyrights for components of th is work owned by others than the author(s) must be
+honored.Abstractingwithcreditispermitted.Tocopy otherwise,or republish,topostonserversortoredistributetolists,
+requires prior speciﬁc permission and/or a fee.Request permissions f rom permissions@acm.org.
+© 2018Copyright heldby theowner/author(s).Publication rights licensedtoACM.
+ACM1557-735X/2018/8-ART111
+https://doi.org/XXXXXXX.XXXXXXX
+J. ACM,Vol. 37,No. 4,Article111. Publication date: August 201 8.
+
+---
+
+### 2. End-to-End Trainable Retrieval-Augmented Generation for Relation Extraction
+- **저자**: Kohei Makino, Makoto Miwa, Yutaka Sasaki
+- **출판일**: 2024-06-06
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2406.03790v2
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.6165
+
+2014, the 25th International Conference on Computational Linguistics:
+Technical Papers , J. Tsujii and J. Hajic, Eds. Dublin, Ireland: Dublin City
+University and Association for Computational Linguistics, Aug. 2014, pp.
+2335–2344. [Online]. Available: https://aclanthology.org/C14-1220
+[48] W. Zhou, K. Huang, T. Ma, and J. Huang, ‘‘Document-level relation
+extraction with adaptive thresholding and localized context pooling,’’ in
+Proceedings of the AAAI Conference on Artificial Intelligence , 2021.
+[49] T.-J. Fu, P.-H. Li, and W.-Y. Ma, ‘‘GraphRel: Modeling text as relational
+graphs for joint ent...
+
+---
+
+### 3. Retrieval-Augmented Generation: A Comprehensive Survey of Architectures, Enhancements, and Robustness Frontiers
+- **저자**: Chaitanya Sharma
+- **출판일**: 2025-05-28
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2506.00054v1
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.6195
+
+USA) (SIGIR ’24) . Association for Computing Machinery, New York, NY, USA, 2776–2780. doi:10.1145/3626772.3657660
+Manuscript submitted to ACM
+
+---
+
+### 4. Evaluation of GPT and BERT-based models on identifying protein-protein interactions in biomedical text
+- **저자**: Hasin Rehana, Nur Bengisu Çam, Mert Basmaci, Jie Zheng, Christianah Jemiyo, Yongqun He, Arzucan Özgür, Junguk Hur
+- **출판일**: 2023-03-30
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2303.17728v2
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.6358
+
+43. Mooney, R. and R. Bunescu, Subsequence kernels for relation extraction.  Advances in 
+neural information processing systems, 2005. 18.  
+44. Hur, J., et al., d evelopment and application of an interaction network ontology for 
+literature mining of vaccine-associated gene-gene interactions. J Biomed Semantics, 
+2015. 6: p. 2. 
+45. Karadeniz, I., et al., Literature Mining and Ontology based Analysis of Host-Brucella 
+Gene-Gene Interaction Network. Front Microbiol, 2015. 6 : p. 1386. 
+46. Ozgur, A., J. Hur, and Y. He, The Interaction Network Ontology -supported modeling and 
+mining of complex...
+
+---
+
+### 5. MedicalBERT: enhancing biomedical natural language processing using pretrained BERT-based model
+- **저자**: K. Sahit Reddy, N. Ragavenderan, Vasanth K., Ganesh N. Naik, Vishalakshi Prabhu, Nagaraja G. S
+- **출판일**: 2025-07-06
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2507.08013v2
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.6359
+
+provides the results of our work and further discussion about the work, followed by the conclusion section.  
+ 
+ 
+2. RELATED MODELS AND WORKS  
+2.1.  BioBERT  
+BioBERT [4], a domain -specific linguistic portrayal framework, emerges from an initial BERT 
+checkpoint trained on biomedical text from PubMed Abstracts and PubMed Central. Its adaptation for 
+biomedical text mining acknowledges the growing importance of this field, driven by the rapid expansion of 
+biomedical document volumes. NLP advancements applied directly to biomedical text mining often yield 
+suboptimal outcomes due to distribut...
+
+---
+
+
+[질문]
+관련 논문 찾아줘
+
+위 검색 결과를 바탕으로 질문에 답변해주세요.
+
+===== 메타데이터 =====
+tool: search_paper
+difficulty: easy
+level: beginner

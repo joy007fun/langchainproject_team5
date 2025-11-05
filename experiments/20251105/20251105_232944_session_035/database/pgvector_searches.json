@@ -1,0 +1,12 @@
+[
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "최신 gpt 논문 찾아서 요약하고 저장해줘",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 3484,
+    "timestamp": "2025-11-05T23:30:31.699183"
+  }
+]

@@ -1,0 +1,97 @@
+2025-11-05 23:25:28 | 세션 시작: session_034
+2025-11-05 23:25:28 | 폴더 경로: experiments/20251105/20251105_232528_session_034
+2025-11-05 23:25:28 | 설정 파일 저장: db_config.yaml
+2025-11-05 23:25:28 | 설정 파일 저장: model_config.yaml
+2025-11-05 23:25:28 | 설정 파일 저장: multi_request_patterns.yaml
+2025-11-05 23:25:28 | ==========
+2025-11-05 23:25:28 | Agent 그래프 생성 시작
+2025-11-05 23:25:28 | Fallback Chain 활성화
+2025-11-05 23:25:28 | 최대 재시도 횟수: 3
+2025-11-05 23:25:28 | Router 검증 활성화: True
+2025-11-05 23:25:28 | Agent 그래프 컴파일 완료
+2025-11-05 23:25:28 | Streamlit UI 시작
+2025-11-05 23:25:28 | 실험 폴더: experiments/20251105/20251105_232528_session_034
+2025-11-05 23:25:38 | 메타데이터 업데이트: ['user_query']
+2025-11-05 23:25:38 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 23:25:38 | 라우터 노드 실행: Vision Transformer가 뭐야?
+2025-11-05 23:25:38 | 다중 요청 감지: ['뭐야'] (제외: ['논문', '검색', '찾아']) → ['glossary']
+2025-11-05 23:25:38 | 패턴 설명: 용어 정의 질문 (뭐야 패턴)
+2025-11-05 23:25:38 | 단일 도구 실행: glossary
+2025-11-05 23:25:39 | pgvector 검색 기록: glossary
+2025-11-05 23:25:39 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 23:25:39 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 23:25:39 | 시스템 프롬프트 저장 완료
+2025-11-05 23:25:39 | 최종 프롬프트 저장 완료
+2025-11-05 23:25:41 | 시스템 프롬프트 저장 완료
+2025-11-05 23:25:41 | 최종 프롬프트 저장 완료
+2025-11-05 23:25:45 | 도구 실행 성공: glossary
+2025-11-05 23:25:45 | 메타데이터 업데이트: ['success', 'response_time_ms']
+2025-11-05 23:25:45 | 메타데이터 업데이트: ['tool_used']
+2025-11-05 23:25:45 | 용어 추출 시작 (범위: 1-5개)
+2025-11-05 23:25:45 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 23:25:45 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 23:25:48 | 메타데이터 업데이트: ['user_query']
+2025-11-05 23:25:48 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 23:25:48 | 라우터 노드 실행: 관련 논문 찾아줘
+2025-11-05 23:25:48 | Multi-turn 맥락 참조 감지: 패턴 매칭 건너뛰고 LLM 라우팅 사용
+2025-11-05 23:25:48 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 23:25:48 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 23:25:51 | 정제된 응답 (파싱 전): {
+  "tools": [
+    {
+      "name": "학술 논문 검색 도구",
+      "query": "Vision Transformer survey paper",
+      "filtering_attempts": 3,
+      "step": 1
+    }
+  ],
+  "reason": "Vision Transformer(ViT)에 대한 핵...
+2025-11-05 23:25:51 | JSON 파싱 실패: Extra data: line 13 column 1 (char 393)
+2025-11-05 23:25:51 | 키워드 기반 폴백 매칭 결과: search_paper
+2025-11-05 23:25:51 | LLM 라우팅 결정 (원본): ```json
+{
+  "tools": [
+    {
+      "name": "학술 논문 검색 도구",
+      "query": "Vision Transformer survey ...
+2025-11-05 23:25:51 | LLM 라우팅 결정 (파싱): search_paper
+2025-11-05 23:25:51 | 최종 선택 도구: search_paper
+2025-11-05 23:25:52 | pgvector 검색 기록: search_paper
+2025-11-05 23:25:52 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 23:25:52 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 23:25:52 | 시스템 프롬프트 저장 완료
+2025-11-05 23:25:52 | 최종 프롬프트 저장 완료
+2025-11-05 23:25:55 | 시스템 프롬프트 저장 완료
+2025-11-05 23:25:55 | 최종 프롬프트 저장 완료
+2025-11-05 23:25:56 | LLM 응답: ```json
+{
+  "terms": [
+    {
+      "term": "Vision Transformer (ViT)",
+      "definition": "이미지를 작은 패치로 분할하고 트랜스포머 아키텍처를 적용하여 컴퓨터 비전 작업을 수행하는 딥러닝 모델",
+      "easy_explanation": "이미지를 레고 블록처럼 작은 조각으로 나...
+2025-11-05 23:25:56 | 용어 추출 실패: Invalid \escape: line 7 column 199 (char 479)
+2025-11-05 23:26:02 | 도구 실행 성공: search_paper
+2025-11-05 23:26:02 | 메타데이터 업데이트: ['success', 'response_time_ms']
+2025-11-05 23:26:02 | 메타데이터 업데이트: ['tool_used']
+2025-11-05 23:26:02 | 용어 추출 시작 (범위: 1-5개)
+2025-11-05 23:26:02 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 23:26:02 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 23:26:08 | LLM 응답: ```json
+{
+  "terms": [
+    {
+      "term": "RAG (Retrieval-Augmented Generation)",
+      "definition": "외부 지식베이스에서 정보를 검색해 생성 모델의 입력과 결합하여 더 정확하고 풍부한 출력을 생성하는 AI 기술",
+      "easy_explanation": "AI가 답할...
+2025-11-05 23:26:08 | 추출된 용어 수: 4
+2025-11-05 23:26:08 | 용어 검증 완료: 4개 → 4개 (IT 필터링) → 4개 (최대 개수 제한)
+2025-11-05 23:26:08 | glossary 테이블에 4개 용어 저장 시작
+2025-11-05 23:26:08 | 용어 이미 존재 (건너뜀): RAG (Retrieval-Augmented Generation)
+2025-11-05 23:26:08 | 용어 이미 존재 (건너뜀): BERT (Bidirectional Encoder Representations from Transformers)
+2025-11-05 23:26:08 | 용어 이미 존재 (건너뜀): 환각(Hallucination)
+2025-11-05 23:26:08 | 용어 이미 존재 (건너뜀): MedicalBERT
+2025-11-05 23:26:08 | 용어 저장 완료: 0/4개
+2025-11-05 23:27:08 | 평가 결과 저장: evaluation_20251105_232708.json
+2025-11-05 23:27:08 | 대화 저장: conversation_easy_20251105_232708.json (3개 메시지)
+2025-11-05 23:27:08 | ==========
