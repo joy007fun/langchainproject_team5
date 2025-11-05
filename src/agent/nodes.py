@@ -120,7 +120,9 @@ def router_node(state: AgentState, exp_manager=None):
                 if "tools" in parsed and len(parsed["tools"]) > 0:
                     tool_name = parsed["tools"][0].get("name", "general")
                     # 도구명 추출 (full name이 아닌 짧은 이름으로 매핑)
-                    if "search_paper" in tool_name.lower() or "paper" in tool_name.lower() or "논문" in tool_name.lower():
+                    if ("search_paper" in tool_name.lower() or "paper" in tool_name.lower() or "논문" in tool_name.lower() or
+                        "arxiv" in tool_name.lower() or "검색" in tool_name.lower() or "찾" in tool_name.lower() or
+                        "탐색" in tool_name.lower() or "retrieval" in tool_name.lower()):
                         tool_choice = "search_paper"
                     elif "web_search" in tool_name.lower() or "web" in tool_name.lower() or "웹" in tool_name.lower() or "위키" in tool_name.lower():
                         tool_choice = "web_search"
