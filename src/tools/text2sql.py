@@ -97,6 +97,7 @@ Rules:
 - Prefer COUNT/SUM/AVG/MAX/MIN for numeric answers.
 - For year filters, use EXTRACT(YEAR FROM publish_date).
 - For keyword search in text columns, use ILIKE with %...%.
+- IMPORTANT: When combining AND/OR in WHERE clause, use parentheses to group OR conditions. Example: WHERE date >= '2022-01-01' AND (field1 ILIKE '%keyword%' OR field2 ILIKE '%keyword%')
 - Add LIMIT 100 when returning rows (non-aggregate).
 - Do NOT reference tables not listed below; do NOT call undefined functions.
 - Use single semicolon at the end.
