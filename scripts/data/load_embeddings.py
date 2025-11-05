@@ -10,12 +10,43 @@ import json
 import sys
 import time
 from pathlib import Path
+from typing import List
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 
+from langchain_core.documents import Document
 from src.data.document_loader import PaperDocumentLoader
 from src.database.vector_store import get_pgvector_store
+
+
+def deduplicate_chunks(chunks: List[Document]) -> List[Document]:
+    """내용이 동일한 청크를 제거합니다.
+
+    Args:
+        chunks: 청크 리스트
+
+    Returns:
+        중복이 제거된 청크 리스트
+    """
+    seen_contents = set()
+    unique_chunks = []
+    duplicate_count = 0
+
+    for chunk in chunks:
+        # 내용 해시 생성 (page_content 기준)
+        content_hash = hash(chunk.page_content)
+
+        if content_hash not in seen_contents:
+            seen_contents.add(content_hash)
+            unique_chunks.append(chunk)
+        else:
+            duplicate_count += 1
+
+    if duplicate_count > 0:
+        print(f"   ℹ️  {duplicate_count}개 중복 청크 제거됨")
+
+    return unique_chunks
 
 
 def main() -> int:
@@ -52,10 +83,14 @@ def main() -> int:
     # Document 로드
     print("1단계: PDF 문서 로드 및 청크 분할 중...")
     loader = PaperDocumentLoader(chunk_size=1000, chunk_overlap=200)
-    
+
     try:
         chunks = loader.load_all_pdfs(pdf_dir, metadata_path)
         print(f"   ✅ {len(chunks)}개 청크 생성 완료")
+
+        # 중복 제거
+        chunks = deduplicate_chunks(chunks)
+        print(f"   ✅ 중복 제거 후: {len(chunks)}개 청크")
     except Exception as e:
         print(f"   ❌ 오류: {e}")
         import traceback
