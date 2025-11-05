@@ -276,17 +276,23 @@ def create_agent_graph(exp_manager=None):
         # 각 도구 → Pipeline 계속 실행 또는 Fallback 체크
         def check_pipeline_or_fallback(state: AgentState) -> str:
             """도구 실행 후 Pipeline 계속 또는 Fallback 체크"""
-            # 1단계: tool_pipeline이 있는지 확인
+            # 1단계: 도구 실행 결과 확인
+            tool_status = state.get("tool_status", "success")
+
+            # 2단계: 도구 실행 실패 시 Fallback 체크 (파이프라인 중단)
+            if tool_status != "success":
+                return should_fallback(state)
+
+            # 3단계: 도구 성공 시 Pipeline 계속 여부 확인
             tool_pipeline = state.get("tool_pipeline", [])
             pipeline_index = state.get("pipeline_index", 0)
 
-            # 2단계: Pipeline이 있고 다음 도구가 있으면 계속 실행
+            # 4단계: Pipeline이 있고 다음 도구가 있으면 계속 실행
             if tool_pipeline and pipeline_index < len(tool_pipeline):
-                # Pipeline 계속 실행
                 return should_continue_pipeline(state)
 
-            # 3단계: Pipeline이 끝났거나 없으면 Fallback 체크
-            return should_fallback(state)
+            # 5단계: Pipeline이 끝났으면 정상 종료
+            return "end"
 
         # 각 도구 → Pipeline 또는 Fallback
         for tool_name in ["glossary", "search_paper", "web_search", "summarize", "text2sql", "save_file"]:
