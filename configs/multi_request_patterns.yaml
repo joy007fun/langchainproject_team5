@@ -101,13 +101,16 @@ patterns:
   - 저장
   tools:
   - search_paper
+  - web_search
+  - general
   - summarize
-  description: 논문 검색 후 요약
+  description: 논문 검색 후 요약 (4단계 파이프라인)
   priority: 120
   examples:
   - Transformer 논문 요약해줘
   - GPT 논문 찾아서 요약해줘
   - Attention 논문 정리해줘
+  - Attention Is All You Need 논문 요약해줘
 
 - keywords:
   - 최신
@@ -163,9 +166,11 @@ patterns:
   - 저장
   tools:
   - search_paper
+  - web_search
+  - general
   - summarize
   - save_file
-  description: 논문 검색, 요약 후 저장
+  description: 논문 검색, 요약 후 저장 (5단계 파이프라인)
   priority: 100
   examples:
   - Attention 논문 요약해서 저장해줘
@@ -225,9 +230,11 @@ patterns:
   tools:
   - glossary
   - search_paper
+  - web_search
+  - general
   - summarize
   - save_file
-  description: 용어 설명, 논문 검색, 요약 후 저장
+  description: 용어 설명, 논문 검색, 요약 후 저장 (6단계 파이프라인)
   priority: 80
   examples:
   - Transformer 설명하고 논문 찾아서 요약하고 저장해줘
@@ -241,9 +248,11 @@ patterns:
   tools:
   - text2sql
   - search_paper
+  - web_search
+  - general
   - summarize
   - save_file
-  description: 통계 조회, 논문 검색, 요약 후 저장
+  description: 통계 조회, 논문 검색, 요약 후 저장 (6단계 파이프라인)
   priority: 75
   examples:
   - 2024년 상위 인용 논문 통계 보고 찾아서 요약하고 저장해줘
@@ -268,17 +277,19 @@ patterns:
 
 # ==================== 메타데이터 ==================== #
 metadata:
-  version: '3.1'
+  version: '3.2'
   created_date: '2025-11-05'
   updated_date: '2025-11-05'
-  description: 핵심 패턴만 선별 - 성능 최적화 + 복합 요청 지원
+  description: 핵심 패턴만 선별 - 성능 최적화 + 완전한 파이프라인 지원
   total_patterns: 17
   removed_patterns: 62
   pattern_breakdown:
     single_tool: 4
     two_tool: 6
-    three_tool: 4
-    four_tool: 3
+    three_tool: 3
+    four_tool: 2
+    five_tool: 1
+    six_tool: 2
   pattern_categories:
     용어_정의: 2
     전체_저장: 1
@@ -303,3 +314,4 @@ metadata:
   - 핵심 패턴만 유지하여 유지보수성 향상
   - 용어 정의 + 저장 복합 패턴 추가
   - 논문 검색 단일 패턴 추가 (multi-turn 지원)
+  - 논문 요약 패턴에 완전한 4단계 파이프라인 적용 (RAG → 웹 → 일반 → 요약)
