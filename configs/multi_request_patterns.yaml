@@ -203,7 +203,7 @@ patterns:
   - 2024년 상위 인용 논문 통계 보고 찾아서 요약해줘
   - 인용 많은 AI 논문 통계 조회하고 요약해줘
 - keywords:
-  - 설명
+  - 설명하고
   - 논문
   - 요약
   tools:
@@ -553,7 +553,7 @@ patterns:
   examples:
   - 2025년 LLM 트렌드 정리해줘
 - keywords:
-  - 설명
+  - 설명하고
   - 논문
   tools:
   - glossary
