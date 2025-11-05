@@ -437,14 +437,18 @@ def glossary_node(state, exp_manager=None):
         AgentState: 업데이트된 상태
     """
     # -------------- 상태에서 질문 및 난이도 추출 -------------- #
-    question = state["question"]                          # 사용자 질문
-    difficulty = state.get("difficulty", "easy")          # 난이도 (기본값: easy)
+    # ✅ refined_query 우선 사용 (Multi-turn 지원)
+    question = state.get("refined_query", state["question"])  # 재작성된 질문 우선, 없으면 원본
+    difficulty = state.get("difficulty", "easy")              # 난이도 (기본값: easy)
 
     # -------------- 도구별 Logger 생성 -------------- #
     tool_logger = exp_manager.get_tool_logger('rag_glossary') if exp_manager else None
 
     if tool_logger:
-        tool_logger.write(f"용어집 노드 실행: {question}")
+        if "refined_query" in state:
+            tool_logger.write(f"용어집 노드 실행: {question} (재작성된 질문)")
+        else:
+            tool_logger.write(f"용어집 노드 실행: {question}")
         tool_logger.write(f"난이도: {difficulty}")
 
     # -------------- search_glossary 도구 호출 -------------- #
