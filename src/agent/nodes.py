@@ -112,7 +112,21 @@ def router_node(state: AgentState, exp_manager=None):
     if tool_choice is None:
         # JSON 프롬프트 로드
         routing_prompt_template = get_routing_prompt()    # JSON 파일에서 프롬프트 로드
-        routing_prompt = routing_prompt_template.format(question=question, difficulty=difficulty)  # 질문 및 난이도 삽입
+
+        # Multi-turn 지원: 이전 대화 컨텍스트 추출 (최근 3개 메시지)
+        messages = state.get("messages", [])
+        context = ""
+        if len(messages) > 1:
+            recent_messages = messages[-3:]  # 최근 3개 메시지
+            context = "\n\n[이전 대화 컨텍스트]\n"
+            for msg in recent_messages[:-1]:  # 마지막 메시지(현재 질문)는 제외
+                role = "사용자" if hasattr(msg, 'type') and msg.type == "human" else "AI"
+                content = msg.content if hasattr(msg, 'content') else str(msg)
+                context += f"{role}: {content[:200]}...\n" if len(content) > 200 else f"{role}: {content}\n"
+
+        # 프롬프트에 컨텍스트 추가
+        base_prompt = routing_prompt_template.format(question=question, difficulty=difficulty)
+        routing_prompt = f"{context}{base_prompt}" if context else base_prompt
 
         # 난이도별 LLM 초기화
         llm_client = LLMClient.from_difficulty(
