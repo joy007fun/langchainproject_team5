@@ -257,5 +257,19 @@ else:
 
 ---
 
-**작성일**: 2025-11-03
-**버전**: 1.0
+## 📈 예상 질문 리스트
+
+### 단일요청 (5개)
+1. Transformer 모델이란?
+2. Gradient Descent의 원리를 쉽게 설명해줘
+3. Reinforcement Learning이란 무엇이며, 어떻게 작동해?
+4. GAN(Generative Adversarial Network)의 기본 개념 설명해줘
+5. ViT의 구조를 간단히 설명해줘
+
+### 다중요청 (다른 도구와 결합)
+- `glossary` → `search_paper`: Attention Mechanism과 Feed Forward Network 구조의 차이를 설명하고, 관련 논문을 함께 보여줘
+
+---
+
+**작성일**: 2025-11-05
+**버전**: 2.0

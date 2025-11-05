@@ -47,7 +47,8 @@ class AgentState(TypedDict, total=False):
     difficulty: str                             # 난이도 (easy/hard)
     tool_choice: str                            # 선택된 도구
     tool_result: str                            # 도구 실행 결과
-    final_answer: str                           # 최종 답변
+    final_answer: str                           # 최종 답변 (하위 호환성)
+    final_answers: Dict[str, str]               # 두 수준의 답변 {"elementary": "...", "beginner": "..."} or {"intermediate": "...", "advanced": "..."}
     messages: list                              # 대화 히스토리
     source_documents: list                      # 참고 논문 문서
 

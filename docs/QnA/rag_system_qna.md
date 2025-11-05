@@ -84,9 +84,10 @@ LIMIT 5;
 - 벡터로 변환하면 수학적 거리 계산 가능
 
 **본 프로젝트 설정:**
-- **모델**: `configs/model_config.yaml`의 `embeddings.model` 설정을 최우선시 (기본값: `text-embedding-3-small`)
-- **차원**: 1536차원 (`embeddings.dimension` 설정)
-- **재시도**: `embeddings.max_retries` 설정값 사용 (기본값: 3번)
+- **모델**: 환경변수 `EMBEDDING_MODEL` 사용 (기본값: `text-embedding-3-small`)
+  - 참고: `configs/model_config.yaml`의 `embeddings.model` 설정은 문서용이며, 실제 코드에는 환경변수가 반영됨
+- **차원**: 1536차원 (text-embedding-3-small 기본값)
+- **재시도**: OpenAIEmbeddings 기본 설정 사용
 - **비용**: 매우 저렴 ($0.02 / 1M 토큰)
 
 **예시:**
@@ -104,7 +105,7 @@ v1 = embeddings.embed_query("Transformer")
 v2 = embeddings.embed_query("Self-Attention")
 v3 = embeddings.embed_query("사과")
 
-# v1과 v2는 가까움, v1과 v3는 멈
+# v1과 v2는 가까움, v1과 v3는 멀
 ```
 
 ---
@@ -417,7 +418,7 @@ retriever = RAGRetriever(k=5)
 # 2023년 이후 논문만 검색
 docs = retriever.search_with_filter(
     query="최신 LLM 모델",
-    filter_dict={"publish_date": {"$gte": "2023-01-01"}},
+    filter_dict={"year": {"$gte": 2023}},
     k=5
 )
 
@@ -432,7 +433,7 @@ docs = retriever.search_with_filter(
 docs = retriever.search_with_filter(
     query="Transformer",
     filter_dict={
-        "publish_date": {"$gte": "2020-01-01"},
+        "year": {"$gte": 2020},
         "category": "cs.CL"
     },
     k=5
@@ -1036,8 +1037,11 @@ context = "\n\n".join([
 ])
 
 # 3. LLM에 전달
-# configs/model_config.yaml에서 사용자가 정의한 모델을 최우선시
-llm_client = LLMClient(provider="openai", model="gpt-5")  # 기본값: gpt-5
+# LLM 클라이언트 초기화 (권장: 난이도별 자동 선택)
+llm_client = LLMClient.from_difficulty(difficulty="easy")  # solar-pro2
+# 또는 직접 모델 지정: LLMClient(provider="openai", model="gpt-4o")
+# 주의: gpt-5는 특별 권한이 필요할 수 있으므로 일반 사용자는 gpt-4o 사용 권장
+
 messages = [
     SystemMessage(content="논문 정보를 기반으로 답변하세요."),
     HumanMessage(content=f"컨텍스트:\n{context}\n\n질문: Transformer 설명해줘")

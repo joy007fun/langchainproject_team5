@@ -34,61 +34,70 @@ def general_answer_node(state: AgentState, exp_manager=None):
         exp_manager.logger.write(f"일반 답변 노드 실행: {question}")
         exp_manager.logger.write(f"난이도: {difficulty}")
 
-    # -------------- JSON 프롬프트 로드 -------------- #
-    system_content = get_tool_prompt("general_answer", difficulty)  # JSON 파일에서 프롬프트 로드
-    system_msg = SystemMessage(content=system_content)              # SystemMessage 객체 생성
+    # -------------- 두 수준의 답변 생성 -------------- #
+    # easy -> elementary + beginner, hard -> intermediate + advanced
+    level_mapping = {
+        "easy": ["elementary", "beginner"],
+        "hard": ["intermediate", "advanced"]
+    }
 
-    # 프롬프트 저장 (prompts 폴더)
-    if exp_manager:
-        exp_manager.save_system_prompt(system_content, {
-            "tool": "general_answer",
-            "difficulty": difficulty
-        })
-        exp_manager.save_user_prompt(question, {
-            "tool": "general_answer",
-            "difficulty": difficulty
-        })
+    levels = level_mapping.get(difficulty, ["beginner", "intermediate"])
+    final_answers = {}
 
-    # -------------- 난이도별 LLM 초기화 -------------- #
+    # 난이도별 LLM 초기화 (공통)
     llm_client = LLMClient.from_difficulty(
         difficulty=difficulty,
         logger=exp_manager.logger if exp_manager else None
     )
 
-    # -------------- 메시지 구성 -------------- #
-    messages = [
-        system_msg,                             # 시스템 프롬프트
-        HumanMessage(content=question)          # 사용자 질문
-    ]
+    # 각 수준별로 답변 생성
+    for level in levels:
+        if exp_manager:
+            exp_manager.logger.write(f"수준 '{level}' 답변 생성 시작")
 
-    # -------------- 최종 프롬프트 저장 -------------- #
-    if exp_manager:
-        final_prompt = f"""[SYSTEM PROMPT]
+        # 프롬프트 로드
+        system_content = get_tool_prompt("general_answer", level)
+        system_msg = SystemMessage(content=system_content)
+
+        # 메시지 구성
+        messages = [
+            system_msg,
+            HumanMessage(content=question)
+        ]
+
+        # 프롬프트 저장
+        if exp_manager:
+            exp_manager.save_system_prompt(system_content, {
+                "tool": "general_answer",
+                "difficulty": difficulty,
+                "level": level
+            })
+            final_prompt = f"""[SYSTEM PROMPT - {level}]
 {system_content}
 
 [USER PROMPT]
 {question}"""
-        exp_manager.save_final_prompt(final_prompt, {
-            "tool": "general_answer",
-            "difficulty": difficulty
-        })
+            exp_manager.save_final_prompt(final_prompt, {
+                "tool": "general_answer",
+                "difficulty": difficulty,
+                "level": level
+            })
 
-    # -------------- 로깅 -------------- #
-    if exp_manager:
-        exp_manager.logger.write("LLM 호출 시작")
+        # LLM 호출
+        response = llm_client.llm.invoke(messages)
+        final_answers[level] = response.content
 
-    # -------------- LLM 호출 -------------- #
-    response = llm_client.llm.invoke(messages)  # LLM 응답 생성
-
-    # -------------- 로깅 -------------- #
-    if exp_manager:
-        exp_manager.logger.write(f"LLM 응답 생성 완료: {len(response.content)} 글자")
-        exp_manager.logger.write("=" * 80)
-        exp_manager.logger.write("[LLM 답변 전체 내용]")
-        exp_manager.logger.write(response.content)
-        exp_manager.logger.write("=" * 80)
+        # 로깅
+        if exp_manager:
+            exp_manager.logger.write(f"수준 '{level}' 답변 생성 완료: {len(response.content)} 글자")
+            exp_manager.logger.write("=" * 80)
+            exp_manager.logger.write(f"[{level} 답변 전체 내용]")
+            exp_manager.logger.write(response.content)
+            exp_manager.logger.write("=" * 80)
 
     # -------------- 최종 답변 저장 -------------- #
-    state["final_answer"] = response.content    # 응답 내용 저장
+    state["final_answers"] = final_answers
+    # 하위 호환성을 위해 두 번째 수준 답변을 final_answer에도 저장
+    state["final_answer"] = final_answers[levels[1]]
 
-    return state                                # 업데이트된 상태 반환
+    return state

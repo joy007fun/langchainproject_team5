@@ -67,6 +67,32 @@ def get_few_shot_examples() -> List[Dict[str, str]]:
     return data["few_shot_examples"]
 
 
+# ==================== 난이도 매핑 ==================== #
+# 기존 easy/hard를 새로운 4단계 난이도로 매핑
+DIFFICULTY_MAPPING = {
+    "easy": "beginner",      # easy -> beginner (초급자)
+    "hard": "intermediate"   # hard -> intermediate (중급자)
+}
+
+
+def map_difficulty(difficulty: str) -> str:
+    """
+    기존 난이도를 새로운 난이도로 매핑
+
+    Args:
+        difficulty: 기존 난이도 (easy/hard) 또는 새 난이도 (elementary/beginner/intermediate/advanced)
+
+    Returns:
+        매핑된 난이도
+    """
+    # 이미 새 난이도 형식이면 그대로 반환
+    if difficulty in ["elementary", "beginner", "intermediate", "advanced"]:
+        return difficulty
+
+    # 기존 난이도를 새 난이도로 매핑
+    return DIFFICULTY_MAPPING.get(difficulty, "beginner")  # 기본값: beginner
+
+
 # ==================== 도구별 프롬프트 ==================== #
 def load_tool_prompts() -> Dict[str, Any]:
     """
@@ -74,7 +100,7 @@ def load_tool_prompts() -> Dict[str, Any]:
 
     Returns:
         {
-            "general_answer_prompts": {...},
+            "general_prompts": {...},
             "web_search_prompts": {...},
             "summarize_prompts": {...},
             "glossary_prompts": {...},
@@ -90,8 +116,8 @@ def get_tool_prompt(tool_name: str, difficulty: str = "easy") -> str:
     특정 도구의 시스템 프롬프트 반환
 
     Args:
-        tool_name: 도구 이름 (예: "general_answer", "web_search")
-        difficulty: 난이도 ("easy" or "hard")
+        tool_name: 도구 이름 (예: "general_answer", "web_search", "general")
+        difficulty: 난이도 ("easy"/"hard" 또는 "elementary"/"beginner"/"intermediate"/"advanced")
 
     Returns:
         시스템 프롬프트 문자열
@@ -99,17 +125,39 @@ def get_tool_prompt(tool_name: str, difficulty: str = "easy") -> str:
     Example:
         >>> get_tool_prompt("general_answer", "easy")
         "당신은 친절한 AI 어시스턴트입니다..."
+        >>> get_tool_prompt("general", "beginner")
+        "당신은 초보자에게 친절하게 설명하는 AI 어시스턴트입니다..."
     """
     data = load_tool_prompts()
-    prompt_key = f"{tool_name}_prompts"
+
+    # 난이도 매핑 (easy/hard -> beginner/intermediate)
+    mapped_difficulty = map_difficulty(difficulty)
+
+    # tool_name에 "_prompts" 접미사 처리
+    # "general_answer" -> "general_prompts"
+    # "general" -> "general_prompts"
+    if tool_name.endswith("_answer"):
+        # "general_answer" -> "general"
+        tool_base = tool_name.replace("_answer", "")
+    else:
+        tool_base = tool_name
+
+    prompt_key = f"{tool_base}_prompts"
 
     if prompt_key not in data:
-        raise KeyError(f"도구 프롬프트를 찾을 수 없습니다: {tool_name}")
+        raise KeyError(f"도구 프롬프트를 찾을 수 없습니다: {tool_name} (키: {prompt_key})")
 
-    if difficulty not in data[prompt_key]:
-        raise KeyError(f"난이도를 찾을 수 없습니다: {difficulty}")
+    # 새 구조: data[prompt_key]["easy"]["beginner"]["system_prompt"]
+    # easy/hard 레벨 결정
+    complexity_level = "easy" if mapped_difficulty in ["elementary", "beginner"] else "hard"
 
-    return data[prompt_key][difficulty]["system_prompt"]
+    if complexity_level not in data[prompt_key]:
+        raise KeyError(f"복잡도 레벨을 찾을 수 없습니다: {complexity_level}")
+
+    if mapped_difficulty not in data[prompt_key][complexity_level]:
+        raise KeyError(f"난이도를 찾을 수 없습니다: {mapped_difficulty} (복잡도: {complexity_level})")
+
+    return data[prompt_key][complexity_level][mapped_difficulty]["system_prompt"]
 
 
 def get_summarize_title_extraction_prompt() -> str:
@@ -119,15 +167,37 @@ def get_summarize_title_extraction_prompt() -> str:
 
 
 def get_summarize_template(difficulty: str = "easy") -> str:
-    """논문 요약 템플릿 반환"""
+    """
+    논문 요약 템플릿 반환
+
+    Args:
+        difficulty: 난이도 ("easy"/"hard" 또는 "elementary"/"beginner"/"intermediate"/"advanced")
+
+    Returns:
+        요약 템플릿 문자열
+    """
     data = load_tool_prompts()
-    return data["summarize_prompts"][difficulty]["summary_template"]
+    mapped_difficulty = map_difficulty(difficulty)
+    complexity_level = "easy" if mapped_difficulty in ["elementary", "beginner"] else "hard"
+
+    return data["summarize_prompts"][complexity_level][mapped_difficulty]["summary_template"]
 
 
 def get_web_search_user_prompt_template(difficulty: str = "easy") -> str:
-    """웹 검색 사용자 프롬프트 템플릿 반환"""
+    """
+    웹 검색 사용자 프롬프트 템플릿 반환
+
+    Args:
+        difficulty: 난이도 ("easy"/"hard" 또는 "elementary"/"beginner"/"intermediate"/"advanced")
+
+    Returns:
+        사용자 프롬프트 템플릿 문자열
+    """
     data = load_tool_prompts()
-    return data["web_search_prompts"][difficulty]["user_prompt_template"]
+    mapped_difficulty = map_difficulty(difficulty)
+    complexity_level = "easy" if mapped_difficulty in ["elementary", "beginner"] else "hard"
+
+    return data["web_search_prompts"][complexity_level][mapped_difficulty]["user_prompt_template"]
 
 
 # ==================== 평가 프롬프트 ==================== #

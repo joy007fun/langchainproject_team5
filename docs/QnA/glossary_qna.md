@@ -207,28 +207,28 @@ paper_count
 
 ### Q2-4. 용어 추출은 누가 하나요?
 
-**A:** **별도의 LLM (GPT-4o Mini)**이 자동으로 추출합니다.
+**A:** **답변 생성에 사용된 것과 동일한 난이도별 LLM**이 자동으로 추출합니다.
 
 **사용 모델 설정:**
-- 용어 추출 LLM은 `configs/model_config.yaml`에서 사용자가 정의한 모델 사용
-- 기본값: `embeddings.provider` 및 `embeddings.model` 설정 (OpenAI의 경우 `gpt-4o-mini`)
+- 용어 추출 LLM은 `LLMClient.from_difficulty()`를 통해 **답변 생성과 동일한 모델** 사용
+- Easy 모드: Solar Pro2
+- Hard 모드: GPT-5
+- 이유: 답변 생성에 사용된 모델이 해당 난이도에 맞는 용어 정의를 생성하는 데 더 적합
 
-**왜 별도의 LLM을 사용하나요?**
-
-답변을 생성한 LLM과 **다른 LLM**을 사용하여 용어를 추출합니다.
+**왜 동일한 LLM을 사용하나요?**
 
 | 항목 | 답변 생성 LLM | 용어 추출 LLM |
 |------|-------------|--------------|
-| **모델** | GPT-5 또는 Solar Pro2 (난이도별) | GPT-4o Mini (기본값) |
+| **모델** | GPT-5 또는 Solar Pro2 (난이도별) | **동일 모델 사용** |
 | **역할** | 사용자 질문에 답변 | 답변에서 AI/ML 용어 추출 |
-| **비용** | 높음 | 낮음 (GPT-4o Mini) |
-| **속도** | 느림 (답변 생성) | 빠름 (용어 추출만) |
+| **설명 수준** | Easy/Hard 모드에 적합 | 동일한 난이도로 용어 설명 생성 |
+| **일관성** | - | 답변과 용어 설명의 톤&스타일 일치 |
 
-**왜 GPT-4o Mini를 사용하나요?**
+**왜 동일한 모델을 사용하나요?**
 
-1. **비용 절감**: 용어 추출은 간단한 작업이므로 저렴한 모델로 충분
-2. **빠른 처리**: 답변 표시 후 백그라운드에서 빠르게 실행
-3. **정확도 충분**: JSON 파싱 및 용어 분류에 GPT-4o Mini로 충분
+1. **일관된 난이도**: 답변이 Easy 모드면 용어 설명도 초보자용으로 생성
+2. **스타일 통일**: 답변과 용어 설명이 같은 수준의 언어로 작성됨
+3. **정확도 향상**: 답변 컨텍스트를 이해하는 동일 모델이 더 적절한 용어 추출
 
 **전체 프로세스 (초보자 설명):**
 
@@ -296,9 +296,8 @@ def extract_and_save_terms(answer, difficulty, min_terms, max_terms, logger):
     LLM을 사용하여 답변에서 AI/ML 용어 추출 및 저장
     """
     # 1. LLM 초기화
-    # configs/model_config.yaml의 embeddings.model 설정을 최우선시
-    # 기본값: gpt-4o-mini (비용 효율적)
-    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.3)
+    # 난이도별 LLM 클라이언트 생성 (답변 생성과 동일한 모델 사용)
+    llm_client = LLMClient.from_difficulty(difficulty=difficulty, logger=logger)
 
     # 2. 프롬프트 구성
     prompt = f"""다음 답변에서 사용된 AI/ML/NLP/CV/RL 관련 전문 용어를 추출하고,
@@ -330,7 +329,7 @@ JSON 형식으로만 반환:
 }}"""
 
     # 3. LLM 호출
-    response = llm.invoke(prompt)
+    response = llm_client.llm.invoke(prompt)
 
     # 4. JSON 파싱
     import json

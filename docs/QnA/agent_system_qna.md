@@ -81,7 +81,8 @@ START
 
 **특징:**
 - 모든 도구는 Router를 거침 (필수)
-- 도구 실행 후 바로 END (체이닝 없음)
+- 다중 도구 순차 실행 지원 (Pipeline 기능)
+- Fallback Chain 지원 (도구 실패 시 자동 재시도)
 - 조건부 엣지로 도구 선택
 
 ---
@@ -156,25 +157,40 @@ START
 
 ### Q2-4. 여러 도구를 순차 실행할 수 있나요?
 
-**A:** **현재는 불가능**하지만, 향후 개선 예정입니다.
+**A:** **네, 가능합니다!** Router가 자동으로 다중 요청을 감지하여 여러 도구를 순차 실행합니다.
 
-**현재 구조:**
-- Router → 도구 1개 선택 → 실행 → END
-- 도구 체이닝 미지원
-
-**향후 개선 (도구 체이닝):**
+**현재 구현 상태:**
 ```
-질문: "Transformer 논문 요약하고 파일로 저장해줘"
+질문: "Transformer 논문 찾아서 요약해줘"
     ↓
-Router: [summarize, save_file] 선택
+Router: 다중 요청 감지 ("찾" + "요약")
     ↓
-summarize → save_file → END
+tool_pipeline = [search_paper, summarize] 설정
+    ↓
+search_paper 실행 → 논문 검색
+    ↓
+summarize 실행 → 검색 결과 요약
+    ↓
+END
 ```
 
-**구현 방법:**
-- AgentState에 `tool_sequence` 추가
-- 각 도구 실행 후 다음 도구로 이동
+**지원되는 다중 요청 패턴:**
+
+| 키워드 조합 | 실행 도구 순서 | 예시 질문 |
+|-----------|--------------|----------|
+| ("찾", "요약") | [search_paper, summarize] | "Transformer 논문 찾아서 요약해줘" |
+| ("검색", "요약") | [search_paper, summarize] | "BERT 논문 검색하고 요약해줘" |
+| ("찾", "정리") | [search_paper, summarize, general] | "GAN 논문 찾아서 정리해줘" |
+| ("논문", "요약") | [search_paper, summarize] | "최신 논문 요약해줘" |
+| ("검색", "설명") | [search_paper, general] | "Attention 검색해서 설명해줘" |
+
+**구현 방식:**
+- `tool_pipeline`: 순차 실행할 도구 목록
+- `pipeline_index`: 현재 실행 중인 도구 인덱스
+- `pipeline_router` 노드가 다음 도구로 이동
 - 모든 도구 완료 시 END
+
+**코드 위치:** `src/agent/nodes.py:48-69` (router_node 함수)
 
 ---
 

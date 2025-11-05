@@ -150,40 +150,45 @@ def summarize_node(state: AgentState, exp_manager=None):
             return state
 
         # ============================================================ #
-        #        4단계: JSON 프롬프트 로드 및 요약 생성                #
+        #        4단계: JSON 프롬프트 로드 및 두 수준 요약 생성           #
         # ============================================================ #
-        # JSON에서 요약 템플릿 로드
-        summary_template_str = get_summarize_template(difficulty)
+        level_mapping = {
+            "easy": ["elementary", "beginner"],
+            "hard": ["intermediate", "advanced"]
+        }
 
-        # 논문 내용 결합
-        combined_text = "\n\n".join([doc.page_content for doc in docs[:20]])  # 처음 20개 청크만 사용
+        levels = level_mapping.get(difficulty, ["beginner", "intermediate"])
+        final_answers = {}
 
-        # 템플릿에 논문 정보 포맷팅
-        system_content = summary_template_str.format(
-            system_prompt=f"난이도: {difficulty}",
-            title=title,
-            authors=authors if authors else "N/A",
-            publish_date=publish_date if publish_date else "N/A",
-            abstract=abstract if abstract else "N/A",
-            combined_text=combined_text
-        )
-
-        # SystemMessage 저장
-        if exp_manager:
-            exp_manager.save_system_prompt(system_content, {"tool": "summarize"})
-            exp_manager.save_user_prompt(question, {"tool": "summarize"})
-
-        # 난이도별 LLM 초기화
+        # 난이도별 LLM 초기화 (공통)
         llm_client_summarize = LLMClient.from_difficulty(
             difficulty=difficulty,
             logger=exp_manager.logger if exp_manager else None
         )
 
-        # 논문 청크들을 하나의 텍스트로 결합
+        # 논문 청크들을 하나의 텍스트로 결합 (공통)
         combined_text = "\n\n".join([doc.page_content for doc in docs])
 
-        # 프롬프트 생성
-        summary_prompt = f"""{system_content}
+        # 각 수준별로 요약 생성
+        for level in levels:
+            if tool_logger:
+                tool_logger.write(f"수준 '{level}' 요약 생성 시작")
+
+            # JSON에서 요약 템플릿 로드
+            summary_template_str = get_summarize_template(level)
+
+            # 템플릿에 논문 정보 포맷팅
+            system_content = summary_template_str.format(
+                system_prompt=f"난이도: {level}",
+                title=title,
+                authors=authors if authors else "N/A",
+                publish_date=publish_date if publish_date else "N/A",
+                abstract=abstract if abstract else "N/A",
+                combined_text=combined_text
+            )
+
+            # 프롬프트 생성
+            summary_prompt = f"""{system_content}
 
 논문 정보:
 - 제목: {title}
@@ -197,45 +202,55 @@ def summarize_node(state: AgentState, exp_manager=None):
 위 논문의 방법론 부분을 중심으로 요약해주세요.
 요약:"""
 
+            # SystemMessage 저장
+            if exp_manager:
+                exp_manager.save_system_prompt(system_content, {
+                    "tool": "summarize",
+                    "level": level
+                })
+                exp_manager.save_final_prompt(summary_prompt, {
+                    "tool": "summarize",
+                    "difficulty": difficulty,
+                    "level": level,
+                    "paper_title": title
+                })
+
+            if tool_logger:
+                tool_logger.write(f"LLM 요약 생성 중 (수준: {level})...")
+                tool_logger.write(f"결합된 텍스트 길이: {len(combined_text)} 문자")
+
+            # LLM으로 요약 생성
+            summary = llm_client_summarize.llm.invoke(summary_prompt).content
+            final_answers[level] = summary
+
+            if tool_logger:
+                tool_logger.write(f"수준 '{level}' 요약 생성 완료 - 길이: {len(summary)} 문자")
+                tool_logger.write("=" * 80)
+                tool_logger.write(f"[{level} 요약 전체 내용]")
+                tool_logger.write(summary)
+                tool_logger.write("=" * 80)
+
         if tool_logger:
-            tool_logger.write("LLM 요약 생성 중...")
-            tool_logger.write(f"결합된 텍스트 길이: {len(combined_text)} 문자")
-
-        # 최종 프롬프트 저장
-        if exp_manager:
-            exp_manager.save_final_prompt(summary_prompt, {
-                "tool": "summarize",
-                "difficulty": difficulty,
-                "paper_title": title
-            })
-
-        # LLM으로 요약 생성
-        summary = llm_client_summarize.llm.invoke(summary_prompt).content
-
-        if tool_logger:
-            tool_logger.write(f"요약 생성 완료 - 길이: {len(summary)} 문자")
-            tool_logger.write("=" * 80)
-            tool_logger.write("[LLM 요약 전체 내용]")
-            tool_logger.write(summary)
-            tool_logger.write("=" * 80)
+            tool_logger.close()
 
         # ============================================================ #
-        #                  5단계: 최종 답변 구성                       #
+        #                  5단계: 최종 답변 저장                       #
         # ============================================================ #
-        final_answer = f"""📄 논문 요약
-
-                           **제목**: {title}
-                           **저자**: {authors}
-                           **발행일**: {publish_date}
-
-                           **요약**:
-                           {summary}"""
+        state["final_answers"] = final_answers
+        state["final_answer"] = final_answers[levels[1]]
 
         # ============================================================ #
         #                  6단계: summary.md 저장                      #
         # ============================================================ #
         if exp_manager:
-            # Markdown 형식으로 summary.md 저장
+            # 두 수준의 요약을 하나의 Markdown으로 저장
+            level_labels = {
+                "elementary": "초등학생용 (8-13세)",
+                "beginner": "초급자용 (14-22세)",
+                "intermediate": "중급자용 (23-30세)",
+                "advanced": "고급자용 (30세 이상)"
+            }
+
             summary_md = f"""# 논문 요약
 
 ## 기본 정보
@@ -244,14 +259,14 @@ def summarize_node(state: AgentState, exp_manager=None):
 - **저자**: {authors}
 - **발행일**: {publish_date}
 
-## 요약
-
-{summary}
-
----
-
-*생성 시간: {exp_manager.metadata.get('start_time', '')}*
 """
+            # 각 수준별 요약 추가
+            for level_name, content in final_answers.items():
+                summary_md += f"## 요약: {level_labels.get(level_name, level_name)}\n\n"
+                summary_md += f"{content}\n\n---\n\n"
+
+            summary_md += f"*생성 시간: {exp_manager.metadata.get('start_time', '')}*\n"
+
             # summary 폴더에 논문 제목을 파일명으로 저장
             summary_dir = exp_manager.outputs_dir / "summary"
             summary_dir.mkdir(exist_ok=True)
@@ -267,8 +282,7 @@ def summarize_node(state: AgentState, exp_manager=None):
             if tool_logger:
                 tool_logger.write(f"논문 요약 저장 완료: {summary_file.name}")
 
-        state["tool_result"] = summary          # 도구 실행 결과
-        state["final_answer"] = final_answer    # 최종 답변
+        state["tool_result"] = state["final_answer"]  # 도구 실행 결과
 
         if tool_logger:
             tool_logger.write("논문 요약 노드 실행 완료")

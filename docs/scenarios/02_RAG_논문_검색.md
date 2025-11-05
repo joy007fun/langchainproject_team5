@@ -230,5 +230,20 @@ WHERE paper_id IN (...)
 
 ---
 
-**작성일**: 2025-11-03
-**버전**: 1.0
+## 📈 예상 질문 리스트
+
+### 단일요청 (4개)
+1. BERT 모델의 구조와 주요 개선점을 다룬 논문이 있을까?
+2. Few-shot learning을 개선한 연구는 어떤게 있어?
+3. LLM의 효율적인 Fine-tuning 기법 논문 찾아줘
+4. 최근 Transformer 기반 음성인식 논문이 있을까?
+
+### 다중요청 (다른 도구와 결합)
+- `search_paper` → `summarize`: Transformer 논문들에 대해 정리해서 쉽게 설명해줘
+- `search_paper` → `save_file`: 한국 연구자가 참여한 LLM 관련 논문이 있는지 찾아서 알려줘
+- `text2sql` → `search_paper`: 2025년에 나온 ViT모델 성능에 관한 논문 찾아서 보여줘
+
+---
+
+**작성일**: 2025-11-05
+**버전**: 2.0

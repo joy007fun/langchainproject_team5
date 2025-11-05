@@ -69,12 +69,14 @@ def router_node(state: AgentState, exp_manager=None):
             return state
 
     # -------------- 단일 요청 처리 (기존 로직) -------------- #
+    # 난이도 추출 (프롬프트 포맷팅 전에 필요)
+    difficulty = state.get("difficulty", "easy")  # 난이도 (기본값: easy)
+
     # JSON 프롬프트 로드
     routing_prompt_template = get_routing_prompt()    # JSON 파일에서 프롬프트 로드
-    routing_prompt = routing_prompt_template.format(question=question)  # 질문 삽입
+    routing_prompt = routing_prompt_template.format(question=question, difficulty=difficulty)  # 질문 및 난이도 삽입
 
     # 난이도별 LLM 초기화
-    difficulty = state.get("difficulty", "easy")  # 난이도 (기본값: easy)
     llm_client = LLMClient.from_difficulty(
         difficulty=difficulty,
         logger=exp_manager.logger if exp_manager else None

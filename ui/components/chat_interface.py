@@ -214,9 +214,6 @@ def handle_agent_response(agent_executor, prompt: str, difficulty: str, exp_mana
                     response_time_ms=response_time_ms
                 )
 
-            # -------------- 답변 표시 -------------- #
-            answer = response.get("final_answer", "답변을 생성할 수 없습니다.")
-
             # -------------- 도구 선택 정보 표시 -------------- #
             tool_choice = response.get("tool_choice", "unknown")
             tool_labels = {
@@ -262,9 +259,52 @@ def handle_agent_response(agent_executor, prompt: str, difficulty: str, exp_mana
                         - **전환된 도구**: {to_label}
                         """)
 
-            message_placeholder.markdown(answer)
+            # -------------- 답변 표시 (두 수준으로 분리) -------------- #
+            final_answers = response.get("final_answers")
+            answer = response.get("final_answer", "답변을 생성할 수 없습니다.")
+
+            if final_answers and isinstance(final_answers, dict) and len(final_answers) == 2:
+                # 두 수준의 답변이 있는 경우 탭으로 표시
+                level_names = list(final_answers.keys())
+
+                # 한글 라벨 매핑
+                level_labels = {
+                    "elementary": "초등학생용 (8-13세)",
+                    "beginner": "초급자용 (14-22세)",
+                    "intermediate": "중급자용 (23-30세)",
+                    "advanced": "고급자용 (30세 이상)"
+                }
+
+                tab_labels = [level_labels.get(level, level) for level in level_names]
+                tabs = st.tabs(tab_labels)
+
+                for tab, level_name in zip(tabs, level_names):
+                    with tab:
+                        st.markdown(final_answers[level_name])
+
+                # message_placeholder는 안내 메시지 표시
+                message_placeholder.info("💡 위 탭에서 두 가지 수준의 답변을 확인하세요!")
+            else:
+                # 기존 방식 (하나의 답변만)
+                message_placeholder.markdown(answer)
 
             # -------------- 답변 복사 및 저장 버튼 -------------- #
+            # 두 수준의 답변을 하나로 합치기 (복사/저장용)
+            if final_answers and isinstance(final_answers, dict):
+                combined_answer = ""
+                level_labels = {
+                    "elementary": "초등학생용 (8-13세)",
+                    "beginner": "초급자용 (14-22세)",
+                    "intermediate": "중급자용 (23-30세)",
+                    "advanced": "고급자용 (30세 이상)"
+                }
+                for level_name, content in final_answers.items():
+                    combined_answer += f"### {level_labels.get(level_name, level_name)}\n\n"
+                    combined_answer += f"{content}\n\n---\n\n"
+                answer_for_export = combined_answer.strip()
+            else:
+                answer_for_export = answer
+
             col_copy, col_save = st.columns(2)
 
             with col_copy:
@@ -275,8 +315,8 @@ def handle_agent_response(agent_executor, prompt: str, difficulty: str, exp_mana
                 if is_https:
                     # HTTPS 환경: JavaScript 복사 버튼 사용
                     import json
-                    safe_answer = json.dumps(answer)
-                    unique_id = abs(hash(answer))
+                    safe_answer = json.dumps(answer_for_export)
+                    unique_id = abs(hash(answer_for_export))
 
                     copy_button_html = f"""
                     <button id="copy_btn_{unique_id}" onclick="copyToClipboard_{unique_id}()" style="
@@ -315,7 +355,7 @@ def handle_agent_response(agent_executor, prompt: str, difficulty: str, exp_mana
                             "아래 텍스트 블록을 마우스로 드래그하여 선택한 후 "
                             "`Ctrl+C` (Windows/Linux) 또는 `Cmd+C` (Mac)를 눌러 복사하세요."
                         )
-                        st.code(answer, language=None)
+                        st.code(answer_for_export, language=None)
 
             with col_save:
                 # 파일명 생성
@@ -325,11 +365,11 @@ def handle_agent_response(agent_executor, prompt: str, difficulty: str, exp_mana
                 # 다운로드 버튼
                 st.download_button(
                     label="💾 저장",
-                    data=answer,
+                    data=answer_for_export,
                     file_name=filename,
                     mime="text/plain",
                     use_container_width=True,
-                    key=f"save_{hash(answer)}"
+                    key=f"save_{hash(answer_for_export)}"
                 )
 
             # -------------- LLM 응답 로그 기록 -------------- #
@@ -350,7 +390,7 @@ def handle_agent_response(agent_executor, prompt: str, difficulty: str, exp_mana
                         max_terms = st.session_state.get("glossary_max_terms", 5)
 
                         saved_count = extract_and_save_terms(
-                            answer=answer,
+                            answer=answer_for_export,
                             difficulty=difficulty,
                             min_terms=min_terms,
                             max_terms=max_terms,
@@ -393,7 +433,7 @@ def handle_agent_response(agent_executor, prompt: str, difficulty: str, exp_mana
                     evaluator = AnswerEvaluator(exp_manager=exp_manager)
                     evaluation_result = evaluator.evaluate(
                         question=prompt,
-                        answer=answer,
+                        answer=answer_for_export,
                         reference_docs=reference_docs,
                         difficulty=difficulty
                     )
@@ -456,14 +496,14 @@ def handle_agent_response(agent_executor, prompt: str, difficulty: str, exp_mana
                 st.divider()
                 show_download_success()
                 create_download_button(
-                    content=answer,
+                    content=answer_for_export,
                     filename=f"paper_response_{response.get('timestamp', 'unknown')}.txt"
                 )
 
             # -------------- 메시지 히스토리에 추가 -------------- #
             add_message_to_current_chat(
                 role="assistant",
-                content=answer,
+                content=answer_for_export,
                 tool_choice=tool_choice,
                 sources=sources if sources else None
             )

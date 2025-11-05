@@ -27,12 +27,13 @@
 
 **주요 역할:**
 1. **Session ID 자동 부여**: 당일 기준 순차적 ID 생성 (session_001, 002...)
-2. **폴더 구조 자동 생성**: 7개 서브 폴더 자동 생성
-3. **Logger 통합**: 메인 Logger 및 도구별 Logger 제공
-4. **메타데이터 관리**: `metadata.json`으로 실험 정보 추적
-5. **DB 쿼리 기록**: SQL 쿼리 및 pgvector 검색 기록
-6. **프롬프트 저장**: 시스템/사용자 프롬프트 저장
-7. **평가 지표 저장**: RAG, Agent, 비용, 응답 시간 등 평가 데이터 저장
+2. **폴더 구조 자동 생성**: 6개 필수 폴더 + debug 폴더(필요시 생성)
+3. **설정 스냅샷**: configs 폴더를 실험 폴더에 복사하여 설정 보존
+4. **Logger 통합**: 메인 Logger 및 도구별 Logger 제공
+5. **메타데이터 관리**: `metadata.json`으로 실험 정보 추적
+6. **DB 쿼리 기록**: SQL 쿼리 및 pgvector 검색 기록
+7. **프롬프트 저장**: 시스템/사용자 프롬프트 저장
+8. **평가 지표 저장**: RAG, Agent, 비용, 응답 시간 등 평가 데이터 저장
 
 **사용 위치:**
 - Streamlit UI (`ui/components/chat_interface.py`)
@@ -105,21 +106,28 @@ experiments/
     └── 20251104_103015_session_001/
         ├── metadata.json
         ├── chatbot.log
-        ├── tools/
-        ├── database/
-        ├── prompts/
-        ├── ui/
-        ├── outputs/
-        └── evaluation/
+        ├── configs/            # 설정 파일 스냅샷 (자동 복사)
+        │   ├── db_config.yaml
+        │   └── model_config.yaml
+        ├── tools/              # 도구별 로그
+        ├── database/           # DB 쿼리 로그
+        ├── prompts/            # 프롬프트 저장
+        ├── ui/                 # UI 관련 로그
+        ├── outputs/            # 답변 및 파일 저장
+        └── evaluation/         # 평가 결과 저장
 ```
 
 **생성 순서:**
 1. **날짜/시간 계산**: `20251104`, `103015`
 2. **Session ID 부여**: `_get_next_session_id()` 호출
 3. **메인 폴더 생성**: `experiments/20251104/20251104_103015_session_001/`
-4. **서브 폴더 7개 생성**: tools, database, prompts, ui, outputs, evaluation, debug
-5. **metadata.json 초기화**: 기본 메타데이터 설정
-6. **Logger 초기화**: `chatbot.log` 생성
+4. **서브 폴더 6개 생성**: tools, database, prompts, ui, outputs, evaluation
+5. **설정 스냅샷**: configs 폴더에 db_config.yaml, model_config.yaml 복사
+6. **metadata.json 초기화**: 기본 메타데이터 설정
+7. **Logger 초기화**: `chatbot.log` 생성
+
+**참고:**
+- **debug 폴더**는 자동 생성되지 않으며, `save_debug_info()` 호출 시 필요할 때만 생성됩니다
 
 ---
 

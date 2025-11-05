@@ -285,23 +285,22 @@ def search_paper_node(state, exp_manager=None):
                 "result_length": len(raw_results)
             })
 
-        # -------------- JSON 프롬프트 로드 -------------- #
-        system_prompt = get_tool_prompt("search_paper", difficulty)  # JSON 파일에서 시스템 프롬프트 로드
+        # -------------- 두 수준의 답변 생성 -------------- #
+        level_mapping = {
+            "easy": ["elementary", "beginner"],
+            "hard": ["intermediate", "advanced"]
+        }
 
-        # 프롬프트 저장 (prompts 폴더)
-        if exp_manager:
-            exp_manager.save_system_prompt(system_prompt, {
-                "tool": "search_paper",
-                "difficulty": difficulty
-            })
+        levels = level_mapping.get(difficulty, ["beginner", "intermediate"])
+        final_answers = {}
 
-        # -------------- 난이도별 LLM 초기화 -------------- #
+        # 난이도별 LLM 초기화 (공통)
         llm_client = LLMClient.from_difficulty(
             difficulty=difficulty,
             logger=exp_manager.logger if exp_manager else None
         )
 
-        # -------------- 메시지 구성 -------------- #
+        # 사용자 프롬프트 (공통)
         user_content = f"""[논문 검색 결과]
 {raw_results}
 
@@ -310,47 +309,56 @@ def search_paper_node(state, exp_manager=None):
 
 위 검색 결과를 바탕으로 질문에 답변해주세요."""
 
-        # 사용자 프롬프트 저장
-        if exp_manager:
-            exp_manager.save_user_prompt(user_content, {
-                "tool": "search_paper",
-                "difficulty": difficulty,
-                "search_results_length": len(raw_results)
-            })
+        # 각 수준별로 답변 생성
+        for level in levels:
+            if tool_logger:
+                tool_logger.write(f"수준 '{level}' 답변 생성 시작")
 
-        messages = [
-            SystemMessage(content=system_prompt),  # 시스템 프롬프트
-            HumanMessage(content=user_content)     # 검색 결과 + 질문
-        ]
+            # JSON 프롬프트 로드
+            system_prompt = get_tool_prompt("search_paper", level)
 
-        # 최종 프롬프트 저장
-        if exp_manager:
-            final_prompt = f"""[SYSTEM PROMPT]
+            # 메시지 구성
+            messages = [
+                SystemMessage(content=system_prompt),
+                HumanMessage(content=user_content)
+            ]
+
+            # 프롬프트 저장
+            if exp_manager:
+                exp_manager.save_system_prompt(system_prompt, {
+                    "tool": "search_paper",
+                    "difficulty": difficulty,
+                    "level": level
+                })
+                final_prompt = f"""[SYSTEM PROMPT - {level}]
 {system_prompt}
 
 [USER PROMPT]
 {user_content}"""
-            exp_manager.save_final_prompt(final_prompt, {
-                "tool": "search_paper",
-                "difficulty": difficulty
-            })
+                exp_manager.save_final_prompt(final_prompt, {
+                    "tool": "search_paper",
+                    "difficulty": difficulty,
+                    "level": level
+                })
+
+            # LLM 호출
+            response = llm_client.llm.invoke(messages)
+            final_answers[level] = response.content
+
+            # 로깅
+            if tool_logger:
+                tool_logger.write(f"수준 '{level}' 답변 생성 완료: {len(response.content)} 글자")
+                tool_logger.write("=" * 80)
+                tool_logger.write(f"[{level} 답변 전체 내용]")
+                tool_logger.write(response.content)
+                tool_logger.write("=" * 80)
 
         if tool_logger:
-            tool_logger.write("LLM 답변 생성 시작")
-
-        # -------------- LLM 호출 -------------- #
-        response = llm_client.llm.invoke(messages)  # LLM 응답 생성
-
-        if tool_logger:
-            tool_logger.write(f"답변 생성 완료: {len(response.content)} 글자")
-            tool_logger.write("=" * 80)
-            tool_logger.write("[LLM 답변 전체 내용]")
-            tool_logger.write(response.content)
-            tool_logger.write("=" * 80)
             tool_logger.close()
 
         # -------------- 최종 답변 저장 -------------- #
-        state["final_answer"] = response.content    # 답변 저장
+        state["final_answers"] = final_answers
+        state["final_answer"] = final_answers[levels[1]]
 
     except Exception as e:
         if tool_logger:
