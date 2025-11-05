@@ -279,8 +279,8 @@ def search_paper_node(state, exp_manager=None):
                 tool_logger.write("데이터베이스에서 논문을 찾지 못했습니다. Fallback 필요.")
                 tool_logger.close()
 
-            # 명확한 실패 메시지 반환 (failure_detector가 감지 가능)
-            state["final_answer"] = "데이터베이스에서 관련 논문을 찾지 못했습니다."
+            # 명확한 실패 메시지 반환 (failure_detector 패턴과 정확히 일치)
+            state["final_answer"] = "데이터베이스에서 찾지 못했습니다."
             return state
 
         # -------------- pgvector 검색 기록 -------------- #
