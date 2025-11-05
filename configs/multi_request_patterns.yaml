@@ -1,5 +1,32 @@
 patterns:
 - keywords:
+  - 뭐야
+  exclude_keywords:
+  - 논문
+  - 검색
+  - 찾
+  tools:
+  - glossary
+  description: 용어 정의 질문 (논문 검색 제외)
+  priority: 200
+  examples:
+  - LLM이 뭐야?
+  - Transformer가 뭐야?
+  - RAG 뭐야?
+- keywords:
+  - 뭔지
+  exclude_keywords:
+  - 논문
+  - 검색
+  - 찾
+  tools:
+  - glossary
+  description: 용어 정의 질문 (뭔지 패턴)
+  priority: 200
+  examples:
+  - GAN이 뭔지 알려줘
+  - Attention이 뭔지 설명해줘
+- keywords:
   - 전체
   - 저장
   tools:

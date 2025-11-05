@@ -52,16 +52,25 @@ def router_node(state: AgentState, exp_manager=None):
     # 다중 요청 패턴 확인 (우선순위 높은 순서대로)
     for pattern in multi_request_patterns:
         keywords = pattern.get("keywords", [])
+        exclude_keywords = pattern.get("exclude_keywords", [])
         tools = pattern.get("tools", [])
 
         # 모든 키워드가 질문에 포함되는지 확인
-        if all(kw in question for kw in keywords):
+        keywords_match = all(kw in question for kw in keywords)
+
+        # 제외 키워드가 하나라도 있으면 패턴 불일치
+        exclude_match = any(ex_kw in question for ex_kw in exclude_keywords) if exclude_keywords else False
+
+        if keywords_match and not exclude_match:
             description = pattern.get('description', 'N/A')
 
             if exp_manager:
-                exp_manager.logger.write(f"다중 요청 감지: {keywords} → {tools}")
+                exp_manager.logger.write(f"다중 요청 감지: {keywords} (제외: {exclude_keywords}) → {tools}")
                 exp_manager.logger.write(f"패턴 설명: {description}")
-                exp_manager.logger.write(f"순차 실행 도구: {' → '.join(tools)}")
+                if len(tools) > 1:
+                    exp_manager.logger.write(f"순차 실행 도구: {' → '.join(tools)}")
+                else:
+                    exp_manager.logger.write(f"단일 도구 실행: {tools[0]}")
 
             # tool_pipeline 설정 (순차 실행 도구 목록)
             state["tool_pipeline"] = tools
@@ -69,37 +78,19 @@ def router_node(state: AgentState, exp_manager=None):
             state["pipeline_index"] = 1      # 첫 번째 도구 실행 후 index는 1
 
             # 도구 선택 이유 및 방법 기록
-            state["routing_method"] = "multi_request"
-            state["routing_reason"] = f"다중 요청 패턴 감지: {description}"
-            state["pipeline_description"] = f"순차 실행: {' → '.join(tools)}"
+            state["routing_method"] = "pattern_based"
+            state["routing_reason"] = f"패턴 매칭: {description}"
+
+            if len(tools) > 1:
+                state["pipeline_description"] = f"순차 실행: {' → '.join(tools)}"
+            else:
+                state["pipeline_description"] = f"단일 도구: {tools[0]}"
 
             return state
 
     # -------------- 단일 요청 처리 (기존 로직) -------------- #
     # 난이도 추출 (프롬프트 포맷팅 전에 필요)
     difficulty = state.get("difficulty", "easy")  # 난이도 (기본값: easy)
-
-    # ========== 우선순위 0: 규칙 기반 사전 필터링 (명확한 패턴 먼저 체크) ==========
-    question_lower = question.lower()
-
-    # 용어 정의 질문 패턴 (논문/검색 키워드 없이 정의 질문 키워드만 있는 경우)
-    is_term_definition_pattern = (
-        any(pattern in question_lower for pattern in ["뭐야", "뭔지", "무엇", "란", "이란", "의미", "정의"]) and
-        not any(kw in question_lower for kw in ["논문", "검색", "찾", "paper"])
-    )
-
-    if is_term_definition_pattern:
-        # 명확한 용어 정의 패턴 → glossary 도구 직접 선택
-        if exp_manager:
-            exp_manager.logger.write(f"규칙 기반 매칭: 용어 정의 질문 패턴 감지 → glossary 도구 선택")
-
-        state["tool_choice"] = "glossary"
-        state["tool_pipeline"] = ["glossary"]
-        state["pipeline_index"] = 1
-        state["routing_method"] = "rule_based"
-        state["routing_reason"] = "명확한 용어 정의 질문 패턴 감지 (뭐야/뭔지/란 등 키워드, 논문 키워드 없음)"
-
-        return state
 
     # ========== 우선순위 1: 질문 유형 기반 도구 선택 (가장 정확) ==========
     question_type = state.get("question_type", "")
