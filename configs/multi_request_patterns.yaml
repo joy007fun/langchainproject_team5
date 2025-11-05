@@ -156,6 +156,22 @@ patterns:
   - Transformer 설명하고 관련 논문 보여줘
   - RAG가 뭔지 설명하고 논문도 찾아줘
 
+- keywords:
+  - 논문
+  - 찾
+  - 저장
+  exclude_keywords:
+  - 요약
+  tools:
+  - search_paper
+  - save_file
+  description: 논문 검색 후 저장
+  priority: 110
+  examples:
+  - Transformer 논문 찾아서 저장해줘
+  - GPT 논문 검색해서 저장해줘
+  - 관련 논문 찾아줘 저장해줘
+
 
 # ==================== 3-도구 패턴 (Priority 80-100) ==================== #
 # 복합 작업
