@@ -105,6 +105,75 @@ def router_node(state: AgentState, exp_manager=None):
                 else:
                     state["pipeline_description"] = f"단일 도구: {tools[0]}"
 
+                # ✅ 패턴 매칭 성공 후에도 맥락 참조가 있으면 LLM 호출하여 refined_query 생성
+                if has_contextual_ref and len(state.get("messages", [])) > 1:
+                    if exp_manager:
+                        exp_manager.logger.write(f"맥락 참조 감지: LLM 호출하여 질문 재작성")
+
+                    # 이전 대화 컨텍스트 추출
+                    messages = state.get("messages", [])
+                    context = ""
+                    if len(messages) > 1:
+                        recent_messages = messages[-3:]  # 최근 3개 메시지
+                        context = "\n\n[이전 대화 컨텍스트]\n"
+                        for msg in recent_messages[:-1]:  # 마지막 메시지(현재 질문)는 제외
+                            role = "사용자" if hasattr(msg, 'type') and msg.type == "human" else "AI"
+                            content = msg.content if hasattr(msg, 'content') else str(msg)
+                            context += f"{role}: {content[:200]}...\n" if len(content) > 200 else f"{role}: {content}\n"
+
+                    # JSON 프롬프트 로드
+                    routing_prompt_template = get_routing_prompt()
+                    difficulty = state.get("difficulty", "easy")
+
+                    # 프롬프트에 컨텍스트 추가
+                    base_prompt = routing_prompt_template.format(question=question, difficulty=difficulty)
+                    routing_prompt = f"{context}{base_prompt}" if context else base_prompt
+
+                    # 난이도별 LLM 초기화
+                    llm_client = LLMClient.from_difficulty(
+                        difficulty=difficulty,
+                        logger=exp_manager.logger if exp_manager else None
+                    )
+
+                    try:
+                        # LLM 호출
+                        raw_response = llm_client.llm.invoke(routing_prompt).content.strip()
+
+                        # 마크다운 코드 펜스 제거
+                        cleaned_response = raw_response
+                        if "```" in cleaned_response:
+                            lines = cleaned_response.split("\n")
+                            lines = [line for line in lines if not line.strip().startswith("```")]
+                            cleaned_response = "\n".join(lines).strip()
+
+                        # query 필드 추출 (JSON 파싱 시도)
+                        if cleaned_response.strip().startswith("{"):
+                            try:
+                                import json
+                                parsed = json.loads(cleaned_response)
+
+                                if "tools" in parsed and len(parsed["tools"]) > 0:
+                                    tool_info = parsed["tools"][0]
+                                    if "query" in tool_info and tool_info["query"]:
+                                        refined_query = tool_info["query"].strip()
+                                        if refined_query:
+                                            state["refined_query"] = refined_query
+                                            if exp_manager:
+                                                exp_manager.logger.write(f"재작성된 질문: {refined_query}")
+                            except (json.JSONDecodeError, KeyError, IndexError):
+                                # JSON 파싱 실패 시 regex로 query 추출
+                                import re
+                                query_match = re.search(r'"query"\s*:\s*"([^"]+)"', cleaned_response)
+                                if query_match:
+                                    refined_query = query_match.group(1).strip()
+                                    if refined_query:
+                                        state["refined_query"] = refined_query
+                                        if exp_manager:
+                                            exp_manager.logger.write(f"재작성된 질문 (regex 추출): {refined_query}")
+                    except Exception as e:
+                        if exp_manager:
+                            exp_manager.logger.write(f"LLM 호출 실패: {str(e)}", print_error=True)
+
                 return state
 
     # -------------- 단일 요청 처리 (기존 로직) -------------- #
