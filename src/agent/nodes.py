@@ -154,9 +154,18 @@ def router_node(state: AgentState, exp_manager=None):
                 if exp_manager:
                     exp_manager.logger.write(f"JSON 파싱 실패: {str(e)}", print_error=True)
 
-                # 원본 응답에서 키워드 검색 (대소문자 무시)
+                # 사용자 질문과 LLM 응답 모두 체크 (대소문자 무시)
+                question_lower = question.lower()
                 response_lower = raw_response.lower()
-                if any(keyword in response_lower for keyword in ["search_paper", "paper", "논문", "arxiv", "검색", "찾", "탐색", "retrieval", "학술"]):
+
+                # 우선순위 1: 사용자 질문에 "용어" 명시적으로 포함된 경우
+                if "용어" in question_lower:
+                    tool_choice = "glossary"
+                # 우선순위 2: 질문에 용어 정의 패턴이 있는 경우
+                elif any(pattern in question_lower for pattern in ["뭐야", "뭔가", "뭔지", "무엇", "정의", "의미", "설명해"]) and not any(kw in question_lower for kw in ["논문", "연구", "찾아"]):
+                    tool_choice = "glossary"
+                # 우선순위 3: LLM 응답 기반 키워드 매칭
+                elif any(keyword in response_lower for keyword in ["search_paper", "paper", "논문", "arxiv", "검색", "찾", "탐색", "retrieval", "학술"]):
                     tool_choice = "search_paper"
                 elif any(keyword in response_lower for keyword in ["web_search", "web", "웹", "위키", "인터넷", "온라인", "뉴스"]):
                     tool_choice = "web_search"
