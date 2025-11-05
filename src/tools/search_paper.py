@@ -154,6 +154,32 @@ def _keyword_search(query: str, top_k: int = 5) -> List[Dict[str, Any]]:
     Returns:
         List[Dict[str, Any]]: 키워드 검색 결과 (paper_id, title, abstract, score)
     """
+    import re
+
+    # 쿼리 전처리: 영어 키워드 추출
+    # 1. 괄호 안의 영어 우선 사용 (예: "RAG (Retrieval-Augmented Generation)" → "Retrieval-Augmented Generation")
+    # 2. 없으면 영어 단어들 추출
+    english_keywords = []
+
+    # 괄호 안의 영어 추출
+    paren_match = re.search(r'\(([A-Za-z0-9\s\-]+)\)', query)
+    if paren_match:
+        english_keywords.append(paren_match.group(1).strip())
+
+    # 영어 단어 추출 (3글자 이상)
+    words = re.findall(r'\b[A-Za-z]{3,}(?:-[A-Za-z]+)*\b', query)
+    english_keywords.extend(words)
+
+    # 중복 제거 및 공백 제거
+    english_keywords = list(dict.fromkeys([k.strip() for k in english_keywords if k.strip()]))
+
+    if not english_keywords:
+        # 영어가 없으면 원본 쿼리 사용
+        search_query = query
+    else:
+        # 가장 긴 키워드 우선 사용 (더 구체적)
+        search_query = max(english_keywords, key=len)
+
     conn = psycopg2.connect(_pg_conn_str())
     try:
         cursor = conn.cursor()
@@ -185,7 +211,7 @@ def _keyword_search(query: str, top_k: int = 5) -> List[Dict[str, Any]]:
         LIMIT %s
         """
 
-        search_pattern = f"%{query}%"
+        search_pattern = f"%{search_query}%"
         cursor.execute(sql, (search_pattern, search_pattern, search_pattern, search_pattern, top_k))
 
         results = []
