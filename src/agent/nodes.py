@@ -12,7 +12,7 @@ from datetime import datetime
 from src.agent.state import AgentState
 from src.llm.client import LLMClient
 from src.prompts import get_routing_prompt
-from src.agent.config_loader import get_priority_chain, get_max_retries, get_max_validation_retries
+from src.agent.config_loader import get_priority_chain, get_max_retries, get_max_validation_retries, get_multi_request_patterns
 from src.agent.question_classifier import classify_question
 
 # ==================== 도구 Import ==================== #
@@ -45,20 +45,20 @@ def router_node(state: AgentState, exp_manager=None):
     if exp_manager:
         exp_manager.logger.write(f"라우터 노드 실행: {question}")
 
-    # -------------- 다중 요청 감지 (간단한 키워드 기반) -------------- #
-    multi_request_patterns = {
-        ("찾", "요약"): ["search_paper", "summarize"],
-        ("검색", "요약"): ["search_paper", "summarize"],
-        ("찾", "정리"): ["search_paper", "summarize", "general"],
-        ("논문", "요약"): ["search_paper", "summarize"],
-        ("검색", "설명"): ["search_paper", "general"]
-    }
+    # -------------- 다중 요청 감지 (YAML 패턴 기반) -------------- #
+    # YAML 파일에서 패턴 로드 (우선순위 정렬됨)
+    multi_request_patterns = get_multi_request_patterns()
 
-    # 다중 요청 패턴 확인
-    for keywords, tools in multi_request_patterns.items():
+    # 다중 요청 패턴 확인 (우선순위 높은 순서대로)
+    for pattern in multi_request_patterns:
+        keywords = pattern.get("keywords", [])
+        tools = pattern.get("tools", [])
+
+        # 모든 키워드가 질문에 포함되는지 확인
         if all(kw in question for kw in keywords):
             if exp_manager:
                 exp_manager.logger.write(f"다중 요청 감지: {keywords} → {tools}")
+                exp_manager.logger.write(f"패턴 설명: {pattern.get('description', 'N/A')}")
                 exp_manager.logger.write(f"순차 실행 도구: {' → '.join(tools)}")
 
             # tool_pipeline 설정 (순차 실행 도구 목록)
