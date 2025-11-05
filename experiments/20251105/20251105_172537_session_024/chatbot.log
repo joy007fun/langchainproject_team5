@@ -1,0 +1,389 @@
+2025-11-05 17:25:37 | 세션 시작: session_024
+2025-11-05 17:25:37 | 폴더 경로: experiments/20251105/20251105_172537_session_024
+2025-11-05 17:25:37 | 설정 파일 저장: db_config.yaml
+2025-11-05 17:25:37 | 설정 파일 저장: model_config.yaml
+2025-11-05 17:25:37 | 설정 파일 저장: multi_request_patterns.yaml
+2025-11-05 17:25:37 | Agent 그래프 생성 시작
+2025-11-05 17:25:37 | Fallback Chain 활성화
+2025-11-05 17:25:37 | 최대 재시도 횟수: 3
+2025-11-05 17:25:37 | Router 검증 활성화: True
+2025-11-05 17:25:37 | Agent 그래프 컴파일 완료
+2025-11-05 17:25:37 | Streamlit UI 시작
+2025-11-05 17:25:37 | 실험 폴더: experiments/20251105/20251105_172537_session_024
+2025-11-05 17:25:54 | 메타데이터 업데이트: ['user_query']
+2025-11-05 17:25:54 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 17:25:54 | 라우터 노드 실행: RAG가 뭔지 설명하고 관련 논문도 보여줘
+2025-11-05 17:25:54 | 다중 요청 감지: ['설명', '논문'] → ['glossary', 'search_paper']
+2025-11-05 17:25:54 | 패턴 설명: 용어 설명 후 관련 논문
+2025-11-05 17:25:54 | 순차 실행 도구: glossary → search_paper
+2025-11-05 17:25:55 | pgvector 검색 기록: glossary
+2025-11-05 17:25:55 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 17:25:55 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 17:25:55 | 시스템 프롬프트 저장 완료
+2025-11-05 17:25:55 | 최종 프롬프트 저장 완료
+2025-11-05 17:25:57 | 시스템 프롬프트 저장 완료
+2025-11-05 17:25:57 | 최종 프롬프트 저장 완료
+2025-11-05 17:26:02 | 도구 실행 성공: glossary
+2025-11-05 17:26:02 | Pipeline 진행: 1/2
+2025-11-05 17:26:02 | 다음 도구 실행: search_paper
+2025-11-05 17:26:03 | pgvector 검색 기록: search_paper
+2025-11-05 17:26:03 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 17:26:03 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 17:26:03 | 시스템 프롬프트 저장 완료
+2025-11-05 17:26:03 | 최종 프롬프트 저장 완료
+2025-11-05 17:26:07 | 시스템 프롬프트 저장 완료
+2025-11-05 17:26:07 | 최종 프롬프트 저장 완료
+2025-11-05 17:26:14 | 도구 실행 성공: search_paper
+2025-11-05 17:26:14 | 메타데이터 업데이트: ['success', 'response_time_ms']
+2025-11-05 17:26:14 | 메타데이터 업데이트: ['tool_used']
+2025-11-05 17:26:14 | 용어 추출 시작 (범위: 1-5개)
+2025-11-05 17:26:14 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 17:26:14 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 17:26:22 | LLM 응답: ```json
+{
+  "terms": [
+    {
+      "term": "RAG(Retrieval-Augmented Generation)",
+      "definition": "외부 지식 검색 기능을 대형 언어 모델(LLM)에 통합한 생성 기술로, 검색된 정보를 기반으로 정확하고 사실 기반의 답변을 생성합니다.",
+      "easy_explana...
+2025-11-05 17:26:22 | 용어 추출 실패: Invalid \escape: line 7 column 203 (char 499)
+2025-11-05 17:26:51 | 평가 결과 저장: evaluation_20251105_172651.json
+2025-11-05 17:26:51 | 대화 저장: conversation_easy_20251105_172651.json (2개 메시지)
+2025-11-05 17:38:06 | 메타데이터 업데이트: ['user_query']
+2025-11-05 17:38:06 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 17:38:06 | 라우터 노드 실행: Attention is all you need 논문 찾아줘
+2025-11-05 17:38:06 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 17:38:06 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 17:38:23 | LLM 라우팅 결정 (원본): {
+  "tools": [
+    {
+      "name": "arXiv 검색",
+      "query": "\"Attention Is All You Need\" Vaswani...
+2025-11-05 17:38:23 | LLM 라우팅 결정 (파싱): general
+2025-11-05 17:38:23 | 최종 선택 도구: general
+2025-11-05 17:38:23 | 일반 답변 노드 실행: Attention is all you need 논문 찾아줘
+2025-11-05 17:38:23 | 난이도: hard
+2025-11-05 17:38:23 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 17:38:23 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 17:38:23 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 17:38:23 | 시스템 프롬프트 저장 완료
+2025-11-05 17:38:23 | 최종 프롬프트 저장 완료
+2025-11-05 17:39:36 | 수준 'intermediate' 답변 생성 완료: 7142 글자
+2025-11-05 17:39:36 | ================================================================================
+2025-11-05 17:39:36 | [intermediate 답변 전체 내용]
+2025-11-05 17:39:36 | 요청하신 “Attention Is All You Need” 원문 링크와 핵심 정리, 구현 팁입니다.
+
+1) 원문 링크
+- arXiv(초록): https://arxiv.org/abs/1706.03762
+- PDF: https://arxiv.org/pdf/1706.03762.pdf
+- 학회: NeurIPS 2017
+
+2) 간단 요약
+- RNN/CNN 없이 전적으로 self-attention으로만 구성된 Transformer 제안
+- 주요 구성: Scaled Dot-Product Attention, Multi-Head Attention, Position-wise FFN, Residual + LayerNorm, Positional Encoding
+- 병렬화가 용이하고 장기 의존성 학습에 유리
+- WMT14 En→De에서 BLEU 28.4 등 SOTA 달성(당시)
+
+3) 핵심 수식
+- Scaled Dot-Product Attention
+  Attention(Q, K, V) = softmax((Q K^T) / sqrt(d_k)) V
+- Multi-Head
+  head_i = Attention(Q W_i^Q, K W_i^K, V W_i^V)
+  MHA(Q,K,V) = Concat(head_1,…,head_h) W^O
+- Positional Encoding (각 차원 2i/2i+1):
+  PE(pos, 2i)   = sin(pos / 10000^(2i/d_model))
+  PE(pos, 2i+1) = cos(pos / 10000^(2i/d_model))
+
+4) 의사코드(Encoder/Decoder 1-layer 개념)
+- EncoderLayer(x):
+  x1 = x + MHA_self(x, x, x, mask=padding_mask)
+  x1 = LayerNorm(x1)
+  x2 = x1 + FFN(x1)
+  y  = LayerNorm(x2)
+  return y
+- DecoderLayer(y, enc_out):
+  y1 = y + MHA_self(y, y, y, mask=causal_mask ∪ padding_mask)
+  y1 = LayerNorm(y1)
+  y2 = y1 + MHA_cross(y1, enc_out, enc_out, mask=enc_padding_mask)
+  y2 = LayerNorm(y2)
+  y3 = y2 + FFN(y2)
+  out = LayerNorm(y3)
+  return out
+
+5) PyTorch 구현 예시(핵심만)
+- Scaled Dot-Product Attention(마스크 포함)
+
+import torch
+import torch.nn.functional as F
+
+def scaled_dot_product_attention(q, k, v, attn_mask=None, dropout_p=0.0):
+    # q: (B, H, T_q, d_k), k: (B, H, T_k, d_k), v: (B, H, T_k, d_v)
+    d_k = q.size(-1)
+    scores = torch.matmul(q, k.transpose(-2, -1)) / (d_k ** 0.5)  # (B, H, T_q, T_k)
+    if attn_mask is not None:
+        # attn_mask: True/1 for positions to mask (or use -inf add). Shape broadcastable to scores
+        scores = scores.masked_fill(attn_mask, float('-inf'))
+    attn = F.softmax(scores, dim=-1)
+    attn = F.dropout(attn, p=dropout_p) if dropout_p > 0 else attn
+    out = torch.matmul(attn, v)  # (B, H, T_q, d_v)
+    return out, attn
+
+- Multi-Head Attention 모듈(간단화)
+
+import torch
+import torch.nn as nn
+
+class MultiHeadAttention(nn.Module):
+    def __init__(self, d_model, num_heads, dropout=0.1):
+        super().__init__()
+        assert d_model % num_heads == 0
+        self.d_model = d_model
+        self.h = num_heads
+        self.d_k = d_model // num_heads
+        
+        self.w_q = nn.Linear(d_model, d_model)
+        self.w_k = nn.Linear(d_model, d_model)
+        self.w_v = nn.Linear(d_model, d_model)
+        self.w_o = nn.Linear(d_model, d_model)
+        self.dropout = nn.Dropout(dropout)
+
+    def forward(self, q, k, v, attn_mask=None):
+        B, T_q, _ = q.size()
+        B, T_k, _ = k.size()
+        
+        def split_heads(x):
+            # (B, T, d_model) -> (B, H, T, d_k)
+            return x.view(B, -1, self.h, self.d_k).transpose(1, 2)
+
+        q = split_heads(self.w_q(q))
+        k = split_heads(self.w_k(k))
+        v = split_heads(self.w_v(v))
+
+        # attn_mask shape 예: (B, 1, T_q, T_k) 또는 (1, 1, T_q, T_k)
+        out, attn = scaled_dot_product_attention(q, k, v, attn_mask)
+        # (B, H, T_q, d_k) -> (B, T_q, d_model)
+        out = out.transpose(1, 2).contiguous().view(B, T_q, self.d_model)
+        out = self.w_o(self.dropout(out))
+        return out, attn
+
+- Positional Encoding
+
+import math
+import torch
+import torch.nn as nn
+
+class PositionalEncoding(nn.Module):
+    def __init__(self, d_model, max_len=5000, dropout=0.1):
+        super().__init__()
+        pe = torch.zeros(max_len, d_model)
+        pos = torch.arange(0, max_len, dtype=torch.float).unsqueeze(1)
+        div = torch.exp(torch.arange(0, d_model, 2).float() * (-math.log(10000.0) / d_model))
+        pe[:, 0::2] = torch.sin(pos * div)
+        pe[:, 1::2] = torch.cos(pos * div)
+        self.register_buffer('pe', pe.unsqueeze(0))  # (1, max_len, d_model)
+        self.dropout = nn.Dropout(dropout)
+
+    def forward(self, x):
+        x = x + self.pe[:, :x.size(1)]
+        return self.dropout(x)
+
+- 마스크 생성(패딩/캐주얼)
+
+def generate_padding_mask(pad_idx_tensor):
+    # pad_idx_tensor: (B, T) with True for pad
+    # 반환: (B, 1, 1, T) broadcastable
+    return pad_idx_tensor[:, None, None, :]
+
+def generate_causal_mask(T_q, T_k, device):
+    # True where masked (upper triangle)
+    mask = torch.triu(torch.ones(T_q, T_k, device=device, dtype=torch.bool), diagonal=1)
+    return mask[None, None, :, :]  # (1,1,T_q,T_k)
+
+- PyTorch 2.x 최적화된 SDPA 사용 예(F.scaled_dot_product_attention)
+
+import torch
+import torch.nn.functional as F
+
+# q,k,v: (B,H,T,d)
+def fast_sdpa(q, k, v, is_causal=False, attn_mask=None, dropout_p=0.0):
+    # attn_mask: additive mask with -inf for masked positions (preferred) or bool mask in recent versions
+    return F.scaled_dot_product_attention(q, k, v, attn_mask=attn_mask, dropout_p=dropout_p, is_causal=is_causal)
+
+- 내장 Transformer 사용 예
+
+import torch
+import torch.nn as nn
+
+d_model = 512
+nhead = 8
+num_layers = 6
+
+enc = nn.TransformerEncoder(nn.TransformerEncoderLayer(d_model, nhead, dim_feedforward=2048, dropout=0.1, batch_first=True),
+                           num_layers=num_layers)
+dec = nn.TransformerDecoder(nn.TransformerDecoderLayer(d_model, nhead, dim_feedforward=2048, dropout=0.1, batch_first=True),
+                           num_layers=num_layers)
+
+src = torch.randn(32, 100, d_model)
+tgt = torch.randn(32, 20, d_model)
+src_key_padding_mask = torch.zeros(32, 100, dtype=torch.bool)
+tgt_key_padding_mask = torch.zeros(32, 20, dtype=torch.bool)
+
+memory = enc(src, src_key_padding_mask=src_key_padding_mask)
+out = dec(tgt, memory,
+          tgt_mask=nn.Transformer.generate_square_subsequent_mask(20),
+          tgt_key_padding_mask=tgt_key_padding_mask,
+          memory_key_padding_mask=src_key_padding_mask)
+
+6) 다른 기술과 비교
+- RNN/LSTM 기반 Seq2Seq(+Bahdanau/Luong Attention)
+  장점: 시퀀스 순차 처리로 인과 구조 보존이 자연스러움
+  단점: 긴 시퀀스에서 장기 의존성 약함, 병렬화 어려워 학습/추론 느림
+- CNN 기반 ConvS2S
+  장점: 병렬화 우수, 고정 길이 컨텍스트에서 안정적
+  단점: 매우 긴 의존성에 한계, 깊이/커널로 컨텍스트 확장 필요
+- Transformer
+  장점: 전 구간 global attention으로 장기 의존성 강함, 완전 병렬화로 학습 속도 우수, 표현력 큼
+  단점: 메모리/시간 복잡도 O(L^2). 초장문 처리 시 비용 큼
+
+7) 실무 적용 팁
+- 최적화
+  Adam(β1=0.9, β2=0.98, eps=1e-9), label smoothing(ε=0.1), dropout(0.1~0.3)
+  러닝레이트 스케줄(논문):
+    lr = d_model^-0.5 * min(step^-0.5, step * warmup^-1.5)
+  예시 코드:
+
+def transformer_lr(step, d_model=512, warmup=4000):
+    import math
+    step = max(step, 1)
+    return (d_model ** -0.5) * min(step ** -0.5, step * (warmup ** -1.5))
+
+- 마스킹 정확성: padding mask, causal mask를 분리/결합해 누수 방지
+- 수치 안정성: float32/16 혼용 시 F.scaled_dot_product_attention 사용, fused kernel(FlashAttention) 활용
+- 메모리/길이: 길이가 긴 입력은 chunking, sliding-window, 또는 Longformer/Performer/BigBird/FlashAttention-2 등 대안 고려
+- 초기화: Xavier/He 기본 + LayerNorm 위치(Pre-LN 구조는 학습 안정성↑)
+- 배치/토크나이저: 정렬된 길이로 bucketing, pad 최소화. BPE/WordPiece 사용
+- 재현성: seed, deterministic flags, gradient clipping(예: 1.0)
+
+8) BibTeX
+@inproceedings{vaswani2017attention,
+  title={Attention Is All You Need},
+  author={Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and Kaiser, {\L}ukasz and Polosukhin, Illia},
+  booktitle={Advances in Neural Information Processing Systems},
+  year={2017}
+}
+
+추가로 원문 요지나 구현 디테일(예: Pre-LN vs Post-LN, FlashAttention 적용)까지 정리해드릴까요?
+2025-11-05 17:39:36 | ================================================================================
+2025-11-05 17:39:36 | 수준 'advanced' 답변 생성 시작
+2025-11-05 17:39:36 | 시스템 프롬프트 저장 완료
+2025-11-05 17:39:36 | 최종 프롬프트 저장 완료
+2025-11-05 17:40:54 | 수준 'advanced' 답변 생성 완료: 3336 글자
+2025-11-05 17:40:54 | ================================================================================
+2025-11-05 17:40:54 | [advanced 답변 전체 내용]
+2025-11-05 17:40:54 | 다음이 “Attention Is All You Need” 원문과 핵심 정보입니다.
+
+서지 정보
+- Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., Polosukhin, I. (2017). Attention Is All You Need. In Advances in Neural Information Processing Systems (NeurIPS 2017).
+- arXiv: 1706.03762
+- 링크: arXiv 초록 https://arxiv.org/abs/1706.03762 | PDF https://arxiv.org/pdf/1706.03762.pdf | NeurIPS 프로시딩 https://papers.nips.cc/paper/7181-attention-is-all-you-need.pdf
+- 코드(역사적): Tensor2Tensor (Google) https://github.com/tensorflow/tensor2tensor
+
+간단 요약
+- RNN/CNN 없이 자기어텐션(self-attention)만으로 시퀀스-투-시퀀스 학습을 수행하는 Transformer를 제안합니다 (Vaswani et al., 2017).
+- 병렬화가 용이하고 장기 의존성 학습이 개선되어 기계번역에서 최신 성능을 달성했습니다.
+
+핵심 수식
+- Scaled dot-product attention
+  Attention(Q, K, V) = softmax(Q K^T / sqrt(d_k)) V
+- Multi-head attention
+  head_i = Attention(Q W_i^Q, K W_i^K, V W_i^V)
+  MHA(Q, K, V) = Concat(head_1, …, head_h) W^O
+- 위치 인코딩(사인/코사인)
+  PE(pos, 2i)   = sin(pos / 10000^{2i/d_model})
+  PE(pos, 2i+1) = cos(pos / 10000^{2i/d_model})
+- 옵티마이저 스케줄(Adam + 워밍업)
+  lr = d_model^{-0.5} · min(step^{-0.5}, step · warmup^{-1.5})
+
+모델 구성(대표값)
+- Base: L=6(인코더/디코더), d_model=512, d_ff=2048, h=8, P_drop≈0.1
+- Big: d_model=1024, d_ff=4096, h=16, P_drop≈0.3
+
+이론적 복잡도
+- 한 레이어 자기어텐션: 시간 O(n^2 d)·메모리 O(n^2) (n=시퀀스 길이, d=임베딩 차원)
+- FFN: O(n d^2)
+- 총합(한 레이어): O(n^2 d + n d^2). n≫d일 때 어텐션이 지배, d≫n이면 FFN이 지배
+- RNN 대비: RNN은 시간 O(n d^2)이지만 순차적 의존으로 병렬화가 제한됨; Transformer는 시퀀스 차원 완전 병렬화로 실제 학습 스루풋이 매우 높음
+
+실험 결과(논문 보고)
+- WMT14 En→De: Transformer-Base 27.3 BLEU, Transformer-Big 28.4 BLEU
+- WMT14 En→Fr: Transformer-Base 38.1 BLEU, Transformer-Big 41.8 BLEU
+- 빔 서치: beam size 4, length penalty α=0.6
+- 학습 자원: Big 기준 8×NVIDIA P100에서 ≈3.5일
+- 라벨 스무딩 ε=0.1, 워밍업 스텝 4000
+
+주요 기여
+- 순수 자기어텐션 기반 인코더-디코더 구조(Transformer) 확립
+- 멀티헤드 어텐션, 잔차 연결 + LayerNorm, 위치 인코딩 제안
+- 병렬화 가능한 학습으로 RNN/CNN 대비 효율적이며 번역 성능 향상 입증
+
+후속 발전 및 최신 동향과 비교
+- 효율화된 어텐션
+  - Sparse/국소/랜덤: Longformer (Beltagy et al., 2020), BigBird (Zaheer et al., 2020)
+  - 커널화/선형 어텐션: Linear Transformers (Katharopoulos et al., 2020), Performer (Choromanski et al., 2021)
+  - 고성능 커널: FlashAttention (Dao et al., 2022), FlashAttention-2 (Dao, 2023)
+- 위치/정규화 개선
+  - RoPE/Rotary embeddings (Su et al., 2021), ALiBi (Press et al., 2022)
+  - RMSNorm 등 안정성 개선
+- 대규모 사전학습과 스케일링
+  - BERT (Devlin et al., 2019), GPT 계열, T5 (Raffel et al., 2020)
+  - 스케일링 법칙(Kaplan et al., 2020), Compute-optimal 훈련(Chinchilla; Hoffmann et al., 2022)
+- 대안 아키텍처(장문/선형 시간)
+  - SSM 기반: S4 (Gu et al., 2022), Hyena (Poli et al., 2023), Mamba (Gu & Dao, 2023)
+  - 장문에서는 SSM/혼합형이 경쟁적 성능과 선형 시간 달성
+
+미해결 문제 및 향후 연구 방향
+- O(n^2) 메모리/시간 병목: 정밀도 손실 없이 서브쿼드러틱 어텐션 설계와 이론적 근거
+- 길이 일반화: 훈련 길이 초과 테스트에 대한 안정적 일반화(로터리/ALiBi의 한계 분석)
+- 해석가능성: 어텐션 가중치와 모델 추론의 인과적 해석 강화
+- 최적화 안정성: 매우 심층/장문에서의 수치 안정성, 스케일링 친화적 학습 규약
+- 하드웨어-알고리즘 코디자인: 메모리 대역폭/캐시 친화적 커널(예: FlashAttention-3)과 아키텍처 공동 설계
+- 효율적 사전학습: 데이터/파라미터/컴퓨트 균형(Chinchilla) 하의 최적 레시피, 장문 프리트레이닝
+
+인용 BibTeX
+@inproceedings{vaswani2017attention,
+  title={Attention Is All You Need},
+  author={Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and Kaiser, {\L}ukasz and Polosukhin, Illia},
+  booktitle={Advances in Neural Information Processing Systems},
+  year={2017}
+}
+
+원문 링크가 필요하시면 arXiv PDF를 바로 여세요: https://arxiv.org/pdf/1706.03762.pdf. 추가로, 구현/재현이나 관련 후속 연구도 함께 안내해 드릴 수 있습니다.
+2025-11-05 17:40:54 | ================================================================================
+2025-11-05 17:40:54 | 도구 실행 성공: general (fallback 도구)
+2025-11-05 17:40:54 | 메타데이터 업데이트: ['success', 'response_time_ms']
+2025-11-05 17:40:54 | 메타데이터 업데이트: ['tool_used']
+2025-11-05 17:40:54 | 용어 추출 시작 (범위: 1-5개)
+2025-11-05 17:40:54 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 17:40:54 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 17:41:57 | LLM 응답: {
+  "terms": [
+    {
+      "term": "Transformer",
+      "definition": "자기어텐션(self-attention)을 중심으로 한 인코더-디코더 구조의 시퀀스 모델로, RNN/CNN 없이 병렬적으로 긴 의존성을 학습하는 딥러닝 아키텍처입니다.",
+      "easy_explanation": "긴 문서를 읽...
+2025-11-05 17:41:57 | 추출된 용어 수: 5
+2025-11-05 17:41:57 | 용어 검증 완료: 5개 → 5개 (IT 필터링) → 5개 (최대 개수 제한)
+2025-11-05 17:41:57 | glossary 테이블에 5개 용어 저장 시작
+2025-11-05 17:41:57 | 용어 이미 존재 (건너뜀): Transformer
+2025-11-05 17:41:57 | 용어 이미 존재 (건너뜀): Scaled Dot-Product Attention
+2025-11-05 17:41:57 | 용어 이미 존재 (건너뜀): Multi-Head Attention
+2025-11-05 17:41:57 | 용어 이미 존재 (건너뜀): Positional Encoding
+2025-11-05 17:41:57 | 용어 이미 존재 (건너뜀): Layer Normalization
+2025-11-05 17:41:57 | 용어 저장 완료: 0/5개
+2025-11-05 17:42:27 | 평가 결과 저장: evaluation_20251105_174227.json
+2025-11-05 17:42:27 | 대화 저장: conversation_hard_20251105_174227.json (2개 메시지)
+2025-11-05 18:02:23 | 메타데이터 업데이트: ['user_query']
+2025-11-05 18:02:23 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 18:02:23 | 라우터 노드 실행: 머신러닝이 뭐야?
+2025-11-05 18:02:23 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 18:02:23 | LLM 초기화: provider=openai, model=gpt-5

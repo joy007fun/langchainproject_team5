@@ -1,0 +1,144 @@
+2025-11-05 20:06:58 | 세션 시작: session_028
+2025-11-05 20:06:58 | 폴더 경로: experiments/20251105/20251105_200658_session_028
+2025-11-05 20:06:58 | 설정 파일 저장: db_config.yaml
+2025-11-05 20:06:58 | 설정 파일 저장: model_config.yaml
+2025-11-05 20:06:58 | 설정 파일 저장: multi_request_patterns.yaml
+2025-11-05 20:06:58 | ==========
+2025-11-05 20:06:58 | 키워드 수집 시작: transformer attention
+2025-11-05 20:06:58 | 검색 시작: query=transformer attention, max_results=15
+2025-11-05 20:07:01 | 다운로드 완료: Simulating Hard Attention Using Soft Attention (2412.09925v2)
+2025-11-05 20:07:01 | 다운로드 완료: Attention-Only Transformers and Implementing MLPs with Attention Heads (2309.08593v1)
+2025-11-05 20:07:02 | 다운로드 완료: Generic Attention-model Explainability for Interpreting Bi-Modal and Encoder-Decoder Transformers (2103.15679v1)
+2025-11-05 20:07:02 | 다운로드 완료: Pale Transformer: A General Vision Transformer Backbone with Pale-Shaped Attention (2112.14000v1)
+2025-11-05 20:07:03 | 다운로드 완료: Adaptive Sparse and Monotonic Attention for Transformer-based Automatic Speech Recognition (2209.15176v1)
+2025-11-05 20:07:03 | 다운로드 완료: Armour: Generalizable Compact Self-Attention for Vision Transformers (2108.01778v1)
+2025-11-05 20:07:04 | 다운로드 완료: BOAT: Bilateral Local Attention Vision Transformer (2201.13027v2)
+2025-11-05 20:07:04 | 다운로드 완료: WavSpA: Wavelet Space Attention for Boosting Transformers' Long Sequence Learning Ability (2210.01989v3)
+2025-11-05 20:07:07 | 다운로드 완료: Self-attention in Vision Transformers Performs Perceptual Grouping, Not Attention (2303.01542v1)
+2025-11-05 20:07:07 | 다운로드 완료: Selective Attention Improves Transformer (2410.02703v2)
+2025-11-05 20:07:08 | 다운로드 완료: The Hedgehog & the Porcupine: Expressive Linear Attentions with Softmax Mimicry (2402.04347v1)
+2025-11-05 20:07:08 | 다운로드 완료: Unique Hard Attention: A Tale of Two Sides (2503.14615v2)
+2025-11-05 20:07:09 | 다운로드 완료: CAT: Cross Attention in Vision Transformer (2106.05786v1)
+2025-11-05 20:07:09 | 다운로드 완료: You Only Need Less Attention at Each Stage in Vision Transformers (2406.00427v1)
+2025-11-05 20:07:10 | 다운로드 완료: Generalized Probabilistic Attention Mechanism in Transformers (2410.15578v1)
+2025-11-05 20:07:10 | 키워드 수집 시작: BERT GPT
+2025-11-05 20:07:10 | 검색 시작: query=BERT GPT, max_results=15
+2025-11-05 20:07:11 | 다운로드 완료: FoundationLayerNorm: Scaling BERT and GPT to 1,000 Layers (2204.04477v1)
+2025-11-05 20:07:12 | 다운로드 완료: Adapting GPT, GPT-2 and BERT Language Models for Speech Recognition (2108.07789v2)
+2025-11-05 20:07:13 | 다운로드 완료: (Chat)GPT v BERT: Dawn of Justice for Semantic Change Detection (2401.14040v3)
+2025-11-05 20:07:13 | 다운로드 완료: Assessing Large Language Models for Online Extremism Research: Identification, Explanation, and New Knowledge (2408.16749v1)
+2025-11-05 20:07:14 | 다운로드 완료: BERT vs GPT for financial engineering (2405.12990v1)
+2025-11-05 20:07:15 | 다운로드 완료: Selecting Between BERT and GPT for Text Classification in Political Science Research (2411.05050v1)
+2025-11-05 20:07:16 | 다운로드 완료: Mogo: RQ Hierarchical Causal Transformer for High-Quality 3D Human Motion Generation (2412.07797v1)
+2025-11-05 20:07:16 | 다운로드 완료: Evaluation of GPT and BERT-based models on identifying protein-protein interactions in biomedical text (2303.17728v2)
+2025-11-05 20:07:17 | 다운로드 완료: MedicalBERT: enhancing biomedical natural language processing using pretrained BERT-based model (2507.08013v2)
+2025-11-05 20:07:17 | 다운로드 완료: KI-BERT: Infusing Knowledge Context for Better Language and Domain Understanding (2104.08145v2)
+2025-11-05 20:07:18 | 다운로드 완료: Semantics-aware BERT for Language Understanding (1909.02209v3)
+2025-11-05 20:07:18 | 다운로드 완료: GPT or BERT: why not both? (2410.24159v2)
+2025-11-05 20:07:19 | 다운로드 완료: Single layer tiny Co$^4$ outpaces GPT-2 and GPT-BERT (2510.08404v1)
+2025-11-05 20:07:19 | 다운로드 완료: Comparing Few-Shot Prompting of GPT-4 LLMs with BERT Classifiers for Open-Response Assessment in Tutor Equity Training (2501.06658v1)
+2025-11-05 20:07:20 | 다운로드 완료: Sim-GPT: Text Similarity via GPT Annotated Data (2312.05603v2)
+2025-11-05 20:07:20 | 키워드 수집 시작: large language model
+2025-11-05 20:07:20 | 검색 시작: query=large language model, max_results=15
+2025-11-05 20:07:20 | 다운로드 완료: Lost in Translation: Large Language Models in Non-English Content Analysis (2306.07377v1)
+2025-11-05 20:07:22 | 다운로드 완료: Cedille: A large autoregressive French language model (2202.03371v1)
+2025-11-05 20:07:23 | 다운로드 완료: How Good are Commercial Large Language Models on African Languages? (2305.06530v1)
+2025-11-05 20:07:23 | 다운로드 완료: Goldfish: Monolingual Language Models for 350 Languages (2408.10441v1)
+2025-11-05 20:07:24 | 다운로드 완료: Modelling Language (2404.09579v1)
+2025-11-05 20:07:25 | 다운로드 완료: LLaMA-Reg: Using LLaMA 2 for Unsupervised Medical Image Registration (2405.18774v1)
+2025-11-05 20:07:25 | 다운로드 완료: Using Sign Language Production as Data Augmentation to enhance Sign Language Translation (2506.09643v1)
+2025-11-05 20:07:25 | 다운로드 완료: A Precis of Language Models are not Models of Language (2205.07634v1)
+2025-11-05 20:07:26 | 다운로드 완료: A Survey of Large Language Models for European Languages (2408.15040v2)
+2025-11-05 20:07:26 | 다운로드 완료: Beyond the limitations of any imaginable mechanism: large language models and psycholinguistics (2303.00077v1)
+2025-11-05 20:07:27 | 다운로드 완료: Enhance Reasoning Ability of Visual-Language Models via Large Language Models (2305.13267v1)
+2025-11-05 20:07:28 | 다운로드 완료: Should we Stop Training More Monolingual Models, and Simply Use Machine Translation Instead? (2104.10441v1)
+2025-11-05 20:07:28 | 다운로드 완료: The Heap: A Contamination-Free Multilingual Code Dataset for Evaluating Large Language Models (2501.09653v1)
+2025-11-05 20:07:29 | 다운로드 완료: Formal Aspects of Language Modeling (2311.04329v2)
+2025-11-05 20:07:29 | 다운로드 완료: Images in Language Space: Exploring the Suitability of Large Language Models for Vision & Language Tasks (2305.13782v1)
+2025-11-05 20:07:29 | 키워드 수집 시작: retrieval augmented generation
+2025-11-05 20:07:29 | 검색 시작: query=retrieval augmented generation, max_results=15
+2025-11-05 20:07:31 | 다운로드 완료: Evaluating the Effectiveness and Scalability of LLM-Based Data Augmentation for Retrieval (2509.16442v1)
+2025-11-05 20:07:31 | 다운로드 완료: R^2AG: Incorporating Retrieval Information into Retrieval Augmented Generation (2406.13249v2)
+2025-11-05 20:07:32 | 다운로드 완료: A Survey on Retrieval-Augmented Text Generation (2202.01110v2)
+2025-11-05 20:07:32 | 다운로드 완료: Meta-prompting Optimized Retrieval-augmented Generation (2407.03955v1)
+2025-11-05 20:07:32 | 다운로드 완료: End-to-End Trainable Retrieval-Augmented Generation for Relation Extraction (2406.03790v2)
+2025-11-05 20:07:33 | 다운로드 완료: DuetRAG: Collaborative Retrieval-Augmented Generation (2405.13002v1)
+2025-11-05 20:07:33 | 다운로드 완료: Retrieval-Augmented Generation: A Comprehensive Survey of Architectures, Enhancements, and Robustness Frontiers (2506.00054v1)
+2025-11-05 20:07:34 | 다운로드 완료: Controlled Retrieval-augmented Context Evaluation for Long-form RAG (2506.20051v1)
+2025-11-05 20:07:35 | 다운로드 완료: Context Tuning for Retrieval Augmented Generation (2312.05708v1)
+2025-11-05 20:07:35 | 다운로드 완료: From Retrieval to Generation: Comparing Different Approaches (2502.20245v1)
+2025-11-05 20:07:36 | 다운로드 완료: Augmentation-Adapted Retriever Improves Generalization of Language Models as Generic Plug-In (2305.17331v1)
+2025-11-05 20:07:36 | 다운로드 완료: Optimizing Retrieval Augmented Generation for Object Constraint Language (2505.13129v1)
+2025-11-05 20:07:37 | 다운로드 완료: Enhancing Retrieval-Augmented LMs with a Two-stage Consistency Learning Compressor (2406.02266v1)
+2025-11-05 20:07:38 | 다운로드 완료: Alleviating Hallucination in Large Vision-Language Models with Active Retrieval Augmentation (2408.00555v1)
+2025-11-05 20:07:38 | 다운로드 완료: The 3rd Place Solution of CCIR CUP 2025: A Framework for Retrieval-Augmented Generation in Multi-Turn Legal Conversation (2510.15722v1)
+2025-11-05 20:07:38 | 키워드 수집 시작: neural machine translation
+2025-11-05 20:07:38 | 검색 시작: query=neural machine translation, max_results=15
+2025-11-05 20:07:41 | 다운로드 완료: Can neural machine translation do simultaneous translation? (1606.02012v1)
+2025-11-05 20:07:41 | 다운로드 완료: Six Challenges for Neural Machine Translation (1706.03872v1)
+2025-11-05 20:07:42 | 다운로드 완료: Pre-Translation for Neural Machine Translation (1610.05243v1)
+2025-11-05 20:07:42 | 다운로드 완료: Neural-based machine translation for medical text domain. Based on European Medicines Agency leaflet texts (1509.08644v1)
+2025-11-05 20:07:43 | 다운로드 완료: Learning to Parse and Translate Improves Neural Machine Translation (1702.03525v2)
+2025-11-05 20:07:44 | 다운로드 완료: Extended Parallel Corpus for Amharic-English Machine Translation (2104.03543v3)
+2025-11-05 20:07:45 | 다운로드 완료: Overcoming the Curse of Sentence Length for Neural Machine Translation using Automatic Segmentation (1409.1257v2)
+2025-11-05 20:07:45 | 다운로드 완료: Neural Machine Translation (1709.07809v1)
+2025-11-05 20:07:46 | 다운로드 완료: Neural Machine Translation model for University Email Application (2007.16011v1)
+2025-11-05 20:07:46 | 다운로드 완료: Zero-Resource Translation with Multi-Lingual Neural Machine Translation (1606.04164v1)
+2025-11-05 20:07:47 | 다운로드 완료: Lexically Cohesive Neural Machine Translation with Copy Mechanism (2010.05193v1)
+2025-11-05 20:07:47 | 다운로드 완료: Comparing Formulaic Language in Human and Machine Translation: Insight from a Parliamentary Corpus (2206.10919v1)
+2025-11-05 20:07:48 | 다운로드 완료: Neural Machine Translation: A Review and Survey (1912.02047v2)
+2025-11-05 20:07:48 | 다운로드 완료: Using CollGram to Compare Formulaic Language in Human and Neural Machine Translation (2107.03625v2)
+2025-11-05 20:07:49 | 다운로드 완료: Testing Machine Translation via Referential Transparency (2004.10361v2)
+2025-11-05 20:07:49 | 키워드 수집 시작: question answering
+2025-11-05 20:07:49 | 검색 시작: query=question answering, max_results=15
+2025-11-05 20:07:50 | 다운로드 완료: Reverse Question Answering: Can an LLM Write a Question so Hard (or Bad) that it Can't Answer? (2410.15512v2)
+2025-11-05 20:07:51 | 다운로드 완료: Learning to answer questions (1309.1125v1)
+2025-11-05 20:07:51 | 다운로드 완료: Enhancing Answer Selection in Community Question Answering with Pre-trained and Large Language Models (2311.17502v1)
+2025-11-05 20:07:52 | 다운로드 완료: QAMPARI: An Open-domain Question Answering Benchmark for Questions with Many Answers from Multiple Paragraphs (2205.12665v4)
+2025-11-05 20:07:52 | 다운로드 완료: Generating Answer Candidates for Quizzes and Answer-Aware Question Generators (2108.12898v1)
+2025-11-05 20:07:53 | 다운로드 완료: The combination of context information to enhance simple question answering (1810.04000v1)
+2025-11-05 20:07:53 | 다운로드 완료: Do Multi-Hop Question Answering Systems Know How to Answer the Single-Hop Sub-Questions? (2002.09919v2)
+2025-11-05 20:07:54 | 다운로드 완료: Co-VQA : Answering by Interactive Sub Question Sequence (2204.00879v1)
+2025-11-05 20:07:54 | 다운로드 완료: Conversational QA Dataset Generation with Answer Revision (2209.11396v1)
+2025-11-05 20:07:55 | 다운로드 완료: Less is More: Rejecting Unreliable Reviews for Product Question Answering (2007.04526v1)
+2025-11-05 20:07:55 | 다운로드 완료: Crossing Variational Autoencoders for Answer Retrieval (2005.02557v2)
+2025-11-05 20:07:56 | 다운로드 완료: Answer Ranking for Product-Related Questions via Multiple Semantic Relations Modeling (2006.15599v1)
+2025-11-05 20:07:56 | 다운로드 완료: On Two Related Questions of Wilf Concerning Standard Young Tableaux (0805.2590v2)
+2025-11-05 20:07:57 | 다운로드 완료: Learning to Order Sub-questions for Complex Question Answering (1911.04065v2)
+2025-11-05 20:07:58 | 다운로드 완료: Answering Product-Questions by Utilizing Questions from Other Contextually Similar Products (2105.08956v1)
+2025-11-05 20:07:58 | 키워드 수집 시작: AI agent
+2025-11-05 20:07:58 | 검색 시작: query=AI agent, max_results=15
+2025-11-05 20:07:59 | 다운로드 완료: AI Agents and Agentic AI-Navigating a Plethora of Concepts for Future Manufacturing (2507.01376v1)
+2025-11-05 20:07:59 | 다운로드 완료: Responsible AI Agents (2502.18359v1)
+2025-11-05 20:08:00 | 다운로드 완료: Agentic AI and Multiagentic: Are We Reinventing the Wheel? (2506.01463v1)
+2025-11-05 20:08:00 | 다운로드 완료: Imagining Design Workflows in Agentic AI Futures (2509.20731v1)
+2025-11-05 20:08:01 | 다운로드 완료: CACA Agent: Capability Collaboration based AI Agent (2403.15137v1)
+2025-11-05 20:08:01 | 다운로드 완료: AI Agents vs. Agentic AI: A Conceptual Taxonomy, Applications and Challenges (2505.10468v5)
+2025-11-05 20:08:02 | 다운로드 완료: Off-Switching Not Guaranteed (2502.08864v1)
+2025-11-05 20:08:02 | 다운로드 완료: Generative AI as Economic Agents (2406.00477v1)
+2025-11-05 20:08:04 | 다운로드 완료: Generative to Agentic AI: Survey, Conceptualization, and Challenges (2504.18875v1)
+2025-11-05 20:08:04 | 다운로드 완료: Promoting Cooperation in the Public Goods Game using Artificial Intelligent Agents (2412.05450v1)
+2025-11-05 20:08:05 | 다운로드 완료: Levels of AI Agents: from Rules to Large Language Models (2405.06643v2)
+2025-11-05 20:08:05 | 다운로드 완료: TRiSM for Agentic AI: A Review of Trust, Risk, and Security Management in LLM-based Agentic Multi-Agent Systems (2506.04133v4)
+2025-11-05 20:08:06 | 다운로드 완료: Measuring an artificial intelligence agent's trust in humans using machine incentives (2212.13371v1)
+2025-11-05 20:08:06 | 다운로드 완료: Voice-Enabled AI Agents can Perform Common Scams (2410.15650v1)
+2025-11-05 20:08:07 | 다운로드 완료: Evidence of behavior consistent with self-interest and altruism in an artificially intelligent agent (2301.02330v1)
+2025-11-05 20:08:07 | 총 수집: 105편 → 중복 제거: 105편
+2025-11-05 20:08:07 | 총 105편의 논문 수집 완료
+2025-11-05 20:08:07 | 메타데이터 저장 완료: /home/ieyeppo/AI_Lab/langchain-project/data/raw/arxiv_papers_metadata.json
+2025-11-05 20:08:07 | ==================================================
+2025-11-05 20:08:07 | 실험 종료
+2025-11-05 20:08:07 | ==================================================
+2025-11-05 20:08:07 | 빈 폴더 삭제: experiments/20251105/20251105_200658_session_027/evaluation
+2025-11-05 20:08:07 | 빈 폴더 삭제: experiments/20251105/20251105_200658_session_027/ui
+2025-11-05 20:08:07 | 빈 폴더 삭제: experiments/20251105/20251105_200658_session_027/outputs
+2025-11-05 20:08:07 | 빈 폴더 삭제: experiments/20251105/20251105_200658_session_027/database
+2025-11-05 20:08:07 | 빈 폴더 삭제: experiments/20251105/20251105_200658_session_027/tools
+2025-11-05 20:08:07 | 빈 폴더 삭제: experiments/20251105/20251105_200658_session_027/prompts
+2025-11-05 20:08:07 | 빈 폴더 삭제: experiments/20251105/20251105_200658_session_028/evaluation
+2025-11-05 20:08:07 | 빈 폴더 삭제: experiments/20251105/20251105_200658_session_028/ui
+2025-11-05 20:08:07 | 빈 폴더 삭제: experiments/20251105/20251105_200658_session_028/outputs
+2025-11-05 20:08:07 | 빈 폴더 삭제: experiments/20251105/20251105_200658_session_028/database
+2025-11-05 20:08:07 | 빈 폴더 삭제: experiments/20251105/20251105_200658_session_028/tools
+2025-11-05 20:08:07 | 빈 폴더 삭제: experiments/20251105/20251105_200658_session_028/prompts
+2025-11-05 20:08:07 | 총 12개의 빈 폴더 삭제 완료

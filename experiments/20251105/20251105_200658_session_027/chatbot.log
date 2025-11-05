@@ -1,0 +1,509 @@
+2025-11-05 20:06:58 | 세션 시작: session_027
+2025-11-05 20:06:58 | 폴더 경로: experiments/20251105/20251105_200658_session_027
+2025-11-05 20:06:58 | 설정 파일 저장: db_config.yaml
+2025-11-05 20:06:58 | 설정 파일 저장: model_config.yaml
+2025-11-05 20:06:58 | 설정 파일 저장: multi_request_patterns.yaml
+2025-11-05 20:06:58 | ==========
+2025-11-05 20:06:58 | ============================================================
+2025-11-05 20:06:58 | 전체 데이터 파이프라인 실행
+2025-11-05 20:06:58 | ============================================================
+2025-11-05 20:06:58 | ============================================================
+2025-11-05 20:06:58 | Phase 1: arXiv 논문 수집
+2025-11-05 20:06:58 | ============================================================
+2025-11-05 20:08:07 | ======================================================================
+2025-11-05 20:08:07 | arXiv 논문 수집 시작
+2025-11-05 20:08:07 | ======================================================================
+2025-11-05 20:08:07 | 2025-11-05 20:06:58 | 세션 시작: session_028
+2025-11-05 20:08:07 | 2025-11-05 20:06:58 | 폴더 경로: experiments/20251105/20251105_200658_session_028
+2025-11-05 20:08:07 | 2025-11-05 20:06:58 | 설정 파일 저장: db_config.yaml
+2025-11-05 20:08:07 | 2025-11-05 20:06:58 | 설정 파일 저장: model_config.yaml
+2025-11-05 20:08:07 | 2025-11-05 20:06:58 | 설정 파일 저장: multi_request_patterns.yaml
+2025-11-05 20:08:07 | 2025-11-05 20:06:58 | ==========
+2025-11-05 20:08:07 | 2025-11-05 20:06:58 | 키워드 수집 시작: transformer attention
+2025-11-05 20:08:07 | 2025-11-05 20:06:58 | 검색 시작: query=transformer attention, max_results=15
+2025-11-05 20:08:07 | 2025-11-05 20:07:01 | 다운로드 완료: Simulating Hard Attention Using Soft Attention (2412.09925v2)
+2025-11-05 20:08:07 | 2025-11-05 20:07:01 | 다운로드 완료: Attention-Only Transformers and Implementing MLPs with Attention Heads (2309.08593v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:02 | 다운로드 완료: Generic Attention-model Explainability for Interpreting Bi-Modal and Encoder-Decoder Transformers (2103.15679v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:02 | 다운로드 완료: Pale Transformer: A General Vision Transformer Backbone with Pale-Shaped Attention (2112.14000v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:03 | 다운로드 완료: Adaptive Sparse and Monotonic Attention for Transformer-based Automatic Speech Recognition (2209.15176v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:03 | 다운로드 완료: Armour: Generalizable Compact Self-Attention for Vision Transformers (2108.01778v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:04 | 다운로드 완료: BOAT: Bilateral Local Attention Vision Transformer (2201.13027v2)
+2025-11-05 20:08:07 | 2025-11-05 20:07:04 | 다운로드 완료: WavSpA: Wavelet Space Attention for Boosting Transformers' Long Sequence Learning Ability (2210.01989v3)
+2025-11-05 20:08:07 | 2025-11-05 20:07:07 | 다운로드 완료: Self-attention in Vision Transformers Performs Perceptual Grouping, Not Attention (2303.01542v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:07 | 다운로드 완료: Selective Attention Improves Transformer (2410.02703v2)
+2025-11-05 20:08:07 | 2025-11-05 20:07:08 | 다운로드 완료: The Hedgehog & the Porcupine: Expressive Linear Attentions with Softmax Mimicry (2402.04347v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:08 | 다운로드 완료: Unique Hard Attention: A Tale of Two Sides (2503.14615v2)
+2025-11-05 20:08:07 | 2025-11-05 20:07:09 | 다운로드 완료: CAT: Cross Attention in Vision Transformer (2106.05786v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:09 | 다운로드 완료: You Only Need Less Attention at Each Stage in Vision Transformers (2406.00427v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:10 | 다운로드 완료: Generalized Probabilistic Attention Mechanism in Transformers (2410.15578v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:10 | 키워드 수집 시작: BERT GPT
+2025-11-05 20:08:07 | 2025-11-05 20:07:10 | 검색 시작: query=BERT GPT, max_results=15
+2025-11-05 20:08:07 | 2025-11-05 20:07:11 | 다운로드 완료: FoundationLayerNorm: Scaling BERT and GPT to 1,000 Layers (2204.04477v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:12 | 다운로드 완료: Adapting GPT, GPT-2 and BERT Language Models for Speech Recognition (2108.07789v2)
+2025-11-05 20:08:07 | 2025-11-05 20:07:13 | 다운로드 완료: (Chat)GPT v BERT: Dawn of Justice for Semantic Change Detection (2401.14040v3)
+2025-11-05 20:08:07 | 2025-11-05 20:07:13 | 다운로드 완료: Assessing Large Language Models for Online Extremism Research: Identification, Explanation, and New Knowledge (2408.16749v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:14 | 다운로드 완료: BERT vs GPT for financial engineering (2405.12990v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:15 | 다운로드 완료: Selecting Between BERT and GPT for Text Classification in Political Science Research (2411.05050v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:16 | 다운로드 완료: Mogo: RQ Hierarchical Causal Transformer for High-Quality 3D Human Motion Generation (2412.07797v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:16 | 다운로드 완료: Evaluation of GPT and BERT-based models on identifying protein-protein interactions in biomedical text (2303.17728v2)
+2025-11-05 20:08:07 | 2025-11-05 20:07:17 | 다운로드 완료: MedicalBERT: enhancing biomedical natural language processing using pretrained BERT-based model (2507.08013v2)
+2025-11-05 20:08:07 | 2025-11-05 20:07:17 | 다운로드 완료: KI-BERT: Infusing Knowledge Context for Better Language and Domain Understanding (2104.08145v2)
+2025-11-05 20:08:07 | 2025-11-05 20:07:18 | 다운로드 완료: Semantics-aware BERT for Language Understanding (1909.02209v3)
+2025-11-05 20:08:07 | 2025-11-05 20:07:18 | 다운로드 완료: GPT or BERT: why not both? (2410.24159v2)
+2025-11-05 20:08:07 | 2025-11-05 20:07:19 | 다운로드 완료: Single layer tiny Co$^4$ outpaces GPT-2 and GPT-BERT (2510.08404v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:19 | 다운로드 완료: Comparing Few-Shot Prompting of GPT-4 LLMs with BERT Classifiers for Open-Response Assessment in Tutor Equity Training (2501.06658v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:20 | 다운로드 완료: Sim-GPT: Text Similarity via GPT Annotated Data (2312.05603v2)
+2025-11-05 20:08:07 | 2025-11-05 20:07:20 | 키워드 수집 시작: large language model
+2025-11-05 20:08:07 | 2025-11-05 20:07:20 | 검색 시작: query=large language model, max_results=15
+2025-11-05 20:08:07 | 2025-11-05 20:07:20 | 다운로드 완료: Lost in Translation: Large Language Models in Non-English Content Analysis (2306.07377v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:22 | 다운로드 완료: Cedille: A large autoregressive French language model (2202.03371v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:23 | 다운로드 완료: How Good are Commercial Large Language Models on African Languages? (2305.06530v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:23 | 다운로드 완료: Goldfish: Monolingual Language Models for 350 Languages (2408.10441v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:24 | 다운로드 완료: Modelling Language (2404.09579v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:25 | 다운로드 완료: LLaMA-Reg: Using LLaMA 2 for Unsupervised Medical Image Registration (2405.18774v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:25 | 다운로드 완료: Using Sign Language Production as Data Augmentation to enhance Sign Language Translation (2506.09643v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:25 | 다운로드 완료: A Precis of Language Models are not Models of Language (2205.07634v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:26 | 다운로드 완료: A Survey of Large Language Models for European Languages (2408.15040v2)
+2025-11-05 20:08:07 | 2025-11-05 20:07:26 | 다운로드 완료: Beyond the limitations of any imaginable mechanism: large language models and psycholinguistics (2303.00077v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:27 | 다운로드 완료: Enhance Reasoning Ability of Visual-Language Models via Large Language Models (2305.13267v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:28 | 다운로드 완료: Should we Stop Training More Monolingual Models, and Simply Use Machine Translation Instead? (2104.10441v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:28 | 다운로드 완료: The Heap: A Contamination-Free Multilingual Code Dataset for Evaluating Large Language Models (2501.09653v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:29 | 다운로드 완료: Formal Aspects of Language Modeling (2311.04329v2)
+2025-11-05 20:08:07 | 2025-11-05 20:07:29 | 다운로드 완료: Images in Language Space: Exploring the Suitability of Large Language Models for Vision & Language Tasks (2305.13782v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:29 | 키워드 수집 시작: retrieval augmented generation
+2025-11-05 20:08:07 | 2025-11-05 20:07:29 | 검색 시작: query=retrieval augmented generation, max_results=15
+2025-11-05 20:08:07 | 2025-11-05 20:07:31 | 다운로드 완료: Evaluating the Effectiveness and Scalability of LLM-Based Data Augmentation for Retrieval (2509.16442v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:31 | 다운로드 완료: R^2AG: Incorporating Retrieval Information into Retrieval Augmented Generation (2406.13249v2)
+2025-11-05 20:08:07 | 2025-11-05 20:07:32 | 다운로드 완료: A Survey on Retrieval-Augmented Text Generation (2202.01110v2)
+2025-11-05 20:08:07 | 2025-11-05 20:07:32 | 다운로드 완료: Meta-prompting Optimized Retrieval-augmented Generation (2407.03955v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:32 | 다운로드 완료: End-to-End Trainable Retrieval-Augmented Generation for Relation Extraction (2406.03790v2)
+2025-11-05 20:08:07 | 2025-11-05 20:07:33 | 다운로드 완료: DuetRAG: Collaborative Retrieval-Augmented Generation (2405.13002v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:33 | 다운로드 완료: Retrieval-Augmented Generation: A Comprehensive Survey of Architectures, Enhancements, and Robustness Frontiers (2506.00054v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:34 | 다운로드 완료: Controlled Retrieval-augmented Context Evaluation for Long-form RAG (2506.20051v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:35 | 다운로드 완료: Context Tuning for Retrieval Augmented Generation (2312.05708v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:35 | 다운로드 완료: From Retrieval to Generation: Comparing Different Approaches (2502.20245v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:36 | 다운로드 완료: Augmentation-Adapted Retriever Improves Generalization of Language Models as Generic Plug-In (2305.17331v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:36 | 다운로드 완료: Optimizing Retrieval Augmented Generation for Object Constraint Language (2505.13129v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:37 | 다운로드 완료: Enhancing Retrieval-Augmented LMs with a Two-stage Consistency Learning Compressor (2406.02266v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:38 | 다운로드 완료: Alleviating Hallucination in Large Vision-Language Models with Active Retrieval Augmentation (2408.00555v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:38 | 다운로드 완료: The 3rd Place Solution of CCIR CUP 2025: A Framework for Retrieval-Augmented Generation in Multi-Turn Legal Conversation (2510.15722v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:38 | 키워드 수집 시작: neural machine translation
+2025-11-05 20:08:07 | 2025-11-05 20:07:38 | 검색 시작: query=neural machine translation, max_results=15
+2025-11-05 20:08:07 | 2025-11-05 20:07:41 | 다운로드 완료: Can neural machine translation do simultaneous translation? (1606.02012v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:41 | 다운로드 완료: Six Challenges for Neural Machine Translation (1706.03872v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:42 | 다운로드 완료: Pre-Translation for Neural Machine Translation (1610.05243v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:42 | 다운로드 완료: Neural-based machine translation for medical text domain. Based on European Medicines Agency leaflet texts (1509.08644v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:43 | 다운로드 완료: Learning to Parse and Translate Improves Neural Machine Translation (1702.03525v2)
+2025-11-05 20:08:07 | 2025-11-05 20:07:44 | 다운로드 완료: Extended Parallel Corpus for Amharic-English Machine Translation (2104.03543v3)
+2025-11-05 20:08:07 | 2025-11-05 20:07:45 | 다운로드 완료: Overcoming the Curse of Sentence Length for Neural Machine Translation using Automatic Segmentation (1409.1257v2)
+2025-11-05 20:08:07 | 2025-11-05 20:07:45 | 다운로드 완료: Neural Machine Translation (1709.07809v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:46 | 다운로드 완료: Neural Machine Translation model for University Email Application (2007.16011v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:46 | 다운로드 완료: Zero-Resource Translation with Multi-Lingual Neural Machine Translation (1606.04164v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:47 | 다운로드 완료: Lexically Cohesive Neural Machine Translation with Copy Mechanism (2010.05193v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:47 | 다운로드 완료: Comparing Formulaic Language in Human and Machine Translation: Insight from a Parliamentary Corpus (2206.10919v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:48 | 다운로드 완료: Neural Machine Translation: A Review and Survey (1912.02047v2)
+2025-11-05 20:08:07 | 2025-11-05 20:07:48 | 다운로드 완료: Using CollGram to Compare Formulaic Language in Human and Neural Machine Translation (2107.03625v2)
+2025-11-05 20:08:07 | 2025-11-05 20:07:49 | 다운로드 완료: Testing Machine Translation via Referential Transparency (2004.10361v2)
+2025-11-05 20:08:07 | 2025-11-05 20:07:49 | 키워드 수집 시작: question answering
+2025-11-05 20:08:07 | 2025-11-05 20:07:49 | 검색 시작: query=question answering, max_results=15
+2025-11-05 20:08:07 | 2025-11-05 20:07:50 | 다운로드 완료: Reverse Question Answering: Can an LLM Write a Question so Hard (or Bad) that it Can't Answer? (2410.15512v2)
+2025-11-05 20:08:07 | 2025-11-05 20:07:51 | 다운로드 완료: Learning to answer questions (1309.1125v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:51 | 다운로드 완료: Enhancing Answer Selection in Community Question Answering with Pre-trained and Large Language Models (2311.17502v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:52 | 다운로드 완료: QAMPARI: An Open-domain Question Answering Benchmark for Questions with Many Answers from Multiple Paragraphs (2205.12665v4)
+2025-11-05 20:08:07 | 2025-11-05 20:07:52 | 다운로드 완료: Generating Answer Candidates for Quizzes and Answer-Aware Question Generators (2108.12898v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:53 | 다운로드 완료: The combination of context information to enhance simple question answering (1810.04000v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:53 | 다운로드 완료: Do Multi-Hop Question Answering Systems Know How to Answer the Single-Hop Sub-Questions? (2002.09919v2)
+2025-11-05 20:08:07 | 2025-11-05 20:07:54 | 다운로드 완료: Co-VQA : Answering by Interactive Sub Question Sequence (2204.00879v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:54 | 다운로드 완료: Conversational QA Dataset Generation with Answer Revision (2209.11396v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:55 | 다운로드 완료: Less is More: Rejecting Unreliable Reviews for Product Question Answering (2007.04526v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:55 | 다운로드 완료: Crossing Variational Autoencoders for Answer Retrieval (2005.02557v2)
+2025-11-05 20:08:07 | 2025-11-05 20:07:56 | 다운로드 완료: Answer Ranking for Product-Related Questions via Multiple Semantic Relations Modeling (2006.15599v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:56 | 다운로드 완료: On Two Related Questions of Wilf Concerning Standard Young Tableaux (0805.2590v2)
+2025-11-05 20:08:07 | 2025-11-05 20:07:57 | 다운로드 완료: Learning to Order Sub-questions for Complex Question Answering (1911.04065v2)
+2025-11-05 20:08:07 | 2025-11-05 20:07:58 | 다운로드 완료: Answering Product-Questions by Utilizing Questions from Other Contextually Similar Products (2105.08956v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:58 | 키워드 수집 시작: AI agent
+2025-11-05 20:08:07 | 2025-11-05 20:07:58 | 검색 시작: query=AI agent, max_results=15
+2025-11-05 20:08:07 | 2025-11-05 20:07:59 | 다운로드 완료: AI Agents and Agentic AI-Navigating a Plethora of Concepts for Future Manufacturing (2507.01376v1)
+2025-11-05 20:08:07 | 2025-11-05 20:07:59 | 다운로드 완료: Responsible AI Agents (2502.18359v1)
+2025-11-05 20:08:07 | 2025-11-05 20:08:00 | 다운로드 완료: Agentic AI and Multiagentic: Are We Reinventing the Wheel? (2506.01463v1)
+2025-11-05 20:08:07 | 2025-11-05 20:08:00 | 다운로드 완료: Imagining Design Workflows in Agentic AI Futures (2509.20731v1)
+2025-11-05 20:08:07 | 2025-11-05 20:08:01 | 다운로드 완료: CACA Agent: Capability Collaboration based AI Agent (2403.15137v1)
+2025-11-05 20:08:07 | 2025-11-05 20:08:01 | 다운로드 완료: AI Agents vs. Agentic AI: A Conceptual Taxonomy, Applications and Challenges (2505.10468v5)
+2025-11-05 20:08:07 | 2025-11-05 20:08:02 | 다운로드 완료: Off-Switching Not Guaranteed (2502.08864v1)
+2025-11-05 20:08:07 | 2025-11-05 20:08:02 | 다운로드 완료: Generative AI as Economic Agents (2406.00477v1)
+2025-11-05 20:08:07 | 2025-11-05 20:08:04 | 다운로드 완료: Generative to Agentic AI: Survey, Conceptualization, and Challenges (2504.18875v1)
+2025-11-05 20:08:07 | 2025-11-05 20:08:04 | 다운로드 완료: Promoting Cooperation in the Public Goods Game using Artificial Intelligent Agents (2412.05450v1)
+2025-11-05 20:08:07 | 2025-11-05 20:08:05 | 다운로드 완료: Levels of AI Agents: from Rules to Large Language Models (2405.06643v2)
+2025-11-05 20:08:07 | 2025-11-05 20:08:05 | 다운로드 완료: TRiSM for Agentic AI: A Review of Trust, Risk, and Security Management in LLM-based Agentic Multi-Agent Systems (2506.04133v4)
+2025-11-05 20:08:07 | 2025-11-05 20:08:06 | 다운로드 완료: Measuring an artificial intelligence agent's trust in humans using machine incentives (2212.13371v1)
+2025-11-05 20:08:07 | 2025-11-05 20:08:06 | 다운로드 완료: Voice-Enabled AI Agents can Perform Common Scams (2410.15650v1)
+2025-11-05 20:08:07 | 2025-11-05 20:08:07 | 다운로드 완료: Evidence of behavior consistent with self-interest and altruism in an artificially intelligent agent (2301.02330v1)
+2025-11-05 20:08:07 | 2025-11-05 20:08:07 | 총 수집: 105편 → 중복 제거: 105편
+2025-11-05 20:08:07 | 2025-11-05 20:08:07 | 총 105편의 논문 수집 완료
+2025-11-05 20:08:07 | 2025-11-05 20:08:07 | 메타데이터 저장 완료: /home/ieyeppo/AI_Lab/langchain-project/data/raw/arxiv_papers_metadata.json
+2025-11-05 20:08:07 | 2025-11-05 20:08:07 | ==================================================
+2025-11-05 20:08:07 | 2025-11-05 20:08:07 | 실험 종료
+2025-11-05 20:08:07 | 2025-11-05 20:08:07 | ==================================================
+2025-11-05 20:08:07 | 2025-11-05 20:08:07 | 빈 폴더 삭제: experiments/20251105/20251105_200658_session_027/evaluation
+2025-11-05 20:08:07 | 2025-11-05 20:08:07 | 빈 폴더 삭제: experiments/20251105/20251105_200658_session_027/ui
+2025-11-05 20:08:07 | 2025-11-05 20:08:07 | 빈 폴더 삭제: experiments/20251105/20251105_200658_session_027/outputs
+2025-11-05 20:08:07 | 2025-11-05 20:08:07 | 빈 폴더 삭제: experiments/20251105/20251105_200658_session_027/database
+2025-11-05 20:08:07 | 2025-11-05 20:08:07 | 빈 폴더 삭제: experiments/20251105/20251105_200658_session_027/tools
+2025-11-05 20:08:07 | 2025-11-05 20:08:07 | 빈 폴더 삭제: experiments/20251105/20251105_200658_session_027/prompts
+2025-11-05 20:08:07 | 2025-11-05 20:08:07 | 빈 폴더 삭제: experiments/20251105/20251105_200658_session_028/evaluation
+2025-11-05 20:08:07 | 2025-11-05 20:08:07 | 빈 폴더 삭제: experiments/20251105/20251105_200658_session_028/ui
+2025-11-05 20:08:07 | 2025-11-05 20:08:07 | 빈 폴더 삭제: experiments/20251105/20251105_200658_session_028/outputs
+2025-11-05 20:08:07 | 2025-11-05 20:08:07 | 빈 폴더 삭제: experiments/20251105/20251105_200658_session_028/database
+2025-11-05 20:08:07 | 2025-11-05 20:08:07 | 빈 폴더 삭제: experiments/20251105/20251105_200658_session_028/tools
+2025-11-05 20:08:07 | 2025-11-05 20:08:07 | 빈 폴더 삭제: experiments/20251105/20251105_200658_session_028/prompts
+2025-11-05 20:08:07 | 2025-11-05 20:08:07 | 총 12개의 빈 폴더 삭제 완료
+2025-11-05 20:08:07 | ======================================================================
+2025-11-05 20:08:07 | ✅ arXiv 논문 수집 완료
+2025-11-05 20:08:07 | ======================================================================
+2025-11-05 20:08:07 | [STDERR] /home/ieyeppo/AI_Lab/langchain-project/scripts/data/collect_arxiv_papers.py:136: DeprecationWarning: The 'Search.results' method is deprecated, use 'Client.results' instead
+2025-11-05 20:08:07 | [STDERR]   paper = next(search.results())
+2025-11-05 20:08:07 | ✅ Phase 1: arXiv 논문 수집 완료
+2025-11-05 20:08:07 | ============================================================
+2025-11-05 20:08:07 | Phase 2: PostgreSQL 데이터베이스 초기화
+2025-11-05 20:08:07 | ============================================================
+2025-11-05 20:08:07 | Schema created and committed.
+2025-11-05 20:08:07 | Glossary seed data inserted (3 terms).
+2025-11-05 20:08:07 | Inserted 105 papers into database.
+2025-11-05 20:08:07 | Data insertion completed.
+2025-11-05 20:08:07 | Saved arxiv_id→paper_id mapping: /home/ieyeppo/AI_Lab/langchain-project/data/processed/paper_id_mapping.json (105개)
+2025-11-05 20:08:07 | Database setup completed (tables, indexes, glossary seed, id mapping).
+2025-11-05 20:08:07 | ✅ Phase 2: PostgreSQL 데이터베이스 초기화 완료
+2025-11-05 20:08:07 | ============================================================
+2025-11-05 20:08:07 | Phase 3: PDF 문서 로드 및 청크 분할
+2025-11-05 20:08:07 | ============================================================
+2025-11-05 20:08:48 | ============================================================
+2025-11-05 20:08:48 | PDF 문서 로드 및 청크 분할
+2025-11-05 20:08:48 | ============================================================
+2025-11-05 20:08:48 | PDF 디렉토리: /home/ieyeppo/AI_Lab/langchain-project/data/raw/pdfs
+2025-11-05 20:08:48 | 메타데이터: /home/ieyeppo/AI_Lab/langchain-project/data/raw/arxiv_papers_metadata.json
+2025-11-05 20:08:48 | PDF 파일 로드 중...
+2025-11-05 20:08:48 | ✅ 총 8901개 청크 생성 완료
+2025-11-05 20:08:48 | 첫 번째 청크 예시:
+2025-11-05 20:08:48 | ------------------------------------------------------------
+2025-11-05 20:08:48 | Self-attention in Vision Transformers Performs Perceptual
+2025-11-05 20:08:48 | Grouping, Not Attention
+2025-11-05 20:08:48 | Paria Mehrani and John K. Tsotsos
+2025-11-05 20:08:48 | Department of Electrical Engineering and Computer Science,
+2025-11-05 20:08:48 | York University, Toronto, Canada
+2025-11-05 20:08:48 | {paria, tsotsos}@eecs.yorku.ca
+2025-11-05 20:08:48 | Abstract
+2025-11-05 20:08:48 | Recently, a considerable number of studies in comput...
+2025-11-05 20:08:48 | 메타데이터: {'producer': 'pdfTeX-1.40.21', 'creator': 'LaTeX with hyperref', 'creationdate': '2023-03-06T01:46:25+00:00', 'author': '', 'keywords': '', 'moddate': '2023-03-06T01:46:25+00:00', 'ptex.fullbanner': 'This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) kpathsea version 6.3.2', 'subject': '', 'title': 'Self-attention in Vision Transformers Performs Perceptual Grouping, Not Attention', 'trapped': '/False', 'source': '/home/ieyeppo/AI_Lab/langchain-project/data/raw/pdfs/2303.01542v1.pdf', 'total_pages': 30, 'page': 0, 'page_label': '1', 'authors': 'Paria Mehrani, John K. Tsotsos', 'published_date': '2023-03-02', 'summary': 'Recently, a considerable number of studies in computer vision involves deep\nneural architectures called vision transformers. Visual processing in these\nmodels incorporates computational models that are claimed to implement\nattention mechanisms. Despite an increasing body of work that attempts to\nunderstand the role of attention mechanisms in vision transformers, their\neffect is largely unknown. Here, we asked if the attention mechanisms in vision\ntransformers exhibit similar effects as those known in human visual attention.\nTo answer this question, we revisited the attention formulation in these models\nand found that despite the name, computationally, these models perform a\nspecial class of relaxation labeling with similarity grouping effects.\nAdditionally, whereas modern experimental findings reveal that human visual\nattention involves both feed-forward and feedback mechanisms, the purely\nfeed-forward architecture of vision transformers suggests that attention in\nthese models will not have the same effects as those known in humans. To\nquantify these observations, we evaluated grouping performance in a family of\nvision transformers. Our results suggest that self-attention modules group\nfigures in the stimuli based on similarity in visual features such as color.\nAlso, in a singleton detection experiment as an instance of saliency detection,\nwe studied if these models exhibit similar effects as those of feed-forward\nvisual salience mechanisms utilized in human visual attention. We found that\ngenerally, the transformer-based attention modules assign more salience either\nto distractors or the ground. Together, our study suggests that the attention\nmechanisms in vision transformers perform similarity grouping and not\nattention.', 'pdf_url': 'http://arxiv.org/pdf/2303.01542v1', 'entry_id': 'http://arxiv.org/abs/2303.01542v1', 'categories': [], 'primary_category': None, 'chunk_id': 0, 'chunk_index': 0}
+2025-11-05 20:08:48 | [STDERR] Ignoring wrong pointing object 12 0 (offset 0)
+2025-11-05 20:08:48 | [STDERR] Ignoring wrong pointing object 14 0 (offset 0)
+2025-11-05 20:08:48 | [STDERR] Ignoring wrong pointing object 58 0 (offset 0)
+2025-11-05 20:08:48 | [STDERR] Ignoring wrong pointing object 6 0 (offset 0)
+2025-11-05 20:08:48 | [STDERR] Ignoring wrong pointing object 8 0 (offset 0)
+2025-11-05 20:08:48 | [STDERR] Ignoring wrong pointing object 10 0 (offset 0)
+2025-11-05 20:08:48 | [STDERR] Ignoring wrong pointing object 12 0 (offset 0)
+2025-11-05 20:08:48 | [STDERR] Ignoring wrong pointing object 14 0 (offset 0)
+2025-11-05 20:08:48 | [STDERR] Ignoring wrong pointing object 26 0 (offset 0)
+2025-11-05 20:08:48 | [STDERR] Ignoring wrong pointing object 28 0 (offset 0)
+2025-11-05 20:08:48 | [STDERR] Ignoring wrong pointing object 30 0 (offset 0)
+2025-11-05 20:08:48 | [STDERR] Ignoring wrong pointing object 32 0 (offset 0)
+2025-11-05 20:08:48 | [STDERR] Ignoring wrong pointing object 34 0 (offset 0)
+2025-11-05 20:08:48 | [STDERR] Ignoring wrong pointing object 36 0 (offset 0)
+2025-11-05 20:08:48 | [STDERR] Ignoring wrong pointing object 38 0 (offset 0)
+2025-11-05 20:08:48 | [STDERR] Ignoring wrong pointing object 43 0 (offset 0)
+2025-11-05 20:08:48 | [STDERR] Ignoring wrong pointing object 45 0 (offset 0)
+2025-11-05 20:08:48 | [STDERR] Ignoring wrong pointing object 47 0 (offset 0)
+2025-11-05 20:08:48 | [STDERR] Ignoring wrong pointing object 49 0 (offset 0)
+2025-11-05 20:08:48 | [STDERR] Ignoring wrong pointing object 51 0 (offset 0)
+2025-11-05 20:08:48 | [STDERR] Ignoring wrong pointing object 72 0 (offset 0)
+2025-11-05 20:08:48 | [STDERR] Ignoring wrong pointing object 74 0 (offset 0)
+2025-11-05 20:08:48 | [STDERR] Ignoring wrong pointing object 95 0 (offset 0)
+2025-11-05 20:08:48 | [STDERR] Ignoring wrong pointing object 100 0 (offset 0)
+2025-11-05 20:08:48 | ✅ Phase 3: PDF 문서 로드 및 청크 분할 완료
+2025-11-05 20:08:48 | ============================================================
+2025-11-05 20:08:48 | Phase 4: 임베딩 생성 및 Vector DB 저장
+2025-11-05 20:08:48 | ============================================================
+2025-11-05 20:13:29 | ============================================================
+2025-11-05 20:13:29 | 임베딩 생성 및 Vector DB 저장
+2025-11-05 20:13:29 | ============================================================
+2025-11-05 20:13:29 | PDF 디렉토리: /home/ieyeppo/AI_Lab/langchain-project/data/raw/pdfs
+2025-11-05 20:13:29 | 메타데이터: /home/ieyeppo/AI_Lab/langchain-project/data/raw/arxiv_papers_metadata.json
+2025-11-05 20:13:29 | 매핑 파일: /home/ieyeppo/AI_Lab/langchain-project/data/processed/paper_id_mapping.json
+2025-11-05 20:13:29 | 1단계: PDF 문서 로드 및 청크 분할 중...
+2025-11-05 20:13:29 | ✅ 8901개 청크 생성 완료
+2025-11-05 20:13:29 | ℹ️  9개 중복 청크 제거됨
+2025-11-05 20:13:29 | ✅ 중복 제거 후: 8892개 청크
+2025-11-05 20:13:29 | 2단계: paper_id 매핑 파일 로드 중...
+2025-11-05 20:13:29 | ✅ 105개 매핑 로드 완료
+2025-11-05 20:13:29 | 3단계: paper_id 메타데이터 추가 중...
+2025-11-05 20:13:29 | ✅ 8892/8892개 문서에 paper_id 추가 완료
+2025-11-05 20:13:29 | 4단계: 임베딩 생성 및 Vector DB 저장 중...
+2025-11-05 20:13:29 | (시간이 소요될 수 있습니다. 배치 처리 중...)
+2025-11-05 20:13:29 | 배치 1/178: 50개 문서 저장 완료 (총: 50)
+2025-11-05 20:13:29 | 배치 2/178: 50개 문서 저장 완료 (총: 100)
+2025-11-05 20:13:29 | 배치 3/178: 50개 문서 저장 완료 (총: 150)
+2025-11-05 20:13:29 | 배치 4/178: 50개 문서 저장 완료 (총: 200)
+2025-11-05 20:13:29 | 배치 5/178: 50개 문서 저장 완료 (총: 250)
+2025-11-05 20:13:29 | 배치 6/178: 50개 문서 저장 완료 (총: 300)
+2025-11-05 20:13:29 | 배치 7/178: 50개 문서 저장 완료 (총: 350)
+2025-11-05 20:13:29 | 배치 8/178: 50개 문서 저장 완료 (총: 400)
+2025-11-05 20:13:29 | 배치 9/178: 50개 문서 저장 완료 (총: 450)
+2025-11-05 20:13:29 | 배치 10/178: 50개 문서 저장 완료 (총: 500)
+2025-11-05 20:13:29 | 배치 11/178: 50개 문서 저장 완료 (총: 550)
+2025-11-05 20:13:29 | 배치 12/178: 50개 문서 저장 완료 (총: 600)
+2025-11-05 20:13:29 | 배치 13/178: 50개 문서 저장 완료 (총: 650)
+2025-11-05 20:13:29 | 배치 14/178: 50개 문서 저장 완료 (총: 700)
+2025-11-05 20:13:29 | 배치 15/178: 50개 문서 저장 완료 (총: 750)
+2025-11-05 20:13:29 | 배치 16/178: 50개 문서 저장 완료 (총: 800)
+2025-11-05 20:13:29 | 배치 17/178: 50개 문서 저장 완료 (총: 850)
+2025-11-05 20:13:29 | 배치 18/178: 50개 문서 저장 완료 (총: 900)
+2025-11-05 20:13:29 | 배치 19/178: 50개 문서 저장 완료 (총: 950)
+2025-11-05 20:13:29 | 배치 20/178: 50개 문서 저장 완료 (총: 1000)
+2025-11-05 20:13:29 | 배치 21/178: 50개 문서 저장 완료 (총: 1050)
+2025-11-05 20:13:29 | 배치 22/178: 50개 문서 저장 완료 (총: 1100)
+2025-11-05 20:13:29 | 배치 23/178: 50개 문서 저장 완료 (총: 1150)
+2025-11-05 20:13:29 | 배치 24/178: 50개 문서 저장 완료 (총: 1200)
+2025-11-05 20:13:29 | 배치 25/178: 50개 문서 저장 완료 (총: 1250)
+2025-11-05 20:13:29 | 배치 26/178: 50개 문서 저장 완료 (총: 1300)
+2025-11-05 20:13:29 | 배치 27/178: 50개 문서 저장 완료 (총: 1350)
+2025-11-05 20:13:29 | 배치 28/178: 50개 문서 저장 완료 (총: 1400)
+2025-11-05 20:13:29 | 배치 29/178: 50개 문서 저장 완료 (총: 1450)
+2025-11-05 20:13:29 | 배치 30/178: 50개 문서 저장 완료 (총: 1500)
+2025-11-05 20:13:29 | 배치 31/178: 50개 문서 저장 완료 (총: 1550)
+2025-11-05 20:13:29 | 배치 32/178: 50개 문서 저장 완료 (총: 1600)
+2025-11-05 20:13:29 | 배치 33/178: 50개 문서 저장 완료 (총: 1650)
+2025-11-05 20:13:29 | 배치 34/178: 50개 문서 저장 완료 (총: 1700)
+2025-11-05 20:13:29 | 배치 35/178: 50개 문서 저장 완료 (총: 1750)
+2025-11-05 20:13:29 | 배치 36/178: 50개 문서 저장 완료 (총: 1800)
+2025-11-05 20:13:29 | 배치 37/178: 50개 문서 저장 완료 (총: 1850)
+2025-11-05 20:13:29 | 배치 38/178: 50개 문서 저장 완료 (총: 1900)
+2025-11-05 20:13:29 | 배치 39/178: 50개 문서 저장 완료 (총: 1950)
+2025-11-05 20:13:29 | 배치 40/178: 50개 문서 저장 완료 (총: 2000)
+2025-11-05 20:13:29 | 배치 41/178: 50개 문서 저장 완료 (총: 2050)
+2025-11-05 20:13:29 | 배치 42/178: 50개 문서 저장 완료 (총: 2100)
+2025-11-05 20:13:29 | 배치 43/178: 50개 문서 저장 완료 (총: 2150)
+2025-11-05 20:13:29 | ⚠️  배치 44 오류 발생: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | 재시도 중... (1/3)
+2025-11-05 20:13:29 | ⚠️  배치 44 오류 발생: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | 재시도 중... (2/3)
+2025-11-05 20:13:29 | ⚠️  배치 44 오류 발생: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | ❌ 배치 44 최대 재시도 횟수 초과, 실패 목록에 추가
+2025-11-05 20:13:29 | ⚠️  배치 45 오류 발생: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | 재시도 중... (1/3)
+2025-11-05 20:13:29 | ⚠️  배치 45 오류 발생: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | 재시도 중... (2/3)
+2025-11-05 20:13:29 | ⚠️  배치 45 오류 발생: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | ❌ 배치 45 최대 재시도 횟수 초과, 실패 목록에 추가
+2025-11-05 20:13:29 | 배치 46/178: 50개 문서 저장 완료 (총: 2200)
+2025-11-05 20:13:29 | 배치 47/178: 50개 문서 저장 완료 (총: 2250)
+2025-11-05 20:13:29 | 배치 48/178: 50개 문서 저장 완료 (총: 2300)
+2025-11-05 20:13:29 | 배치 49/178: 50개 문서 저장 완료 (총: 2350)
+2025-11-05 20:13:29 | 배치 50/178: 50개 문서 저장 완료 (총: 2400)
+2025-11-05 20:13:29 | 배치 51/178: 50개 문서 저장 완료 (총: 2450)
+2025-11-05 20:13:29 | 배치 52/178: 50개 문서 저장 완료 (총: 2500)
+2025-11-05 20:13:29 | 배치 53/178: 50개 문서 저장 완료 (총: 2550)
+2025-11-05 20:13:29 | 배치 54/178: 50개 문서 저장 완료 (총: 2600)
+2025-11-05 20:13:29 | 배치 55/178: 50개 문서 저장 완료 (총: 2650)
+2025-11-05 20:13:29 | 배치 56/178: 50개 문서 저장 완료 (총: 2700)
+2025-11-05 20:13:29 | 배치 57/178: 50개 문서 저장 완료 (총: 2750)
+2025-11-05 20:13:29 | 배치 58/178: 50개 문서 저장 완료 (총: 2800)
+2025-11-05 20:13:29 | 배치 59/178: 50개 문서 저장 완료 (총: 2850)
+2025-11-05 20:13:29 | 배치 60/178: 50개 문서 저장 완료 (총: 2900)
+2025-11-05 20:13:29 | 배치 61/178: 50개 문서 저장 완료 (총: 2950)
+2025-11-05 20:13:29 | 배치 62/178: 50개 문서 저장 완료 (총: 3000)
+2025-11-05 20:13:29 | 배치 63/178: 50개 문서 저장 완료 (총: 3050)
+2025-11-05 20:13:29 | 배치 64/178: 50개 문서 저장 완료 (총: 3100)
+2025-11-05 20:13:29 | ⚠️  배치 65 오류 발생: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | 재시도 중... (1/3)
+2025-11-05 20:13:29 | ⚠️  배치 65 오류 발생: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | 재시도 중... (2/3)
+2025-11-05 20:13:29 | ⚠️  배치 65 오류 발생: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | ❌ 배치 65 최대 재시도 횟수 초과, 실패 목록에 추가
+2025-11-05 20:13:29 | ⚠️  배치 66 오류 발생: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | 재시도 중... (1/3)
+2025-11-05 20:13:29 | ⚠️  배치 66 오류 발생: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | 재시도 중... (2/3)
+2025-11-05 20:13:29 | ⚠️  배치 66 오류 발생: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | ❌ 배치 66 최대 재시도 횟수 초과, 실패 목록에 추가
+2025-11-05 20:13:29 | 배치 67/178: 50개 문서 저장 완료 (총: 3150)
+2025-11-05 20:13:29 | 배치 68/178: 50개 문서 저장 완료 (총: 3200)
+2025-11-05 20:13:29 | 배치 69/178: 50개 문서 저장 완료 (총: 3250)
+2025-11-05 20:13:29 | 배치 70/178: 50개 문서 저장 완료 (총: 3300)
+2025-11-05 20:13:29 | 배치 71/178: 50개 문서 저장 완료 (총: 3350)
+2025-11-05 20:13:29 | 배치 72/178: 50개 문서 저장 완료 (총: 3400)
+2025-11-05 20:13:29 | 배치 73/178: 50개 문서 저장 완료 (총: 3450)
+2025-11-05 20:13:29 | 배치 74/178: 50개 문서 저장 완료 (총: 3500)
+2025-11-05 20:13:29 | 배치 75/178: 50개 문서 저장 완료 (총: 3550)
+2025-11-05 20:13:29 | 배치 76/178: 50개 문서 저장 완료 (총: 3600)
+2025-11-05 20:13:29 | 배치 77/178: 50개 문서 저장 완료 (총: 3650)
+2025-11-05 20:13:29 | 배치 78/178: 50개 문서 저장 완료 (총: 3700)
+2025-11-05 20:13:29 | 배치 79/178: 50개 문서 저장 완료 (총: 3750)
+2025-11-05 20:13:29 | 배치 80/178: 50개 문서 저장 완료 (총: 3800)
+2025-11-05 20:13:29 | 배치 81/178: 50개 문서 저장 완료 (총: 3850)
+2025-11-05 20:13:29 | 배치 82/178: 50개 문서 저장 완료 (총: 3900)
+2025-11-05 20:13:29 | 배치 83/178: 50개 문서 저장 완료 (총: 3950)
+2025-11-05 20:13:29 | 배치 84/178: 50개 문서 저장 완료 (총: 4000)
+2025-11-05 20:13:29 | 배치 85/178: 50개 문서 저장 완료 (총: 4050)
+2025-11-05 20:13:29 | 배치 86/178: 50개 문서 저장 완료 (총: 4100)
+2025-11-05 20:13:29 | ⚠️  배치 87 오류 발생: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | 재시도 중... (1/3)
+2025-11-05 20:13:29 | ⚠️  배치 87 오류 발생: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | 재시도 중... (2/3)
+2025-11-05 20:13:29 | ⚠️  배치 87 오류 발생: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | ❌ 배치 87 최대 재시도 횟수 초과, 실패 목록에 추가
+2025-11-05 20:13:29 | 배치 88/178: 50개 문서 저장 완료 (총: 4150)
+2025-11-05 20:13:29 | 배치 89/178: 50개 문서 저장 완료 (총: 4200)
+2025-11-05 20:13:29 | 배치 90/178: 50개 문서 저장 완료 (총: 4250)
+2025-11-05 20:13:29 | 배치 91/178: 50개 문서 저장 완료 (총: 4300)
+2025-11-05 20:13:29 | ⚠️  배치 92 오류 발생: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | 재시도 중... (1/3)
+2025-11-05 20:13:29 | ⚠️  배치 92 오류 발생: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | 재시도 중... (2/3)
+2025-11-05 20:13:29 | ⚠️  배치 92 오류 발생: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | ❌ 배치 92 최대 재시도 횟수 초과, 실패 목록에 추가
+2025-11-05 20:13:29 | 배치 93/178: 50개 문서 저장 완료 (총: 4350)
+2025-11-05 20:13:29 | 배치 94/178: 50개 문서 저장 완료 (총: 4400)
+2025-11-05 20:13:29 | 배치 95/178: 50개 문서 저장 완료 (총: 4450)
+2025-11-05 20:13:29 | 배치 96/178: 50개 문서 저장 완료 (총: 4500)
+2025-11-05 20:13:29 | 배치 97/178: 50개 문서 저장 완료 (총: 4550)
+2025-11-05 20:13:29 | 배치 98/178: 50개 문서 저장 완료 (총: 4600)
+2025-11-05 20:13:29 | 배치 99/178: 50개 문서 저장 완료 (총: 4650)
+2025-11-05 20:13:29 | 배치 100/178: 50개 문서 저장 완료 (총: 4700)
+2025-11-05 20:13:29 | 배치 101/178: 50개 문서 저장 완료 (총: 4750)
+2025-11-05 20:13:29 | 배치 102/178: 50개 문서 저장 완료 (총: 4800)
+2025-11-05 20:13:29 | 배치 103/178: 50개 문서 저장 완료 (총: 4850)
+2025-11-05 20:13:29 | 배치 104/178: 50개 문서 저장 완료 (총: 4900)
+2025-11-05 20:13:29 | 배치 105/178: 50개 문서 저장 완료 (총: 4950)
+2025-11-05 20:13:29 | 배치 106/178: 50개 문서 저장 완료 (총: 5000)
+2025-11-05 20:13:29 | 배치 107/178: 50개 문서 저장 완료 (총: 5050)
+2025-11-05 20:13:29 | 배치 108/178: 50개 문서 저장 완료 (총: 5100)
+2025-11-05 20:13:29 | 배치 109/178: 50개 문서 저장 완료 (총: 5150)
+2025-11-05 20:13:29 | 배치 110/178: 50개 문서 저장 완료 (총: 5200)
+2025-11-05 20:13:29 | 배치 111/178: 50개 문서 저장 완료 (총: 5250)
+2025-11-05 20:13:29 | 배치 112/178: 50개 문서 저장 완료 (총: 5300)
+2025-11-05 20:13:29 | 배치 113/178: 50개 문서 저장 완료 (총: 5350)
+2025-11-05 20:13:29 | 배치 114/178: 50개 문서 저장 완료 (총: 5400)
+2025-11-05 20:13:29 | 배치 115/178: 50개 문서 저장 완료 (총: 5450)
+2025-11-05 20:13:29 | 배치 116/178: 50개 문서 저장 완료 (총: 5500)
+2025-11-05 20:13:29 | 배치 117/178: 50개 문서 저장 완료 (총: 5550)
+2025-11-05 20:13:29 | 배치 118/178: 50개 문서 저장 완료 (총: 5600)
+2025-11-05 20:13:29 | 배치 119/178: 50개 문서 저장 완료 (총: 5650)
+2025-11-05 20:13:29 | 배치 120/178: 50개 문서 저장 완료 (총: 5700)
+2025-11-05 20:13:29 | 배치 121/178: 50개 문서 저장 완료 (총: 5750)
+2025-11-05 20:13:29 | 배치 122/178: 50개 문서 저장 완료 (총: 5800)
+2025-11-05 20:13:29 | 배치 123/178: 50개 문서 저장 완료 (총: 5850)
+2025-11-05 20:13:29 | 배치 124/178: 50개 문서 저장 완료 (총: 5900)
+2025-11-05 20:13:29 | 배치 125/178: 50개 문서 저장 완료 (총: 5950)
+2025-11-05 20:13:29 | 배치 126/178: 50개 문서 저장 완료 (총: 6000)
+2025-11-05 20:13:29 | 배치 127/178: 50개 문서 저장 완료 (총: 6050)
+2025-11-05 20:13:29 | 배치 128/178: 50개 문서 저장 완료 (총: 6100)
+2025-11-05 20:13:29 | 배치 129/178: 50개 문서 저장 완료 (총: 6150)
+2025-11-05 20:13:29 | 배치 130/178: 50개 문서 저장 완료 (총: 6200)
+2025-11-05 20:13:29 | 배치 131/178: 50개 문서 저장 완료 (총: 6250)
+2025-11-05 20:13:29 | 배치 132/178: 50개 문서 저장 완료 (총: 6300)
+2025-11-05 20:13:29 | 배치 133/178: 50개 문서 저장 완료 (총: 6350)
+2025-11-05 20:13:29 | 배치 134/178: 50개 문서 저장 완료 (총: 6400)
+2025-11-05 20:13:29 | 배치 135/178: 50개 문서 저장 완료 (총: 6450)
+2025-11-05 20:13:29 | 배치 136/178: 50개 문서 저장 완료 (총: 6500)
+2025-11-05 20:13:29 | 배치 137/178: 50개 문서 저장 완료 (총: 6550)
+2025-11-05 20:13:29 | 배치 138/178: 50개 문서 저장 완료 (총: 6600)
+2025-11-05 20:13:29 | 배치 139/178: 50개 문서 저장 완료 (총: 6650)
+2025-11-05 20:13:29 | 배치 140/178: 50개 문서 저장 완료 (총: 6700)
+2025-11-05 20:13:29 | 배치 141/178: 50개 문서 저장 완료 (총: 6750)
+2025-11-05 20:13:29 | 배치 142/178: 50개 문서 저장 완료 (총: 6800)
+2025-11-05 20:13:29 | 배치 143/178: 50개 문서 저장 완료 (총: 6850)
+2025-11-05 20:13:29 | 배치 144/178: 50개 문서 저장 완료 (총: 6900)
+2025-11-05 20:13:29 | 배치 145/178: 50개 문서 저장 완료 (총: 6950)
+2025-11-05 20:13:29 | 배치 146/178: 50개 문서 저장 완료 (총: 7000)
+2025-11-05 20:13:29 | 배치 147/178: 50개 문서 저장 완료 (총: 7050)
+2025-11-05 20:13:29 | 배치 148/178: 50개 문서 저장 완료 (총: 7100)
+2025-11-05 20:13:29 | 배치 149/178: 50개 문서 저장 완료 (총: 7150)
+2025-11-05 20:13:29 | 배치 150/178: 50개 문서 저장 완료 (총: 7200)
+2025-11-05 20:13:29 | 배치 151/178: 50개 문서 저장 완료 (총: 7250)
+2025-11-05 20:13:29 | 배치 152/178: 50개 문서 저장 완료 (총: 7300)
+2025-11-05 20:13:29 | 배치 153/178: 50개 문서 저장 완료 (총: 7350)
+2025-11-05 20:13:29 | 배치 154/178: 50개 문서 저장 완료 (총: 7400)
+2025-11-05 20:13:29 | 배치 155/178: 50개 문서 저장 완료 (총: 7450)
+2025-11-05 20:13:29 | 배치 156/178: 50개 문서 저장 완료 (총: 7500)
+2025-11-05 20:13:29 | 배치 157/178: 50개 문서 저장 완료 (총: 7550)
+2025-11-05 20:13:29 | 배치 158/178: 50개 문서 저장 완료 (총: 7600)
+2025-11-05 20:13:29 | 배치 159/178: 50개 문서 저장 완료 (총: 7650)
+2025-11-05 20:13:29 | 배치 160/178: 50개 문서 저장 완료 (총: 7700)
+2025-11-05 20:13:29 | 배치 161/178: 50개 문서 저장 완료 (총: 7750)
+2025-11-05 20:13:29 | 배치 162/178: 50개 문서 저장 완료 (총: 7800)
+2025-11-05 20:13:29 | 배치 163/178: 50개 문서 저장 완료 (총: 7850)
+2025-11-05 20:13:29 | 배치 164/178: 50개 문서 저장 완료 (총: 7900)
+2025-11-05 20:13:29 | 배치 165/178: 50개 문서 저장 완료 (총: 7950)
+2025-11-05 20:13:29 | 배치 166/178: 50개 문서 저장 완료 (총: 8000)
+2025-11-05 20:13:29 | 배치 167/178: 50개 문서 저장 완료 (총: 8050)
+2025-11-05 20:13:29 | 배치 168/178: 50개 문서 저장 완료 (총: 8100)
+2025-11-05 20:13:29 | 배치 169/178: 50개 문서 저장 완료 (총: 8150)
+2025-11-05 20:13:29 | 배치 170/178: 50개 문서 저장 완료 (총: 8200)
+2025-11-05 20:13:29 | 배치 171/178: 50개 문서 저장 완료 (총: 8250)
+2025-11-05 20:13:29 | 배치 172/178: 50개 문서 저장 완료 (총: 8300)
+2025-11-05 20:13:29 | 배치 173/178: 50개 문서 저장 완료 (총: 8350)
+2025-11-05 20:13:29 | 배치 174/178: 50개 문서 저장 완료 (총: 8400)
+2025-11-05 20:13:29 | 배치 175/178: 50개 문서 저장 완료 (총: 8450)
+2025-11-05 20:13:29 | ⚠️  배치 176 오류 발생: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | 재시도 중... (1/3)
+2025-11-05 20:13:29 | ⚠️  배치 176 오류 발생: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | 재시도 중... (2/3)
+2025-11-05 20:13:29 | ⚠️  배치 176 오류 발생: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | ❌ 배치 176 최대 재시도 횟수 초과, 실패 목록에 추가
+2025-11-05 20:13:29 | ⚠️  배치 177 오류 발생: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | 재시도 중... (1/3)
+2025-11-05 20:13:29 | ⚠️  배치 177 오류 발생: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | 재시도 중... (2/3)
+2025-11-05 20:13:29 | ⚠️  배치 177 오류 발생: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | ❌ 배치 177 최대 재시도 횟수 초과, 실패 목록에 추가
+2025-11-05 20:13:29 | 배치 178/178: 42개 문서 저장 완료 (총: 8492)
+2025-11-05 20:13:29 | ⚠️  8개 배치 실패, 재시도 중...
+2025-11-05 20:13:29 | 재시도: 배치 44...
+2025-11-05 20:13:29 | ❌ 배치 44 재시도 실패: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | 재시도: 배치 45...
+2025-11-05 20:13:29 | ❌ 배치 45 재시도 실패: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | 재시도: 배치 65...
+2025-11-05 20:13:29 | ❌ 배치 65 재시도 실패: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | 재시도: 배치 66...
+2025-11-05 20:13:29 | ❌ 배치 66 재시도 실패: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | 재시도: 배치 87...
+2025-11-05 20:13:29 | ❌ 배치 87 재시도 실패: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | 재시도: 배치 92...
+2025-11-05 20:13:29 | ❌ 배치 92 재시도 실패: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | 재시도: 배치 176...
+2025-11-05 20:13:29 | ❌ 배치 176 재시도 실패: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | 재시도: 배치 177...
+2025-11-05 20:13:29 | ❌ 배치 177 재시도 실패: A string literal cannot contain NUL (0x00) characters.
+2025-11-05 20:13:29 | ✅ 8492/8892개 문서가 Vector DB에 저장되었습니다. (성공률: 95.5%)
+2025-11-05 20:13:29 | ⚠️  400개 문서가 저장되지 않았습니다.
+2025-11-05 20:13:29 | [STDERR] Ignoring wrong pointing object 12 0 (offset 0)
+2025-11-05 20:13:29 | [STDERR] Ignoring wrong pointing object 14 0 (offset 0)
+2025-11-05 20:13:29 | [STDERR] Ignoring wrong pointing object 58 0 (offset 0)
+2025-11-05 20:13:29 | [STDERR] Ignoring wrong pointing object 6 0 (offset 0)
+2025-11-05 20:13:29 | [STDERR] Ignoring wrong pointing object 8 0 (offset 0)
+2025-11-05 20:13:29 | [STDERR] Ignoring wrong pointing object 10 0 (offset 0)
+2025-11-05 20:13:29 | [STDERR] Ignoring wrong pointing object 12 0 (offset 0)
+2025-11-05 20:13:29 | [STDERR] Ignoring wrong pointing object 14 0 (offset 0)
+2025-11-05 20:13:29 | [STDERR] Ignoring wrong pointing object 26 0 (offset 0)
+2025-11-05 20:13:29 | [STDERR] Ignoring wrong pointing object 28 0 (offset 0)
+2025-11-05 20:13:29 | [STDERR] Ignoring wrong pointing object 30 0 (offset 0)
+2025-11-05 20:13:29 | [STDERR] Ignoring wrong pointing object 32 0 (offset 0)
+2025-11-05 20:13:29 | [STDERR] Ignoring wrong pointing object 34 0 (offset 0)
+2025-11-05 20:13:29 | [STDERR] Ignoring wrong pointing object 36 0 (offset 0)
+2025-11-05 20:13:29 | [STDERR] Ignoring wrong pointing object 38 0 (offset 0)
+2025-11-05 20:13:29 | [STDERR] Ignoring wrong pointing object 43 0 (offset 0)
+2025-11-05 20:13:29 | [STDERR] Ignoring wrong pointing object 45 0 (offset 0)
+2025-11-05 20:13:29 | [STDERR] Ignoring wrong pointing object 47 0 (offset 0)
+2025-11-05 20:13:29 | [STDERR] Ignoring wrong pointing object 49 0 (offset 0)
+2025-11-05 20:13:29 | [STDERR] Ignoring wrong pointing object 51 0 (offset 0)
+2025-11-05 20:13:29 | [STDERR] Ignoring wrong pointing object 72 0 (offset 0)
+2025-11-05 20:13:29 | [STDERR] Ignoring wrong pointing object 74 0 (offset 0)
+2025-11-05 20:13:29 | [STDERR] Ignoring wrong pointing object 95 0 (offset 0)
+2025-11-05 20:13:29 | [STDERR] Ignoring wrong pointing object 100 0 (offset 0)
+2025-11-05 20:13:29 | ✅ Phase 4: 임베딩 생성 및 Vector DB 저장 완료
+2025-11-05 20:13:29 | ============================================================
+2025-11-05 20:13:29 | ✅ 전체 파이프라인 실행 완료!
+2025-11-05 20:13:29 | ============================================================
+2025-11-05 20:13:29 | ==================================================
+2025-11-05 20:13:29 | 실험 종료
+2025-11-05 20:13:29 | ==================================================
+2025-11-05 20:13:29 | 삭제할 빈 폴더 없음

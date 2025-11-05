@@ -1,0 +1,12 @@
+[
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "Attention is all you need 논문 찾아줘",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 4445,
+    "timestamp": "2025-11-05T19:02:33.308402"
+  }
+]
