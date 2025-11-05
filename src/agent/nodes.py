@@ -72,78 +72,96 @@ def router_node(state: AgentState, exp_manager=None):
     # 난이도 추출 (프롬프트 포맷팅 전에 필요)
     difficulty = state.get("difficulty", "easy")  # 난이도 (기본값: easy)
 
-    # JSON 프롬프트 로드
-    routing_prompt_template = get_routing_prompt()    # JSON 파일에서 프롬프트 로드
-    routing_prompt = routing_prompt_template.format(question=question, difficulty=difficulty)  # 질문 및 난이도 삽입
+    # ========== 우선순위 1: 질문 유형 기반 도구 선택 (가장 정확) ==========
+    question_type = state.get("question_type", "")
+    fallback_chain = state.get("fallback_chain", [])
 
-    # 난이도별 LLM 초기화
-    llm_client = LLMClient.from_difficulty(
-        difficulty=difficulty,
-        logger=exp_manager.logger if exp_manager else None
-    )
-
-    # LLM 호출
-    raw_response = llm_client.llm.invoke(routing_prompt).content.strip()  # 도구 선택
-
-    # 마크다운 코드 펜스 제거 (LLM이 ```json ... ``` 형식으로 응답하는 경우 처리)
-    cleaned_response = raw_response
-    if "```" in cleaned_response:
-        # ```json, ```, 또는 ```python 등 모든 코드 펜스 제거
-        lines = cleaned_response.split("\n")
-        lines = [line for line in lines if not line.strip().startswith("```")]
-        cleaned_response = "\n".join(lines).strip()
-
-    # 응답 파싱: JSON 형식이면 JSON으로, 아니면 첫 단어 추출
-    tool_choice = "general"  # 기본값
-
-    # 1. JSON 파싱 시도
-    if cleaned_response.strip().startswith("{"):
-        try:
-            import json
-            parsed = json.loads(cleaned_response)
-
-            # {"tools": [{"name": "xxx"}]} 형식
-            if "tools" in parsed and len(parsed["tools"]) > 0:
-                tool_name = parsed["tools"][0].get("name", "general")
-                # 도구명 추출 (full name이 아닌 짧은 이름으로 매핑)
-                if "search_paper" in tool_name.lower() or "paper" in tool_name.lower():
-                    tool_choice = "search_paper"
-                elif "web_search" in tool_name.lower() or "web" in tool_name.lower():
-                    tool_choice = "web_search"
-                elif "glossary" in tool_name.lower() or "용어" in tool_name.lower():
-                    tool_choice = "glossary"
-                elif "summarize" in tool_name.lower() or "요약" in tool_name.lower():
-                    tool_choice = "summarize"
-                elif "text2sql" in tool_name.lower() or "sql" in tool_name.lower():
-                    tool_choice = "text2sql"
-                elif "save" in tool_name.lower() or "저장" in tool_name.lower():
-                    tool_choice = "save_file"
-                else:
-                    tool_choice = "general"
-            elif "tool" in parsed:
-                # {"tool": "xxx"} 형식
-                tool_choice = parsed["tool"]
-
-        except (json.JSONDecodeError, KeyError, IndexError):
-            # JSON 파싱 실패 시 첫 단어 추출
-            tool_choice = cleaned_response.split()[0] if cleaned_response else "general"
-    else:
-        # 2. 일반 텍스트: 첫 번째 단어만 추출
-        tool_choice = cleaned_response.split()[0] if cleaned_response else "general"
-
-    # 유효한 도구 목록
-    valid_tools = ["general", "glossary", "search_paper", "web_search", "summarize", "text2sql", "save_file"]
-
-    # 유효하지 않은 도구명이면 general로 폴백
-    if tool_choice not in valid_tools:
+    # 질문 유형별 도구 매핑
+    tool_choice = None
+    if question_type and fallback_chain:
+        # fallback_chain의 첫 번째 도구를 우선 사용
+        tool_choice = fallback_chain[0]
         if exp_manager:
-            exp_manager.logger.write(f"⚠️ 유효하지 않은 도구: {tool_choice} → general로 폴백", print_error=True)
-        tool_choice = "general"
+            exp_manager.logger.write(f"질문 유형 기반 라우팅: {question_type} → {tool_choice}")
 
-    # 로깅
+    # ========== 우선순위 2: LLM 라우팅 (보조) ==========
+    if tool_choice is None:
+        # JSON 프롬프트 로드
+        routing_prompt_template = get_routing_prompt()    # JSON 파일에서 프롬프트 로드
+        routing_prompt = routing_prompt_template.format(question=question, difficulty=difficulty)  # 질문 및 난이도 삽입
+
+        # 난이도별 LLM 초기화
+        llm_client = LLMClient.from_difficulty(
+            difficulty=difficulty,
+            logger=exp_manager.logger if exp_manager else None
+        )
+
+        # LLM 호출
+        raw_response = llm_client.llm.invoke(routing_prompt).content.strip()  # 도구 선택
+
+        # 마크다운 코드 펜스 제거 (LLM이 ```json ... ``` 형식으로 응답하는 경우 처리)
+        cleaned_response = raw_response
+        if "```" in cleaned_response:
+            # ```json, ```, 또는 ```python 등 모든 코드 펜스 제거
+            lines = cleaned_response.split("\n")
+            lines = [line for line in lines if not line.strip().startswith("```")]
+            cleaned_response = "\n".join(lines).strip()
+
+        # 응답 파싱: JSON 형식이면 JSON으로, 아니면 첫 단어 추출
+        tool_choice = "general"  # 기본값
+
+        # 1. JSON 파싱 시도
+        if cleaned_response.strip().startswith("{"):
+            try:
+                import json
+                parsed = json.loads(cleaned_response)
+
+                # {"tools": [{"name": "xxx"}]} 형식
+                if "tools" in parsed and len(parsed["tools"]) > 0:
+                    tool_name = parsed["tools"][0].get("name", "general")
+                    # 도구명 추출 (full name이 아닌 짧은 이름으로 매핑)
+                    if "search_paper" in tool_name.lower() or "paper" in tool_name.lower() or "논문" in tool_name.lower():
+                        tool_choice = "search_paper"
+                    elif "web_search" in tool_name.lower() or "web" in tool_name.lower() or "웹" in tool_name.lower() or "위키" in tool_name.lower():
+                        tool_choice = "web_search"
+                    elif "glossary" in tool_name.lower() or "용어" in tool_name.lower() or "정의" in tool_name.lower():
+                        tool_choice = "glossary"
+                    elif "summarize" in tool_name.lower() or "요약" in tool_name.lower():
+                        tool_choice = "summarize"
+                    elif "text2sql" in tool_name.lower() or "sql" in tool_name.lower() or "통계" in tool_name.lower():
+                        tool_choice = "text2sql"
+                    elif "save" in tool_name.lower() or "저장" in tool_name.lower():
+                        tool_choice = "save_file"
+                    else:
+                        tool_choice = "general"
+                elif "tool" in parsed:
+                    # {"tool": "xxx"} 형식
+                    tool_choice = parsed["tool"]
+
+            except (json.JSONDecodeError, KeyError, IndexError):
+                # JSON 파싱 실패 시 첫 단어 추출
+                tool_choice = cleaned_response.split()[0] if cleaned_response else "general"
+        else:
+            # 2. 일반 텍스트: 첫 번째 단어만 추출
+            tool_choice = cleaned_response.split()[0] if cleaned_response else "general"
+
+        # 유효한 도구 목록
+        valid_tools = ["general", "glossary", "search_paper", "web_search", "summarize", "text2sql", "save_file"]
+
+        # 유효하지 않은 도구명이면 general로 폴백
+        if tool_choice not in valid_tools:
+            if exp_manager:
+                exp_manager.logger.write(f"⚠️ 유효하지 않은 도구: {tool_choice} → general로 폴백", print_error=True)
+            tool_choice = "general"
+
+        # 로깅
+        if exp_manager:
+            exp_manager.logger.write(f"LLM 라우팅 결정 (원본): {raw_response[:100]}...")
+            exp_manager.logger.write(f"LLM 라우팅 결정 (파싱): {tool_choice}")
+
+    # 최종 로깅
     if exp_manager:
-        exp_manager.logger.write(f"라우팅 결정 (원본): {raw_response[:100]}...")
-        exp_manager.logger.write(f"라우팅 결정 (파싱): {tool_choice}")
+        exp_manager.logger.write(f"최종 선택 도구: {tool_choice}")
 
     # 상태 업데이트
     state["tool_choice"] = tool_choice          # 선택된 도구 저장
