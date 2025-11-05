@@ -449,7 +449,15 @@ class ExperimentManager:
         # outputs 폴더가 없으면 생성 (다른 세션의 cleanup으로 삭제된 경우 대비)
         self.outputs_dir.mkdir(parents=True, exist_ok=True)
 
-        output_path = self.outputs_dir / filename
+        # save_file 도구를 통한 저장인 경우 save_data 하위 폴더에 저장
+        # 파일명에 타임스탬프와 질문이 포함되어 있으면 save_data 폴더 사용
+        if filename.endswith('.md') and '_' in filename:
+            save_data_dir = self.outputs_dir / "save_data"
+            save_data_dir.mkdir(parents=True, exist_ok=True)
+            output_path = save_data_dir / filename
+        else:
+            output_path = self.outputs_dir / filename
+
         with open(output_path, 'w', encoding='utf-8') as f:
             f.write(content)
 

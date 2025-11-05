@@ -65,7 +65,13 @@ def save_file_node(state: AgentState, exp_manager=None):
 
     # -------------- 파일명 생성 -------------- #
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")  # 타임스탬프 생성
-    filename = f"response_{timestamp}.txt"      # 파일명 구성
+
+    # 질문 문장을 파일명에 포함 (특수문자 제거, 길이 제한)
+    safe_question = question[:50] if question else "질문없음"  # 최대 50자
+    safe_question = "".join(c if c.isalnum() or c in (' ', '_', '-') else '_' for c in safe_question)
+    safe_question = safe_question.strip().replace(' ', '_')
+
+    filename = f"{timestamp}_{safe_question}.md"      # 파일명 구성 (.md로 변경)
 
     if exp_manager:
         exp_manager.logger.write(f"파일명: {filename}")
