@@ -330,6 +330,28 @@ def create_agent_graph(exp_manager=None):
             if exp_manager:
                 exp_manager.logger.write(f"Pipeline 진행: {pipeline_index}/{len(tool_pipeline)}")
 
+            # ✅ 검색 도구 스킵 로직: RAG 또는 웹 검색이 성공했으면 다른 검색 도구 스킵
+            tool_result = state.get("tool_result", "")
+            last_tool = tool_pipeline[pipeline_index - 1] if pipeline_index > 0 else None
+
+            # search_paper 성공 시: web_search, general 스킵하고 summarize로 이동
+            if last_tool == "search_paper" and tool_result and "찾을 수 없습니다" not in tool_result:
+                # summarize 도구가 있으면 그 위치로 이동
+                if "summarize" in tool_pipeline[pipeline_index:]:
+                    summarize_index = tool_pipeline.index("summarize", pipeline_index)
+                    state["pipeline_index"] = summarize_index
+                    if exp_manager:
+                        exp_manager.logger.write(f"RAG 검색 성공: web_search, general 스킵 → summarize로 이동")
+
+            # web_search 성공 시: general 스킵하고 summarize로 이동
+            elif last_tool == "web_search" and tool_result and len(tool_result) > 100:
+                # summarize 도구가 있으면 그 위치로 이동
+                if "summarize" in tool_pipeline[pipeline_index:]:
+                    summarize_index = tool_pipeline.index("summarize", pipeline_index)
+                    state["pipeline_index"] = summarize_index
+                    if exp_manager:
+                        exp_manager.logger.write(f"웹 검색 성공: general 스킵 → summarize로 이동")
+
             # 다음 도구로 이동 (route_next_pipeline_tool이 state 업데이트)
             route_next_pipeline_tool(state)
 
