@@ -357,8 +357,8 @@ def _validate_multi_request_patterns(patterns: List[Dict[str, Any]]):
             raise ValueError(f"패턴 {i}에 tools 필드가 없습니다.")
 
         tools = pattern["tools"]
-        if not isinstance(tools, list) or len(tools) < 2:
-            raise ValueError(f"패턴 {i}의 tools는 최소 2개 이상의 도구 리스트여야 합니다.")
+        if not isinstance(tools, list) or len(tools) < 1:
+            raise ValueError(f"패턴 {i}의 tools는 최소 1개 이상의 도구 리스트여야 합니다.")
 
         for tool in tools:
             if tool not in valid_tools:
