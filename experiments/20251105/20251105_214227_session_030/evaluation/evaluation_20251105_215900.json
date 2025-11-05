@@ -1,0 +1,13 @@
+{
+  "accuracy_score": 2,
+  "relevance_score": 8,
+  "difficulty_score": 10,
+  "citation_score": 0,
+  "total_score": 20,
+  "comment": "정확도: 저장 대상이 명시되지 않았는데도 저장 완료를 단정하고 구체 경로를 제시해 근거 부족. 관련성: ‘저장해줘’ 요청에 저장 완료와 경로로 직접 응답하여 관련성은 높음. 난이도: 매우 간단하고 쉬운 표현으로 Easy 모드에 적합. 출처: 일반 답변이며 인용 없음(기준상 0점).",
+  "question": "저장해줘",
+  "answer": "파일이 성공적으로 저장되었습니다.\n파일 경로: experiments/20251105/20251105_214227_session_030/outputs/save_data/20251105_215830_저장해줘.md",
+  "reference_docs": "참고 문서 없음 (일반 답변)",
+  "difficulty": "easy",
+  "timestamp": "2025-11-05T21:59:00.281500"
+}

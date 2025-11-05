@@ -1,0 +1,96 @@
+[SYSTEM PROMPT - beginner]
+당신은 논문을 쉽게 설명하는 친절한 전문가입니다.
+
+답변 규칙:
+- 검색된 논문들을 번호로 정리하세요
+- 각 논문마다:
+  1. 제목 (저자, 연도)
+  2. 핵심 내용 3-5줄 요약
+  3. 왜 이 논문이 중요한지
+  4. 유사도 점수 (있으면)
+- 전문 용어는 괄호로 쉽게 설명
+- 최대 5개까지만 소개
+- 친근하고 이해하기 쉬운 톤
+
+[USER PROMPT]
+[논문 검색 결과]
+## 검색된 논문
+
+### 1. Levels of AI Agents: from Rules to Large Language Models
+- **저자**: Yu Huang
+- **출판일**: 2024-03-06
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2405.06643v2
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.5333
+
+. LLM-based agents realize their planning capabilities from the LLM. Furthermore, LLMs display significant potential in intent understanding and other aspects.  LLM-based agents may fail to reach correct knowledge by prompts, or even face the hallucination problem. Specialized tools enable LLMs to boost their expertise and adapt domain knowledge. The decision-making
+
+---
+
+### 2. Responsible AI Agents
+- **저자**: Deven R. Desai, Mark O. Riedl
+- **출판일**: 2025-02-25
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2502.18359v1
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.5693
+
+LLMs do not, however, know what APIs are available, nor how to use them, nor how to interpret the information they return unless they are coded into the system. For example, suppose you are traveling, your flight connects through the world’s busiest airport, Hartsfield Atlanta Airport, and you want to know the weather at the airport because of a coming storm. The LLM will receive two prompts: your question about the weather is the user prompt, to which is added a secret additional piece of text called the system prompt.141 The system prompt is hidden from the user but vital for the end result
+
+---
+
+### 3. Responsible AI Agents
+- **저자**: Deven R. Desai, Mark O. Riedl
+- **출판일**: 2025-02-25
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2502.18359v1
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.5722
+
+. Its functionality was entirely contained without any way to communicate with other systems except to return a text response. Once an LLM can go outside its system and call an API, the LLM is “agentic,” that is it is able to interact with the world beyond being limited to the system’s data and the user interaction at some level. In the parlance of the AI research community, the LLM is referred to as using “tools”, and the “tool” is another system that does some work on behalf of the LLM and is accessed via an API. Knowledge of these tools, however, doesn’t necessarily come from the LLM’s trai...
+
+---
+
+### 4. A Survey of Large Language Models for European Languages
+- **저자**: Wazir Ali, Sampo Pyysalo
+- **출판일**: 2024-08-27
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2408.15040v2
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.5746
+
+and trillion, respectively. While most LLMs are multilingual, their primary focus is often the English language.
+”en-Wiki” denotes an English Wikipedia dump. This work focuses on general-purpose LLMs; for a domain-specific
+survey on LLMs, multiple domains can be referred to in [68].
+5
+
+---
+
+### 5. Levels of AI Agents: from Rules to Large Language Models
+- **저자**: Yu Huang
+- **출판일**: 2024-03-06
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2405.06643v2
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.5789
+
+.  It is regarded that LLMs are equipped with human-like intelligence and common sense to preserve the potential to make us closer to the Artificial General Intelligence (AGI) field. The emergence of LLMs is possibly the milestone of knowledge-driven agents, which perceive the environment and accumulate knowledge [17-27].  3 AI Agents  AI agents are capable to comprehend, predict, and response based on its training and input data. While these capabilities are developed and improved, it’s important to understand their limitations and the effect of the underlying data they are trained on. There ...
+
+---
+
+
+[질문]
+llm이 뭐야?
+
+위 검색 결과를 바탕으로 질문에 답변해주세요.
+
+===== 메타데이터 =====
+tool: search_paper
+difficulty: easy
+level: beginner

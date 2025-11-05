@@ -1,0 +1,12 @@
+[
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "llm이 뭐야?",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 3611,
+    "timestamp": "2025-11-05T21:42:46.942694"
+  }
+]
