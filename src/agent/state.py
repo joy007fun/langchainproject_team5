@@ -21,6 +21,7 @@ class AgentState(TypedDict, total=False):
 
     Attributes:
         question (str): 사용자 질문
+        refined_query (str): 맥락을 고려하여 재작성된 질문 (Multi-turn 지원)
         difficulty (str): 난이도 ('easy' 또는 'hard')
         tool_choice (str): 선택된 도구 이름
         tool_result (str): 도구 실행 결과
@@ -49,6 +50,7 @@ class AgentState(TypedDict, total=False):
     """
     # 기본 필드
     question: str                               # 사용자 질문
+    refined_query: str                          # 맥락을 고려하여 재작성된 질문 (Multi-turn 지원)
     difficulty: str                             # 난이도 (easy/hard)
     tool_choice: str                            # 선택된 도구
     tool_result: str                            # 도구 실행 결과
