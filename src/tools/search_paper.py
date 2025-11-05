@@ -273,6 +273,16 @@ def search_paper_node(state, exp_manager=None):
         if tool_logger:
             tool_logger.write(f"검색 결과: {len(raw_results)} 글자")
 
+        # -------------- 검색 결과 없음 체크 (Fallback 트리거) -------------- #
+        if "관련 논문을 찾을 수 없습니다" in raw_results:
+            if tool_logger:
+                tool_logger.write("데이터베이스에서 논문을 찾지 못했습니다. Fallback 필요.")
+                tool_logger.close()
+
+            # 명확한 실패 메시지 반환 (failure_detector가 감지 가능)
+            state["final_answer"] = "데이터베이스에서 관련 논문을 찾지 못했습니다."
+            return state
+
         # -------------- pgvector 검색 기록 -------------- #
         if exp_manager:
             exp_manager.log_pgvector_search({
