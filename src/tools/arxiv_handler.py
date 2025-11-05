@@ -5,8 +5,8 @@ arXiv 논문 자동 저장 모듈
 웹 검색 결과에서 arXiv 논문을 자동으로 다운로드하고 DB에 저장:
 - arXiv URL 파싱 및 메타데이터 추출
 - PDF 다운로드 (data/raw 폴더)
-- PDF 텍스트 추출
 - papers 테이블 저장
+- 고품질 청킹 (PaperDocumentLoader 활용)
 - 임베딩 생성 및 pgvector 저장
 """
 
@@ -21,6 +21,12 @@ import psycopg2
 from langchain_core.documents import Document
 from langchain_openai import OpenAIEmbeddings
 from langchain_postgres.vectorstores import PGVector
+
+# PaperDocumentLoader import
+import sys
+project_root = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(project_root))
+from src.data.document_loader import PaperDocumentLoader
 
 # PDF 텍스트 추출
 try:
@@ -377,46 +383,54 @@ class ArxivPaperHandler:
     # ============================================================ #
     #              6. 임베딩 생성 및 pgvector 저장                  #
     # ============================================================ #
-    def save_to_pgvector(self, paper_id: int, arxiv_id: str, text: str, chunk_size: int = 1000) -> bool:
+    def save_to_pgvector(self, paper_id: int, arxiv_id: str, pdf_path: Path, metadata: Optional[Dict] = None) -> bool:
         """
-        텍스트를 청킹하여 pgvector에 저장
+        PaperDocumentLoader를 사용하여 고품질 청킹 후 pgvector에 저장
 
         Args:
             paper_id: papers 테이블의 paper_id
             arxiv_id: arXiv ID
-            text: 논문 전체 텍스트
-            chunk_size: 청크 크기 (글자 수)
+            pdf_path: PDF 파일 경로
+            metadata: 추가 메타데이터
 
         Returns:
             성공 여부
         """
         try:
-            # 텍스트 청킹
-            chunks = self._chunk_text(text, chunk_size)
+            # PaperDocumentLoader 초기화 (run_full_pipeline과 동일한 설정)
+            loader = PaperDocumentLoader(
+                chunk_size=1000,
+                chunk_overlap=200
+            )
 
             if self.logger:
-                self.logger.write(f"텍스트 청킹 완료: {len(chunks)}개 청크")
+                self.logger.write(f"PaperDocumentLoader 초기화 완료 (chunk_size=1000, overlap=200)")
 
-            # Document 객체 생성
-            documents = []
-            for i, chunk in enumerate(chunks):
-                doc = Document(
-                    page_content=chunk,
-                    metadata={
-                        'paper_id': paper_id,
-                        'arxiv_id': arxiv_id,
-                        'chunk_index': i,
-                        'source': f"arxiv_{arxiv_id}"
-                    }
-                )
-                documents.append(doc)
+            # 메타데이터 준비
+            if metadata is None:
+                metadata = {}
+            metadata['paper_id'] = paper_id
+            metadata['arxiv_id'] = arxiv_id
+
+            # load_and_split: 저작권 필터링 + RecursiveCharacterTextSplitter 청킹
+            documents = loader.load_and_split(pdf_path, metadata)
+
+            if self.logger:
+                self.logger.write(f"고품질 청킹 완료: {len(documents)}개 청크 (저작권 필터링 적용)")
+
+            # 중복 제거 (load_embeddings.py와 동일)
+            documents = self._deduplicate_chunks(documents)
+
+            if self.logger:
+                self.logger.write(f"중복 제거 후: {len(documents)}개 청크")
 
             # PGVector에 저장
             embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
             vectorstore = PGVector(
                 collection_name="paper_chunks",
                 embeddings=embeddings,
-                connection=self.db_url
+                connection=self.db_url,
+                use_jsonb=True
             )
 
             if self.logger:
@@ -434,9 +448,41 @@ class ArxivPaperHandler:
                 self.logger.write(f"pgvector 저장 실패: {e}", print_error=True)
             return False
 
+    def _deduplicate_chunks(self, chunks: List[Document]) -> List[Document]:
+        """
+        중복 청크 제거 (load_embeddings.py의 deduplicate_chunks와 동일)
+
+        Args:
+            chunks: 청크 리스트
+
+        Returns:
+            중복이 제거된 청크 리스트
+        """
+        seen_contents = set()
+        unique_chunks = []
+        duplicate_count = 0
+
+        for chunk in chunks:
+            # 내용 해시 생성 (page_content 기준)
+            content_hash = hash(chunk.page_content)
+
+            if content_hash not in seen_contents:
+                seen_contents.add(content_hash)
+                unique_chunks.append(chunk)
+            else:
+                duplicate_count += 1
+
+        if duplicate_count > 0 and self.logger:
+            self.logger.write(f"   ℹ️  {duplicate_count}개 중복 청크 제거됨")
+
+        return unique_chunks
+
     def _chunk_text(self, text: str, chunk_size: int) -> List[str]:
         """
-        텍스트를 청크로 분할
+        [DEPRECATED] 단순 청킹 방식 (overlap 없음)
+
+        이 메서드는 더 이상 사용되지 않습니다.
+        대신 save_to_pgvector()가 PaperDocumentLoader를 사용합니다.
 
         Args:
             text: 전체 텍스트
@@ -445,7 +491,7 @@ class ArxivPaperHandler:
         Returns:
             청크 리스트
         """
-        # 간단한 청킹 (overlap 없음)
+        # 간단한 청킹 (overlap 없음) - DEPRECATED
         chunks = []
         for i in range(0, len(text), chunk_size):
             chunk = text[i:i + chunk_size]
@@ -459,7 +505,7 @@ class ArxivPaperHandler:
     # ============================================================ #
     def process_arxiv_paper(self, url: str) -> bool:
         """
-        arXiv 논문 전체 처리 프로세스
+        arXiv 논문 전체 처리 프로세스 (고품질 청킹)
 
         Args:
             url: arXiv URL
@@ -485,20 +531,24 @@ class ArxivPaperHandler:
         if not pdf_path:
             return False
 
-        # 4. PDF 텍스트 추출
-        text = self.extract_text_from_pdf(pdf_path)
-        if not text:
-            return False
-
-        # 5. papers 테이블 저장
+        # 4. papers 테이블 저장
         paper_id = self.save_to_papers_table(metadata)
         if not paper_id:
             return False
 
-        # 6. pgvector 저장
-        success = self.save_to_pgvector(paper_id, arxiv_id, text)
+        # 5. pgvector 저장 (고품질 청킹: PaperDocumentLoader 사용)
+        # 추가 메타데이터 준비
+        extra_metadata = {
+            'title': metadata.get('title'),
+            'authors': metadata.get('authors'),
+            'publish_date': metadata.get('publish_date'),
+            'url': metadata.get('url')
+        }
+
+        success = self.save_to_pgvector(paper_id, arxiv_id, pdf_path, extra_metadata)
 
         if success and self.logger:
             self.logger.write(f"arXiv 논문 처리 완료: {arxiv_id} (paper_id={paper_id})")
+            self.logger.write(f"고품질 청킹 적용: RecursiveCharacterTextSplitter + 저작권 필터링 + 중복 제거")
 
         return success
