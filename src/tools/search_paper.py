@@ -143,6 +143,76 @@ def _build_filter(year_gte: Optional[int], author: Optional[str], category: Opti
     return f
 
 
+def _keyword_search(query: str, top_k: int = 5) -> List[Dict[str, Any]]:
+    """
+    PostgreSQL Full-Text Search로 키워드 검색.
+
+    Args:
+        query: 검색 질문
+        top_k: 반환할 결과 수
+
+    Returns:
+        List[Dict[str, Any]]: 키워드 검색 결과 (paper_id, title, abstract, score)
+    """
+    from src.database.connection import get_connection
+
+    conn = get_connection()
+    try:
+        cursor = conn.cursor()
+
+        # PostgreSQL Full-Text Search (title, abstract)
+        sql = """
+        SELECT
+            paper_id,
+            title,
+            abstract,
+            authors,
+            publish_date,
+            category,
+            citation_count,
+            url,
+            (
+                CASE
+                    WHEN title ILIKE %s THEN 2.0
+                    ELSE 0.0
+                END +
+                CASE
+                    WHEN abstract ILIKE %s THEN 1.0
+                    ELSE 0.0
+                END
+            ) AS keyword_score
+        FROM papers
+        WHERE title ILIKE %s OR abstract ILIKE %s
+        ORDER BY keyword_score DESC, citation_count DESC
+        LIMIT %s
+        """
+
+        search_pattern = f"%{query}%"
+        cursor.execute(sql, (search_pattern, search_pattern, search_pattern, search_pattern, top_k))
+
+        results = []
+        for row in cursor.fetchall():
+            results.append({
+                "paper_id": row[0],
+                "title": row[1],
+                "abstract": row[2],
+                "authors": row[3],
+                "publish_date": row[4],
+                "category": row[5],
+                "citation_count": row[6],
+                "url": row[7],
+                "keyword_score": float(row[8]),
+            })
+
+        cursor.close()
+        return results
+
+    except Exception as e:
+        return []
+    finally:
+        conn.close()
+
+
 # ==================== @tool: 논문 검색 ==================== #
 
 @tool
@@ -155,9 +225,12 @@ def search_paper_database(
     with_scores: bool = True,
     use_multi_query: bool = True,
     search_mode: str = "mmr",  # "similarity" | "mmr"
+    use_hybrid: bool = True,   # 하이브리드 검색 사용 여부
+    tool_name: str = "search_paper",  # 도구명 (가중치 조정용)
 ) -> str:
     """
     논문 VectorDB + PostgreSQL 메타데이터를 함께 조회하여 결과를 반환.
+    하이브리드 검색: 벡터 검색 + 키워드 검색 가중치 결합
 
     Parameters
     ----------
@@ -177,7 +250,23 @@ def search_paper_database(
         MultiQuery(LLM 쿼리 확장) 사용 여부
     search_mode : str
         "similarity" 또는 "mmr"
+    use_hybrid : bool
+        하이브리드 검색 사용 여부
+    tool_name : str
+        도구명 (glossary, search_paper 등)
     """
+
+    # ---------- Config에서 하이브리드 검색 가중치 로드 ----------
+    from src.utils.config_loader import get_model_config
+
+    config = get_model_config()
+    hybrid_config = config.get("rag", {}).get("hybrid_search", {})
+    hybrid_enabled = hybrid_config.get("enabled", True) and use_hybrid
+
+    # 도구별 가중치 우선 사용, 없으면 기본 가중치
+    tool_weights = hybrid_config.get("tool_specific_weights", {}).get(tool_name, {})
+    vector_weight = tool_weights.get("vector_weight", hybrid_config.get("vector_weight", 0.7))
+    keyword_weight = tool_weights.get("keyword_weight", hybrid_config.get("keyword_weight", 0.3))
 
     # ---------- Retriever 준비 ----------
     r = RAGRetriever(search_type=search_mode, k=top_k)
@@ -204,6 +293,11 @@ def search_paper_database(
             else:
                 docs = r.similarity_search(query, k=top_k)
 
+    # ---------- 하이브리드 검색: 키워드 검색 추가 ----------
+    keyword_results = []
+    if hybrid_enabled:
+        keyword_results = _keyword_search(query, top_k=top_k)
+
     # ---------- paper_id 메타로 PostgreSQL 메타데이터 조회 ----------
     paper_ids = []
     for d in docs:
@@ -218,30 +312,80 @@ def search_paper_database(
                 pass
     meta_map = _fetch_paper_meta(list(set(paper_ids)))
 
-    # ---------- 결과 합성 ----------
-    score_map: Dict[str, float] = {}
+    # ---------- 결과 합성 (하이브리드 검색 가중치 적용) ----------
+    score_map: Dict[int, float] = {}  # paper_id → final_score
+
+    # 1. 벡터 검색 점수 (가중치 적용)
     if with_scores and pairs:
         for d, s in pairs:
             if s is None:
                 continue
-            score_map[id(d)] = float(s)
+            pid = d.metadata.get("paper_id")
+            if pid:
+                # 벡터 검색 점수: 낮을수록 유사 (distance) → 정규화 필요
+                # score = 1 / (1 + distance) 형태로 변환
+                normalized_score = 1.0 / (1.0 + float(s))
+                score_map[pid] = score_map.get(pid, 0.0) + normalized_score * vector_weight
 
+    # 2. 키워드 검색 점수 (가중치 적용)
+    if hybrid_enabled and keyword_results:
+        for kw_result in keyword_results:
+            pid = kw_result["paper_id"]
+            keyword_score = kw_result["keyword_score"]
+            # 키워드 점수: 높을수록 좋음 (title: 2.0, abstract: 1.0)
+            # 정규화: 최대 3.0 기준 (title + abstract)
+            normalized_kw_score = keyword_score / 3.0
+            score_map[pid] = score_map.get(pid, 0.0) + normalized_kw_score * keyword_weight
+
+    # 3. 최종 결과 생성 (score 기준 정렬)
     results: List[Dict[str, Any]] = []
+    seen_pids = set()
+
+    # 벡터 검색 결과 추가
     for d in docs:
         pid = d.metadata.get("paper_id")
-        meta = meta_map.get(pid, {}) if pid is not None else {}
-        results.append({
-            "paper_id": pid,
-            "title": meta.get("title") or d.metadata.get("title"),
-            "authors": meta.get("authors") or d.metadata.get("authors"),
-            "publish_date": meta.get("publish_date") or d.metadata.get("publish_date"),
-            "url": meta.get("url") or d.metadata.get("url"),
-            "category": meta.get("category") or d.metadata.get("category"),
-            "citation_count": meta.get("citation_count"),
-            "section": d.metadata.get("section", "본문"),
-            "content": d.page_content,
-            "score": score_map.get(id(d)) if with_scores else None,
-        })
+        if pid and pid not in seen_pids:
+            seen_pids.add(pid)
+            meta = meta_map.get(pid, {}) if pid is not None else {}
+            results.append({
+                "paper_id": pid,
+                "title": meta.get("title") or d.metadata.get("title"),
+                "authors": meta.get("authors") or d.metadata.get("authors"),
+                "publish_date": meta.get("publish_date") or d.metadata.get("publish_date"),
+                "url": meta.get("url") or d.metadata.get("url"),
+                "category": meta.get("category") or d.metadata.get("category"),
+                "citation_count": meta.get("citation_count"),
+                "section": d.metadata.get("section", "본문"),
+                "content": d.page_content,
+                "score": score_map.get(pid, 0.0) if with_scores else None,
+            })
+
+    # 키워드 검색 결과 추가 (중복 제외)
+    if hybrid_enabled and keyword_results:
+        for kw_result in keyword_results:
+            pid = kw_result["paper_id"]
+            if pid not in seen_pids:
+                seen_pids.add(pid)
+                # 키워드 검색으로만 찾은 경우 content는 abstract 사용
+                results.append({
+                    "paper_id": pid,
+                    "title": kw_result.get("title"),
+                    "authors": kw_result.get("authors"),
+                    "publish_date": kw_result.get("publish_date"),
+                    "url": kw_result.get("url"),
+                    "category": kw_result.get("category"),
+                    "citation_count": kw_result.get("citation_count"),
+                    "section": "초록",
+                    "content": kw_result.get("abstract", ""),
+                    "score": score_map.get(pid, 0.0) if with_scores else None,
+                })
+
+    # 점수 기준 정렬 (높은 점수부터)
+    if with_scores and hybrid_enabled:
+        results.sort(key=lambda x: x.get("score", 0.0), reverse=True)
+
+    # top_k 제한
+    results = results[:top_k]
 
     # ---------- Markdown 포맷으로 반환 ----------
     return _format_markdown(results)
@@ -287,6 +431,8 @@ def search_paper_node(state, exp_manager=None):
             "with_scores": True,                          # 유사도 점수 포함
             "use_multi_query": True,                      # ✅ MultiQuery 활성화 (검색 강화)
             "search_mode": "similarity",                  # 유사도 검색
+            "use_hybrid": True,                           # ✅ 하이브리드 검색 활성화 (벡터+키워드)
+            "tool_name": "search_paper",                  # ✅ 도구명 (가중치 조정용)
         })
 
         if tool_logger:
