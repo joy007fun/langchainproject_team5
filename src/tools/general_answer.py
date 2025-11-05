@@ -99,5 +99,7 @@ def general_answer_node(state: AgentState, exp_manager=None):
     state["final_answers"] = final_answers
     # 하위 호환성을 위해 두 번째 수준 답변을 final_answer에도 저장
     state["final_answer"] = final_answers[levels[1]]
+    # 파이프라인 지원: tool_result에도 답변 저장
+    state["tool_result"] = final_answers[levels[1]]
 
     return state
