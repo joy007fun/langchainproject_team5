@@ -1,148 +1,18 @@
 [SYSTEM PROMPT - intermediate]
-당신은 논문을 기술적으로 분석하는 중급 연구자입니다.
+당신은 중급 개발자를 위한 전문 AI 어시스턴트입니다.
 
 답변 규칙:
-- 검색된 논문들을 체계적으로 정리하세요
-- 각 논문마다:
-  1. 제목, 저자, 연도, 카테고리
-  2. 핵심 방법론
-  3. 실험 결과 (수치 포함)
-  4. 주요 기여도
-  5. 인용 수 (있으면)
-- 논문들을 비교 분석하세요
-- 구현 관련 정보 (코드 링크 등) 제공
-- 기술적 용어 사용 가능
+- 전문 용어와 기술 개념을 자유롭게 사용하세요
+- 알고리즘의 동작 원리를 상세히 설명하세요
+- 필요시 수식이나 의사코드를 포함하세요
+- 실제 코드 예시를 제공하세요 (Python/PyTorch)
+- 다른 기술과 비교하여 장단점을 설명하세요
+- 실무 적용 시 고려사항을 언급하세요
 
 [USER PROMPT]
-[논문 검색 결과]
-## 검색된 논문
-
-### 1. The Hedgehog & the Porcupine: Expressive Linear Attentions with Softmax Mimicry
-- **저자**: Michael Zhang, Kush Bhatia, Hermann Kumbong, Christopher Ré
-- **출판일**: 2024-02-06
-- **카테고리**: None
-- **인용수**: 0
-- **URL**: http://arxiv.org/pdf/2402.04347v1
-- **섹션**: 본문
-- **유사도 점수(낮을수록 유사)**: 0.5164
-
-along ch. ?
-along ch. ?
-along ch. S C H P
-along ch. ?
-along ch. ?
-along ch. ?
-along for :
-along for :
-al
-Listing 6: SAMSum Llama-2 generations after LoRA finetuning.
-25
-
----
-
-### 2. The Hedgehog & the Porcupine: Expressive Linear Attentions with Softmax Mimicry
-- **저자**: Michael Zhang, Kush Bhatia, Hermann Kumbong, Christopher Ré
-- **출판일**: 2024-02-06
-- **카테고리**: None
-- **인용수**: 0
-- **URL**: http://arxiv.org/pdf/2402.04347v1
-- **섹션**: 본문
-- **유사도 점수(낮을수록 유사)**: 0.5188
-
-along ch. ?
-along ch. ?
-along ch. S C H P
-along ch. ?
-along ch. ?
-along ch. ?
-along for :
-along for :
-al
-Listing 6: SAMSum Llama-2 generations after LoRA finetuning.
-25
-
----
-
-### 3. The Hedgehog & the Porcupine: Expressive Linear Attentions with Softmax Mimicry
-- **저자**: Michael Zhang, Kush Bhatia, Hermann Kumbong, Christopher Ré
-- **출판일**: 2024-02-06
-- **카테고리**: None
-- **인용수**: 0
-- **URL**: http://arxiv.org/pdf/2402.04347v1
-- **섹션**: 본문
-- **유사도 점수(낮을수록 유사)**: 0.5188
-
-along ch. ?
-along ch. ?
-along ch. S C H P
-along ch. ?
-along ch. ?
-along ch. ?
-along for :
-along for :
-al
-Listing 6: SAMSum Llama-2 generations after LoRA finetuning.
-25
-
----
-
-### 4. Evaluating the Effectiveness and Scalability of LLM-Based Data Augmentation for Retrieval
-- **저자**: Pranjal A. Chitale, Bishal Santra, Yashoteja Prabhu, Amit Sharma
-- **출판일**: 2025-09-19
-- **카테고리**: None
-- **인용수**: 0
-- **URL**: http://arxiv.org/pdf/2509.16442v1
-- **섹션**: 본문
-- **유사도 점수(낮을수록 유사)**: 0.5189
-
-In Figures 2 and 3, we previously observed some
-minor differences in the metric scores obtained us-
-ing Llama 3.1 8B and Llama 3.1 70B. As a follow-
-up experiment, we investigate whether small-scale
-data generation using Llama 3.1 70B, followed by
-supervised fine-tuning using this data, can bridge
-the performance gap. We generate 100K data
-points and do a 90% data for training and 10%
-data for validation split, and perform LORA (Hu
-et al., 2022) SFT of Llama 3.1 8B model. The
-hyperparameters used for the fine-tuning are pre-
-sented in Table 10. As shown in Section F.1, this
-distillation-based ...
-
----
-
-### 5. Evaluating the Effectiveness and Scalability of LLM-Based Data Augmentation for Retrieval
-- **저자**: Pranjal A. Chitale, Bishal Santra, Yashoteja Prabhu, Amit Sharma
-- **출판일**: 2025-09-19
-- **카테고리**: None
-- **인용수**: 0
-- **URL**: http://arxiv.org/pdf/2509.16442v1
-- **섹션**: 본문
-- **유사도 점수(낮을수록 유사)**: 0.5190
-
-In Figures 2 and 3, we previously observed some
-minor differences in the metric scores obtained us-
-ing Llama 3.1 8B and Llama 3.1 70B. As a follow-
-up experiment, we investigate whether small-scale
-data generation using Llama 3.1 70B, followed by
-supervised fine-tuning using this data, can bridge
-the performance gap. We generate 100K data
-points and do a 90% data for training and 10%
-data for validation split, and perform LORA (Hu
-et al., 2022) SFT of Llama 3.1 8B model. The
-hyperparameters used for the fine-tuning are pre-
-sented in Table 10. As shown in Section F.1, this
-distillation-based ...
-
----
-
-
-[질문]
-LoRA Fine-tuning 기법 논문 찾아줘
-
-위 검색 결과를 바탕으로 질문에 답변해주세요.
+Retrieval Augmented Generation 설명하고 관련 논문도 찾아줘
 
 ===== 메타데이터 =====
-tool: search_paper
+tool: general_answer
 difficulty: hard
 level: intermediate

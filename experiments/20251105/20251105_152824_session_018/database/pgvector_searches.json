@@ -28,5 +28,85 @@
     "use_multi_query": false,
     "result_length": 3275,
     "timestamp": "2025-11-05T15:43:40.711823"
+  },
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "Chain-of-Thought prompting 논문 있어?",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 4285,
+    "timestamp": "2025-11-05T15:53:48.533824"
+  },
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "Constitutional AI 관련 논문 찾아줘",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 3369,
+    "timestamp": "2025-11-05T15:56:24.511639"
+  },
+  {
+    "tool": "glossary",
+    "collection": "glossary_embeddings",
+    "query_text": "Zero-shot Learning의 정의를 알려줘",
+    "search_mode": "hybrid",
+    "top_k": 3,
+    "with_scores": true,
+    "result_length": 17,
+    "timestamp": "2025-11-05T16:09:20.281354"
+  },
+  {
+    "tool": "glossary",
+    "collection": "glossary_embeddings",
+    "query_text": "Mixture of Experts란?",
+    "search_mode": "hybrid",
+    "top_k": 3,
+    "with_scores": true,
+    "result_length": 17,
+    "timestamp": "2025-11-05T16:12:39.221902"
+  },
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "2022년 이후 Attention 메커니즘 관련 논문을 연도별로 보여줘",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 4430,
+    "timestamp": "2025-11-05T16:16:17.096807"
+  },
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "2024년 인용 수 상위 10개 논문 제목 알려줘",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 3571,
+    "timestamp": "2025-11-05T16:19:53.071698"
+  },
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "\"BERT: Pre-training of Deep Bidirectional Transformers\" 논문 요약해줘",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 4560,
+    "timestamp": "2025-11-05T16:21:20.971275"
+  },
+  {
+    "tool": "glossary",
+    "collection": "glossary_embeddings",
+    "query_text": "Supervised Learning과 Unsupervised Learning 차이를 논문 기반으로 설명해줘",
+    "search_mode": "hybrid",
+    "top_k": 3,
+    "with_scores": true,
+    "result_length": 17,
+    "timestamp": "2025-11-05T16:24:42.530949"
   }
 ]

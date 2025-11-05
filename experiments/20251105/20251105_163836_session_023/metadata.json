@@ -1,0 +1,11 @@
+{
+  "session_id": "023",
+  "start_time": "2025-11-05T16:38:36.771044",
+  "difficulty": "easy",
+  "tool_used": null,
+  "user_query": "Chain-of-Thought prompting 논문 있어?",
+  "success": false,
+  "response_time_ms": null,
+  "end_time": null,
+  "error": "[Errno 2] No such file or directory: 'experiments/20251105/20251105_163836_session_023/prompts/system_prompt.txt'"
+}

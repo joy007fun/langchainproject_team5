@@ -1,0 +1,38 @@
+에러 발생 시각: 2025-11-05 16:38:51
+질문: Chain-of-Thought prompting 논문 있어?
+난이도: easy
+에러 메시지: [Errno 2] No such file or directory: 'experiments/20251105/20251105_163836_session_023/prompts/system_prompt.txt'
+
+상세 트레이스:
+Traceback (most recent call last):
+  File "/home/junyub/langchainproject_5/ui/components/chat_interface.py", line 197, in handle_agent_response
+    response = agent_executor.invoke(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/junyub/langchainproject_5/venv/lib/python3.11/site-packages/langgraph/pregel/main.py", line 3094, in invoke
+    for chunk in self.stream(
+  File "/home/junyub/langchainproject_5/venv/lib/python3.11/site-packages/langgraph/pregel/main.py", line 2679, in stream
+    for _ in runner.tick(
+  File "/home/junyub/langchainproject_5/venv/lib/python3.11/site-packages/langgraph/pregel/_runner.py", line 167, in tick
+    run_with_retry(
+  File "/home/junyub/langchainproject_5/venv/lib/python3.11/site-packages/langgraph/pregel/_retry.py", line 42, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/junyub/langchainproject_5/venv/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 656, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/junyub/langchainproject_5/venv/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 400, in invoke
+    ret = self.func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/junyub/langchainproject_5/src/agent/nodes.py", line 522, in final_fallback_node
+    return general_answer_node(state, exp_manager)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/junyub/langchainproject_5/src/tools/general_answer.py", line 70, in general_answer_node
+    exp_manager.save_system_prompt(system_content, {
+  File "/home/junyub/langchainproject_5/src/utils/experiment_manager.py", line 308, in save_system_prompt
+    with open(self.prompts_dir / "system_prompt.txt", 'w', encoding='utf-8') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'experiments/20251105/20251105_163836_session_023/prompts/system_prompt.txt'
+During task with name 'final_fallback' and id '8be37400-6815-be51-7012-b55887979cb4'
+
+================================================================================
+

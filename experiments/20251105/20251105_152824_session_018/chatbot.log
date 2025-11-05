@@ -733,3 +733,1231 @@ loss = nn.CrossEntropyLoss()(logits, targets)
 2025-11-05 15:43:40 | LLM 초기화: provider=openai, model=gpt-5
 2025-11-05 15:43:40 | 시스템 프롬프트 저장 완료
 2025-11-05 15:43:40 | 최종 프롬프트 저장 완료
+2025-11-05 15:46:34 | 시스템 프롬프트 저장 완료
+2025-11-05 15:46:34 | 최종 프롬프트 저장 완료
+2025-11-05 15:49:10 | 도구 실행 성공: search_paper
+2025-11-05 15:49:12 | Agent 그래프 생성 시작
+2025-11-05 15:49:12 | Fallback Chain 활성화
+2025-11-05 15:49:12 | 최대 재시도 횟수: 3
+2025-11-05 15:49:12 | Router 검증 활성화: True
+2025-11-05 15:49:12 | Agent 그래프 컴파일 완료
+2025-11-05 15:49:12 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 15:49:12 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 15:49:18 | 질문 유형 분류 완료: latest_research
+2025-11-05 15:49:18 | Fallback Chain 상태 초기화 완료
+2025-11-05 15:49:18 | 질문 유형: latest_research
+2025-11-05 15:49:18 | Fallback Chain: web_search → search_paper → general
+2025-11-05 15:49:18 | 라우터 노드 실행: Multimodal Learning 최신 연구 논문 검색해줘
+2025-11-05 15:49:18 | 질문 유형 기반 라우팅: latest_research → web_search
+2025-11-05 15:49:18 | 최종 선택 도구: web_search
+2025-11-05 15:49:23 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 15:49:23 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 15:49:23 | 시스템 프롬프트 저장 완료
+2025-11-05 15:49:23 | 최종 프롬프트 저장 완료
+2025-11-05 15:51:19 | 시스템 프롬프트 저장 완료
+2025-11-05 15:51:19 | 최종 프롬프트 저장 완료
+2025-11-05 15:53:43 | 도구 실행 성공: web_search
+2025-11-05 15:53:45 | Agent 그래프 생성 시작
+2025-11-05 15:53:45 | Fallback Chain 활성화
+2025-11-05 15:53:45 | 최대 재시도 횟수: 3
+2025-11-05 15:53:45 | Router 검증 활성화: True
+2025-11-05 15:53:45 | Agent 그래프 컴파일 완료
+2025-11-05 15:53:45 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 15:53:45 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 15:53:47 | 질문 유형 분류 완료: paper_search
+2025-11-05 15:53:47 | Fallback Chain 상태 초기화 완료
+2025-11-05 15:53:47 | 질문 유형: paper_search
+2025-11-05 15:53:47 | Fallback Chain: search_paper → web_search → general
+2025-11-05 15:53:47 | 라우터 노드 실행: Chain-of-Thought prompting 논문 있어?
+2025-11-05 15:53:47 | 질문 유형 기반 라우팅: paper_search → search_paper
+2025-11-05 15:53:47 | 최종 선택 도구: search_paper
+2025-11-05 15:53:48 | pgvector 검색 기록: search_paper
+2025-11-05 15:53:48 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 15:53:48 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 15:53:48 | 시스템 프롬프트 저장 완료
+2025-11-05 15:53:48 | 최종 프롬프트 저장 완료
+2025-11-05 15:54:42 | 시스템 프롬프트 저장 완료
+2025-11-05 15:54:42 | 최종 프롬프트 저장 완료
+2025-11-05 15:56:18 | 도구 실행 성공: search_paper
+2025-11-05 15:56:20 | Agent 그래프 생성 시작
+2025-11-05 15:56:20 | Fallback Chain 활성화
+2025-11-05 15:56:20 | 최대 재시도 횟수: 3
+2025-11-05 15:56:20 | Router 검증 활성화: True
+2025-11-05 15:56:20 | Agent 그래프 컴파일 완료
+2025-11-05 15:56:20 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 15:56:20 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 15:56:23 | 질문 유형 분류 완료: paper_search
+2025-11-05 15:56:23 | Fallback Chain 상태 초기화 완료
+2025-11-05 15:56:23 | 질문 유형: paper_search
+2025-11-05 15:56:23 | Fallback Chain: search_paper → web_search → general
+2025-11-05 15:56:23 | 라우터 노드 실행: Constitutional AI 관련 논문 찾아줘
+2025-11-05 15:56:23 | 질문 유형 기반 라우팅: paper_search → search_paper
+2025-11-05 15:56:23 | 최종 선택 도구: search_paper
+2025-11-05 15:56:24 | pgvector 검색 기록: search_paper
+2025-11-05 15:56:24 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 15:56:24 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 15:56:24 | 시스템 프롬프트 저장 완료
+2025-11-05 15:56:24 | 최종 프롬프트 저장 완료
+2025-11-05 15:58:23 | 시스템 프롬프트 저장 완료
+2025-11-05 15:58:23 | 최종 프롬프트 저장 완료
+2025-11-05 16:00:26 | 도구 실행 실패 감지: search_paper
+2025-11-05 16:00:26 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 16:00:26 | ============================================================
+2025-11-05 16:00:26 | Fallback Router 실행
+2025-11-05 16:00:26 | 실패한 도구: search_paper
+2025-11-05 16:00:26 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 16:00:26 | 재시도 횟수: 0/3
+2025-11-05 16:00:26 | 다음 도구로 전환: web_search
+2025-11-05 16:00:26 | 전환 이유: search_paper 도구가 실패했기 때문
+2025-11-05 16:00:26 | Fallback Chain: search_paper → web_search → general
+2025-11-05 16:00:26 | ============================================================
+2025-11-05 16:00:33 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:00:33 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:00:33 | 시스템 프롬프트 저장 완료
+2025-11-05 16:00:33 | 최종 프롬프트 저장 완료
+2025-11-05 16:02:25 | 시스템 프롬프트 저장 완료
+2025-11-05 16:02:25 | 최종 프롬프트 저장 완료
+2025-11-05 16:05:08 | 도구 실행 실패 감지: web_search
+2025-11-05 16:05:08 | 실패 사유: 정규식 패턴 매치: .*실패.*
+2025-11-05 16:05:08 | ============================================================
+2025-11-05 16:05:08 | Fallback Router 실행
+2025-11-05 16:05:08 | 실패한 도구: web_search
+2025-11-05 16:05:08 | 실패 사유: 정규식 패턴 매치: .*실패.*
+2025-11-05 16:05:08 | 재시도 횟수: 1/3
+2025-11-05 16:05:08 | 다음 도구로 전환: general
+2025-11-05 16:05:08 | 전환 이유: web_search 도구가 실패했기 때문
+2025-11-05 16:05:08 | Fallback Chain: search_paper → web_search → general
+2025-11-05 16:05:08 | ============================================================
+2025-11-05 16:05:08 | 일반 답변 노드 실행: Constitutional AI 관련 논문 찾아줘
+2025-11-05 16:05:08 | 난이도: hard
+2025-11-05 16:05:08 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:05:08 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:05:08 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:05:08 | 시스템 프롬프트 저장 완료
+2025-11-05 16:05:08 | 최종 프롬프트 저장 완료
+2025-11-05 16:06:55 | 수준 'intermediate' 답변 생성 완료: 5691 글자
+2025-11-05 16:06:55 | ================================================================================
+2025-11-05 16:06:55 | [intermediate 답변 전체 내용]
+2025-11-05 16:06:55 | 아래는 Constitutional AI(CAI)와 직접적으로 연관되거나, CAI의 핵심 아이디어인 AI 피드백(RLAIF), 자기정렬(Self-Alignment), 선호최적화(DPO 등)로 확장되는 주요 논문과 읽을거리 목록입니다. 각 항목에 1–2줄 요약과 링크를 붙였습니다.
+
+핵심/원천
+- Bai et al., 2022. Constitutional AI: Harmlessness from AI Feedback. arXiv:2212.08073
+  CAI의 원논문. 헌법(원칙)으로 모델이 자기비판/개선(critique-and-revise)하고, LLM을 판정자(judge)로 활용해 AI 피드백(RLAIF)으로 안전성을 높이는 절차 제시.
+  https://arxiv.org/abs/2212.08073
+
+- Bai et al., 2022. Training a Helpful and Harmless Assistant with RLHF. arXiv:2204.05862
+  Anthropic의 HHH(Helpful, Honest, Harmless) 파이프라인. CAI 이전의 RLHF 베이스라인과 데이터, 평가 지표를 이해하는 데 중요.
+  https://arxiv.org/abs/2204.05862
+
+- Ouyang et al., 2022. Training language models to follow instructions with human feedback (InstructGPT). arXiv:2203.02155
+  RLHF의 표준 recipe(SFT → RM → PPO)를 확립. CAI는 여기서 사람 대신 AI를 판정자로 활용하는 변형으로 이해할 수 있음.
+  https://arxiv.org/abs/2203.02155
+
+- Perez et al., 2022. Red Teaming Language Models with Language Models. arXiv:2202.03286
+  LLM을 이용해 LLM을 공격/평가하는 자동 레드팀 아이디어. CAI에서 AI 피드백 데이터 생성과 위험 탐지 자동화를 이해하는 데 도움.
+  https://arxiv.org/abs/2202.03286
+
+선호최적화/대안 학습기법(실무에서 CAI와 함께/대신 자주 사용)
+- Rafailov et al., 2023. Direct Preference Optimization: Your Language Model is Secretly a Reward Model (DPO). arXiv:2305.18290
+  RM/PPO 없이 선호쌍만으로 안정적으로 학습하는 방법. AI 판정자(헌법 기반 비교)로 만든 선호쌍과 결합해 “CAI + DPO” 실무 조합이 많이 쓰임.
+  https://arxiv.org/abs/2305.18290
+
+- Yuan et al., 2023. RRHF: Rank Responses to Align Language Models with Human Feedback (no-RL). arXiv:2304.05302
+  RL 없이 랭킹기반 목적함수로 정렬. AI 피드백으로 만든 랭크를 활용하면 비용 절감. DPO 대비 장단점 비교 가치 있음.
+  https://arxiv.org/abs/2304.05302
+
+자기정렬/AI 피드백 확장
+- Wang et al., 2022. Self-Instruct: Aligning Language Models with Self-Generated Instructions. arXiv:2212.10560
+  모델이 스스로 지시문-응답 데이터를 확장. CAI의 “헌법 기반 자기비판-자기개선”과 결합 시 사람 의존도를 크게 낮출 수 있음.
+  https://arxiv.org/abs/2212.10560
+
+평가/벤치마크(안전성·무해성)
+- Liang et al., 2022. Holistic Evaluation of Language Models (HELM). arXiv:2211.09110
+  다양한 위험·능력 평가 프레임워크. CAI 적용 후 다각도 평가 참고.
+  https://arxiv.org/abs/2211.09110
+
+요약: CAI는 헌법(원칙)으로 생성-비판-수정 루프를 만들고, LLM을 판정자로 써서 선호 데이터(또는 비선호/위반 사례)를 대량으로 합성한 뒤, RLHF 또는 DPO·RRHF 같은 선호최적화로 파라미터를 업데이트합니다. 핵심은 사람 라벨 의존도를 크게 낮추면서 무해성/유해성 회피를 체계적으로 끌어올리는 것에 있습니다.
+
+알고리즘 개요(Constitutional critique-and-revision → AI 피드백 선호쌍 → 선호최적화)
+- 단계 1: 헌법(규범 원칙 집합 P)을 정의
+- 단계 2: 각 프롬프트 x에 대해 초안 y0를 생성
+- 단계 3: 각 원칙 p ∈ P에 대해 판정자 J(LLM)이 비판 c를 생성 후, 정책 π가 수정 y'를 생성
+- 단계 4: 동일 x에 대해 여러 후보 {y1, y2, ...} 생성 후, J가 헌법을 근거로 선호 y+ ≻ y− 판정
+- 단계 5: DPO/RRHF/PPO 등으로 π를 업데이트
+
+간단 의사코드
+for x in prompts:
+    y = policy.generate(x)
+    for p in constitution:
+        critique = judge.generate(f"Principle: {p}\nCritique the response:\n{x}\n{y}")
+        y = policy.generate(f"Revise per critique:\n{x}\n{y}\nCritique:{critique}")
+    save_revised(x, y)
+
+# 선호쌍 합성
+for x in prompts:
+    y1 = policy.generate(x, temp=1.0)
+    y2 = policy.generate(x, temp=0.7)
+    pref = judge.generate(f"Which is better under the constitution?\n{x}\nA:{y1}\nB:{y2}\nAnswer A or B with rationale")
+    dataset.append((x, y1, y2, pref_winner(pref)))
+
+DPO 학습 파이토치 예시(간단화)
+- 수식: L_DPO = -E[ log σ(β[(log πθ(y+|x)-log πθ(y−|x)) - (log πref(y+|x)-log πref(y−|x))]) ]
+- 구현 포인트: 정책과 ref 모델의 토크나이저/로짓 정렬, fp16 안정성, clip/β 튜닝
+
+파이썬/파이토치 스케치 코드
+import torch
+from torch.nn.functional import log_softmax
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+beta = 0.1
+device = "cuda"
+
+policy = AutoModelForCausalLM.from_pretrained("your-policy").to(device)
+ref    = AutoModelForCausalLM.from_pretrained("your-policy", torch_dtype=torch.float16).to(device)  # frozen copy
+tokenizer = AutoTokenizer.from_pretrained("your-policy")
+
+for batch in dpo_dataloader:  # batch: list of (x, y_pos, y_neg)
+    x, y_pos, y_neg = batch["x"], batch["y_pos"], batch["y_neg"]
+
+    def logprob_sum(model, x, y):
+        # concat input and label, compute log p(y|x) sum over y tokens
+        enc = tokenizer(x, y, return_tensors="pt", padding=True).to(device)
+        with torch.no_grad() if model is ref else torch.enable_grad():
+            out = model(**enc, labels=enc["input_ids"])
+            # HuggingFace returns loss but we need token-wise logprobs
+            logits = out.logits[:, :-1]
+            labels = enc["input_ids"][:, 1:]
+            lp = log_softmax(logits, dim=-1)
+            gather = lp.gather(-1, labels.unsqueeze(-1)).squeeze(-1)
+            # mask to only sum over y tokens (implement attention mask split if needed)
+            return gather.sum(dim=-1)
+
+    lp_pos = logprob_sum(policy, x, y_pos)
+    lp_neg = logprob_sum(policy, x, y_neg)
+    lpr_pos = logprob_sum(ref,    x, y_pos)
+    lpr_neg = logprob_sum(ref,    x, y_neg)
+
+    advantage = (lp_pos - lp_neg) - (lpr_pos - lpr_neg)
+    loss = -torch.log(torch.sigmoid(beta * advantage)).mean()
+
+    loss.backward()
+    torch.nn.utils.clip_grad_norm_(policy.parameters(), 1.0)
+    optimizer.step(); optimizer.zero_grad()
+
+CAI vs RLHF/대안 비교
+- 데이터 비용: CAI(RLAIF)는 LLM 판정자를 써서 비용/속도가 유리. 고품질 인간 라벨이 적을 때 강점.
+- 품질/편향: AI 판정자와 헌법의 편향이 결과에 직접 반영. 헌법 설계와 판정자 검증이 성능의 핵심 병목.
+- 안정성/스케일: DPO·RRHF는 PPO보다 튜닝이 단순하고 안정적이며 분산 학습이 쉽다. 단, 응답 다양성/탐색은 PPO가 유리할 때도 있음.
+- 목표 설계: CAI는 다목표(무해성, 정직성, 유용성)를 원칙 수준에서 명시 가능. 반면 단일 RM 기반 RLHF는 보상과 안전 제약을 분리 설계해야 함.
+
+실무 적용 고려사항
+- 헌법 설계: 구체적이고 우선순위가 명확한 원칙을 작성. 충돌 시 타이브레이커 규칙 포함(예: 안전 > 유용).
+- 판정자 신뢰성: LLM-as-a-Judge의 일관성/편향 점검. 체계적 프롬프트, 체인오브소트(CoT) 판정, 다중 판정자 앙상블로 견고성 확보.
+- 데이터 커버리지: 위험 도메인(프롬프트 공격, 개인정보, 의약/법률) 유도형 프롬프트로 분포 보강. 자동 레드팀을 주기적으로 수행.
+- 최적화 선택: 대규모면 DPO/RRHF로 먼저 수렴시키고, 특정 안전 메트릭이 부족하면 제한적 PPO 미세조정 병행.
+- 평가: 자동 안전 벤치마크 + 휴먼 레드팀 + 거버넌스 체크리스트(거부 적절성, 과잉거부율, 유용성 하락률) 병행.
+- 배포: 거절/합법적 대체안 제시 정책, 거버넌스 로깅, 텔레메트리 기반 위험 시나리오 재학습 루프 구축.
+
+추가로 원문/자료가 필요하면, 위 논문들의 bibtex나 더 확장된 리스트(예: 자기정렬 계열, LLM-as-a-Judge 메타평가 논문)도 정리해 드릴 수 있습니다.
+2025-11-05 16:06:55 | ================================================================================
+2025-11-05 16:06:55 | 수준 'advanced' 답변 생성 시작
+2025-11-05 16:06:55 | 시스템 프롬프트 저장 완료
+2025-11-05 16:06:55 | 최종 프롬프트 저장 완료
+2025-11-05 16:09:14 | 수준 'advanced' 답변 생성 완료: 6581 글자
+2025-11-05 16:09:14 | ================================================================================
+2025-11-05 16:09:14 | [advanced 답변 전체 내용]
+2025-11-05 16:09:14 | 다음은 Constitutional AI(CAI) 및 인접한 “AI 피드백 기반 정렬” 연구를 체계적으로 정리한 핵심 논문 목록과 방법론 정식화, 복잡도 분석, 최신 동향 비교, 벤치마크·실험 결과, 향후 과제입니다.
+
+1) 핵심·원전
+- Bai et al., 2022, Constitutional AI: Harmlessness from AI Feedback, arXiv:2212.08073
+  요지: 인간 주석 없이 “헌법(원칙 집합)”과 모델의 자기비평/재작성(self-critique/revision)을 이용해 유해성(harmlessness)을 향상. 이후 AI가 생성한 비교(preference) 데이터를 이용해 RLAIF(RL from AI Feedback)로 미세조정. Anthropic HH(Honest, Helpful, Harmless) 프롬프트에서 인간 평가로 유해성 대폭 감소, 도움성은 RLHF와 근접.
+  링크: https://arxiv.org/abs/2212.08073
+
+- Bai et al., 2022, Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback, arXiv:2204.05862
+  요지: CAI의 전신이 되는 HHH 정렬 프레임워크와 RLHF 파이프라인. CAI는 여기서 “인간 피드백” 부분을 “헌법+AI 피드백”으로 대체·보완.
+  링크: https://arxiv.org/abs/2204.05862
+
+- Perez et al., 2022, Discovering Language Model Behaviors with Model-Written Evaluations, arXiv:2212.09251
+  요지: 모델이 스스로 평가항목을 작성하고 이를 이용해 행동을 탐색·진단하는 방법. CAI의 “모델이 스스로 평가/비평을 수행”한다는 아이디어와 맞닿음.
+  링크: https://arxiv.org/abs/2212.09251
+
+2) AI 피드백·셀프얼라인먼트(Constitutional과 직접적으로 연결되는 계열)
+- Zheng et al., 2023, Judging LLM-as-a-Judge: Benchmarking and Algorithmic Improvements, arXiv:2306.05685
+  요지: LLM을 심판(judge)으로 활용하는 신뢰성·편향 문제와 개선. CAI의 AI 피드백 신뢰성 논의의 기반.
+  링크: https://arxiv.org/abs/2306.05685
+
+- Sun et al., 2023, Principle-Driven Self-Alignment of Language Models from Scratch with Minimal Human Supervision (Dromedary), arXiv:2305.03047
+  요지: 원칙(헌법 유사)을 이용해 모델 스스로 지시문/데이터를 생성·정렬하는 셀프얼라인먼트. CAI의 “원칙 중심” 정렬을 데이터 생성까지 확장.
+  링크: https://arxiv.org/abs/2305.03047
+
+- Yuan et al., 2024, Self-Rewarding Language Models, ICLR 2024, arXiv:2308.12607
+  요지: 모델이 자체 보상(자기평가)을 산출해 강화학습/선호최적화를 수행. 헌법 원칙을 보상 함수에 연결할 수 있어 CAI와 결합 가능.
+  링크: https://arxiv.org/abs/2308.12607
+
+3) 선호최적화 알고리즘(Constitutional 원칙을 얹어 학습할 때 실무적으로 쓰이는 대안)
+- Rafailov et al., 2023, Direct Preference Optimization (DPO): Your Language Model is Secretly a Reward Model, arXiv:2305.18290
+  요지: KL-정규화 RLHF 목적을 직접적 로지스틱 선호 손실로 최적화. AI-판정(헌법 준수)에 따른 쌍대 데이터로 DPO 수행이 실무 표준.
+  링크: https://arxiv.org/abs/2305.18290
+
+- Hong et al., 2024, ORPO: Monolithic Preference Optimization without Reference Model, arXiv:2403.07691
+  요지: 참조 정책 없이 단일 목표로 선호최적화. CAI에서 헌법 기반 쌍대 레이블을 바로 활용 가능.
+  링크: https://arxiv.org/abs/2403.07691
+
+- Azar et al., 2023, Implicit Preference Optimization (IPO), arXiv:2305.18269
+  요지: 분포 정규화 항을 암묵적으로 흡수하는 선호최적화. CAI의 RLAIF 대체 수단.
+  링크: https://arxiv.org/abs/2305.18269
+
+4) 안전·정렬 평가 벤치마크(헌법 효과 측정을 위해 자주 사용)
+- Lin et al., 2021, TruthfulQA, arXiv:2109.07958
+  링크: https://arxiv.org/abs/2109.07958
+
+- Gehman et al., 2020, RealToxicityPrompts, arXiv:2009.11462
+  링크: https://arxiv.org/abs/2009.11462
+
+- Zou et al., 2023, Universal and Transferable Adversarial Attacks on Aligned LMs (GCG, AdvBench), arXiv:2307.15043
+  링크: https://arxiv.org/abs/2307.15043
+
+- Mazeika et al., 2024, HarmBench: A Standardized Evaluation of Harmful Prompting and Jailbreaks, arXiv:2402.04274
+  링크: https://arxiv.org/abs/2402.04274
+
+- Ji et al., 2023, SafetyBench: Evaluating Safety of LLMs, arXiv:2308.09339
+  링크: https://arxiv.org/abs/2308.09339
+
+핵심 방법론 정식화(Constitutional AI)
+
+- 설정
+  데이터 분포 D에서 프롬프트 x를 추출. 정책 πθ(a|x). 참조 정책 πref. 헌법 C는 원칙들의 집합이며 각 원칙 c ∈ C는 텍스트 규범으로 표현.
+
+- 1단계: 모델 비평·재작성(Constitutional SFT)
+  주어진 (x, a0)에서 모델의 비평자 fφ가 헌법을 조건으로 비평 v = fφ(v | x, a0, C)을 생성. 비평을 반영한 수정 답변 a1 = gθ(a | x, a0, v, C) 생성. 지도학습으로 Lsft(θ, φ) = E[−log gθ(a1|x, a0, v, C) − λ log fφ(v|x, a0, C)]를 최소화. 이 과정으로 초기 유해성 억제·정책 초기화.
+
+- 2단계: AI 선호 데이터 생성(RLAIF)
+  각 x에 대해 후보 답변 쌍 (a+, a−)을 샘플링하고, AI 판정자 jψ가 헌법을 근거로 선호 y ∈ {+1, −1}를 산출. 브래들리-테리(Bradley–Terry) 모델로 선호를 확률화:
+  P(y=+1 | x, a+, a−) = σ(rφ(x,a+) − rφ(x,a−)),
+  여기서 rφ는 보상모델, σ는 시그모이드.
+
+- 3단계: KL-정규화 정책 최적화(RLHF/RLAIF)
+  목적함수 J(θ) = Ex [ Ea∼πθ(·|x) rφ(x,a) − β KL(πθ(·|x) || πref(·|x)) ] 최대화.
+  보통 PPO 계열로 근사. 또는 DPO로 직접 최적화:
+  LDPO(θ) = E[ −log σ( β (log πθ(a+|x) − log πθ(a−|x)) − (log πref(a+|x) − log πref(a−|x)) ) ].
+  CAI에서는 (a+, a−)와 레이블이 헌법-조건 AI 판정에서 유도.
+
+간단한 정리(스케치): DPO와 KL-정규화 RLHF의 등가성
+- 가정: 보상 r*(x,a)가 브래들리-테리 기반의 쌍대 선호를 유도하고, 최적 정책은 π*(a|x) ∝ πref(a|x) exp(r*(x,a)/β).
+- 쌍대 로지스틱 손실 최소화는 위 Boltzmann 형식의 정책을 고정점으로 갖는다(Rafailov et al., 2023). 따라서 AI 판정에서 유도된 쌍대 레이블을 사용하면, 만약 판정·헌법이 일관적이라면 KL-정규화 RL을 우회해 동일한 고정점을 수렴적으로 추정.
+
+계산·표본 복잡도 분석
+
+- 데이터 생성 비용
+  프롬프트 M개, 각 프롬프트당 후보 k개, 비평/재작성 길이 Ltok 토큰, 토큰당 추론 비용 c. AI 비평·판정 ρ회 수행 시, 총 추론 토큰은 O(M k ρ Ltok). 인간 피드백 대비 주석 시간은 크게 절감되지만, 고성능 판정자·비평자 모델 사용 시 추론 비용이 증가.
+
+- 보상모델 학습
+  쌍대 수 N에 대해 로지스틱 손실 최소화의 시간복잡도는 O(N d) (d는 모델 파라미터 수에 비례한 스텝당 비용). 메모리는 O(d).
+
+- PPO(RLAIF) 정책 최적화
+  T 스텝, 배치 B, 업데이트 E회, 시퀀스 평균 길이 Ltok라 하면 시간복잡도는 O(E T B Ltok d). KL 제약 계산은 로그확률 차이로 흡수되어 상수배.
+
+- DPO/ORPO 대안
+  보상모델 없이도 쌍대 지도학습으로 대체 가능. 쌍대 수 N, 평균 길이 Ltok, 어휘 V일 때, 소프트맥스 전개 비용을 감안한 시간복잡도는 O(N Ltok d). PPO 대비 구현·안정성·튜닝 비용이 낮아 실제 엔지니어링 비용을 줄임.
+
+실험 결과·벤치마크(논문 보고치 요약)
+- Bai et al. (2022, CAI): 인간 평가 기준으로 유해성(harmlessness)에서 RLHF 동급 이상, 도움성(helpfulness)에서 근소 열위 또는 동급(초기 SFT/헌법 구성에 따라). “모델-비평-재작성” 단계만으로도 유해성 지표 개선, RLAIF 추가 시 더 강화.
+- Dromedary(Self-alignment): 소량 인간 개입으로도 광범위한 지시추론 성능 확보. TruthfulQA·RealToxicityPrompts에서 경쟁력 보고.
+- LLM-as-a-Judge: 과최적화와 편향 위험 보고. 판정자 캘리브레이션과 합의(committee) 심판 구성이 신뢰성 향상에 효과.
+- 안전 벤치마크: AdvBench/HarmBench/SafetyBench에서 CAI류 모델은 베이스라인 대비 jailbreak 저항성이 높지만, 적대적 suffix 최적화(GCG 등)에 취약성이 잔존.
+
+최근 동향·비교
+- RL에서 PO로: PPO 기반 RLHF/RLAIF보다 DPO/ORPO/IPO 등 직접 선호최적화가 주류로 이동. CAI의 “헌법+AI 피드백”은 이들 목표함수와 쉽게 결합(쌍대 레이블만 필요).
+- 다목표 정렬: 도움성-유해성-정직성의 트레이드오프를 다목표/조건부 정책로(conditional alignment)로 처리. 헌법을 맥락화하여 상황별 가중치를 조정하는 연구가 증가.
+- 심판 신뢰성: LLM-as-a-judge의 편향·자기증폭 이슈를 완화하기 위해 합의(majority vote), 자가정규화(critique-before-judge), 외부 감사 프롬프트, 반대근거 요구(debate-style judging) 등 기법이 병행.
+
+미해결 문제·향후 연구
+- 헌법의 다원성·정치철학적 정당화: 원칙 선택의 정당성, 문화권별 편향, 가치집계(value aggregation)의 형식화.
+- 동적 헌법 업데이트: 분포천이 환경에서 원칙을 온라인 업데이트하는 규범적 MDP 설계. 안전성 보장 하의 정책-원칙 동시학습(co-learning).
+- 심판 신뢰성·공격 저항: 판정자 jailbreak, 그레이 영역(ambiguity)에서의 불확실성 표현과 칼리브레이션, 모델 간 교차심판.
+- 이론 보장: 헌법 위배 확률을 상계하는 일반화·안전성(robustness) 보장, 분포 이동 하 PAC-정렬 보장.
+- 효율성: 대형 판정자/비평자 비용을 줄이는 지식증류(distillation), 소형 안전모듈(guardrail)과의 하이브리드.
+- 멀티모달 CAI: 텍스트-이미지/오디오·코드 영역으로의 헌법 설계와 평가.
+
+실무 팁(간단)
+- 시작: 적은 인간 간섭으로 헌법+자가비평 SFT → AI-판정 쌍대 수집 → DPO/ORPO.
+- 판정자: 합의형(judge committee)과 근거제출형(critique-then-judge)로 편향 완화.
+- 평가: HarmBench/AdvBench + RealToxicityPrompts/TruthfulQA로 안전·정직성 동시 점검.
+
+추가 읽을거리(인접·배경)
+- Irving et al., 2018, AI Safety via Debate, arXiv:1805.00899
+- Askell et al., 2021, A General Language Assistant as a Laboratory for Alignment, arXiv:2112.00861
+- Bai et al., 2022, Constitutional HHH 관련 블로그/기술보고서들(Anthropic)
+
+원하시면 위 목록에서 특정 분야(예: DPO 기반 CAI 레시피, 판정자 신뢰성 캘리브레이션, 멀티모달 확장)에 대해 보다 상세한 수식 전개, 구현 의사코드, 또는 실험 설계안을 정리해 드리겠습니다.
+2025-11-05 16:09:14 | ================================================================================
+2025-11-05 16:09:14 | 도구 실행 성공: general (fallback 도구)
+2025-11-05 16:09:16 | Agent 그래프 생성 시작
+2025-11-05 16:09:16 | Fallback Chain 활성화
+2025-11-05 16:09:16 | 최대 재시도 횟수: 3
+2025-11-05 16:09:16 | Router 검증 활성화: True
+2025-11-05 16:09:16 | Agent 그래프 컴파일 완료
+2025-11-05 16:09:16 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:09:16 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:09:19 | 질문 유형 분류 완료: term_definition
+2025-11-05 16:09:19 | Fallback Chain 상태 초기화 완료
+2025-11-05 16:09:19 | 질문 유형: term_definition
+2025-11-05 16:09:19 | Fallback Chain: glossary → general
+2025-11-05 16:09:19 | 라우터 노드 실행: Zero-shot Learning의 정의를 알려줘
+2025-11-05 16:09:19 | 질문 유형 기반 라우팅: term_definition → glossary
+2025-11-05 16:09:19 | 최종 선택 도구: glossary
+2025-11-05 16:09:20 | pgvector 검색 기록: glossary
+2025-11-05 16:09:20 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:09:20 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:09:20 | 시스템 프롬프트 저장 완료
+2025-11-05 16:09:20 | 최종 프롬프트 저장 완료
+2025-11-05 16:10:35 | 시스템 프롬프트 저장 완료
+2025-11-05 16:10:35 | 최종 프롬프트 저장 완료
+2025-11-05 16:12:34 | 도구 실행 성공: glossary
+2025-11-05 16:12:36 | Agent 그래프 생성 시작
+2025-11-05 16:12:36 | Fallback Chain 활성화
+2025-11-05 16:12:36 | 최대 재시도 횟수: 3
+2025-11-05 16:12:36 | Router 검증 활성화: True
+2025-11-05 16:12:36 | Agent 그래프 컴파일 완료
+2025-11-05 16:12:36 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:12:36 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:12:38 | 질문 유형 분류 완료: term_definition
+2025-11-05 16:12:38 | Fallback Chain 상태 초기화 완료
+2025-11-05 16:12:38 | 질문 유형: term_definition
+2025-11-05 16:12:38 | Fallback Chain: glossary → general
+2025-11-05 16:12:38 | 라우터 노드 실행: Mixture of Experts란?
+2025-11-05 16:12:38 | 질문 유형 기반 라우팅: term_definition → glossary
+2025-11-05 16:12:38 | 최종 선택 도구: glossary
+2025-11-05 16:12:39 | pgvector 검색 기록: glossary
+2025-11-05 16:12:39 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:12:39 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:12:39 | 시스템 프롬프트 저장 완료
+2025-11-05 16:12:39 | 최종 프롬프트 저장 완료
+2025-11-05 16:14:08 | 시스템 프롬프트 저장 완료
+2025-11-05 16:14:08 | 최종 프롬프트 저장 완료
+2025-11-05 16:16:09 | 도구 실행 성공: glossary
+2025-11-05 16:16:11 | Agent 그래프 생성 시작
+2025-11-05 16:16:11 | Fallback Chain 활성화
+2025-11-05 16:16:11 | 최대 재시도 횟수: 3
+2025-11-05 16:16:11 | Router 검증 활성화: True
+2025-11-05 16:16:11 | Agent 그래프 컴파일 완료
+2025-11-05 16:16:11 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:16:11 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:16:13 | 질문 유형 분류 완료: paper_search
+2025-11-05 16:16:13 | Fallback Chain 상태 초기화 완료
+2025-11-05 16:16:13 | 질문 유형: paper_search
+2025-11-05 16:16:13 | Fallback Chain: search_paper → web_search → general
+2025-11-05 16:16:13 | 라우터 노드 실행: 2022년 이후 Attention 메커니즘 관련 논문을 연도별로 보여줘
+2025-11-05 16:16:13 | 다중 요청 감지: ['년', '관련', '논문'] → ['text2sql', 'search_paper']
+2025-11-05 16:16:13 | 패턴 설명: 연도별 특정 주제 논문
+2025-11-05 16:16:13 | 순차 실행 도구: text2sql → search_paper
+2025-11-05 16:16:13 | Text-to-SQL 노드 실행: 2022년 이후 Attention 메커니즘 관련 논문을 연도별로 보여줘
+2025-11-05 16:16:15 | SQL 실행 완료: 405 글자
+2025-11-05 16:16:15 | 도구 실행 성공: text2sql
+2025-11-05 16:16:15 | Pipeline 진행: 1/2
+2025-11-05 16:16:15 | 다음 도구 실행: search_paper
+2025-11-05 16:16:17 | pgvector 검색 기록: search_paper
+2025-11-05 16:16:17 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:16:17 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:16:17 | 시스템 프롬프트 저장 완료
+2025-11-05 16:16:17 | 최종 프롬프트 저장 완료
+2025-11-05 16:17:15 | 시스템 프롬프트 저장 완료
+2025-11-05 16:17:15 | 최종 프롬프트 저장 완료
+2025-11-05 16:19:40 | 도구 실행 성공: search_paper
+2025-11-05 16:19:42 | Agent 그래프 생성 시작
+2025-11-05 16:19:42 | Fallback Chain 활성화
+2025-11-05 16:19:42 | 최대 재시도 횟수: 3
+2025-11-05 16:19:42 | Router 검증 활성화: True
+2025-11-05 16:19:42 | Agent 그래프 컴파일 완료
+2025-11-05 16:19:42 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:19:42 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:19:44 | 질문 유형 분류 완료: statistics
+2025-11-05 16:19:44 | Fallback Chain 상태 초기화 완료
+2025-11-05 16:19:44 | 질문 유형: statistics
+2025-11-05 16:19:44 | Fallback Chain: text2sql → general
+2025-11-05 16:19:44 | 라우터 노드 실행: 카테고리별 논문 수 통계 보여줘
+2025-11-05 16:19:44 | 질문 유형 기반 라우팅: statistics → text2sql
+2025-11-05 16:19:44 | 최종 선택 도구: text2sql
+2025-11-05 16:19:44 | Text-to-SQL 노드 실행: 카테고리별 논문 수 통계 보여줘
+2025-11-05 16:19:45 | SQL 실행 완료: 217 글자
+2025-11-05 16:19:45 | 도구 실행 성공: text2sql
+2025-11-05 16:19:47 | Agent 그래프 생성 시작
+2025-11-05 16:19:47 | Fallback Chain 활성화
+2025-11-05 16:19:47 | 최대 재시도 횟수: 3
+2025-11-05 16:19:47 | Router 검증 활성화: True
+2025-11-05 16:19:47 | Agent 그래프 컴파일 완료
+2025-11-05 16:19:47 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:19:47 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:19:51 | 질문 유형 분류 완료: statistics
+2025-11-05 16:19:51 | Fallback Chain 상태 초기화 완료
+2025-11-05 16:19:51 | 질문 유형: statistics
+2025-11-05 16:19:51 | Fallback Chain: text2sql → general
+2025-11-05 16:19:51 | 라우터 노드 실행: 2024년 인용 수 상위 10개 논문 제목 알려줘
+2025-11-05 16:19:51 | 다중 요청 감지: ['상위', '인용'] → ['text2sql', 'search_paper']
+2025-11-05 16:19:51 | 패턴 설명: 인용 상위 논문
+2025-11-05 16:19:51 | 순차 실행 도구: text2sql → search_paper
+2025-11-05 16:19:51 | Text-to-SQL 노드 실행: 2024년 인용 수 상위 10개 논문 제목 알려줘
+2025-11-05 16:19:52 | SQL 실행 완료: 814 글자
+2025-11-05 16:19:52 | 도구 실행 성공: text2sql
+2025-11-05 16:19:52 | Pipeline 진행: 1/2
+2025-11-05 16:19:52 | 다음 도구 실행: search_paper
+2025-11-05 16:19:53 | pgvector 검색 기록: search_paper
+2025-11-05 16:19:53 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:19:53 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:19:53 | 시스템 프롬프트 저장 완료
+2025-11-05 16:19:53 | 최종 프롬프트 저장 완료
+2025-11-05 16:20:43 | 시스템 프롬프트 저장 완료
+2025-11-05 16:20:43 | 최종 프롬프트 저장 완료
+2025-11-05 16:21:16 | 도구 실행 성공: search_paper
+2025-11-05 16:21:18 | Agent 그래프 생성 시작
+2025-11-05 16:21:18 | Fallback Chain 활성화
+2025-11-05 16:21:18 | 최대 재시도 횟수: 3
+2025-11-05 16:21:18 | Router 검증 활성화: True
+2025-11-05 16:21:18 | Agent 그래프 컴파일 완료
+2025-11-05 16:21:18 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:21:18 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:21:20 | 질문 유형 분류 완료: paper_summary
+2025-11-05 16:21:20 | Fallback Chain 상태 초기화 완료
+2025-11-05 16:21:20 | 질문 유형: paper_summary
+2025-11-05 16:21:20 | Fallback Chain: summarize → search_paper → general
+2025-11-05 16:21:20 | 라우터 노드 실행: "BERT: Pre-training of Deep Bidirectional Transformers" 논문 요약해줘
+2025-11-05 16:21:20 | 다중 요청 감지: ['논문', '요약'] → ['search_paper', 'summarize']
+2025-11-05 16:21:20 | 패턴 설명: 논문 + 요약 키워드
+2025-11-05 16:21:20 | 순차 실행 도구: search_paper → summarize
+2025-11-05 16:21:20 | pgvector 검색 기록: search_paper
+2025-11-05 16:21:20 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:21:20 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:21:20 | 시스템 프롬프트 저장 완료
+2025-11-05 16:21:20 | 최종 프롬프트 저장 완료
+2025-11-05 16:22:50 | 시스템 프롬프트 저장 완료
+2025-11-05 16:22:50 | 최종 프롬프트 저장 완료
+2025-11-05 16:22:52 | 도구 실행 실패 감지: search_paper
+2025-11-05 16:22:52 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 16:22:52 | ============================================================
+2025-11-05 16:22:52 | Fallback Router 실행
+2025-11-05 16:22:52 | 실패한 도구: search_paper
+2025-11-05 16:22:52 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 16:22:52 | 재시도 횟수: 0/3
+2025-11-05 16:22:52 | 파이프라인 모드: search_paper → summarize
+2025-11-05 16:22:52 | 현재 인덱스: 0
+2025-11-05 16:22:52 | 파이프라인 도구 대체: search_paper → web_search
+2025-11-05 16:22:52 | 파이프라인 업데이트: web_search → summarize
+2025-11-05 16:22:52 | 다음 도구 실행: web_search
+2025-11-05 16:22:52 | ============================================================
+2025-11-05 16:22:59 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:22:59 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:22:59 | 시스템 프롬프트 저장 완료
+2025-11-05 16:22:59 | 최종 프롬프트 저장 완료
+2025-11-05 16:23:01 | 도구 실행 실패 감지: web_search
+2025-11-05 16:23:01 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 16:23:01 | ============================================================
+2025-11-05 16:23:01 | Fallback Router 실행
+2025-11-05 16:23:01 | 실패한 도구: web_search
+2025-11-05 16:23:01 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 16:23:01 | 재시도 횟수: 1/3
+2025-11-05 16:23:01 | 파이프라인 모드: web_search → summarize
+2025-11-05 16:23:01 | 현재 인덱스: 0
+2025-11-05 16:23:01 | 파이프라인 도구 대체: web_search → general
+2025-11-05 16:23:01 | 파이프라인 업데이트: general → summarize
+2025-11-05 16:23:01 | 다음 도구 실행: general
+2025-11-05 16:23:01 | ============================================================
+2025-11-05 16:23:01 | 일반 답변 노드 실행: "BERT: Pre-training of Deep Bidirectional Transformers" 논문 요약해줘
+2025-11-05 16:23:01 | 난이도: hard
+2025-11-05 16:23:01 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:23:01 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:23:01 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:23:01 | 시스템 프롬프트 저장 완료
+2025-11-05 16:23:01 | 최종 프롬프트 저장 완료
+2025-11-05 16:23:03 | 도구 실행 오류: general
+2025-11-05 16:23:03 | 오류 내용: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:23:03 | ============================================================
+2025-11-05 16:23:03 | Fallback Router 실행
+2025-11-05 16:23:03 | 실패한 도구: general
+2025-11-05 16:23:03 | 실패 사유: 예외 발생: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:23:03 | 재시도 횟수: 2/3
+2025-11-05 16:23:03 | 파이프라인 모드: general → summarize
+2025-11-05 16:23:03 | 현재 인덱스: 0
+2025-11-05 16:23:03 | general에 대한 Fallback 도구 없음 → general 사용
+2025-11-05 16:23:03 | 파이프라인 업데이트: general → summarize
+2025-11-05 16:23:03 | ============================================================
+2025-11-05 16:23:03 | 일반 답변 노드 실행: "BERT: Pre-training of Deep Bidirectional Transformers" 논문 요약해줘
+2025-11-05 16:23:03 | 난이도: hard
+2025-11-05 16:23:03 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:23:03 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:23:03 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:23:03 | 시스템 프롬프트 저장 완료
+2025-11-05 16:23:03 | 최종 프롬프트 저장 완료
+2025-11-05 16:23:05 | 도구 실행 오류: general
+2025-11-05 16:23:05 | 오류 내용: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:23:05 | ============================================================
+2025-11-05 16:23:05 | 최종 Fallback 노드 실행
+2025-11-05 16:23:05 | general 도구로 강제 전환
+2025-11-05 16:23:05 | ============================================================
+2025-11-05 16:23:05 | 일반 답변 노드 실행: "BERT: Pre-training of Deep Bidirectional Transformers" 논문 요약해줘
+2025-11-05 16:23:05 | 난이도: hard
+2025-11-05 16:23:05 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:23:05 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:23:05 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:23:05 | 시스템 프롬프트 저장 완료
+2025-11-05 16:23:05 | 최종 프롬프트 저장 완료
+2025-11-05 16:23:10 | Agent 그래프 생성 시작
+2025-11-05 16:23:10 | Fallback Chain 활성화
+2025-11-05 16:23:10 | 최대 재시도 횟수: 3
+2025-11-05 16:23:10 | Router 검증 활성화: True
+2025-11-05 16:23:10 | Agent 그래프 컴파일 완료
+2025-11-05 16:23:10 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:23:10 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:23:12 | 질문 유형 분류 실패: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:23:12 | 기본값 'general_question' 사용
+2025-11-05 16:23:12 | Fallback Chain 상태 초기화 완료
+2025-11-05 16:23:12 | 질문 유형: general_question
+2025-11-05 16:23:12 | Fallback Chain: general
+2025-11-05 16:23:12 | 라우터 노드 실행: 2025년 NeurIPS 컨퍼런스 소식 찾아줘
+2025-11-05 16:23:12 | 질문 유형 기반 라우팅: general_question → general
+2025-11-05 16:23:12 | 최종 선택 도구: general
+2025-11-05 16:23:12 | 일반 답변 노드 실행: 2025년 NeurIPS 컨퍼런스 소식 찾아줘
+2025-11-05 16:23:12 | 난이도: hard
+2025-11-05 16:23:12 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:23:12 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:23:12 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:23:12 | 시스템 프롬프트 저장 완료
+2025-11-05 16:23:12 | 최종 프롬프트 저장 완료
+2025-11-05 16:23:14 | 도구 실행 오류: general
+2025-11-05 16:23:14 | 오류 내용: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:23:14 | ============================================================
+2025-11-05 16:23:14 | Fallback Router 실행
+2025-11-05 16:23:14 | 실패한 도구: general
+2025-11-05 16:23:14 | 실패 사유: 예외 발생: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:23:14 | 재시도 횟수: 0/3
+2025-11-05 16:23:14 | 모든 도구 시도 완료
+2025-11-05 16:23:14 | 최종 Fallback: general 도구 선택
+2025-11-05 16:23:14 | 다음 도구로 전환: general
+2025-11-05 16:23:14 | 전환 이유: general 도구가 실패했기 때문
+2025-11-05 16:23:14 | Fallback Chain: general
+2025-11-05 16:23:14 | ============================================================
+2025-11-05 16:23:14 | 일반 답변 노드 실행: 2025년 NeurIPS 컨퍼런스 소식 찾아줘
+2025-11-05 16:23:14 | 난이도: hard
+2025-11-05 16:23:14 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:23:14 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:23:14 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:23:14 | 시스템 프롬프트 저장 완료
+2025-11-05 16:23:14 | 최종 프롬프트 저장 완료
+2025-11-05 16:23:17 | 도구 실행 오류: general
+2025-11-05 16:23:17 | 오류 내용: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:23:17 | ============================================================
+2025-11-05 16:23:17 | Fallback Router 실행
+2025-11-05 16:23:17 | 실패한 도구: general
+2025-11-05 16:23:17 | 실패 사유: 예외 발생: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:23:17 | 재시도 횟수: 1/3
+2025-11-05 16:23:17 | 모든 도구 시도 완료
+2025-11-05 16:23:17 | 최종 Fallback: general 도구 선택
+2025-11-05 16:23:17 | 다음 도구로 전환: general
+2025-11-05 16:23:17 | 전환 이유: general 도구가 실패했기 때문
+2025-11-05 16:23:17 | Fallback Chain: general
+2025-11-05 16:23:17 | ============================================================
+2025-11-05 16:23:17 | 일반 답변 노드 실행: 2025년 NeurIPS 컨퍼런스 소식 찾아줘
+2025-11-05 16:23:17 | 난이도: hard
+2025-11-05 16:23:17 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:23:17 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:23:17 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:23:17 | 시스템 프롬프트 저장 완료
+2025-11-05 16:23:17 | 최종 프롬프트 저장 완료
+2025-11-05 16:23:19 | 도구 실행 오류: general
+2025-11-05 16:23:19 | 오류 내용: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:23:19 | ============================================================
+2025-11-05 16:23:19 | Fallback Router 실행
+2025-11-05 16:23:19 | 실패한 도구: general
+2025-11-05 16:23:19 | 실패 사유: 예외 발생: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:23:19 | 재시도 횟수: 2/3
+2025-11-05 16:23:19 | 모든 도구 시도 완료
+2025-11-05 16:23:19 | 최종 Fallback: general 도구 선택
+2025-11-05 16:23:19 | 다음 도구로 전환: general
+2025-11-05 16:23:19 | 전환 이유: general 도구가 실패했기 때문
+2025-11-05 16:23:19 | Fallback Chain: general
+2025-11-05 16:23:19 | ============================================================
+2025-11-05 16:23:19 | 일반 답변 노드 실행: 2025년 NeurIPS 컨퍼런스 소식 찾아줘
+2025-11-05 16:23:19 | 난이도: hard
+2025-11-05 16:23:19 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:23:19 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:23:19 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:23:19 | 시스템 프롬프트 저장 완료
+2025-11-05 16:23:19 | 최종 프롬프트 저장 완료
+2025-11-05 16:23:21 | 도구 실행 오류: general
+2025-11-05 16:23:21 | 오류 내용: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:23:21 | ============================================================
+2025-11-05 16:23:21 | 최종 Fallback 노드 실행
+2025-11-05 16:23:21 | general 도구로 강제 전환
+2025-11-05 16:23:21 | ============================================================
+2025-11-05 16:23:21 | 일반 답변 노드 실행: 2025년 NeurIPS 컨퍼런스 소식 찾아줘
+2025-11-05 16:23:21 | 난이도: hard
+2025-11-05 16:23:21 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:23:21 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:23:21 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:23:21 | 시스템 프롬프트 저장 완료
+2025-11-05 16:23:21 | 최종 프롬프트 저장 완료
+2025-11-05 16:23:25 | Agent 그래프 생성 시작
+2025-11-05 16:23:25 | Fallback Chain 활성화
+2025-11-05 16:23:25 | 최대 재시도 횟수: 3
+2025-11-05 16:23:25 | Router 검증 활성화: True
+2025-11-05 16:23:25 | Agent 그래프 컴파일 완료
+2025-11-05 16:23:25 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:23:25 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:23:28 | 질문 유형 분류 실패: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:23:28 | 기본값 'general_question' 사용
+2025-11-05 16:23:28 | Fallback Chain 상태 초기화 완료
+2025-11-05 16:23:28 | 질문 유형: general_question
+2025-11-05 16:23:28 | Fallback Chain: general
+2025-11-05 16:23:28 | 라우터 노드 실행: BERT와 GPT 논문 비교해서 분석하고 저장해줘
+2025-11-05 16:23:28 | 다중 요청 감지: ['비교', '논문', '분석', '저장'] → ['search_paper', 'summarize', 'general', 'save_file']
+2025-11-05 16:23:28 | 패턴 설명: 논문 비교 후 요약, 분석 및 저장
+2025-11-05 16:23:28 | 순차 실행 도구: search_paper → summarize → general → save_file
+2025-11-05 16:23:30 | 도구 실행 실패 감지: search_paper
+2025-11-05 16:23:30 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 16:23:30 | ============================================================
+2025-11-05 16:23:30 | Fallback Router 실행
+2025-11-05 16:23:30 | 실패한 도구: search_paper
+2025-11-05 16:23:30 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 16:23:30 | 재시도 횟수: 0/3
+2025-11-05 16:23:30 | 파이프라인 모드: search_paper → summarize → general → save_file
+2025-11-05 16:23:30 | 현재 인덱스: 0
+2025-11-05 16:23:30 | 파이프라인 도구 대체: search_paper → web_search
+2025-11-05 16:23:30 | 파이프라인 업데이트: web_search → summarize → general → save_file
+2025-11-05 16:23:30 | 다음 도구 실행: web_search
+2025-11-05 16:23:30 | ============================================================
+2025-11-05 16:23:32 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:23:32 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:23:32 | 시스템 프롬프트 저장 완료
+2025-11-05 16:23:32 | 최종 프롬프트 저장 완료
+2025-11-05 16:23:34 | 도구 실행 실패 감지: web_search
+2025-11-05 16:23:34 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 16:23:34 | ============================================================
+2025-11-05 16:23:34 | Fallback Router 실행
+2025-11-05 16:23:34 | 실패한 도구: web_search
+2025-11-05 16:23:34 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 16:23:34 | 재시도 횟수: 1/3
+2025-11-05 16:23:34 | 파이프라인 모드: web_search → summarize → general → save_file
+2025-11-05 16:23:34 | 현재 인덱스: 0
+2025-11-05 16:23:34 | 파이프라인 도구 대체: web_search → general
+2025-11-05 16:23:34 | 파이프라인 업데이트: general → summarize → general → save_file
+2025-11-05 16:23:34 | 다음 도구 실행: general
+2025-11-05 16:23:34 | ============================================================
+2025-11-05 16:23:34 | 일반 답변 노드 실행: BERT와 GPT 논문 비교해서 분석하고 저장해줘
+2025-11-05 16:23:34 | 난이도: hard
+2025-11-05 16:23:34 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:23:34 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:23:34 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:23:34 | 시스템 프롬프트 저장 완료
+2025-11-05 16:23:34 | 최종 프롬프트 저장 완료
+2025-11-05 16:23:36 | 도구 실행 오류: general
+2025-11-05 16:23:36 | 오류 내용: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:23:36 | ============================================================
+2025-11-05 16:23:36 | Fallback Router 실행
+2025-11-05 16:23:36 | 실패한 도구: general
+2025-11-05 16:23:36 | 실패 사유: 예외 발생: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:23:36 | 재시도 횟수: 2/3
+2025-11-05 16:23:36 | 파이프라인 모드: general → summarize → general → save_file
+2025-11-05 16:23:36 | 현재 인덱스: 0
+2025-11-05 16:23:36 | general에 대한 Fallback 도구 없음 → general 사용
+2025-11-05 16:23:36 | 파이프라인 업데이트: general → summarize → general → save_file
+2025-11-05 16:23:36 | ============================================================
+2025-11-05 16:23:36 | 일반 답변 노드 실행: BERT와 GPT 논문 비교해서 분석하고 저장해줘
+2025-11-05 16:23:36 | 난이도: hard
+2025-11-05 16:23:36 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:23:36 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:23:36 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:23:36 | 시스템 프롬프트 저장 완료
+2025-11-05 16:23:36 | 최종 프롬프트 저장 완료
+2025-11-05 16:23:38 | 도구 실행 오류: general
+2025-11-05 16:23:38 | 오류 내용: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:23:38 | ============================================================
+2025-11-05 16:23:38 | 최종 Fallback 노드 실행
+2025-11-05 16:23:38 | general 도구로 강제 전환
+2025-11-05 16:23:38 | ============================================================
+2025-11-05 16:23:38 | 일반 답변 노드 실행: BERT와 GPT 논문 비교해서 분석하고 저장해줘
+2025-11-05 16:23:38 | 난이도: hard
+2025-11-05 16:23:38 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:23:38 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:23:38 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:23:38 | 시스템 프롬프트 저장 완료
+2025-11-05 16:23:38 | 최종 프롬프트 저장 완료
+2025-11-05 16:23:43 | Agent 그래프 생성 시작
+2025-11-05 16:23:43 | Fallback Chain 활성화
+2025-11-05 16:23:43 | 최대 재시도 횟수: 3
+2025-11-05 16:23:43 | Router 검증 활성화: True
+2025-11-05 16:23:43 | Agent 그래프 컴파일 완료
+2025-11-05 16:23:43 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:23:43 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:23:45 | 질문 유형 분류 실패: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:23:45 | 기본값 'general_question' 사용
+2025-11-05 16:23:45 | Fallback Chain 상태 초기화 완료
+2025-11-05 16:23:45 | 질문 유형: general_question
+2025-11-05 16:23:45 | Fallback Chain: general
+2025-11-05 16:23:45 | 라우터 노드 실행: Diffusion Model 설명하고 관련 논문 찾아서 요약해줘
+2025-11-05 16:23:45 | 다중 요청 감지: ['찾', '요약'] → ['search_paper', 'summarize']
+2025-11-05 16:23:45 | 패턴 설명: 논문 찾아서 요약
+2025-11-05 16:23:45 | 순차 실행 도구: search_paper → summarize
+2025-11-05 16:23:47 | 도구 실행 실패 감지: search_paper
+2025-11-05 16:23:47 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 16:23:47 | ============================================================
+2025-11-05 16:23:47 | Fallback Router 실행
+2025-11-05 16:23:47 | 실패한 도구: search_paper
+2025-11-05 16:23:47 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 16:23:47 | 재시도 횟수: 0/3
+2025-11-05 16:23:47 | 파이프라인 모드: search_paper → summarize
+2025-11-05 16:23:47 | 현재 인덱스: 0
+2025-11-05 16:23:47 | 파이프라인 도구 대체: search_paper → web_search
+2025-11-05 16:23:47 | 파이프라인 업데이트: web_search → summarize
+2025-11-05 16:23:47 | 다음 도구 실행: web_search
+2025-11-05 16:23:47 | ============================================================
+2025-11-05 16:23:51 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:23:51 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:23:51 | 시스템 프롬프트 저장 완료
+2025-11-05 16:23:51 | 최종 프롬프트 저장 완료
+2025-11-05 16:23:53 | 도구 실행 실패 감지: web_search
+2025-11-05 16:23:53 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 16:23:53 | ============================================================
+2025-11-05 16:23:53 | Fallback Router 실행
+2025-11-05 16:23:53 | 실패한 도구: web_search
+2025-11-05 16:23:53 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 16:23:53 | 재시도 횟수: 1/3
+2025-11-05 16:23:53 | 파이프라인 모드: web_search → summarize
+2025-11-05 16:23:53 | 현재 인덱스: 0
+2025-11-05 16:23:53 | 파이프라인 도구 대체: web_search → general
+2025-11-05 16:23:53 | 파이프라인 업데이트: general → summarize
+2025-11-05 16:23:53 | 다음 도구 실행: general
+2025-11-05 16:23:53 | ============================================================
+2025-11-05 16:23:53 | 일반 답변 노드 실행: Diffusion Model 설명하고 관련 논문 찾아서 요약해줘
+2025-11-05 16:23:53 | 난이도: hard
+2025-11-05 16:23:53 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:23:53 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:23:53 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:23:53 | 시스템 프롬프트 저장 완료
+2025-11-05 16:23:53 | 최종 프롬프트 저장 완료
+2025-11-05 16:23:55 | 도구 실행 오류: general
+2025-11-05 16:23:55 | 오류 내용: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:23:55 | ============================================================
+2025-11-05 16:23:55 | Fallback Router 실행
+2025-11-05 16:23:55 | 실패한 도구: general
+2025-11-05 16:23:55 | 실패 사유: 예외 발생: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:23:55 | 재시도 횟수: 2/3
+2025-11-05 16:23:55 | 파이프라인 모드: general → summarize
+2025-11-05 16:23:55 | 현재 인덱스: 0
+2025-11-05 16:23:55 | general에 대한 Fallback 도구 없음 → general 사용
+2025-11-05 16:23:55 | 파이프라인 업데이트: general → summarize
+2025-11-05 16:23:55 | ============================================================
+2025-11-05 16:23:55 | 일반 답변 노드 실행: Diffusion Model 설명하고 관련 논문 찾아서 요약해줘
+2025-11-05 16:23:55 | 난이도: hard
+2025-11-05 16:23:55 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:23:55 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:23:55 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:23:55 | 시스템 프롬프트 저장 완료
+2025-11-05 16:23:55 | 최종 프롬프트 저장 완료
+2025-11-05 16:23:57 | 도구 실행 오류: general
+2025-11-05 16:23:57 | 오류 내용: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:23:57 | ============================================================
+2025-11-05 16:23:57 | 최종 Fallback 노드 실행
+2025-11-05 16:23:57 | general 도구로 강제 전환
+2025-11-05 16:23:57 | ============================================================
+2025-11-05 16:23:57 | 일반 답변 노드 실행: Diffusion Model 설명하고 관련 논문 찾아서 요약해줘
+2025-11-05 16:23:57 | 난이도: hard
+2025-11-05 16:23:57 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:23:57 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:23:57 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:23:57 | 시스템 프롬프트 저장 완료
+2025-11-05 16:23:57 | 최종 프롬프트 저장 완료
+2025-11-05 16:24:03 | Agent 그래프 생성 시작
+2025-11-05 16:24:03 | Fallback Chain 활성화
+2025-11-05 16:24:03 | 최대 재시도 횟수: 3
+2025-11-05 16:24:03 | Router 검증 활성화: True
+2025-11-05 16:24:03 | Agent 그래프 컴파일 완료
+2025-11-05 16:24:03 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:24:03 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:24:05 | 질문 유형 분류 실패: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:24:05 | 기본값 'general_question' 사용
+2025-11-05 16:24:05 | Fallback Chain 상태 초기화 완료
+2025-11-05 16:24:05 | 질문 유형: general_question
+2025-11-05 16:24:05 | Fallback Chain: general
+2025-11-05 16:24:05 | 라우터 노드 실행: 2024년 BERT 계열 논문 통계 보여주고 대표 논문 하나 요약해줘
+2025-11-05 16:24:05 | 다중 요청 감지: ['논문', '요약'] → ['general', 'summarize']
+2025-11-05 16:24:05 | 패턴 설명: 논문 + 요약 키워드
+2025-11-05 16:24:05 | 순차 실행 도구: general → summarize
+2025-11-05 16:24:05 | 일반 답변 노드 실행: 2024년 BERT 계열 논문 통계 보여주고 대표 논문 하나 요약해줘
+2025-11-05 16:24:05 | 난이도: hard
+2025-11-05 16:24:05 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:24:05 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:24:05 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:24:05 | 시스템 프롬프트 저장 완료
+2025-11-05 16:24:05 | 최종 프롬프트 저장 완료
+2025-11-05 16:24:07 | 도구 실행 오류: general
+2025-11-05 16:24:07 | 오류 내용: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:24:07 | ============================================================
+2025-11-05 16:24:07 | Fallback Router 실행
+2025-11-05 16:24:07 | 실패한 도구: general
+2025-11-05 16:24:07 | 실패 사유: 예외 발생: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:24:07 | 재시도 횟수: 0/3
+2025-11-05 16:24:07 | 파이프라인 모드: general → summarize
+2025-11-05 16:24:07 | 현재 인덱스: 0
+2025-11-05 16:24:07 | general에 대한 Fallback 도구 없음 → general 사용
+2025-11-05 16:24:07 | 파이프라인 업데이트: general → summarize
+2025-11-05 16:24:07 | ============================================================
+2025-11-05 16:24:07 | 일반 답변 노드 실행: 2024년 BERT 계열 논문 통계 보여주고 대표 논문 하나 요약해줘
+2025-11-05 16:24:07 | 난이도: hard
+2025-11-05 16:24:07 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:24:07 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:24:07 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:24:07 | 시스템 프롬프트 저장 완료
+2025-11-05 16:24:07 | 최종 프롬프트 저장 완료
+2025-11-05 16:24:10 | 도구 실행 오류: general
+2025-11-05 16:24:10 | 오류 내용: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:24:10 | ============================================================
+2025-11-05 16:24:10 | Fallback Router 실행
+2025-11-05 16:24:10 | 실패한 도구: general
+2025-11-05 16:24:10 | 실패 사유: 예외 발생: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:24:10 | 재시도 횟수: 1/3
+2025-11-05 16:24:10 | 파이프라인 모드: general → summarize
+2025-11-05 16:24:10 | 현재 인덱스: 0
+2025-11-05 16:24:10 | general에 대한 Fallback 도구 없음 → general 사용
+2025-11-05 16:24:10 | 파이프라인 업데이트: general → summarize
+2025-11-05 16:24:10 | ============================================================
+2025-11-05 16:24:10 | 일반 답변 노드 실행: 2024년 BERT 계열 논문 통계 보여주고 대표 논문 하나 요약해줘
+2025-11-05 16:24:10 | 난이도: hard
+2025-11-05 16:24:10 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:24:10 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:24:10 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:24:10 | 시스템 프롬프트 저장 완료
+2025-11-05 16:24:10 | 최종 프롬프트 저장 완료
+2025-11-05 16:24:12 | 도구 실행 오류: general
+2025-11-05 16:24:12 | 오류 내용: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:24:12 | ============================================================
+2025-11-05 16:24:12 | Fallback Router 실행
+2025-11-05 16:24:12 | 실패한 도구: general
+2025-11-05 16:24:12 | 실패 사유: 예외 발생: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:24:12 | 재시도 횟수: 2/3
+2025-11-05 16:24:12 | 파이프라인 모드: general → summarize
+2025-11-05 16:24:12 | 현재 인덱스: 0
+2025-11-05 16:24:12 | general에 대한 Fallback 도구 없음 → general 사용
+2025-11-05 16:24:12 | 파이프라인 업데이트: general → summarize
+2025-11-05 16:24:12 | ============================================================
+2025-11-05 16:24:12 | 일반 답변 노드 실행: 2024년 BERT 계열 논문 통계 보여주고 대표 논문 하나 요약해줘
+2025-11-05 16:24:12 | 난이도: hard
+2025-11-05 16:24:12 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:24:12 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:24:12 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:24:12 | 시스템 프롬프트 저장 완료
+2025-11-05 16:24:12 | 최종 프롬프트 저장 완료
+2025-11-05 16:24:14 | 도구 실행 오류: general
+2025-11-05 16:24:14 | 오류 내용: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:24:14 | ============================================================
+2025-11-05 16:24:14 | 최종 Fallback 노드 실행
+2025-11-05 16:24:14 | general 도구로 강제 전환
+2025-11-05 16:24:14 | ============================================================
+2025-11-05 16:24:14 | 일반 답변 노드 실행: 2024년 BERT 계열 논문 통계 보여주고 대표 논문 하나 요약해줘
+2025-11-05 16:24:14 | 난이도: hard
+2025-11-05 16:24:14 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:24:14 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:24:14 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:24:14 | 시스템 프롬프트 저장 완료
+2025-11-05 16:24:14 | 최종 프롬프트 저장 완료
+2025-11-05 16:24:18 | Agent 그래프 생성 시작
+2025-11-05 16:24:18 | Fallback Chain 활성화
+2025-11-05 16:24:18 | 최대 재시도 횟수: 3
+2025-11-05 16:24:18 | Router 검증 활성화: True
+2025-11-05 16:24:18 | Agent 그래프 컴파일 완료
+2025-11-05 16:24:18 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:24:18 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:24:20 | 질문 유형 분류 실패: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:24:20 | 기본값 'general_question' 사용
+2025-11-05 16:24:20 | Fallback Chain 상태 초기화 완료
+2025-11-05 16:24:20 | 질문 유형: general_question
+2025-11-05 16:24:20 | Fallback Chain: general
+2025-11-05 16:24:20 | 라우터 노드 실행: 최신 LLM 트렌드 찾아서 정리하고 저장해줘
+2025-11-05 16:24:20 | 다중 요청 감지: ['찾', '정리'] → ['search_paper', 'summarize']
+2025-11-05 16:24:20 | 패턴 설명: 논문 찾아서 정리
+2025-11-05 16:24:20 | 순차 실행 도구: search_paper → summarize
+2025-11-05 16:24:22 | 도구 실행 실패 감지: search_paper
+2025-11-05 16:24:22 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 16:24:22 | ============================================================
+2025-11-05 16:24:22 | Fallback Router 실행
+2025-11-05 16:24:22 | 실패한 도구: search_paper
+2025-11-05 16:24:22 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 16:24:22 | 재시도 횟수: 0/3
+2025-11-05 16:24:22 | 파이프라인 모드: search_paper → summarize
+2025-11-05 16:24:22 | 현재 인덱스: 0
+2025-11-05 16:24:22 | 파이프라인 도구 대체: search_paper → web_search
+2025-11-05 16:24:22 | 파이프라인 업데이트: web_search → summarize
+2025-11-05 16:24:22 | 다음 도구 실행: web_search
+2025-11-05 16:24:22 | ============================================================
+2025-11-05 16:24:26 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:24:26 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:24:26 | 시스템 프롬프트 저장 완료
+2025-11-05 16:24:26 | 최종 프롬프트 저장 완료
+2025-11-05 16:24:28 | 도구 실행 실패 감지: web_search
+2025-11-05 16:24:28 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 16:24:28 | ============================================================
+2025-11-05 16:24:28 | Fallback Router 실행
+2025-11-05 16:24:28 | 실패한 도구: web_search
+2025-11-05 16:24:28 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 16:24:28 | 재시도 횟수: 1/3
+2025-11-05 16:24:28 | 파이프라인 모드: web_search → summarize
+2025-11-05 16:24:28 | 현재 인덱스: 0
+2025-11-05 16:24:28 | 파이프라인 도구 대체: web_search → general
+2025-11-05 16:24:28 | 파이프라인 업데이트: general → summarize
+2025-11-05 16:24:28 | 다음 도구 실행: general
+2025-11-05 16:24:28 | ============================================================
+2025-11-05 16:24:28 | 일반 답변 노드 실행: 최신 LLM 트렌드 찾아서 정리하고 저장해줘
+2025-11-05 16:24:28 | 난이도: hard
+2025-11-05 16:24:28 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:24:28 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:24:28 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:24:28 | 시스템 프롬프트 저장 완료
+2025-11-05 16:24:28 | 최종 프롬프트 저장 완료
+2025-11-05 16:24:30 | 도구 실행 오류: general
+2025-11-05 16:24:30 | 오류 내용: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:24:30 | ============================================================
+2025-11-05 16:24:30 | Fallback Router 실행
+2025-11-05 16:24:30 | 실패한 도구: general
+2025-11-05 16:24:30 | 실패 사유: 예외 발생: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:24:30 | 재시도 횟수: 2/3
+2025-11-05 16:24:30 | 파이프라인 모드: general → summarize
+2025-11-05 16:24:30 | 현재 인덱스: 0
+2025-11-05 16:24:30 | general에 대한 Fallback 도구 없음 → general 사용
+2025-11-05 16:24:30 | 파이프라인 업데이트: general → summarize
+2025-11-05 16:24:30 | ============================================================
+2025-11-05 16:24:30 | 일반 답변 노드 실행: 최신 LLM 트렌드 찾아서 정리하고 저장해줘
+2025-11-05 16:24:30 | 난이도: hard
+2025-11-05 16:24:30 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:24:30 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:24:30 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:24:30 | 시스템 프롬프트 저장 완료
+2025-11-05 16:24:30 | 최종 프롬프트 저장 완료
+2025-11-05 16:24:33 | 도구 실행 오류: general
+2025-11-05 16:24:33 | 오류 내용: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:24:33 | ============================================================
+2025-11-05 16:24:33 | 최종 Fallback 노드 실행
+2025-11-05 16:24:33 | general 도구로 강제 전환
+2025-11-05 16:24:33 | ============================================================
+2025-11-05 16:24:33 | 일반 답변 노드 실행: 최신 LLM 트렌드 찾아서 정리하고 저장해줘
+2025-11-05 16:24:33 | 난이도: hard
+2025-11-05 16:24:33 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:24:33 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:24:33 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:24:33 | 시스템 프롬프트 저장 완료
+2025-11-05 16:24:33 | 최종 프롬프트 저장 완료
+2025-11-05 16:24:38 | Agent 그래프 생성 시작
+2025-11-05 16:24:38 | Fallback Chain 활성화
+2025-11-05 16:24:38 | 최대 재시도 횟수: 3
+2025-11-05 16:24:38 | Router 검증 활성화: True
+2025-11-05 16:24:38 | Agent 그래프 컴파일 완료
+2025-11-05 16:24:38 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:24:38 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:24:40 | 질문 유형 분류 실패: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:24:40 | 기본값 'general_question' 사용
+2025-11-05 16:24:40 | Fallback Chain 상태 초기화 완료
+2025-11-05 16:24:40 | 질문 유형: general_question
+2025-11-05 16:24:40 | Fallback Chain: general
+2025-11-05 16:24:40 | 라우터 노드 실행: Supervised Learning과 Unsupervised Learning 차이를 논문 기반으로 설명해줘
+2025-11-05 16:24:40 | 다중 요청 감지: ['설명', '논문'] → ['glossary', 'search_paper']
+2025-11-05 16:24:40 | 패턴 설명: 용어 설명 후 관련 논문
+2025-11-05 16:24:40 | 순차 실행 도구: glossary → search_paper
+2025-11-05 16:24:42 | pgvector 검색 기록: glossary
+2025-11-05 16:24:42 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:24:42 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:24:42 | 시스템 프롬프트 저장 완료
+2025-11-05 16:24:42 | 최종 프롬프트 저장 완료
+2025-11-05 16:24:44 | 도구 실행 실패 감지: glossary
+2025-11-05 16:24:44 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 16:24:44 | ============================================================
+2025-11-05 16:24:44 | Fallback Router 실행
+2025-11-05 16:24:44 | 실패한 도구: glossary
+2025-11-05 16:24:44 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 16:24:44 | 재시도 횟수: 0/3
+2025-11-05 16:24:44 | 파이프라인 모드: glossary → search_paper
+2025-11-05 16:24:44 | 현재 인덱스: 0
+2025-11-05 16:24:44 | 파이프라인 도구 대체: glossary → general
+2025-11-05 16:24:44 | 파이프라인 업데이트: general → search_paper
+2025-11-05 16:24:44 | 다음 도구 실행: general
+2025-11-05 16:24:44 | ============================================================
+2025-11-05 16:24:44 | 일반 답변 노드 실행: Supervised Learning과 Unsupervised Learning 차이를 논문 기반으로 설명해줘
+2025-11-05 16:24:44 | 난이도: hard
+2025-11-05 16:24:44 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:24:44 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:24:44 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:24:44 | 시스템 프롬프트 저장 완료
+2025-11-05 16:24:44 | 최종 프롬프트 저장 완료
+2025-11-05 16:24:46 | 도구 실행 오류: general
+2025-11-05 16:24:46 | 오류 내용: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:24:46 | ============================================================
+2025-11-05 16:24:46 | Fallback Router 실행
+2025-11-05 16:24:46 | 실패한 도구: general
+2025-11-05 16:24:46 | 실패 사유: 예외 발생: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:24:46 | 재시도 횟수: 1/3
+2025-11-05 16:24:46 | 파이프라인 모드: general → search_paper
+2025-11-05 16:24:46 | 현재 인덱스: 0
+2025-11-05 16:24:46 | general에 대한 Fallback 도구 없음 → general 사용
+2025-11-05 16:24:46 | 파이프라인 업데이트: general → search_paper
+2025-11-05 16:24:46 | ============================================================
+2025-11-05 16:24:46 | 일반 답변 노드 실행: Supervised Learning과 Unsupervised Learning 차이를 논문 기반으로 설명해줘
+2025-11-05 16:24:46 | 난이도: hard
+2025-11-05 16:24:46 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:24:46 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:24:46 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:24:46 | 시스템 프롬프트 저장 완료
+2025-11-05 16:24:46 | 최종 프롬프트 저장 완료
+2025-11-05 16:24:48 | 도구 실행 오류: general
+2025-11-05 16:24:48 | 오류 내용: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:24:48 | ============================================================
+2025-11-05 16:24:48 | Fallback Router 실행
+2025-11-05 16:24:48 | 실패한 도구: general
+2025-11-05 16:24:48 | 실패 사유: 예외 발생: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:24:48 | 재시도 횟수: 2/3
+2025-11-05 16:24:48 | 파이프라인 모드: general → search_paper
+2025-11-05 16:24:48 | 현재 인덱스: 0
+2025-11-05 16:24:48 | general에 대한 Fallback 도구 없음 → general 사용
+2025-11-05 16:24:48 | 파이프라인 업데이트: general → search_paper
+2025-11-05 16:24:48 | ============================================================
+2025-11-05 16:24:48 | 일반 답변 노드 실행: Supervised Learning과 Unsupervised Learning 차이를 논문 기반으로 설명해줘
+2025-11-05 16:24:48 | 난이도: hard
+2025-11-05 16:24:48 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:24:48 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:24:48 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:24:48 | 시스템 프롬프트 저장 완료
+2025-11-05 16:24:48 | 최종 프롬프트 저장 완료
+2025-11-05 16:24:50 | 도구 실행 오류: general
+2025-11-05 16:24:50 | 오류 내용: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:24:50 | ============================================================
+2025-11-05 16:24:50 | 최종 Fallback 노드 실행
+2025-11-05 16:24:50 | general 도구로 강제 전환
+2025-11-05 16:24:50 | ============================================================
+2025-11-05 16:24:50 | 일반 답변 노드 실행: Supervised Learning과 Unsupervised Learning 차이를 논문 기반으로 설명해줘
+2025-11-05 16:24:50 | 난이도: hard
+2025-11-05 16:24:50 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:24:50 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:24:50 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:24:50 | 시스템 프롬프트 저장 완료
+2025-11-05 16:24:50 | 최종 프롬프트 저장 완료
+2025-11-05 16:24:54 | Agent 그래프 생성 시작
+2025-11-05 16:24:54 | Fallback Chain 활성화
+2025-11-05 16:24:54 | 최대 재시도 횟수: 3
+2025-11-05 16:24:54 | Router 검증 활성화: True
+2025-11-05 16:24:54 | Agent 그래프 컴파일 완료
+2025-11-05 16:24:54 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:24:54 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:24:56 | 질문 유형 분류 실패: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:24:56 | 기본값 'general_question' 사용
+2025-11-05 16:24:56 | Fallback Chain 상태 초기화 완료
+2025-11-05 16:24:56 | 질문 유형: general_question
+2025-11-05 16:24:56 | Fallback Chain: general
+2025-11-05 16:24:56 | 라우터 노드 실행: Retrieval Augmented Generation 설명하고 관련 논문도 찾아줘
+2025-11-05 16:24:56 | 다중 요청 감지: ['설명', '논문'] → ['general', 'search_paper']
+2025-11-05 16:24:56 | 패턴 설명: 용어 설명 후 관련 논문
+2025-11-05 16:24:56 | 순차 실행 도구: general → search_paper
+2025-11-05 16:24:56 | 일반 답변 노드 실행: Retrieval Augmented Generation 설명하고 관련 논문도 찾아줘
+2025-11-05 16:24:56 | 난이도: hard
+2025-11-05 16:24:56 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:24:56 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:24:56 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:24:56 | 시스템 프롬프트 저장 완료
+2025-11-05 16:24:56 | 최종 프롬프트 저장 완료
+2025-11-05 16:24:58 | 도구 실행 오류: general
+2025-11-05 16:24:58 | 오류 내용: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:24:58 | ============================================================
+2025-11-05 16:24:58 | Fallback Router 실행
+2025-11-05 16:24:58 | 실패한 도구: general
+2025-11-05 16:24:58 | 실패 사유: 예외 발생: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:24:58 | 재시도 횟수: 0/3
+2025-11-05 16:24:58 | 파이프라인 모드: general → search_paper
+2025-11-05 16:24:58 | 현재 인덱스: 0
+2025-11-05 16:24:58 | general에 대한 Fallback 도구 없음 → general 사용
+2025-11-05 16:24:58 | 파이프라인 업데이트: general → search_paper
+2025-11-05 16:24:58 | ============================================================
+2025-11-05 16:24:58 | 일반 답변 노드 실행: Retrieval Augmented Generation 설명하고 관련 논문도 찾아줘
+2025-11-05 16:24:58 | 난이도: hard
+2025-11-05 16:24:58 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:24:58 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:24:58 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:24:58 | 시스템 프롬프트 저장 완료
+2025-11-05 16:24:58 | 최종 프롬프트 저장 완료
+2025-11-05 16:25:01 | 도구 실행 오류: general
+2025-11-05 16:25:01 | 오류 내용: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:25:01 | ============================================================
+2025-11-05 16:25:01 | Fallback Router 실행
+2025-11-05 16:25:01 | 실패한 도구: general
+2025-11-05 16:25:01 | 실패 사유: 예외 발생: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:25:01 | 재시도 횟수: 1/3
+2025-11-05 16:25:01 | 파이프라인 모드: general → search_paper
+2025-11-05 16:25:01 | 현재 인덱스: 0
+2025-11-05 16:25:01 | general에 대한 Fallback 도구 없음 → general 사용
+2025-11-05 16:25:01 | 파이프라인 업데이트: general → search_paper
+2025-11-05 16:25:01 | ============================================================
+2025-11-05 16:25:01 | 일반 답변 노드 실행: Retrieval Augmented Generation 설명하고 관련 논문도 찾아줘
+2025-11-05 16:25:01 | 난이도: hard
+2025-11-05 16:25:01 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:25:01 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:25:01 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:25:01 | 시스템 프롬프트 저장 완료
+2025-11-05 16:25:01 | 최종 프롬프트 저장 완료
+2025-11-05 16:25:03 | 도구 실행 오류: general
+2025-11-05 16:25:03 | 오류 내용: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:25:03 | ============================================================
+2025-11-05 16:25:03 | Fallback Router 실행
+2025-11-05 16:25:03 | 실패한 도구: general
+2025-11-05 16:25:03 | 실패 사유: 예외 발생: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:25:03 | 재시도 횟수: 2/3
+2025-11-05 16:25:03 | 파이프라인 모드: general → search_paper
+2025-11-05 16:25:03 | 현재 인덱스: 0
+2025-11-05 16:25:03 | general에 대한 Fallback 도구 없음 → general 사용
+2025-11-05 16:25:03 | 파이프라인 업데이트: general → search_paper
+2025-11-05 16:25:03 | ============================================================
+2025-11-05 16:25:03 | 일반 답변 노드 실행: Retrieval Augmented Generation 설명하고 관련 논문도 찾아줘
+2025-11-05 16:25:03 | 난이도: hard
+2025-11-05 16:25:03 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:25:03 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:25:03 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:25:03 | 시스템 프롬프트 저장 완료
+2025-11-05 16:25:03 | 최종 프롬프트 저장 완료
+2025-11-05 16:25:05 | 도구 실행 오류: general
+2025-11-05 16:25:05 | 오류 내용: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:25:05 | ============================================================
+2025-11-05 16:25:05 | 최종 Fallback 노드 실행
+2025-11-05 16:25:05 | general 도구로 강제 전환
+2025-11-05 16:25:05 | ============================================================
+2025-11-05 16:25:05 | 일반 답변 노드 실행: Retrieval Augmented Generation 설명하고 관련 논문도 찾아줘
+2025-11-05 16:25:05 | 난이도: hard
+2025-11-05 16:25:05 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:25:05 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:25:05 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 16:25:05 | 시스템 프롬프트 저장 완료
+2025-11-05 16:25:05 | 최종 프롬프트 저장 완료
+2025-11-05 16:25:10 | Agent 그래프 생성 시작
+2025-11-05 16:25:10 | Fallback Chain 활성화
+2025-11-05 16:25:10 | 최대 재시도 횟수: 3
+2025-11-05 16:25:10 | Router 검증 활성화: True
+2025-11-05 16:25:10 | Agent 그래프 컴파일 완료
+2025-11-05 16:25:10 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 16:25:10 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 16:25:12 | 질문 유형 분류 실패: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-05 16:25:12 | 기본값 'general_question' 사용
+2025-11-05 16:25:12 | Fallback Chain 상태 초기화 완료
+2025-11-05 16:25:12 | 질문 유형: general_question
+2025-11-05 16:25:12 | Fallback Chain: general
+2025-11-05 16:25:12 | 라우터 노드 실행: Transformer 관련 논문 통계를 SQL로 조회하고 결과 저장해줘
+2025-11-05 16:25:12 | 다중 요청 감지: ['통계', '저장'] → ['text2sql', 'save_file']
+2025-11-05 16:25:12 | 패턴 설명: 통계 조회 후 저장
+2025-11-05 16:25:12 | 순차 실행 도구: text2sql → save_file
+2025-11-05 16:25:12 | Text-to-SQL 노드 실행: Transformer 관련 논문 통계를 SQL로 조회하고 결과 저장해줘
+2025-11-05 16:25:13 | SQL 실행 완료: 395 글자
+2025-11-05 16:25:13 | 도구 실행 성공: text2sql
+2025-11-05 16:25:13 | Pipeline 진행: 1/2
+2025-11-05 16:25:13 | 다음 도구 실행: save_file
+2025-11-05 16:25:13 | 파일 저장 노드 실행: Transformer 관련 논문 통계를 SQL로 조회하고 결과 저장해줘
+2025-11-05 16:25:13 | 저장할 내용 길이: 395 글자
+2025-11-05 16:25:13 | 파일명: 20251105_162513_Transformer_관련_논문_통계를_SQL로_조회하고_결과_저장해줘.md
+2025-11-05 16:25:13 | 결과물 저장: 20251105_162513_Transformer_관련_논문_통계를_SQL로_조회하고_결과_저장해줘.md
+2025-11-05 16:25:13 | 파일 저장 완료: experiments/20251105/20251105_152824_session_018/outputs/save_data/20251105_162513_Transformer_관련_논문_통계를_SQL로_조회하고_결과_저장해줘.md
+2025-11-05 16:25:13 | 도구 실행 성공: save_file
+2025-11-05 16:25:13 | ==================================================
+2025-11-05 16:25:13 | 실험 종료
+2025-11-05 16:25:13 | ==================================================
+2025-11-05 16:25:13 | 빈 폴더 삭제: experiments/20251105/20251105_152824_session_018/evaluation
+2025-11-05 16:25:13 | 빈 폴더 삭제: experiments/20251105/20251105_152824_session_018/ui
+2025-11-05 16:25:13 | 총 2개의 빈 폴더 삭제 완료

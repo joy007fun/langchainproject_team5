@@ -1,0 +1,5 @@
+2025-11-05 16:38:36 | 첫 실행: 새 채팅 자동 생성 (난이도: easy)
+2025-11-05 16:38:41 | 용어 추출 범위 변경 (슬라이더): 1-24개
+2025-11-05 16:38:45 | 사용자 질문: Chain-of-Thought prompting 논문 있어?
+2025-11-05 16:38:45 | Agent 실행 시작 (난이도: easy)
+2025-11-05 16:38:51 | 에러 발생: [Errno 2] No such file or directory: 'experiments/20251105/20251105_163836_session_023/prompts/system_prompt.txt'
