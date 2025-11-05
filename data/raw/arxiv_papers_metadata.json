@@ -240,22 +240,22 @@
     "primary_category": null
   },
   {
-    "title": "Semantics-aware BERT for Language Understanding",
-    "authors": "Zhuosheng Zhang, Yuwei Wu, Hai Zhao, Zuchao Li, Shuailiang Zhang, Xi Zhou, Xiang Zhou",
-    "published_date": "2019-09-05",
-    "summary": "The latest work on language representations carefully integrates\ncontextualized features into language model training, which enables a series of\nsuccess especially in various machine reading comprehension and natural\nlanguage inference tasks. However, the existing language representation models\nincluding ELMo, GPT and BERT only exploit plain context-sensitive features such\nas character or word embeddings. They rarely consider incorporating structured\nsemantic information which can provide rich semantics for language\nrepresentation. To promote natural language understanding, we propose to\nincorporate explicit contextual semantics from pre-trained semantic role\nlabeling, and introduce an improved language representation model,\nSemantics-aware BERT (SemBERT), which is capable of explicitly absorbing\ncontextual semantics over a BERT backbone. SemBERT keeps the convenient\nusability of its BERT precursor in a light fine-tuning way without substantial\ntask-specific modifications. Compared with BERT, semantics-aware BERT is as\nsimple in concept but more powerful. It obtains new state-of-the-art or\nsubstantially improves results on ten reading comprehension and language\ninference tasks.",
-    "pdf_url": "http://arxiv.org/pdf/1909.02209v3",
-    "entry_id": "http://arxiv.org/abs/1909.02209v3",
-    "categories": [],
-    "primary_category": null
-  },
-  {
     "title": "KI-BERT: Infusing Knowledge Context for Better Language and Domain Understanding",
     "authors": "Keyur Faldu, Amit Sheth, Prashant Kikani, Hemang Akbari",
     "published_date": "2021-04-09",
     "summary": "Contextualized entity representations learned by state-of-the-art\ntransformer-based language models (TLMs) like BERT, GPT, T5, etc., leverage the\nattention mechanism to learn the data context from training data corpus.\nHowever, these models do not use the knowledge context. Knowledge context can\nbe understood as semantics about entities and their relationship with\nneighboring entities in knowledge graphs. We propose a novel and effective\ntechnique to infuse knowledge context from multiple knowledge graphs for\nconceptual and ambiguous entities into TLMs during fine-tuning. It projects\nknowledge graph embeddings in the homogeneous vector-space, introduces new\ntoken-types for entities, aligns entity position ids, and a selective attention\nmechanism. We take BERT as a baseline model and implement the\n\"Knowledge-Infused BERT\" by infusing knowledge context from ConceptNet and\nWordNet, which significantly outperforms BERT and other recent knowledge-aware\nBERT variants like ERNIE, SenseBERT, and BERT_CS over eight different subtasks\nof GLUE benchmark. The KI-BERT-base model even significantly outperforms\nBERT-large for domain-specific tasks like SciTail and academic subsets of QQP,\nQNLI, and MNLI.",
     "pdf_url": "http://arxiv.org/pdf/2104.08145v2",
     "entry_id": "http://arxiv.org/abs/2104.08145v2",
+    "categories": [],
+    "primary_category": null
+  },
+  {
+    "title": "Semantics-aware BERT for Language Understanding",
+    "authors": "Zhuosheng Zhang, Yuwei Wu, Hai Zhao, Zuchao Li, Shuailiang Zhang, Xi Zhou, Xiang Zhou",
+    "published_date": "2019-09-05",
+    "summary": "The latest work on language representations carefully integrates\ncontextualized features into language model training, which enables a series of\nsuccess especially in various machine reading comprehension and natural\nlanguage inference tasks. However, the existing language representation models\nincluding ELMo, GPT and BERT only exploit plain context-sensitive features such\nas character or word embeddings. They rarely consider incorporating structured\nsemantic information which can provide rich semantics for language\nrepresentation. To promote natural language understanding, we propose to\nincorporate explicit contextual semantics from pre-trained semantic role\nlabeling, and introduce an improved language representation model,\nSemantics-aware BERT (SemBERT), which is capable of explicitly absorbing\ncontextual semantics over a BERT backbone. SemBERT keeps the convenient\nusability of its BERT precursor in a light fine-tuning way without substantial\ntask-specific modifications. Compared with BERT, semantics-aware BERT is as\nsimple in concept but more powerful. It obtains new state-of-the-art or\nsubstantially improves results on ten reading comprehension and language\ninference tasks.",
+    "pdf_url": "http://arxiv.org/pdf/1909.02209v3",
+    "entry_id": "http://arxiv.org/abs/1909.02209v3",
     "categories": [],
     "primary_category": null
   },
@@ -390,22 +390,22 @@
     "primary_category": null
   },
   {
-    "title": "Enhance Reasoning Ability of Visual-Language Models via Large Language Models",
-    "authors": "Yueting Yang, Xintong Zhang, Wenjuan Han",
-    "published_date": "2023-05-22",
-    "summary": "Pre-trained visual language models (VLM) have shown excellent performance in\nimage caption tasks. However, it sometimes shows insufficient reasoning\nability. In contrast, large language models (LLMs) emerge with powerful\nreasoning capabilities. Therefore, we propose a method called TReE, which\ntransfers the reasoning ability of a large language model to a visual language\nmodel in zero-shot scenarios. TReE contains three stages: observation,\nthinking, and re-thinking. Observation stage indicates that VLM obtains the\noverall information of the relative image. Thinking stage combines the image\ninformation and task description as the prompt of the LLM, inference with the\nrationals. Re-Thinking stage learns from rationale and then inference the final\nresult through VLM.",
-    "pdf_url": "http://arxiv.org/pdf/2305.13267v1",
-    "entry_id": "http://arxiv.org/abs/2305.13267v1",
-    "categories": [],
-    "primary_category": null
-  },
-  {
     "title": "Beyond the limitations of any imaginable mechanism: large language models and psycholinguistics",
     "authors": "Conor Houghton, Nina Kazanina, Priyanka Sukumaran",
     "published_date": "2023-02-28",
     "summary": "Large language models are not detailed models of human linguistic processing.\nThey are, however, extremely successful at their primary task: providing a\nmodel for language. For this reason and because there are no animal models for\nlanguage, large language models are important in psycholinguistics: they are\nuseful as a practical tool, as an illustrative comparative, and\nphilosophically, as a basis for recasting the relationship between language and\nthought.",
     "pdf_url": "http://arxiv.org/pdf/2303.00077v1",
     "entry_id": "http://arxiv.org/abs/2303.00077v1",
+    "categories": [],
+    "primary_category": null
+  },
+  {
+    "title": "Enhance Reasoning Ability of Visual-Language Models via Large Language Models",
+    "authors": "Yueting Yang, Xintong Zhang, Wenjuan Han",
+    "published_date": "2023-05-22",
+    "summary": "Pre-trained visual language models (VLM) have shown excellent performance in\nimage caption tasks. However, it sometimes shows insufficient reasoning\nability. In contrast, large language models (LLMs) emerge with powerful\nreasoning capabilities. Therefore, we propose a method called TReE, which\ntransfers the reasoning ability of a large language model to a visual language\nmodel in zero-shot scenarios. TReE contains three stages: observation,\nthinking, and re-thinking. Observation stage indicates that VLM obtains the\noverall information of the relative image. Thinking stage combines the image\ninformation and task description as the prompt of the LLM, inference with the\nrationals. Re-Thinking stage learns from rationale and then inference the final\nresult through VLM.",
+    "pdf_url": "http://arxiv.org/pdf/2305.13267v1",
+    "entry_id": "http://arxiv.org/abs/2305.13267v1",
     "categories": [],
     "primary_category": null
   },
@@ -690,22 +690,22 @@
     "primary_category": null
   },
   {
-    "title": "Lexically Cohesive Neural Machine Translation with Copy Mechanism",
-    "authors": "Vipul Mishra, Chenhui Chu, Yuki Arase",
-    "published_date": "2020-10-11",
-    "summary": "Lexically cohesive translations preserve consistency in word choices in\ndocument-level translation. We employ a copy mechanism into a context-aware\nneural machine translation model to allow copying words from previous\ntranslation outputs. Different from previous context-aware neural machine\ntranslation models that handle all the discourse phenomena implicitly, our\nmodel explicitly addresses the lexical cohesion problem by boosting the\nprobabilities to output words consistently. We conduct experiments on Japanese\nto English translation using an evaluation dataset for discourse translation.\nThe results showed that the proposed model significantly improved lexical\ncohesion compared to previous context-aware models.",
-    "pdf_url": "http://arxiv.org/pdf/2010.05193v1",
-    "entry_id": "http://arxiv.org/abs/2010.05193v1",
-    "categories": [],
-    "primary_category": null
-  },
-  {
     "title": "Zero-Resource Translation with Multi-Lingual Neural Machine Translation",
     "authors": "Orhan Firat, Baskaran Sankaran, Yaser Al-Onaizan, Fatos T. Yarman Vural, Kyunghyun Cho",
     "published_date": "2016-06-13",
     "summary": "In this paper, we propose a novel finetuning algorithm for the recently\nintroduced multi-way, mulitlingual neural machine translate that enables\nzero-resource machine translation. When used together with novel many-to-one\ntranslation strategies, we empirically show that this finetuning algorithm\nallows the multi-way, multilingual model to translate a zero-resource language\npair (1) as well as a single-pair neural translation model trained with up to\n1M direct parallel sentences of the same language pair and (2) better than\npivot-based translation strategy, while keeping only one additional copy of\nattention-related parameters.",
     "pdf_url": "http://arxiv.org/pdf/1606.04164v1",
     "entry_id": "http://arxiv.org/abs/1606.04164v1",
+    "categories": [],
+    "primary_category": null
+  },
+  {
+    "title": "Lexically Cohesive Neural Machine Translation with Copy Mechanism",
+    "authors": "Vipul Mishra, Chenhui Chu, Yuki Arase",
+    "published_date": "2020-10-11",
+    "summary": "Lexically cohesive translations preserve consistency in word choices in\ndocument-level translation. We employ a copy mechanism into a context-aware\nneural machine translation model to allow copying words from previous\ntranslation outputs. Different from previous context-aware neural machine\ntranslation models that handle all the discourse phenomena implicitly, our\nmodel explicitly addresses the lexical cohesion problem by boosting the\nprobabilities to output words consistently. We conduct experiments on Japanese\nto English translation using an evaluation dataset for discourse translation.\nThe results showed that the proposed model significantly improved lexical\ncohesion compared to previous context-aware models.",
+    "pdf_url": "http://arxiv.org/pdf/2010.05193v1",
+    "entry_id": "http://arxiv.org/abs/2010.05193v1",
     "categories": [],
     "primary_category": null
   },
