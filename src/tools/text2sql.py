@@ -13,6 +13,7 @@ from dotenv import load_dotenv
 # LLMClient import 추가 (config 기반)
 from src.utils.config_loader import get_model_config
 from src.llm.client import LLMClient
+from src.prompts import get_tool_prompt
 
 load_dotenv()
 # ==============================================================================
@@ -319,11 +320,17 @@ def _log_query(user_query: str,
 # 메인 Tool
 # ───────────────────────────────────────────────────────────────────────────────
 @tool("text2sql", return_direct=False)
-def text2sql(user_question: str) -> str:
+def text2sql(user_question: str, difficulty: str = "easy") -> str:
     """
     논문 통계 전용 Text-to-SQL 도구입니다.
     - 자연어 질문을 안전한 SQL로 변환하고 실행합니다.
     - 현재는 public.papers 테이블만 접근합니다.
+    - 난이도에 따라 답변 스타일이 달라집니다.
+
+    Args:
+        user_question: 사용자의 통계 질문
+        difficulty: 난이도 (elementary/beginner/intermediate/advanced 또는 easy/hard)
+
     사용 예시)
       - "2024년에 발표된 논문 개수는?"
       - "카테고리별 논문 수를 보여줘"
@@ -376,13 +383,54 @@ def text2sql(user_question: str) -> str:
         cols, rows = _run_query(sql_ready)
         table_md = _to_markdown_table(cols, rows)
 
+        # ==================== 난이도별 프롬프트 로드 및 최종 답변 생성 ==================== #
+        try:
+            # 1. text2sql 프롬프트 로드
+            system_prompt = get_tool_prompt("text2sql", difficulty)
+
+            # 2. 데이터베이스 결과 포맷팅 (SQL + 테이블)
+            db_results = (
+                f"**생성된 SQL**:\n```sql\n{sql_ready}\n```\n\n"
+                f"**결과 테이블**:\n{table_md}"
+            )
+
+            # 3. user_prompt_template 로드
+            from src.prompts.loader import load_tool_prompts, map_difficulty
+            tool_prompts_data = load_tool_prompts()
+            mapped_diff = map_difficulty(difficulty)
+            complexity_level = "easy" if mapped_diff in ["elementary", "beginner"] else "hard"
+            user_template = tool_prompts_data["text2sql_prompts"][complexity_level][mapped_diff]["user_prompt_template"]
+
+            # 4. 템플릿에 데이터 삽입
+            user_content = user_template.format(
+                db_results=db_results,
+                question=user_question
+            )
+
+            # 5. LLM 호출하여 최종 답변 생성
+            final_answer_raw = llm_client.llm.invoke(
+                [
+                    SystemMessage(content=system_prompt),
+                    HumanMessage(content=user_content),
+                ]
+            ).content
+
+            # 6. 최종 응답 구성 (SQL 정보 포함)
+            out = (
+                f"**질문**: {user_question}\n\n"
+                f"**생성된 SQL**:\n```sql\n{sql_ready}\n```\n\n"
+                f"**분석 결과**:\n\n{final_answer_raw}"
+            )
+
+        except Exception as prompt_error:
+            # 프롬프트 로드 실패 시 기본 응답
+            out = (
+                f"**질문**: {user_question}\n\n"
+                f"**생성된 SQL**:\n```sql\n{sql_ready}\n```\n"
+                f"**결과**:\n\n{table_md}"
+            )
+
         elapsed = int((time.time() - t0) * 1000)
-        # 응답 텍스트 구성
-        out = (
-            f"**질문**: {user_question}\n\n"
-            f"**생성된 SQL**:\n```sql\n{sql_ready}\n```\n"
-            f"**결과**:\n\n{table_md}"
-        )
 
         # 로그 저장(응답 일부만 저장하여 크기 제한)
         _log_query(
