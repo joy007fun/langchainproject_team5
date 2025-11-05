@@ -163,6 +163,9 @@ def run_test(question_data: Dict, difficulty: str, exp_manager: ExperimentManage
         print(f"   답변 길이: {len(final_answer)} 글자")
         print(f"   실행 시간: {elapsed:.2f}초")
 
+        # Q&A 완료 분기점
+        exp_manager.logger.write_separator()
+
         return {
             "question": question,
             "type": q_type,
@@ -182,6 +185,9 @@ def run_test(question_data: Dict, difficulty: str, exp_manager: ExperimentManage
         print(f"\n❌ 실행 실패")
         print(f"   에러: {str(e)}")
         print(f"   실행 시간: {elapsed:.2f}초")
+
+        # Q&A 실패 분기점
+        exp_manager.logger.write_separator()
 
         return {
             "question": question,
