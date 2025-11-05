@@ -107,6 +107,20 @@ def route_next_pipeline_tool(state: AgentState) -> str:
         next_tool = tool_pipeline[pipeline_index]
         state["tool_choice"] = next_tool
         state["pipeline_index"] = pipeline_index + 1
+
+        # 타임라인 기록 (다중 요청 진행 상황)
+        from datetime import datetime
+        timeline = state.get("tool_timeline", [])
+        timeline.append({
+            "timestamp": datetime.now().isoformat(),
+            "event": "pipeline_progress",
+            "tool": next_tool,
+            "pipeline_index": pipeline_index + 1,
+            "total_tools": len(tool_pipeline),
+            "description": f"다중 요청 진행: {pipeline_index + 1}/{len(tool_pipeline)} - '{next_tool}' 도구 실행"
+        })
+        state["tool_timeline"] = timeline
+
         return next_tool
 
     # -------------- 기본값 (도달하지 않아야 함) -------------- #
