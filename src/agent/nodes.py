@@ -107,6 +107,10 @@ def router_node(state: AgentState, exp_manager=None):
             lines = [line for line in lines if not line.strip().startswith("```")]
             cleaned_response = "\n".join(lines).strip()
 
+        # 디버깅: 정제된 응답 로깅
+        if exp_manager:
+            exp_manager.logger.write(f"정제된 응답 (파싱 전): {cleaned_response[:200]}...")
+
         # 응답 파싱: JSON 형식이면 JSON으로, 아니면 첫 단어 추출
         tool_choice = "general"  # 기본값
 
@@ -122,7 +126,7 @@ def router_node(state: AgentState, exp_manager=None):
                     # 도구명 추출 (full name이 아닌 짧은 이름으로 매핑)
                     if ("search_paper" in tool_name.lower() or "paper" in tool_name.lower() or "논문" in tool_name.lower() or
                         "arxiv" in tool_name.lower() or "검색" in tool_name.lower() or "찾" in tool_name.lower() or
-                        "탐색" in tool_name.lower() or "retrieval" in tool_name.lower()):
+                        "탐색" in tool_name.lower() or "retrieval" in tool_name.lower() or "학술" in tool_name.lower()):
                         tool_choice = "search_paper"
                     elif ("web_search" in tool_name.lower() or "web" in tool_name.lower() or "웹" in tool_name.lower() or "위키" in tool_name.lower() or
                           "인터넷" in tool_name.lower() or "온라인" in tool_name.lower() or "뉴스" in tool_name.lower()):
@@ -145,9 +149,30 @@ def router_node(state: AgentState, exp_manager=None):
                     # {"tool": "xxx"} 형식
                     tool_choice = parsed["tool"]
 
-            except (json.JSONDecodeError, KeyError, IndexError):
-                # JSON 파싱 실패 시 첫 단어 추출
-                tool_choice = cleaned_response.split()[0] if cleaned_response else "general"
+            except (json.JSONDecodeError, KeyError, IndexError) as e:
+                # JSON 파싱 실패 시 키워드 기반 폴백 매칭
+                if exp_manager:
+                    exp_manager.logger.write(f"JSON 파싱 실패: {str(e)}", print_error=True)
+
+                # 원본 응답에서 키워드 검색 (대소문자 무시)
+                response_lower = raw_response.lower()
+                if any(keyword in response_lower for keyword in ["search_paper", "paper", "논문", "arxiv", "검색", "찾", "탐색", "retrieval", "학술"]):
+                    tool_choice = "search_paper"
+                elif any(keyword in response_lower for keyword in ["web_search", "web", "웹", "위키", "인터넷", "온라인", "뉴스"]):
+                    tool_choice = "web_search"
+                elif any(keyword in response_lower for keyword in ["glossary", "용어", "정의", "뭐야", "뭔지", "란", "의미", "설명"]):
+                    tool_choice = "glossary"
+                elif any(keyword in response_lower for keyword in ["summarize", "요약", "정리", "summary"]):
+                    tool_choice = "summarize"
+                elif any(keyword in response_lower for keyword in ["text2sql", "sql", "통계", "데이터베이스", "조회", "쿼리"]):
+                    tool_choice = "text2sql"
+                elif any(keyword in response_lower for keyword in ["save", "저장"]):
+                    tool_choice = "save_file"
+                else:
+                    tool_choice = "general"
+
+                if exp_manager:
+                    exp_manager.logger.write(f"키워드 기반 폴백 매칭 결과: {tool_choice}")
         else:
             # 2. 일반 텍스트: 첫 번째 단어만 추출
             tool_choice = cleaned_response.split()[0] if cleaned_response else "general"
