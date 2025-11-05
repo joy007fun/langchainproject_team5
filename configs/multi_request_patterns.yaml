@@ -45,6 +45,11 @@ patterns:
   exclude_keywords:
   - 저장
   - 요약
+  - 인용
+  - 많은
+  - 상위
+  - 통계
+  - 몇
   tools:
   - search_paper
   description: 논문 검색 (찾기)
@@ -141,19 +146,29 @@ patterns:
   - 최근 LLM 동향 요약해줘
 
 - keywords:
-  - 통계
   - 논문
+  any_of_keywords:
+  - 통계
+  - 인용
+  - 많은
+  - 상위
+  - 몇
   exclude_keywords:
   - 저장
   - 요약
   tools:
   - text2sql
   - search_paper
-  description: 논문 통계 조회 후 검색
-  priority: 110
+  - web_search
+  - general
+  description: 논문 통계 조회 후 상세 검색 (4단계 파이프라인)
+  priority: 135
   examples:
   - 2024년 인용 상위 논문 찾아줘
   - 인용 많은 AI 논문 보여줘
+  - 2023년 이후 인용 많은 논문 찾아줘
+  - 최근 3년간 상위 논문 보여줘
+  - 논문 몇 개 있어?
 
 - keywords:
   - 용어
@@ -271,10 +286,15 @@ patterns:
   - RAG 개념 설명하고 관련 논문 정리해서 저장해줘
 
 - keywords:
-  - 통계
   - 논문
   - 요약
   - 저장
+  any_of_keywords:
+  - 통계
+  - 인용
+  - 많은
+  - 상위
+  - 몇
   tools:
   - text2sql
   - search_paper
@@ -287,6 +307,7 @@ patterns:
   examples:
   - 2024년 상위 인용 논문 통계 보고 찾아서 요약하고 저장해줘
   - 인용 많은 AI 논문 조회하고 요약해서 저장해줘
+  - 2023년 이후 많이 인용된 논문 찾아서 요약하고 저장해줘
 
 - keywords:
   - 최신
@@ -307,17 +328,17 @@ patterns:
 
 # ==================== 메타데이터 ==================== #
 metadata:
-  version: '3.4'
+  version: '3.5'
   created_date: '2025-11-05'
   updated_date: '2025-11-06'
-  description: 핵심 패턴만 선별 - 성능 최적화 + 완전한 파이프라인 지원 + 키워드 변형 지원
+  description: 핵심 패턴만 선별 - 성능 최적화 + 완전한 파이프라인 지원 + 키워드 변형 지원 + 통계 조회 패턴 강화
   total_patterns: 19
   removed_patterns: 62
   pattern_breakdown:
     single_tool: 4
-    two_tool: 8
+    two_tool: 7
     three_tool: 3
-    four_tool: 2
+    four_tool: 3
     five_tool: 1
     six_tool: 2
   pattern_categories:
@@ -347,3 +368,7 @@ metadata:
   - 논문 요약 패턴에 완전한 4단계 파이프라인 적용 (RAG → 웹 → 일반 → 요약)
   - any_of_keywords 필드 추가: 키워드 변형 지원 (뭐야/뭔데/뭔지/무엇인지/어떤건지/어떤거야)
   - nodes.py에 any_of_keywords OR 로직 구현 완료
+  - '통계 논문' 패턴 강화: any_of_keywords에 [통계, 인용, 많은, 상위, 몇] 추가 (v3.5)
+  - '통계 논문' 파이프라인 확장: text2sql → search_paper → web_search → general (v3.5)
+  - '논문 찾기' 패턴 exclude_keywords 확장: 통계 조회 키워드 추가하여 충돌 방지 (v3.5)
+  - '통계 논문 저장' 패턴에 any_of_keywords 일관성 적용 (v3.5)
