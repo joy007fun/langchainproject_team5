@@ -40,6 +40,32 @@ patterns:
   - 전체 대화 내용 저장해줘
 
 - keywords:
+  - 왜
+  any_of_keywords:
+  - 쓰는거야
+  - 사용하는거야
+  - 사용하는지
+  - 알고싶어
+  - 하는거야
+  - 하는지
+  - 쓰는지
+  exclude_keywords:
+  - 논문
+  - 검색
+  - 찾아
+  - 저장
+  tools:
+  - general
+  description: 간단한 이유 질문 (왜 + 동사 조합)
+  priority: 150
+  examples:
+  - 왜 AI 학습에 GPU를 쓰는거야?
+  - Transformer가 왜 좋은지 알고싶어
+  - 왜 딥러닝을 사용하는거야?
+  - 배치 정규화를 왜 하는지 설명해줘
+  - 왜 GPU를 사용하는지 알려줘
+
+- keywords:
   - 논문
   - 찾
   exclude_keywords:
@@ -328,14 +354,14 @@ patterns:
 
 # ==================== 메타데이터 ==================== #
 metadata:
-  version: '3.5'
+  version: '3.6'
   created_date: '2025-11-05'
   updated_date: '2025-11-06'
-  description: 핵심 패턴만 선별 - 성능 최적화 + 완전한 파이프라인 지원 + 키워드 변형 지원 + 통계 조회 패턴 강화
-  total_patterns: 19
+  description: 핵심 패턴만 선별 - 성능 최적화 + 완전한 파이프라인 지원 + 키워드 변형 지원 + 통계 조회 패턴 강화 + 이유 질문 패턴 추가
+  total_patterns: 20
   removed_patterns: 62
   pattern_breakdown:
-    single_tool: 4
+    single_tool: 5
     two_tool: 7
     three_tool: 3
     four_tool: 3
@@ -344,6 +370,7 @@ metadata:
   pattern_categories:
     용어_정의: 2
     전체_저장: 1
+    이유_질문: 1
     논문_찾기: 1
     용어_저장: 2
     논문_요약: 1
@@ -358,7 +385,7 @@ metadata:
     통계_논문_저장: 1
     최신_분석_저장: 1
   notes:
-  - 76개 → 14개 → 17개 → 19개 (복합 요청 패턴 추가)
+  - 76개 → 14개 → 17개 → 19개 → 20개 (이유 질문 패턴 추가)
   - 단일 글자 키워드 완전 제거
   - exclude_keywords로 정확한 매칭 구현
   - 우선순위 재조정 (200 → 70)
@@ -372,3 +399,5 @@ metadata:
   - '통계 논문' 파이프라인 확장: text2sql → search_paper → web_search → general (v3.5)
   - '논문 찾기' 패턴 exclude_keywords 확장: 통계 조회 키워드 추가하여 충돌 방지 (v3.5)
   - '통계 논문 저장' 패턴에 any_of_keywords 일관성 적용 (v3.5)
+  - '이유 질문' 패턴 추가: 왜 + [쓰는거야/사용하는거야/사용하는지/알고싶어/하는거야/하는지/쓰는지] (v3.6)
+  - 간단한 이유 질문을 일반 답변으로 라우팅하여 논문 검색 오인 방지 (v3.6)
