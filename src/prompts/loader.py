@@ -58,7 +58,7 @@ def load_routing_prompts() -> Dict[str, Any]:
 def get_routing_prompt() -> str:
     """라우팅 프롬프트 텍스트 반환"""
     data = load_routing_prompts()
-    return data["routing_prompt"]
+    return data.get("prompt_template", data.get("routing_prompt", ""))
 
 
 def get_few_shot_examples() -> List[Dict[str, str]]:
