@@ -1,0 +1,20 @@
+[
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "\"Attention Is All You Need\" 논문 요약해서 저장해줘",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 4382,
+    "timestamp": "2025-11-05T15:11:08.223372"
+  },
+  {
+    "tool": "summarize",
+    "collection": "paper_chunks",
+    "query_text": "Attention Is All You Need",
+    "top_k": 50,
+    "result_count": 50,
+    "timestamp": "2025-11-05T15:11:15.947480"
+  }
+]

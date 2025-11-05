@@ -1,0 +1,42 @@
+[
+  {
+    "tool": "glossary",
+    "collection": "glossary_embeddings",
+    "query_text": "Transformer가 뭐야?",
+    "search_mode": "hybrid",
+    "top_k": 3,
+    "with_scores": true,
+    "result_length": 783,
+    "timestamp": "2025-11-05T14:08:12.734267"
+  },
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "Transformer 관련 논문 찾아줘",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 4470,
+    "timestamp": "2025-11-05T14:08:20.210200"
+  },
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "최신 AI 뉴스 알려줘",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 4467,
+    "timestamp": "2025-11-05T14:08:50.539809"
+  },
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "\"Attention Is All You Need\" 논문 요약해줘",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 4488,
+    "timestamp": "2025-11-05T14:09:00.434362"
+  }
+]

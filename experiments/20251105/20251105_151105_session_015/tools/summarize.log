@@ -1,0 +1,14 @@
+2025-11-05 15:11:15 | 논문 요약 노드 실행 - 질문: "Attention Is All You Need" 논문 요약해서 저장해줘, 난이도: easy
+2025-11-05 15:11:15 | 논문 제목 추출 프롬프트: 다음 질문에서 요약하려는 논문의 제목을 추출하세요.
+논문 제목만 정확히 반환하세요. 다른 설명은 불필요합니다.
+
+질문: "Attention Is All You Need" 논문 요약해서 저장해줘
+
+논문 제목:
+2025-11-05 15:11:15 | 추출된 논문 제목: Attention Is All You Need
+2025-11-05 15:11:15 | 논문 발견 - ID: 1, 제목: Attention Is All You Need
+2025-11-05 15:11:15 | 조회된 청크 수: 50
+2025-11-05 15:11:15 | 수준 'elementary' 요약 생성 시작
+2025-11-05 15:11:15 | LLM 요약 생성 중 (수준: elementary)...
+2025-11-05 15:11:15 | 결합된 텍스트 길이: 43099 문자
+2025-11-05 15:11:29 | 오류: 논문 요약 중 오류 발생: Error code: 500 - {'error': {'message': "We're experiencing a temporary system issue. Please try your request again after a few moments. If the problem persists, please contact our support team at https://support.upstage.ai/. Including details about the error and when it occurred will help us resolve the issue faster", 'type': 'unknown_error', 'param': '', 'code': 'internal_server_error'}}

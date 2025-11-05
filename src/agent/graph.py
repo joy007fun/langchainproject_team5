@@ -295,7 +295,7 @@ def create_agent_graph(exp_manager=None):
             return "end"
 
         # 각 도구 → Pipeline 또는 Fallback
-        for tool_name in ["glossary", "search_paper", "web_search", "summarize", "text2sql", "save_file"]:
+        for tool_name in ["general", "glossary", "search_paper", "web_search", "summarize", "text2sql", "save_file"]:
             workflow.add_conditional_edges(
                 tool_name,
                 check_pipeline_or_fallback,
@@ -357,10 +357,7 @@ def create_agent_graph(exp_manager=None):
             }
         )
 
-        # general 도구는 항상 종료 (최종 Fallback)
-        workflow.add_edge("general", END)
-
-        # final_fallback 노드도 종료
+        # final_fallback 노드는 종료
         workflow.add_edge("final_fallback", END)
 
     else:

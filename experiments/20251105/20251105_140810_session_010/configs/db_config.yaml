@@ -1,0 +1,39 @@
+# ------------------------------- 데이터베이스 설정 ------------------------------- #
+# PostgreSQL과 pgvector 설정 파일
+
+# PostgreSQL 연결 설정
+postgresql:
+  host: ${POSTGRES_HOST}                        # PostgreSQL 호스트 주소
+  port: ${POSTGRES_PORT}                        # PostgreSQL 포트 번호
+  database: ${POSTGRES_DB}                      # 데이터베이스 이름
+  user: ${POSTGRES_USER}                        # 사용자 이름
+  password: ${POSTGRES_PASSWORD}                # 비밀번호
+
+# pgvector 컬렉션 설정
+pgvector:
+  collections:
+    - name: paper_chunks                        # 논문 청크 컬렉션
+      dimension: 1536                           # OpenAI text-embedding-3-small 차원
+      description: 논문 본문을 청크 단위로 분할한 임베딩
+
+    - name: paper_abstracts                     # 논문 초록 컬렉션
+      dimension: 1536                           # OpenAI text-embedding-3-small 차원
+      description: 논문 초록 전체 임베딩
+
+    - name: glossary_embeddings                 # 용어집 컬렉션
+      dimension: 1536                           # OpenAI text-embedding-3-small 차원
+      description: AI/ML 전문 용어 임베딩
+
+# 연결 풀 설정
+connection_pool:
+  min_connections: 1                            # 최소 연결 수
+  max_connections: 10                           # 최대 연결 수
+  connection_timeout: 30                        # 연결 타임아웃 (초)
+  idle_timeout: 600                             # 유휴 타임아웃 (초)
+
+# 성능 튜닝 설정
+performance:
+  shared_buffers: 256MB                         # 공유 버퍼 크기 (RAM의 25%)
+  effective_cache_size: 1GB                     # 효과적 캐시 크기 (RAM의 50~75%)
+  work_mem: 16MB                                # 작업 메모리
+  maintenance_work_mem: 128MB                   # 유지보수 작업 메모리

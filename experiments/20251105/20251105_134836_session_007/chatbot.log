@@ -1,0 +1,49 @@
+2025-11-05 13:48:36 | 세션 시작: session_007
+2025-11-05 13:48:36 | 폴더 경로: experiments/20251105/20251105_134836_session_007
+2025-11-05 13:48:36 | 설정 파일 저장: db_config.yaml
+2025-11-05 13:48:36 | 설정 파일 저장: model_config.yaml
+2025-11-05 13:48:36 | 설정 파일 저장: multi_request_patterns.yaml
+2025-11-05 13:48:36 | 라우터 노드 실행: LangGraph가 뭐야? langchain과 langgraph 차이를 알려줘
+2025-11-05 13:48:36 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 13:48:36 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 13:48:40 | ⚠️ 유효하지 않은 도구: { → general로 폴백
+2025-11-05 13:48:40 | 라우팅 결정 (원본): ```json
+{
+  "tools": [
+    {
+      "name": "LangChain 공식 문서",
+      "query": "LangChain vs LangGraph...
+2025-11-05 13:48:40 | 라우팅 결정 (파싱): general
+2025-11-05 13:48:40 | 라우터 노드 실행: Few-shot learning을 개선한 연구는 어떤게 있어?
+2025-11-05 13:48:40 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 13:48:40 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 13:48:43 | ⚠️ 유효하지 않은 도구: { → general로 폴백
+2025-11-05 13:48:43 | 라우팅 결정 (원본): ```json
+{
+  "tools": [
+    {
+      "name": "학술 논문 검색 도구",
+      "query": "Few-shot learning improvem...
+2025-11-05 13:48:43 | 라우팅 결정 (파싱): general
+2025-11-05 13:48:43 | 라우터 노드 실행: LLM의 효율적인 Fine-tuning 기법 논문 찾아줘
+2025-11-05 13:48:43 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 13:48:43 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 13:48:47 | ⚠️ 유효하지 않은 도구: { → general로 폴백
+2025-11-05 13:48:47 | 라우팅 결정 (원본): ```json
+{
+  "tools": [
+    {
+      "name": "학술 논문 검색 도구",
+      "query": "Efficient Fine-tuning Tech...
+2025-11-05 13:48:47 | 라우팅 결정 (파싱): general
+2025-11-05 13:48:47 | 라우터 노드 실행: Attention이 왜 필요해?
+2025-11-05 13:48:47 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 13:48:47 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 13:48:50 | ⚠️ 유효하지 않은 도구: { → general로 폴백
+2025-11-05 13:48:50 | 라우팅 결정 (원본): ```json
+{
+  "tools": [
+    {
+      "name": "Deep Learning Fundamentals",
+      "query": "Attention m...
+2025-11-05 13:48:50 | 라우팅 결정 (파싱): general

@@ -65,3 +65,7 @@ class AgentState(TypedDict, total=False):
     validation_enabled: bool                    # Router 검증 활성화 여부
     validation_retries: int                     # 현재 검증 재시도 횟수
     max_validation: int                         # 최대 검증 재시도 횟수
+
+    # 다중 요청 Pipeline 관련 필드
+    tool_pipeline: List[str]                    # 순차 실행 도구 리스트
+    pipeline_index: int                         # 현재 Pipeline 실행 인덱스
