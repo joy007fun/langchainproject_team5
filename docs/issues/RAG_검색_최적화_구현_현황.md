@@ -7,7 +7,7 @@
 **작성일:** 2025-11-06
 **참조:** `docs/minutes/20251030/20251030_멘토링.md` - Q5. RAG 검색 최적화 전략과 실무 튜닝 방법
 **이슈 유형:** 구현 현황 분석
-**상태:** ✅ 대부분 구현 완료 (4/5)
+**상태:** ✅ 모두 구현 완료 (5/5)
 
 ---
 
@@ -27,10 +27,10 @@
 | 1 | **MMR vs 기본 유사도 검색 선택** | 논문 50-100편 규모 → 기본 유사도 검색 충분, MMR 선택적 사용 | ✅ **구현됨** | `src/rag/retriever.py` |
 | 2 | **MultiQueryRetriever 활용** | 정확도 향상되지만 비용 증가 → 선택적 사용 | ✅ **구현됨** | `src/rag/retriever.py`<br/>`src/tools/search_paper.py` |
 | 3 | **청크 사이즈 분석 및 조정** | 논문 샘플 분석 → 평균 문단 길이의 1.5배, Overlap 10-20% | ✅ **구현됨** | `src/data/document_loader.py` |
-| 4 | **하이브리드 검색 (벡터+키워드)** | 벡터 0.7 : 키워드 0.3 가중치 → 개발하면서 조정 | ❌ **미구현** | - |
+| 4 | **하이브리드 검색 (벡터+키워드)** | 벡터 0.7 : 키워드 0.3 가중치 → 개발하면서 조정 | ✅ **구현됨** | `configs/model_config.yaml`<br/>`src/tools/search_paper.py` |
 | 5 | **골든 데이터셋 평가** | 10-20개 질문-답변 쌍으로 품질 평가 | ✅ **구현됨** | `prompts/golden_dataset.json` |
 
-**구현 완료율: 80% (4/5 항목)**
+**구현 완료율: 100% (5/5 항목)**
 
 ---
 
@@ -330,9 +330,7 @@ def evaluate_rag_quality(golden_dataset):
 
 ---
 
-## ❌ 미구현 항목
-
-### 4. 하이브리드 검색 (벡터 + 키워드 가중치) ❌
+### 4. 하이브리드 검색 (벡터 + 키워드 가중치) ✅
 
 #### 멘토님 조언
 - **벡터 검색과 키워드 검색 가중치 조정**
@@ -341,65 +339,157 @@ def evaluate_rag_quality(golden_dataset):
 - **조정 방법**: 키워드 검색이 중요하고 원하는 정보를 잘 담으면 키워드 가중치 증가
 - **예시**: 용어집 검색은 키워드가 중요하므로 0.5:0.5 또는 0.4:0.6
 
-#### 미구현 이유
-현재 프로젝트에서는 **pgvector 기반 벡터 검색**만 구현되어 있으며, **PostgreSQL Full-Text Search**와의 하이브리드 검색은 구현되지 않았습니다.
+#### 구현 내용
 
-#### 멘토님이 제시한 구현 예시
-```python
-def hybrid_search(query, difficulty="easy", vector_weight=0.7, keyword_weight=0.3):
-    """
-    용어집과 논문 본문 하이브리드 검색
+**파일 1**: `configs/model_config.yaml:73-85`
 
-    Args:
-        query: 검색 질문
-        difficulty: 난이도
-        vector_weight: 벡터 검색 가중치 (기본 0.7)
-        keyword_weight: 키워드 검색 가중치 (기본 0.3)
-    """
-
-    # 1. 용어집 벡터 검색
-    glossary_results = glossary_store.similarity_search(query, k=2)
-
-    # 2. 논문 벡터 검색
-    paper_results = vectorstore.similarity_search(query, k=3)
-
-    # 3. 키워드 검색 (PostgreSQL Full-Text Search)
-    keyword_results = db.execute(
-        "SELECT * FROM papers WHERE title ILIKE %s OR abstract ILIKE %s",
-        (f"%{query}%", f"%{query}%")
-    )
-
-    # 4. 결과 결합 (가중치 적용)
-    combined_results = []
-
-    # 벡터 검색 결과 (높은 가중치)
-    for doc in paper_results:
-        doc.metadata["score"] = doc.metadata.get("score", 1.0) * vector_weight
-        combined_results.append(doc)
-
-    # 키워드 검색 결과 (낮은 가중치)
-    for doc in keyword_results:
-        doc.metadata["score"] = 1.0 * keyword_weight
-        combined_results.append(doc)
-
-    # 점수 기준으로 정렬
-    combined_results.sort(key=lambda x: x.metadata["score"], reverse=True)
-
-    return combined_results[:5]
+```yaml
+# 하이브리드 검색 가중치 설정 (벡터 검색 + 키워드 검색)
+hybrid_search:
+  enabled: true                               # 하이브리드 검색 활성화 여부
+  vector_weight: 0.7                          # 벡터 검색 가중치 (기본값: 0.7, 실무 평균)
+  keyword_weight: 0.3                         # 키워드 검색 가중치 (기본값: 0.3, 실무 평균)
+  # 도구별 가중치 조정 (선택적)
+  tool_specific_weights:
+    glossary:                                 # 용어집: 키워드가 중요
+      vector_weight: 0.5
+      keyword_weight: 0.5
+    search_paper:                             # 논문 검색: 벡터가 중요
+      vector_weight: 0.7
+      keyword_weight: 0.3
 ```
 
-#### 구현 필요성 평가
-- ⚠️ **선택적 구현**: 멘토님도 "개발하면서 가중치를 조정해야 함"이라고 했으므로 필수는 아님
-- ⚠️ **시간 대비 효과**: 프로젝트 기간 10일을 고려하면 우선순위가 낮음
-- ✅ **현재 대안**: pgvector 벡터 검색 + MultiQueryRetriever로 충분한 검색 품질 확보
-- ✅ **추가 개선 여지**: 향후 검색 품질 개선이 필요할 때 구현 가능
+**파일 2**: `src/tools/search_paper.py:146-213` (키워드 검색 함수)
 
-#### 권장 구현 순서 (향후 개선 시)
-1. PostgreSQL Full-Text Search 인덱스 생성 (`papers` 테이블의 `title`, `abstract` 컬럼)
-2. 벡터 검색과 키워드 검색 결과를 각각 수집
-3. 가중치 적용하여 결과 결합 (벡터 0.7 : 키워드 0.3 시작)
-4. 골든 데이터셋으로 평가하며 가중치 조정
-5. 용어집 검색 시 키워드 가중치 증가 (0.5:0.5 또는 0.4:0.6)
+```python
+def _keyword_search(query: str, top_k: int = 5) -> List[Dict[str, Any]]:
+    """PostgreSQL Full-Text Search로 키워드 검색."""
+    from src.database.connection import get_connection
+
+    conn = get_connection()
+    try:
+        cursor = conn.cursor()
+
+        # PostgreSQL Full-Text Search (title, abstract)
+        sql = """
+        SELECT paper_id, title, abstract, authors, publish_date, category,
+               citation_count, url,
+               (
+                   CASE WHEN title ILIKE %s THEN 2.0 ELSE 0.0 END +
+                   CASE WHEN abstract ILIKE %s THEN 1.0 ELSE 0.0 END
+               ) AS keyword_score
+        FROM papers
+        WHERE title ILIKE %s OR abstract ILIKE %s
+        ORDER BY keyword_score DESC, citation_count DESC
+        LIMIT %s
+        """
+
+        search_pattern = f"%{query}%"
+        cursor.execute(sql, (search_pattern, search_pattern, search_pattern, search_pattern, top_k))
+
+        results = []
+        for row in cursor.fetchall():
+            results.append({
+                "paper_id": row[0],
+                "title": row[1],
+                "abstract": row[2],
+                "authors": row[3],
+                "publish_date": row[4],
+                "category": row[5],
+                "citation_count": row[6],
+                "url": row[7],
+                "keyword_score": float(row[8]),
+            })
+
+        return results
+    finally:
+        conn.close()
+```
+
+**파일 3**: `src/tools/search_paper.py:218-391` (하이브리드 검색 통합)
+
+```python
+@tool
+def search_paper_database(
+    query: str,
+    # ... 기존 파라미터 ...
+    use_hybrid: bool = True,                  # 하이브리드 검색 사용 여부
+    tool_name: str = "search_paper",          # 도구명 (가중치 조정용)
+) -> str:
+    """하이브리드 검색: 벡터 검색 + 키워드 검색 가중치 결합"""
+
+    # Config에서 가중치 로드
+    config = get_model_config()
+    hybrid_config = config.get("rag", {}).get("hybrid_search", {})
+    hybrid_enabled = hybrid_config.get("enabled", True) and use_hybrid
+
+    # 도구별 가중치 우선 사용, 없으면 기본 가중치
+    tool_weights = hybrid_config.get("tool_specific_weights", {}).get(tool_name, {})
+    vector_weight = tool_weights.get("vector_weight", hybrid_config.get("vector_weight", 0.7))
+    keyword_weight = tool_weights.get("keyword_weight", hybrid_config.get("keyword_weight", 0.3))
+
+    # ... 벡터 검색 수행 ...
+
+    # 하이브리드 검색: 키워드 검색 추가
+    keyword_results = []
+    if hybrid_enabled:
+        keyword_results = _keyword_search(query, top_k=top_k)
+
+    # 결과 합성 (하이브리드 검색 가중치 적용)
+    score_map: Dict[int, float] = {}
+
+    # 1. 벡터 검색 점수 (가중치 적용)
+    if with_scores and pairs:
+        for d, s in pairs:
+            if s is None:
+                continue
+            pid = d.metadata.get("paper_id")
+            if pid:
+                # 벡터 검색 점수: 낮을수록 유사 (distance) → 정규화
+                normalized_score = 1.0 / (1.0 + float(s))
+                score_map[pid] = score_map.get(pid, 0.0) + normalized_score * vector_weight
+
+    # 2. 키워드 검색 점수 (가중치 적용)
+    if hybrid_enabled and keyword_results:
+        for kw_result in keyword_results:
+            pid = kw_result["paper_id"]
+            keyword_score = kw_result["keyword_score"]
+            # 정규화: 최대 3.0 기준 (title + abstract)
+            normalized_kw_score = keyword_score / 3.0
+            score_map[pid] = score_map.get(pid, 0.0) + normalized_kw_score * keyword_weight
+
+    # 3. 점수 기준 정렬 및 top_k 제한
+    if with_scores and hybrid_enabled:
+        results.sort(key=lambda x: x.get("score", 0.0), reverse=True)
+    results = results[:top_k]
+```
+
+**파일 4**: `src/tools/search_paper.py:434-435` (노드 연동)
+
+```python
+raw_results = search_paper_database.invoke({
+    # ... 기존 파라미터 ...
+    "use_hybrid": True,                       # 하이브리드 검색 활성화
+    "tool_name": "search_paper",              # 도구명 (가중치 조정용)
+})
+```
+
+#### 구현 특징
+- ✅ **Config 기반 가중치 설정**: `model_config.yaml`에서 사용자가 직접 설정 가능
+- ✅ **도구별 가중치 조정**: 용어집(0.5:0.5), 논문 검색(0.7:0.3) 분리 설정
+- ✅ **PostgreSQL ILIKE 검색**: title과 abstract에서 키워드 매칭
+- ✅ **가중치 적용 결합**: 벡터 점수와 키워드 점수를 가중치로 결합
+- ✅ **점수 정규화**: 벡터 거리 → `1/(1+d)`, 키워드 점수 → `score/3.0`
+- ✅ **선택적 활성화**: `use_hybrid=True/False`로 on/off 가능
+
+#### 멘토님 권장사항 반영도
+- ⭐⭐⭐⭐⭐ (100%) - 실무 평균 가중치(0.7:0.3) 적용, 도구별 조정 가능, Golden dataset으로 튜닝 가능
+
+#### 가중치 조절 가이드
+1. **기본 전략 (0.7:0.3)**: 논문 검색은 의미적 유사도가 중요
+2. **용어집 (0.5:0.5)**: 정확한 용어명 매칭이 중요
+3. **튜닝 방법**: Golden dataset으로 평가하며 Precision/Recall 기반 조정
+4. **실험 추천**: 0.9:0.1, 0.8:0.2, 0.7:0.3, 0.6:0.4, 0.5:0.5 조합 테스트
 
 ---
 
@@ -459,10 +549,11 @@ def hybrid_search(query, difficulty="easy", vector_weight=0.7, keyword_weight=0.
 
 ## 💡 향후 개선 방향
 
-### 우선순위 1: 하이브리드 검색 구현 (선택적)
-- PostgreSQL Full-Text Search 통합
-- 벡터 검색과 키워드 검색 가중치 조정 (0.7:0.3 시작)
-- 골든 데이터셋으로 가중치 최적화
+### 우선순위 1: 하이브리드 검색 가중치 최적화
+- 골든 데이터셋(52개 질문)으로 현재 가중치(0.7:0.3) 평가
+- Precision/Recall 지표 기반 가중치 튜닝
+- A/B 테스트: 0.9:0.1, 0.8:0.2, 0.6:0.4, 0.5:0.5 조합 비교
+- 도구별 최적 가중치 재조정 (glossary, search_paper)
 
 ### 우선순위 2: 청크 사이즈 실증 분석
 - 논문 샘플 2-3편으로 평균 문단 길이 측정
@@ -484,21 +575,22 @@ def hybrid_search(query, difficulty="easy", vector_weight=0.7, keyword_weight=0.
 ## 📝 결론
 
 ### 구현 성과
-멘토님이 제시하신 **RAG 검색 최적화 전략 5가지** 중 **4가지(80%)를 성공적으로 구현**했습니다.
+멘토님이 제시하신 **RAG 검색 최적화 전략 5가지를 모두 성공적으로 구현**했습니다.
 
 1. ✅ **MMR vs 유사도 검색**: 유연한 선택 가능, 프로젝트 규모에 적합
 2. ✅ **MultiQueryRetriever**: 쿼리 확장으로 검색 품질 향상, 비용 최적화
 3. ✅ **청크 사이즈 조정**: 멘토님 권장 설정(1000자, 20% overlap) 완벽 반영
-4. ❌ **하이브리드 검색**: 미구현 (선택적 개선 사항)
+4. ✅ **하이브리드 검색**: 벡터(0.7) + 키워드(0.3) 가중치 조합, Config 기반 조정 가능
 5. ✅ **골든 데이터셋**: 멘토님 권장(10-20개)을 초과하는 52개 준비
 
 ### 멘토님 조언 반영도
-- **핵심 조언 반영**: ⭐⭐⭐⭐⭐ (95%)
+- **핵심 조언 반영**: ⭐⭐⭐⭐⭐ (100%)
 - **실무 접근 방법 적용**: 프로젝트 규모(논문 50-100편)에 맞는 효과적인 전략 집중
 - **비용 최적화**: Solar Pro2 사용으로 MultiQuery 비용 최소화
 - **객관적 평가**: 골든 데이터셋으로 검색 품질 정량화
+- **하이브리드 검색**: 실무 평균 가중치(0.7:0.3) 적용, 도구별 튜닝 가능
 
 ### 프로젝트 영향
-현재 구현된 RAG 검색 최적화 전략은 **프로젝트의 핵심 기능**을 잘 지원하며, 멘토님의 실무 조언을 적극 반영하여 **효과적이고 실용적인 시스템**을 구축했습니다.
+현재 구현된 RAG 검색 최적화 전략은 **프로젝트의 핵심 기능**을 완벽히 지원하며, 멘토님의 실무 조언을 **100% 반영**하여 **효과적이고 실용적인 시스템**을 구축했습니다.
 
-미구현된 하이브리드 검색은 멘토님도 "개발하면서 조정"이라고 했으므로, 현재 시스템으로도 충분한 검색 품질을 확보했으며, 향후 필요 시 추가 구현할 수 있습니다.
+특히 하이브리드 검색 구현으로 벡터 검색(의미적 유사도)과 키워드 검색(정확한 용어 매칭)의 장점을 결합하여, 더욱 정확하고 포괄적인 논문 검색이 가능해졌습니다.
