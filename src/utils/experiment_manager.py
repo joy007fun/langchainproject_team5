@@ -620,10 +620,18 @@ class ExperimentManager:
             f.write(f"-- Generated at: {datetime.now().isoformat()}\n\n")
 
             for i, query_info in enumerate(self.db_queries, 1):
-                f.write(f"-- Query {i}\n")
-                f.write(f"-- Time: {query_info.get('timestamp', 'N/A')}\n")
-                f.write(f"-- Execution Time: {query_info.get('execution_time_ms', 'N/A')} ms\n")
-                f.write(f"{query_info['query']}\n\n")
+                # query_info가 str인 경우 (기존 방식)와 dict인 경우 모두 처리
+                if isinstance(query_info, str):
+                    f.write(f"-- Query {i}\n")
+                    f.write(query_info)
+                    if not query_info.endswith('\n\n'):
+                        f.write('\n\n')
+                else:
+                    # dict인 경우 (새로운 방식)
+                    f.write(f"-- Query {i}\n")
+                    f.write(f"-- Time: {query_info.get('timestamp', 'N/A')}\n")
+                    f.write(f"-- Execution Time: {query_info.get('execution_time_ms', 'N/A')} ms\n")
+                    f.write(f"{query_info.get('query', '')}\n\n")
 
         self.logger.write(f"SQL 쿼리 저장: {query_file.name} ({len(self.db_queries)}개)")
 

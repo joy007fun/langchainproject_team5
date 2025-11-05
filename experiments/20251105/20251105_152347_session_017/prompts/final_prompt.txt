@@ -1,0 +1,127 @@
+[SYSTEM PROMPT - beginner]
+당신은 논문을 쉽게 설명하는 친절한 전문가입니다.
+
+답변 규칙:
+- 검색된 논문들을 번호로 정리하세요
+- 각 논문마다:
+  1. 제목 (저자, 연도)
+  2. 핵심 내용 3-5줄 요약
+  3. 왜 이 논문이 중요한지
+  4. 유사도 점수 (있으면)
+- 전문 용어는 괄호로 쉽게 설명
+- 최대 5개까지만 소개
+- 친근하고 이해하기 쉬운 톤
+
+[USER PROMPT]
+[논문 검색 결과]
+## 검색된 논문
+
+### 1. Alleviating Hallucination in Large Vision-Language Models with Active Retrieval Augmentation
+- **저자**: Xiaoye Qu, Qiyuan Chen, Wei Wei, Jishuo Sun, Jianfeng Dong
+- **출판일**: 2024-08-01
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2408.00555v1
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.6128
+
+the full citation on the ﬁrst page. Copyrights for components of th is work owned by others than the author(s) must be
+honored.Abstractingwithcreditispermitted.Tocopy otherwise,or republish,topostonserversortoredistributetolists,
+requires prior speciﬁc permission and/or a fee.Request permissions f rom permissions@acm.org.
+© 2018Copyright heldby theowner/author(s).Publication rights licensedtoACM.
+ACM1557-735X/2018/8-ART111
+https://doi.org/XXXXXXX.XXXXXXX
+J. ACM,Vol. 37,No. 4,Article111. Publication date: August 201 8.
+
+---
+
+### 2. Alleviating Hallucination in Large Vision-Language Models with Active Retrieval Augmentation
+- **저자**: Xiaoye Qu, Qiyuan Chen, Wei Wei, Jishuo Sun, Jianfeng Dong
+- **출판일**: 2024-08-01
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2408.00555v1
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.6129
+
+the full citation on the ﬁrst page. Copyrights for components of th is work owned by others than the author(s) must be
+honored.Abstractingwithcreditispermitted.Tocopy otherwise,or republish,topostonserversortoredistributetolists,
+requires prior speciﬁc permission and/or a fee.Request permissions f rom permissions@acm.org.
+© 2018Copyright heldby theowner/author(s).Publication rights licensedtoACM.
+ACM1557-735X/2018/8-ART111
+https://doi.org/XXXXXXX.XXXXXXX
+J. ACM,Vol. 37,No. 4,Article111. Publication date: August 201 8.
+
+---
+
+### 3. Alleviating Hallucination in Large Vision-Language Models with Active Retrieval Augmentation
+- **저자**: Xiaoye Qu, Qiyuan Chen, Wei Wei, Jishuo Sun, Jianfeng Dong
+- **출판일**: 2024-08-01
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2408.00555v1
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.6131
+
+the full citation on the ﬁrst page. Copyrights for components of th is work owned by others than the author(s) must be
+honored.Abstractingwithcreditispermitted.Tocopy otherwise,or republish,topostonserversortoredistributetolists,
+requires prior speciﬁc permission and/or a fee.Request permissions f rom permissions@acm.org.
+© 2018Copyright heldby theowner/author(s).Publication rights licensedtoACM.
+ACM1557-735X/2018/8-ART111
+https://doi.org/XXXXXXX.XXXXXXX
+J. ACM,Vol. 37,No. 4,Article111. Publication date: August 201 8.
+
+---
+
+### 4. End-to-End Trainable Retrieval-Augmented Generation for Relation Extraction
+- **저자**: Kohei Makino, Makoto Miwa, Yutaka Sasaki
+- **출판일**: 2024-06-06
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2406.03790v2
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.6165
+
+2014, the 25th International Conference on Computational Linguistics:
+Technical Papers , J. Tsujii and J. Hajic, Eds. Dublin, Ireland: Dublin City
+University and Association for Computational Linguistics, Aug. 2014, pp.
+2335–2344. [Online]. Available: https://aclanthology.org/C14-1220
+[48] W. Zhou, K. Huang, T. Ma, and J. Huang, ‘‘Document-level relation
+extraction with adaptive thresholding and localized context pooling,’’ in
+Proceedings of the AAAI Conference on Artificial Intelligence , 2021.
+[49] T.-J. Fu, P.-H. Li, and W.-Y. Ma, ‘‘GraphRel: Modeling text as relational
+graphs for joint ent...
+
+---
+
+### 5. End-to-End Trainable Retrieval-Augmented Generation for Relation Extraction
+- **저자**: Kohei Makino, Makoto Miwa, Yutaka Sasaki
+- **출판일**: 2024-06-06
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2406.03790v2
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.6165
+
+2014, the 25th International Conference on Computational Linguistics:
+Technical Papers , J. Tsujii and J. Hajic, Eds. Dublin, Ireland: Dublin City
+University and Association for Computational Linguistics, Aug. 2014, pp.
+2335–2344. [Online]. Available: https://aclanthology.org/C14-1220
+[48] W. Zhou, K. Huang, T. Ma, and J. Huang, ‘‘Document-level relation
+extraction with adaptive thresholding and localized context pooling,’’ in
+Proceedings of the AAAI Conference on Artificial Intelligence , 2021.
+[49] T.-J. Fu, P.-H. Li, and W.-Y. Ma, ‘‘GraphRel: Modeling text as relational
+graphs for joint ent...
+
+---
+
+
+[질문]
+관련 논문 찾아줘
+
+위 검색 결과를 바탕으로 질문에 답변해주세요.
+
+===== 메타데이터 =====
+tool: search_paper
+difficulty: easy
+level: beginner

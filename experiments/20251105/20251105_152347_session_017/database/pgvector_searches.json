@@ -1,0 +1,160 @@
+[
+  {
+    "tool": "glossary",
+    "collection": "glossary_embeddings",
+    "query_text": "AI가 뭐야?",
+    "search_mode": "hybrid",
+    "top_k": 3,
+    "with_scores": true,
+    "result_length": 764,
+    "timestamp": "2025-11-05T15:23:49.738029"
+  },
+  {
+    "tool": "glossary",
+    "collection": "glossary_embeddings",
+    "query_text": "CNN에서 필터가 하는 일이 뭐야?",
+    "search_mode": "hybrid",
+    "top_k": 3,
+    "with_scores": true,
+    "result_length": 17,
+    "timestamp": "2025-11-05T15:24:09.930339"
+  },
+  {
+    "tool": "glossary",
+    "collection": "glossary_embeddings",
+    "query_text": "Transformer가 뭐야?",
+    "search_mode": "hybrid",
+    "top_k": 3,
+    "with_scores": true,
+    "result_length": 783,
+    "timestamp": "2025-11-05T15:24:30.743374"
+  },
+  {
+    "tool": "glossary",
+    "collection": "glossary_embeddings",
+    "query_text": "Attention Mechanism이 뭔지 알려줘",
+    "search_mode": "hybrid",
+    "top_k": 3,
+    "with_scores": true,
+    "result_length": 17,
+    "timestamp": "2025-11-05T15:24:52.981769"
+  },
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "Transformer 관련 논문 찾아줘",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 4470,
+    "timestamp": "2025-11-05T15:25:00.785596"
+  },
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "BERT 모델 논문 있어?",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 4675,
+    "timestamp": "2025-11-05T15:25:16.601125"
+  },
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "Few-shot learning 연구 논문 보여줘",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 4131,
+    "timestamp": "2025-11-05T15:25:26.391224"
+  },
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "\"Attention Is All You Need\" 논문 요약해줘",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 4488,
+    "timestamp": "2025-11-05T15:25:44.313885"
+  },
+  {
+    "tool": "summarize",
+    "collection": "paper_chunks",
+    "query_text": "Attention Is All You Need",
+    "top_k": 50,
+    "result_count": 50,
+    "timestamp": "2025-11-05T15:25:54.775715"
+  },
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "GPT 논문 찾아서 요약해줘",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 2615,
+    "timestamp": "2025-11-05T15:26:40.587509"
+  },
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "Attention 관련 논문 정리해줘",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 4448,
+    "timestamp": "2025-11-05T15:27:03.908494"
+  },
+  {
+    "tool": "glossary",
+    "collection": "glossary_embeddings",
+    "query_text": "RAG가 뭔지 설명하고 관련 논문도 보여줘",
+    "search_mode": "hybrid",
+    "top_k": 3,
+    "with_scores": true,
+    "result_length": 17,
+    "timestamp": "2025-11-05T15:27:16.475427"
+  },
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "RAG가 뭔지 설명하고 관련 논문도 보여줘",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 4495,
+    "timestamp": "2025-11-05T15:27:25.235355"
+  },
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "2023년 이후 인용 많은 논문 찾아줘",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 3483,
+    "timestamp": "2025-11-05T15:27:41.720201"
+  },
+  {
+    "tool": "glossary",
+    "collection": "glossary_embeddings",
+    "query_text": "Vision Transformer가 뭐야?",
+    "search_mode": "hybrid",
+    "top_k": 3,
+    "with_scores": true,
+    "result_length": 258,
+    "timestamp": "2025-11-05T15:27:52.535813"
+  },
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "관련 논문 찾아줘",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 4300,
+    "timestamp": "2025-11-05T15:28:01.855916"
+  }
+]
