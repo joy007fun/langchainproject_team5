@@ -52,25 +52,33 @@ def wrap_tool_node(tool_node_func: Callable, tool_name: str) -> Callable:
             # -------------- 실행 결과 확인 -------------- #
             final_answer = state.get("final_answer", "")
 
-            # 실패 패턴 감지
-            is_failed, failure_reason = is_tool_failed(final_answer)
-
-            if is_failed:
-                # 실패
-                state["tool_status"] = "failed"
-                state["failure_reason"] = failure_reason
-
-                if exp_manager:
-                    exp_manager.logger.write(f"도구 실행 실패 감지: {tool_name}")
-                    exp_manager.logger.write(f"실패 사유: {failure_reason}")
-
-            else:
-                # 성공
+            # general 도구는 fallback이므로 항상 성공 처리
+            if tool_name == "general":
                 state["tool_status"] = "success"
-                state["failure_reason"] = ""  # 성공 시 초기화
+                state["failure_reason"] = ""
 
                 if exp_manager:
-                    exp_manager.logger.write(f"도구 실행 성공: {tool_name}")
+                    exp_manager.logger.write(f"도구 실행 성공: {tool_name} (fallback 도구)")
+            else:
+                # 실패 패턴 감지 (general 제외)
+                is_failed, failure_reason = is_tool_failed(final_answer)
+
+                if is_failed:
+                    # 실패
+                    state["tool_status"] = "failed"
+                    state["failure_reason"] = failure_reason
+
+                    if exp_manager:
+                        exp_manager.logger.write(f"도구 실행 실패 감지: {tool_name}")
+                        exp_manager.logger.write(f"실패 사유: {failure_reason}")
+
+                else:
+                    # 성공
+                    state["tool_status"] = "success"
+                    state["failure_reason"] = ""  # 성공 시 초기화
+
+                    if exp_manager:
+                        exp_manager.logger.write(f"도구 실행 성공: {tool_name}")
 
         except Exception as e:
             # -------------- 예외 발생 시 -------------- #
