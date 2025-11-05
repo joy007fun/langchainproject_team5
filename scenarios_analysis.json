@@ -1,0 +1,269 @@
+{
+  "single_requests": [
+    {
+      "question": "BERT 모델의 구조와 주요 개선점을 다룬 논문이 있을까?",
+      "expected_tool": "search_paper",
+      "difficulty": "easy",
+      "category": "논문 검색"
+    },
+    {
+      "question": "Few-shot learning을 개선한 연구는 어떤게 있어?",
+      "expected_tool": "search_paper",
+      "difficulty": "easy",
+      "category": "논문 검색"
+    },
+    {
+      "question": "Attention이 왜 필요해?",
+      "expected_tool": "general",
+      "difficulty": "easy",
+      "category": "개념 설명"
+    },
+    {
+      "question": "AI 모델의 발전 과정을 간단히 설명해줘",
+      "expected_tool": "general",
+      "difficulty": "easy",
+      "category": "개념 설명"
+    },
+    {
+      "question": "Backpropagation 수식의 의미를 설명해줘",
+      "expected_tool": "general",
+      "difficulty": "hard",
+      "category": "개념 설명"
+    },
+    {
+      "question": "Transformer 모델이란?",
+      "expected_tool": "glossary",
+      "difficulty": "easy",
+      "category": "용어 정의"
+    },
+    {
+      "question": "LLM의 효율적인 Fine-tuning 기법 논문 찾아줘",
+      "expected_tool": "search_paper",
+      "difficulty": "easy",
+      "category": "논문 검색"
+    },
+    {
+      "question": "2024년에 등록된 AI관련 논문 중 인용이 많은 순으로 5개 뽑아줘",
+      "expected_tool": "text2sql",
+      "difficulty": "easy",
+      "category": "통계 조회"
+    },
+    {
+      "question": "2023년 이후 Self-supervised learning 관련 논문 찾아줘",
+      "expected_tool": "text2sql",
+      "difficulty": "easy",
+      "category": "통계 조회"
+    },
+    {
+      "question": "Gradient Descent의 원리를 쉽게 설명해줘",
+      "expected_tool": "glossary",
+      "difficulty": "easy",
+      "category": "용어 정의"
+    },
+    {
+      "question": "스트라이드가 커질수록 이미지가 흐릿해지는 이유가 뭐야?",
+      "expected_tool": "general",
+      "difficulty": "easy",
+      "category": "개념 설명"
+    },
+    {
+      "question": "AI관련 유명한 논문 저널은 어떤곳들이 있어?",
+      "expected_tool": "general",
+      "difficulty": "easy",
+      "category": "개념 설명"
+    },
+    {
+      "question": "Reinforcement Learning이란 무엇이며, 어떻게 작동해?",
+      "expected_tool": "glossary",
+      "difficulty": "easy",
+      "category": "용어 정의"
+    },
+    {
+      "question": "GAN(Generative Adversarial Network)의 기본 개념 설명해줘",
+      "expected_tool": "glossary",
+      "difficulty": "easy",
+      "category": "용어 정의"
+    },
+    {
+      "question": "CNN에서 필터의 역할이 뭐야?",
+      "expected_tool": "general",
+      "difficulty": "easy",
+      "category": "개념 설명"
+    },
+    {
+      "question": "최근 Transformer 기반 음성인식 논문이 있을까?",
+      "expected_tool": "search_paper",
+      "difficulty": "easy",
+      "category": "논문 검색"
+    },
+    {
+      "question": "ViT의 구조를 간단히 설명해줘",
+      "expected_tool": "glossary",
+      "difficulty": "easy",
+      "category": "용어 정의"
+    },
+    {
+      "question": "2022년 이후 Attention 메커니즘 관련 논문을 연도별로 보여줘",
+      "expected_tool": "text2sql",
+      "difficulty": "easy",
+      "category": "통계 조회"
+    },
+    {
+      "question": "Attention Is All You Need 논문의 내용을 요약해줘",
+      "expected_tool": "summarize",
+      "difficulty": "easy",
+      "category": "논문 요약"
+    },
+    {
+      "question": "2025년 기준 AI 트렌드 관련 최신 소식 알려줘",
+      "expected_tool": "general",
+      "difficulty": "easy",
+      "category": "최신 정보"
+    }
+  ],
+  "multi_requests": [
+    {
+      "question": "Transformer 논문들에 대해 정리해서 쉽게 설명해줘",
+      "expected_tools": ["search_paper", "summarize"],
+      "difficulty": "easy",
+      "category": "논문 검색 + 요약"
+    },
+    {
+      "question": "2025년에 나온 ViT모델 성능에 관한 논문 찾아서 보여줘",
+      "expected_tools": ["text2sql", "search_paper"],
+      "difficulty": "easy",
+      "category": "통계 + 논문 검색"
+    },
+    {
+      "question": "GPT 계열 모델의 발전 과정을 논문 기준으로 정리해줘",
+      "expected_tools": ["search_paper", "summarize"],
+      "difficulty": "hard",
+      "category": "논문 검색 + 요약"
+    },
+    {
+      "question": "BERT와 RoBERTa의 차이점을 관련 논문들을 바탕으로 비교해줘",
+      "expected_tools": ["search_paper", "summarize"],
+      "difficulty": "hard",
+      "category": "논문 검색 + 요약"
+    },
+    {
+      "question": "최근 Attention Mechanism 관련 논문을 찾고, 핵심 내용을 요약해줘",
+      "expected_tools": ["search_paper", "summarize"],
+      "difficulty": "easy",
+      "category": "논문 검색 + 요약"
+    },
+    {
+      "question": "LLM 관련 논문 중 Instruction tuning이 언급된 걸 찾아서 주요 실험 결과를 정리해줘",
+      "expected_tools": ["search_paper", "summarize"],
+      "difficulty": "hard",
+      "category": "논문 검색 + 요약"
+    },
+    {
+      "question": "2024년 이후 Reinforcement Learning 관련 논문 중 상위 인용 5개만 골라서 보여줘",
+      "expected_tools": ["text2sql", "search_paper"],
+      "difficulty": "easy",
+      "category": "통계 + 논문 검색"
+    },
+    {
+      "question": "Self-supervised Learning과 Contrastive Learning 논문을 비교해서 설명해줘",
+      "expected_tools": ["search_paper", "summarize"],
+      "difficulty": "hard",
+      "category": "논문 검색 + 요약"
+    },
+    {
+      "question": "GAN 관련 최신 논문을 찾아서 각 논문 요약을 정리해줘",
+      "expected_tools": ["search_paper", "summarize"],
+      "difficulty": "easy",
+      "category": "논문 검색 + 요약"
+    },
+    {
+      "question": "최근 AI 윤리(Ethics) 관련 논문이 있다면 찾아서 주요 논점을 요약해줘",
+      "expected_tools": ["search_paper", "summarize"],
+      "difficulty": "easy",
+      "category": "논문 검색 + 요약"
+    },
+    {
+      "question": "Diffusion 모델 논문을 찾아서 원리와 차이점을 정리해줘",
+      "expected_tools": ["search_paper", "summarize"],
+      "difficulty": "hard",
+      "category": "논문 검색 + 요약"
+    },
+    {
+      "question": "2024년 발표된 BERT 계열 논문의 수를 통계로 보여주고, 대표 논문을 하나 요약해줘",
+      "expected_tools": ["text2sql", "summarize"],
+      "difficulty": "hard",
+      "category": "통계 + 요약"
+    },
+    {
+      "question": "Vision Transformer와 Swin Transformer의 성능 차이를 보여주는 논문을 찾아서 정리해줘",
+      "expected_tools": ["search_paper", "summarize"],
+      "difficulty": "hard",
+      "category": "논문 검색 + 요약"
+    },
+    {
+      "question": "AI 분야의 최신 컨퍼런스 소식을 찾아서 정리해줘",
+      "expected_tools": ["web_search", "summarize"],
+      "difficulty": "easy",
+      "category": "웹 검색 + 요약"
+    },
+    {
+      "question": "Multimodal AI 관련 논문을 찾아서 주요 응용 사례를 정리해줘",
+      "expected_tools": ["search_paper", "summarize"],
+      "difficulty": "easy",
+      "category": "논문 검색 + 요약"
+    },
+    {
+      "question": "한국 연구자가 참여한 LLM 관련 논문이 있는지 찾아서 알려줘",
+      "expected_tools": ["search_paper", "save_file"],
+      "difficulty": "easy",
+      "category": "논문 검색 + 저장"
+    },
+    {
+      "question": "Prompt Engineering 관련 논문 중 주요 실험 결과를 보여주고 요약해줘",
+      "expected_tools": ["search_paper", "summarize"],
+      "difficulty": "hard",
+      "category": "논문 검색 + 요약"
+    },
+    {
+      "question": "최신 Reinforcement Learning 논문을 찾아보고 주요 내용을 요약해줘",
+      "expected_tools": ["web_search", "summarize"],
+      "difficulty": "easy",
+      "category": "웹 검색 + 요약"
+    },
+    {
+      "question": "AI 논문 데이터베이스에서 Transformer 관련 논문 수를 SQL로 조회하고 결과를 파일로 저장해줘",
+      "expected_tools": ["text2sql", "save_file"],
+      "difficulty": "easy",
+      "category": "통계 + 저장"
+    },
+    {
+      "question": "Attention Mechanism과 Feed Forward Network 구조의 차이를 설명하고, 관련 논문을 함께 보여줘",
+      "expected_tools": ["glossary", "search_paper"],
+      "difficulty": "hard",
+      "category": "용어 + 논문 검색"
+    }
+  ],
+  "summary": {
+    "total_questions": 40,
+    "single_count": 20,
+    "multi_count": 20,
+    "tool_distribution": {
+      "search_paper": 15,
+      "general": 8,
+      "glossary": 6,
+      "text2sql": 6,
+      "summarize": 16,
+      "web_search": 3,
+      "save_file": 3
+    },
+    "multi_request_patterns": {
+      "search_paper → summarize": 12,
+      "text2sql → search_paper": 2,
+      "text2sql → summarize": 1,
+      "web_search → summarize": 2,
+      "search_paper → save_file": 1,
+      "text2sql → save_file": 1,
+      "glossary → search_paper": 1
+    }
+  }
+}

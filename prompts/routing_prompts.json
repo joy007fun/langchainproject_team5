@@ -573,6 +573,86 @@
         }
       ],
       "reason": "용어 정의 후 복잡한 분석"
+    },
+    {
+      "question": "Attention Mechanism 논문 찾아서 요약해줘",
+      "tools": [
+        {
+          "name": "search_paper",
+          "query": "Attention Mechanism",
+          "filtering_attempts": 3,
+          "step": 1
+        },
+        {
+          "name": "summarize",
+          "step": 2
+        }
+      ],
+      "reason": "논문 검색 후 요약 - 가장 일반적인 다중 요청 패턴"
+    },
+    {
+      "question": "2024년 이후 Reinforcement Learning 논문 중 상위 인용 5개만 보여줘",
+      "tools": [
+        {
+          "name": "text2sql",
+          "query": "2024년 이후 RL 논문 상위 인용 5개",
+          "step": 1
+        },
+        {
+          "name": "search_paper",
+          "context": "통계 결과 기반 상세 검색",
+          "step": 2
+        }
+      ],
+      "reason": "통계 조회 후 논문 상세 검색"
+    },
+    {
+      "question": "최신 AI 컨퍼런스 소식 찾아서 정리해줘",
+      "tools": [
+        {
+          "name": "web_search",
+          "query": "최신 AI 컨퍼런스",
+          "step": 1
+        },
+        {
+          "name": "summarize",
+          "step": 2
+        }
+      ],
+      "reason": "웹 검색 후 요약 정리"
+    },
+    {
+      "question": "Transformer 설명하고 관련 논문도 보여줘",
+      "tools": [
+        {
+          "name": "glossary",
+          "query": "Transformer",
+          "filtering_attempts": 3,
+          "step": 1
+        },
+        {
+          "name": "search_paper",
+          "query": "Transformer",
+          "step": 2
+        }
+      ],
+      "reason": "용어 정의 후 관련 논문 검색"
+    },
+    {
+      "question": "2024년 BERT 계열 논문 통계 보여주고 대표 논문 하나 요약해줘",
+      "tools": [
+        {
+          "name": "text2sql",
+          "query": "2024년 BERT 계열 논문 통계",
+          "step": 1
+        },
+        {
+          "name": "summarize",
+          "context": "대표 논문 선택하여 요약",
+          "step": 2
+        }
+      ],
+      "reason": "통계 조회 후 대표 논문 요약"
     }
   ],
   "common_mistakes": {
