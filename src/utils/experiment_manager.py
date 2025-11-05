@@ -41,14 +41,13 @@ class ExperimentManager:
         today = datetime.now().strftime("%Y%m%d")          # 날짜 (YYYYMMDD)
         time_now = datetime.now().strftime("%H%M%S")       # 시간 (HHMMSS)
 
-        # 프로젝트 루트 디렉토리 찾기 (절대 경로로 변환)
-        project_root = self._find_project_root()
-
         # 당일 Session ID 생성
-        session_id = self._get_next_session_id(today, project_root)
+        session_id = self._get_next_session_id(today)
 
-        # 메인 실험 폴더 경로 생성 (절대 경로)
-        self.experiment_dir = project_root / "experiments" / today / f"{today}_{time_now}_session_{session_id:03d}"
+        # 메인 실험 폴더 경로 생성
+        self.experiment_dir = Path(
+            f"experiments/{today}/{today}_{time_now}_session_{session_id:03d}"
+        )
         self.experiment_dir.mkdir(parents=True, exist_ok=True)
 
         # 서브 폴더 경로 설정
@@ -97,42 +96,13 @@ class ExperimentManager:
         }
 
 
-    # ---------------------- 프로젝트 루트 찾기 메서드 ---------------------- #
-    def _find_project_root(self) -> Path:
-        """
-        프로젝트 루트 디렉토리 찾기
-
-        .git 폴더나 pyproject.toml 파일을 기준으로 프로젝트 루트 찾기
-        찾지 못하면 현재 작업 디렉토리 반환
-
-        Returns:
-            프로젝트 루트 디렉토리의 절대 경로
-        """
-        current = Path.cwd().resolve()
-
-        # 상위 디렉토리로 올라가면서 프로젝트 루트 찾기
-        for parent in [current] + list(current.parents):
-            # .git 폴더가 있으면 프로젝트 루트
-            if (parent / ".git").exists():
-                return parent
-            # pyproject.toml이 있으면 프로젝트 루트
-            if (parent / "pyproject.toml").exists():
-                return parent
-            # requirements.txt와 src 폴더가 모두 있으면 프로젝트 루트
-            if (parent / "requirements.txt").exists() and (parent / "src").exists():
-                return parent
-
-        # 찾지 못하면 현재 작업 디렉토리 반환
-        return current
-
     # ---------------------- Session ID 자동 부여 메서드 ---------------------- #
-    def _get_next_session_id(self, date: str, project_root: Path) -> int:
+    def _get_next_session_id(self, date: str) -> int:
         """
         당일 다음 Session ID 반환
 
         Args:
             date: 날짜 (YYYYMMDD 형식)
-            project_root: 프로젝트 루트 디렉토리
 
         Returns:
             다음 Session ID (1부터 시작)
@@ -142,7 +112,7 @@ class ExperimentManager:
             - 두 번째 실행: session_002
             - 다음 날: 다시 session_001부터 시작
         """
-        date_dir = project_root / "experiments" / date
+        date_dir = Path(f"experiments/{date}")
 
         # 날짜 폴더가 없으면 첫 실행
         if not date_dir.exists():
