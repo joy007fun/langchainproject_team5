@@ -1036,19 +1036,37 @@ context = "\n\n".join([
     for i, doc in enumerate(docs)
 ])
 
-# 3. LLM에 전달
-# LLM 클라이언트 초기화 (권장: 난이도별 자동 선택)
-llm_client = LLMClient.from_difficulty(difficulty="easy")  # solar-pro2
-# 또는 직접 모델 지정: LLMClient(provider="openai", model="gpt-4o")
-# 주의: gpt-5는 특별 권한이 필요할 수 있으므로 일반 사용자는 gpt-4o 사용 권장
+# 3. 두 수준의 답변 생성 (실제 search_paper 도구 방식)
+level_mapping = {
+    "easy": ["elementary", "beginner"],
+    "hard": ["intermediate", "advanced"]
+}
 
-messages = [
-    SystemMessage(content="논문 정보를 기반으로 답변하세요."),
-    HumanMessage(content=f"컨텍스트:\n{context}\n\n질문: Transformer 설명해줘")
-]
+difficulty = "easy"  # 또는 "hard"
+levels = level_mapping[difficulty]
+final_answers = {}
 
-response = llm_client.llm.invoke(messages)
-print(response.content)
+# LLM 클라이언트 초기화
+llm_client = LLMClient.from_difficulty(difficulty=difficulty)
+
+# 각 수준별로 답변 생성
+for level in levels:
+    # 수준별 시스템 프롬프트 로드
+    from src.prompts import get_tool_prompt
+    system_prompt = get_tool_prompt("search_paper", level)
+
+    messages = [
+        SystemMessage(content=system_prompt),
+        HumanMessage(content=f"컨텍스트:\n{context}\n\n질문: Transformer 설명해줘")
+    ]
+
+    response = llm_client.llm.invoke(messages)
+    final_answers[level] = response.content
+
+# 결과: easy 모드면 {"elementary": "...", "beginner": "..."}
+#      hard 모드면 {"intermediate": "...", "advanced": "..."}
+print(f"생성된 수준: {list(final_answers.keys())}")
+print(f"첫 번째 답변: {final_answers[levels[0]][:100]}...")
 ```
 
 ---
