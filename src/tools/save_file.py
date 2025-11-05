@@ -32,8 +32,33 @@ def save_file_node(state: AgentState, exp_manager=None):
         exp_manager.logger.write(f"파일 저장 노드 실행: {question}")
 
     # -------------- 저장할 내용 확인 -------------- #
-    # 이전 답변이 있으면 그것을 저장, 없으면 대화 히스토리 저장
-    content_to_save = state.get("tool_result") or state.get("final_answer") or "저장할 내용이 없습니다."
+    # 전체 대화 히스토리를 마크다운 형식으로 변환
+    messages = state.get("messages", [])
+
+    if messages:
+        # 마크다운 형식으로 대화 내용 구성
+        content_lines = ["# 대화 내용\n"]
+
+        for i, msg in enumerate(messages, 1):
+            # 메시지 역할 확인 (user/assistant)
+            role = msg.get("role", "unknown")
+            content = msg.get("content", "")
+
+            # 역할에 따라 헤더 설정
+            if role == "user":
+                header = f"## [{i}] 🙋 사용자"
+            elif role == "assistant":
+                header = f"## [{i}] 🤖 AI"
+            else:
+                header = f"## [{i}] {role}"
+
+            # 질의응답 구분하여 추가
+            content_lines.append(f"{header}\n\n{content}\n")
+
+        content_to_save = "\n".join(content_lines)
+    else:
+        # 메시지가 없으면 기존 방식 (단일 답변 저장)
+        content_to_save = state.get("tool_result") or state.get("final_answer") or "저장할 내용이 없습니다."
 
     if exp_manager:
         exp_manager.logger.write(f"저장할 내용 길이: {len(content_to_save)} 글자")
