@@ -600,5 +600,5 @@
       }
     ]
   },
-  "prompt_template": "[사용자 질문]\n{question}\n\n[난이도]\n{difficulty}\n\n[라우팅 결과]\nJSON 형식으로 반환하세요:\n{\n  \"tools\": [\n    {\n      \"name\": \"도구명\",\n      \"query\": \"검색 쿼리\",\n      \"filtering_attempts\": 3,\n      \"step\": 1\n    }\n  ],\n  \"reason\": \"선택 이유\"\n}"
+  "prompt_template": "[사용자 질문]\n{question}\n\n[난이도]\n{difficulty}\n\n[라우팅 결과]\nJSON 형식으로 반환하세요:\n{{\n  \"tools\": [\n    {{\n      \"name\": \"도구명\",\n      \"query\": \"검색 쿼리\",\n      \"filtering_attempts\": 3,\n      \"step\": 1\n    }}\n  ],\n  \"reason\": \"선택 이유\"\n}}"
 }
