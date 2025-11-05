@@ -154,9 +154,7 @@ def _keyword_search(query: str, top_k: int = 5) -> List[Dict[str, Any]]:
     Returns:
         List[Dict[str, Any]]: 키워드 검색 결과 (paper_id, title, abstract, score)
     """
-    from src.database.connection import get_connection
-
-    conn = get_connection()
+    conn = psycopg2.connect(_pg_conn_str())
     try:
         cursor = conn.cursor()
 
