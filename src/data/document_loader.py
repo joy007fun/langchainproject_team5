@@ -30,10 +30,30 @@ class PaperDocumentLoader:
 
         loader = PyPDFLoader(str(pdf_path))
         documents = loader.load()
+
+        # 저작권 페이지 필터링 (첫 페이지가 메타데이터만 있는 경우)
+        filtered_docs = []
+        for doc in documents:
+            content = doc.page_content.lower()
+            content_length = len(doc.page_content)
+
+            # 저작권 페이지 판별 조건
+            is_copyright_page = (
+                ("copyright" in content or "permission" in content) and
+                content_length < 1000
+            )
+
+            if not is_copyright_page:
+                filtered_docs.append(doc)
+
+        # 필터링 결과가 없으면 원본 사용 (모든 페이지가 저작권인 경우 방지)
+        if not filtered_docs:
+            filtered_docs = documents
+
         if metadata:
-            for d in documents:
+            for d in filtered_docs:
                 d.metadata.update(metadata)
-        return documents
+        return filtered_docs
 
     def load_and_split(self, pdf_path: str | Path, metadata: Optional[Dict] = None) -> List[Document]:
         """PDF를 로드하고 청크로 분할합니다."""
@@ -42,6 +62,7 @@ class PaperDocumentLoader:
         chunks = self.text_splitter.split_documents(docs)
         for i, ch in enumerate(chunks):
             ch.metadata["chunk_id"] = i
+            ch.metadata["chunk_index"] = i  # chunk_index 추가 (pgvector 검색용)
         return chunks
 
     def load_all_pdfs(self, pdf_dir: str | Path, metadata_json_path: str | Path) -> List[Document]:
