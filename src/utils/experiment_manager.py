@@ -86,6 +86,9 @@ class ExperimentManager:
         # 전체 설정 파일 복사 (config.yaml) - Logger 초기화 후 호출
         self._save_config_snapshot()
 
+        # 세션 초기화 완료 분기점
+        self.logger.write_separator()
+
         # DB 관련 변수 초기화
         self.db_queries = []                                 # SQL 쿼리 리스트
         self.pgvector_searches = []                          # pgvector 검색 기록
