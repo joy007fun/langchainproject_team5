@@ -63,18 +63,28 @@ def save_file_node(state: AgentState, exp_manager=None):
 
         content_to_save = "\n".join(content_lines)
     else:
-        # 단일 답변 저장: 이전 도구의 결과 또는 최종 답변 저장
-        # tool_pipeline에서 save_file 이전 도구의 결과를 가져옴
+        # 단일 답변 저장: LLM 답변만 저장 (사용자 질문 제외)
+        # 우선순위 1: 파이프라인 실행 중이면 이전 도구의 결과 사용
         tool_pipeline = state.get("tool_pipeline", [])
         pipeline_index = state.get("pipeline_index", 0)
 
-        # 파이프라인 실행 중이면 이전 도구의 결과 사용
         if tool_pipeline and pipeline_index > 1:
-            # 이전 도구 실행 결과가 tool_result에 저장되어 있을 것
-            content_to_save = state.get("tool_result") or state.get("final_answer") or "저장할 내용이 없습니다."
+            # 파이프라인 실행 중: tool_result (이전 도구 결과) 사용
+            content_to_save = state.get("tool_result", "")
         else:
-            # 단일 도구 실행 또는 첫 번째 도구면 tool_result 또는 final_answer 사용
-            content_to_save = state.get("tool_result") or state.get("final_answer") or "저장할 내용이 없습니다."
+            # 단일 도구 실행 또는 첫 번째 도구: messages에서 마지막 AI 답변 추출
+            content_to_save = ""
+
+            # messages에서 마지막 assistant 메시지 찾기
+            if messages:
+                for msg in reversed(messages):
+                    if msg.get("role") == "assistant":
+                        content_to_save = msg.get("content", "")
+                        break
+
+            # 찾지 못했으면 tool_result 또는 final_answer 사용
+            if not content_to_save:
+                content_to_save = state.get("tool_result") or state.get("final_answer") or "저장할 내용이 없습니다."
 
     if exp_manager:
         exp_manager.logger.write(f"저장할 내용 길이: {len(content_to_save)} 글자")
