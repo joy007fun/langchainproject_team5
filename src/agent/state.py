@@ -41,6 +41,11 @@ class AgentState(TypedDict, total=False):
         validation_enabled (bool): Router 검증 활성화 여부
         validation_retries (int): 현재 검증 재시도 횟수
         max_validation (int): 최대 검증 재시도 횟수
+
+        # 도구 선택 및 실행 상세 정보
+        routing_reason (str): 도구 선택 이유
+        routing_method (str): 도구 선택 방법 (llm, keyword_fallback, multi_request, etc)
+        pipeline_description (str): 다중 요청 파이프라인 설명
     """
     # 기본 필드
     question: str                               # 사용자 질문
@@ -69,3 +74,11 @@ class AgentState(TypedDict, total=False):
     # 다중 요청 Pipeline 관련 필드
     tool_pipeline: List[str]                    # 순차 실행 도구 리스트
     pipeline_index: int                         # 현재 Pipeline 실행 인덱스
+
+    # 도구 선택 및 실행 상세 정보
+    routing_reason: str                         # 도구 선택 이유
+    routing_method: str                         # 도구 선택 방법 (llm, keyword_fallback, multi_request, etc)
+    pipeline_description: str                   # 다중 요청 파이프라인 설명
+
+    # 저장 관련 필드
+    save_counter: int                           # 저장 파일 누적 번호
