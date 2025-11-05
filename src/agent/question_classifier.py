@@ -37,7 +37,7 @@ class QuestionClassifier:
 
 질문 유형:
 1. term_definition - AI/ML 용어의 정의를 묻는 질문
-   예시: "Attention이 뭐야?", "BLEU Score 설명해줘", "Transformer란?"
+   예시: "Attention이 뭐야?", "BLEU Score 설명해줘", "Transformer란?", "nlp 용어가 뭐야?", "Transformer 용어 설명해줘"
 
 2. paper_search - 특정 논문을 검색하거나 찾는 질문
    예시: "Transformer 논문 찾아줘", "GAN 관련 논문 검색해줘"
