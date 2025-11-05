@@ -165,6 +165,8 @@ def fallback_router_node(state: AgentState, exp_manager=None):
     """
     Fallback Router 노드: 도구 실행 실패 시 다음 우선순위 도구 선택
 
+    파이프라인 실행 중이면 실패한 도구를 대체 도구로 교체하고 파이프라인 계속 진행
+
     Args:
         state (AgentState): Agent 상태
         exp_manager: ExperimentManager 인스턴스 (선택 사항)
@@ -172,6 +174,15 @@ def fallback_router_node(state: AgentState, exp_manager=None):
     Returns:
         AgentState: 업데이트된 상태 (tool_choice 포함)
     """
+    # -------------- 도구별 Fallback 매핑 (파이프라인용) -------------- #
+    TOOL_FALLBACKS = {
+        "search_paper": "web_search",    # 논문 검색 실패 → 웹 검색
+        "web_search": "general",         # 웹 검색 실패 → 일반 답변
+        "summarize": "general",          # 요약 실패 → 일반 답변
+        "glossary": "general",           # 용어 검색 실패 → 일반 답변
+        "text2sql": "general",           # SQL 실패 → 일반 답변
+    }
+
     # -------------- 현재 상태 정보 추출 -------------- #
     question = state["question"]
     failed_tool = state.get("tool_choice", "unknown")
@@ -181,6 +192,11 @@ def fallback_router_node(state: AgentState, exp_manager=None):
     fallback_chain = state.get("fallback_chain", [])
     failed_tools = state.get("failed_tools", [])
 
+    # 파이프라인 정보
+    tool_pipeline = state.get("tool_pipeline", [])
+    pipeline_index = state.get("pipeline_index", 0)
+    is_pipeline = len(tool_pipeline) > 1
+
     # -------------- 로깅 -------------- #
     if exp_manager:
         exp_manager.logger.write("=" * 60)
@@ -188,6 +204,9 @@ def fallback_router_node(state: AgentState, exp_manager=None):
         exp_manager.logger.write(f"실패한 도구: {failed_tool}")
         exp_manager.logger.write(f"실패 사유: {failure_reason}")
         exp_manager.logger.write(f"재시도 횟수: {retry_count}/{max_retries}")
+        if is_pipeline:
+            exp_manager.logger.write(f"파이프라인 모드: {' → '.join(tool_pipeline)}")
+            exp_manager.logger.write(f"현재 인덱스: {pipeline_index - 1}")
 
     # -------------- 실패한 도구 기록 -------------- #
     if failed_tool not in failed_tools:
@@ -205,9 +224,75 @@ def fallback_router_node(state: AgentState, exp_manager=None):
             exp_manager.logger.write("최종 Fallback: general 도구로 강제 전환")
 
         state["tool_choice"] = "general"
+
+        # 파이프라인 모드: general로 교체하고 계속 진행
+        if is_pipeline:
+            # 현재 도구를 general로 교체
+            current_index = pipeline_index - 1
+            if 0 <= current_index < len(tool_pipeline):
+                tool_pipeline[current_index] = "general"
+                state["tool_pipeline"] = tool_pipeline
+                if exp_manager:
+                    exp_manager.logger.write(f"파이프라인 업데이트: {' → '.join(tool_pipeline)}")
+
+        state["tool_status"] = "pending"  # 상태 리셋 (재실행 가능하도록)
         return state
 
-    # -------------- Fallback Chain에서 다음 도구 선택 -------------- #
+    # -------------- 파이프라인 모드: 도구 대체 로직 -------------- #
+    if is_pipeline:
+        # 실패한 도구에 대한 Fallback 도구 확인
+        fallback_tool = TOOL_FALLBACKS.get(failed_tool)
+
+        if fallback_tool:
+            if exp_manager:
+                exp_manager.logger.write(f"파이프라인 도구 대체: {failed_tool} → {fallback_tool}")
+
+            # 파이프라인에서 실패한 도구를 Fallback 도구로 교체
+            current_index = pipeline_index - 1
+            if 0 <= current_index < len(tool_pipeline):
+                tool_pipeline[current_index] = fallback_tool
+                state["tool_pipeline"] = tool_pipeline
+                state["tool_choice"] = fallback_tool
+                state["tool_status"] = "pending"  # 상태 리셋
+
+                if exp_manager:
+                    exp_manager.logger.write(f"파이프라인 업데이트: {' → '.join(tool_pipeline)}")
+                    exp_manager.logger.write(f"다음 도구 실행: {fallback_tool}")
+                    exp_manager.logger.write("=" * 60)
+
+                # 타임라인 기록
+                timeline = state.get("tool_timeline", [])
+                timeline.append({
+                    "timestamp": datetime.now().isoformat(),
+                    "event": "pipeline_fallback",
+                    "from_tool": failed_tool,
+                    "to_tool": fallback_tool,
+                    "failure_reason": failure_reason,
+                    "retry_count": retry_count,
+                    "pipeline_index": current_index
+                })
+                state["tool_timeline"] = timeline
+
+                return state
+
+        # Fallback 도구가 없으면 general로 대체
+        if exp_manager:
+            exp_manager.logger.write(f"{failed_tool}에 대한 Fallback 도구 없음 → general 사용")
+
+        current_index = pipeline_index - 1
+        if 0 <= current_index < len(tool_pipeline):
+            tool_pipeline[current_index] = "general"
+            state["tool_pipeline"] = tool_pipeline
+            state["tool_choice"] = "general"
+            state["tool_status"] = "pending"
+
+            if exp_manager:
+                exp_manager.logger.write(f"파이프라인 업데이트: {' → '.join(tool_pipeline)}")
+                exp_manager.logger.write("=" * 60)
+
+            return state
+
+    # -------------- 단일 도구 모드: 기존 Fallback Chain 로직 -------------- #
     next_tool = None
 
     for tool in fallback_chain:
