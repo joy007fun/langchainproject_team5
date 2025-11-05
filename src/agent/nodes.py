@@ -124,13 +124,18 @@ def router_node(state: AgentState, exp_manager=None):
                         "arxiv" in tool_name.lower() or "검색" in tool_name.lower() or "찾" in tool_name.lower() or
                         "탐색" in tool_name.lower() or "retrieval" in tool_name.lower()):
                         tool_choice = "search_paper"
-                    elif "web_search" in tool_name.lower() or "web" in tool_name.lower() or "웹" in tool_name.lower() or "위키" in tool_name.lower():
+                    elif ("web_search" in tool_name.lower() or "web" in tool_name.lower() or "웹" in tool_name.lower() or "위키" in tool_name.lower() or
+                          "인터넷" in tool_name.lower() or "온라인" in tool_name.lower() or "뉴스" in tool_name.lower()):
                         tool_choice = "web_search"
-                    elif "glossary" in tool_name.lower() or "용어" in tool_name.lower() or "정의" in tool_name.lower():
+                    elif ("glossary" in tool_name.lower() or "용어" in tool_name.lower() or "정의" in tool_name.lower() or
+                          "뭐야" in tool_name.lower() or "뭔지" in tool_name.lower() or "란" in tool_name.lower() or
+                          "의미" in tool_name.lower() or "설명" in tool_name.lower()):
                         tool_choice = "glossary"
-                    elif "summarize" in tool_name.lower() or "요약" in tool_name.lower():
+                    elif ("summarize" in tool_name.lower() or "요약" in tool_name.lower() or
+                          "정리" in tool_name.lower() or "summary" in tool_name.lower()):
                         tool_choice = "summarize"
-                    elif "text2sql" in tool_name.lower() or "sql" in tool_name.lower() or "통계" in tool_name.lower():
+                    elif ("text2sql" in tool_name.lower() or "sql" in tool_name.lower() or "통계" in tool_name.lower() or
+                          "데이터베이스" in tool_name.lower() or "조회" in tool_name.lower() or "쿼리" in tool_name.lower()):
                         tool_choice = "text2sql"
                     elif "save" in tool_name.lower() or "저장" in tool_name.lower():
                         tool_choice = "save_file"
