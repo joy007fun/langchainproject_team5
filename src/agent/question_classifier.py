@@ -36,11 +36,13 @@ class QuestionClassifier:
     CLASSIFICATION_PROMPT = """다음 질문을 7가지 유형 중 하나로 분류하세요.
 
 질문 유형:
-1. term_definition - AI/ML 용어의 정의를 묻는 질문
-   예시: "Attention이 뭐야?", "BLEU Score 설명해줘", "Transformer란?", "nlp 용어가 뭐야?", "Transformer 용어 설명해줘"
+1. term_definition - AI/ML 용어의 정의나 개념을 묻는 질문
+   특징: "뭐야", "뭔지", "란", "의미", "정의", "설명" 등의 키워드 포함
+   예시: "Attention이 뭐야?", "BLEU Score 설명해줘", "Transformer란?", "nlp 용어가 뭐야?", "LLM이 뭐야?", "GAN이 뭔지 알려줘", "RAG 개념 설명해줘"
 
 2. paper_search - 특정 논문을 검색하거나 찾는 질문
-   예시: "Transformer 논문 찾아줘", "GAN 관련 논문 검색해줘"
+   특징: "논문" 키워드와 "찾", "검색" 키워드가 함께 있음
+   예시: "Transformer 논문 찾아줘", "GAN 관련 논문 검색해줘", "Attention 논문 보여줘"
 
 3. latest_research - 최신 연구 동향이나 최근 논문을 묻는 질문
    예시: "2024년 최신 LLM 논문은?", "최근 Diffusion Model 연구는?"

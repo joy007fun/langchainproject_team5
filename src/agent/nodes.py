@@ -79,6 +79,28 @@ def router_node(state: AgentState, exp_manager=None):
     # 난이도 추출 (프롬프트 포맷팅 전에 필요)
     difficulty = state.get("difficulty", "easy")  # 난이도 (기본값: easy)
 
+    # ========== 우선순위 0: 규칙 기반 사전 필터링 (명확한 패턴 먼저 체크) ==========
+    question_lower = question.lower()
+
+    # 용어 정의 질문 패턴 (논문/검색 키워드 없이 정의 질문 키워드만 있는 경우)
+    is_term_definition_pattern = (
+        any(pattern in question_lower for pattern in ["뭐야", "뭔지", "무엇", "란", "이란", "의미", "정의"]) and
+        not any(kw in question_lower for kw in ["논문", "검색", "찾", "paper"])
+    )
+
+    if is_term_definition_pattern:
+        # 명확한 용어 정의 패턴 → glossary 도구 직접 선택
+        if exp_manager:
+            exp_manager.logger.write(f"규칙 기반 매칭: 용어 정의 질문 패턴 감지 → glossary 도구 선택")
+
+        state["tool_choice"] = "glossary"
+        state["tool_pipeline"] = ["glossary"]
+        state["pipeline_index"] = 1
+        state["routing_method"] = "rule_based"
+        state["routing_reason"] = "명확한 용어 정의 질문 패턴 감지 (뭐야/뭔지/란 등 키워드, 논문 키워드 없음)"
+
+        return state
+
     # ========== 우선순위 1: 질문 유형 기반 도구 선택 (가장 정확) ==========
     question_type = state.get("question_type", "")
     fallback_chain = state.get("fallback_chain", [])
