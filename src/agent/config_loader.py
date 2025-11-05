@@ -35,6 +35,7 @@ DEFAULT_CONFIG = {
 
 # ==================== 설정 캐시 ==================== #
 _config_cache = None
+_multi_request_patterns_cache = None
 
 
 # ==================== 설정 로더 함수 ==================== #
@@ -250,3 +251,131 @@ def reload_config():
     설정 강제 재로드
     """
     load_fallback_config(force_reload=True)
+
+
+# ==================== 다중 요청 패턴 로더 ==================== #
+def load_multi_request_patterns(force_reload: bool = False) -> List[Dict[str, Any]]:
+    """
+    다중 요청 패턴 로드
+
+    Args:
+        force_reload: 캐시 무시하고 강제로 재로드
+
+    Returns:
+        List[Dict[str, Any]]: 다중 요청 패턴 리스트 (우선순위 내림차순 정렬)
+    """
+    global _multi_request_patterns_cache
+
+    # 캐시된 패턴 반환
+    if _multi_request_patterns_cache is not None and not force_reload:
+        return _multi_request_patterns_cache
+
+    # 설정 파일 경로
+    config_path = Path(__file__).parent.parent.parent / "configs" / "multi_request_patterns.yaml"
+
+    # 설정 파일이 없으면 빈 리스트 반환
+    if not config_path.exists():
+        print(f"경고: 다중 요청 패턴 파일을 찾을 수 없습니다: {config_path}")
+        print("다중 요청 패턴을 사용하지 않습니다.")
+        _multi_request_patterns_cache = []
+        return _multi_request_patterns_cache
+
+    try:
+        # YAML 파일 읽기
+        with open(config_path, 'r', encoding='utf-8') as f:
+            config = yaml.safe_load(f)
+
+        # patterns 섹션 추출
+        if config and "patterns" in config:
+            patterns = config["patterns"]
+
+            # 패턴 검증
+            _validate_multi_request_patterns(patterns)
+
+            # 우선순위 내림차순 정렬
+            sorted_patterns = sorted(
+                patterns,
+                key=lambda p: p.get("priority", 0),
+                reverse=True
+            )
+
+            # 캐시 저장
+            _multi_request_patterns_cache = sorted_patterns
+            return _multi_request_patterns_cache
+        else:
+            print("경고: patterns 섹션을 찾을 수 없습니다.")
+            print("다중 요청 패턴을 사용하지 않습니다.")
+            _multi_request_patterns_cache = []
+            return _multi_request_patterns_cache
+
+    except yaml.YAMLError as e:
+        print(f"오류: YAML 파싱 실패: {e}")
+        print("다중 요청 패턴을 사용하지 않습니다.")
+        _multi_request_patterns_cache = []
+        return _multi_request_patterns_cache
+
+    except Exception as e:
+        print(f"오류: 다중 요청 패턴 로드 실패: {e}")
+        print("다중 요청 패턴을 사용하지 않습니다.")
+        _multi_request_patterns_cache = []
+        return _multi_request_patterns_cache
+
+
+def _validate_multi_request_patterns(patterns: List[Dict[str, Any]]):
+    """
+    다중 요청 패턴 유효성 검증
+
+    Args:
+        patterns: 검증할 패턴 리스트
+
+    Raises:
+        ValueError: 유효하지 않은 패턴
+    """
+    if not isinstance(patterns, list):
+        raise ValueError("patterns는 리스트여야 합니다.")
+
+    valid_tools = ["general", "glossary", "search_paper", "web_search", "summarize", "text2sql", "save_file"]
+
+    for i, pattern in enumerate(patterns):
+        if not isinstance(pattern, dict):
+            raise ValueError(f"패턴 {i}는 딕셔너리여야 합니다.")
+
+        # keywords 검증
+        if "keywords" not in pattern:
+            raise ValueError(f"패턴 {i}에 keywords 필드가 없습니다.")
+
+        keywords = pattern["keywords"]
+        if not isinstance(keywords, list) or len(keywords) == 0:
+            raise ValueError(f"패턴 {i}의 keywords는 비어있지 않은 리스트여야 합니다.")
+
+        for kw in keywords:
+            if not isinstance(kw, str) or len(kw) == 0:
+                raise ValueError(f"패턴 {i}의 키워드는 비어있지 않은 문자열이어야 합니다.")
+
+        # tools 검증
+        if "tools" not in pattern:
+            raise ValueError(f"패턴 {i}에 tools 필드가 없습니다.")
+
+        tools = pattern["tools"]
+        if not isinstance(tools, list) or len(tools) < 2:
+            raise ValueError(f"패턴 {i}의 tools는 최소 2개 이상의 도구 리스트여야 합니다.")
+
+        for tool in tools:
+            if tool not in valid_tools:
+                raise ValueError(f"패턴 {i}에 유효하지 않은 도구: {tool}")
+
+        # priority 검증 (선택 사항)
+        if "priority" in pattern:
+            priority = pattern["priority"]
+            if not isinstance(priority, (int, float)):
+                raise ValueError(f"패턴 {i}의 priority는 숫자여야 합니다.")
+
+
+def get_multi_request_patterns() -> List[Dict[str, Any]]:
+    """
+    다중 요청 패턴 리스트 반환 (우선순위 정렬됨)
+
+    Returns:
+        List[Dict[str, Any]]: 다중 요청 패턴 리스트
+    """
+    return load_multi_request_patterns()
