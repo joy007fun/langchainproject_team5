@@ -45,48 +45,61 @@ def router_node(state: AgentState, exp_manager=None):
     if exp_manager:
         exp_manager.logger.write(f"라우터 노드 실행: {question}")
 
-    # -------------- 다중 요청 감지 (YAML 패턴 기반) -------------- #
-    # YAML 파일에서 패턴 로드 (우선순위 정렬됨)
-    multi_request_patterns = get_multi_request_patterns()
+    # -------------- Multi-turn 맥락 참조 감지 -------------- #
+    # 대명사나 맥락 참조 표현이 있으면 이전 대화 컨텍스트를 고려해야 함
+    # 이 경우 패턴 매칭을 건너뛰고 LLM 라우팅으로 진행
+    contextual_keywords = ["관련", "그거", "이거", "저거", "해당", "방금", "위", "앞서", "이전", "그"]
+    has_contextual_ref = any(kw in question for kw in contextual_keywords)
 
-    # 다중 요청 패턴 확인 (우선순위 높은 순서대로)
-    for pattern in multi_request_patterns:
-        keywords = pattern.get("keywords", [])
-        exclude_keywords = pattern.get("exclude_keywords", [])
-        tools = pattern.get("tools", [])
+    if has_contextual_ref and len(state.get("messages", [])) > 1:
+        # 맥락 참조가 있고 이전 대화가 있는 경우
+        if exp_manager:
+            exp_manager.logger.write(f"Multi-turn 맥락 참조 감지: 패턴 매칭 건너뛰고 LLM 라우팅 사용")
+        # 패턴 매칭을 건너뛰고 LLM 라우팅으로 진행 (tool_choice는 None으로 유지)
+        pass
+    else:
+        # -------------- 다중 요청 감지 (YAML 패턴 기반) -------------- #
+        # YAML 파일에서 패턴 로드 (우선순위 정렬됨)
+        multi_request_patterns = get_multi_request_patterns()
 
-        # 모든 키워드가 질문에 포함되는지 확인
-        keywords_match = all(kw in question for kw in keywords)
+        # 다중 요청 패턴 확인 (우선순위 높은 순서대로)
+        for pattern in multi_request_patterns:
+            keywords = pattern.get("keywords", [])
+            exclude_keywords = pattern.get("exclude_keywords", [])
+            tools = pattern.get("tools", [])
 
-        # 제외 키워드가 하나라도 있으면 패턴 불일치
-        exclude_match = any(ex_kw in question for ex_kw in exclude_keywords) if exclude_keywords else False
+            # 모든 키워드가 질문에 포함되는지 확인
+            keywords_match = all(kw in question for kw in keywords)
 
-        if keywords_match and not exclude_match:
-            description = pattern.get('description', 'N/A')
+            # 제외 키워드가 하나라도 있으면 패턴 불일치
+            exclude_match = any(ex_kw in question for ex_kw in exclude_keywords) if exclude_keywords else False
 
-            if exp_manager:
-                exp_manager.logger.write(f"다중 요청 감지: {keywords} (제외: {exclude_keywords}) → {tools}")
-                exp_manager.logger.write(f"패턴 설명: {description}")
+            if keywords_match and not exclude_match:
+                description = pattern.get('description', 'N/A')
+
+                if exp_manager:
+                    exp_manager.logger.write(f"다중 요청 감지: {keywords} (제외: {exclude_keywords}) → {tools}")
+                    exp_manager.logger.write(f"패턴 설명: {description}")
+                    if len(tools) > 1:
+                        exp_manager.logger.write(f"순차 실행 도구: {' → '.join(tools)}")
+                    else:
+                        exp_manager.logger.write(f"단일 도구 실행: {tools[0]}")
+
+                # tool_pipeline 설정 (순차 실행 도구 목록)
+                state["tool_pipeline"] = tools
+                state["tool_choice"] = tools[0]  # 첫 번째 도구부터 실행
+                state["pipeline_index"] = 1      # 첫 번째 도구 실행 후 index는 1
+
+                # 도구 선택 이유 및 방법 기록
+                state["routing_method"] = "pattern_based"
+                state["routing_reason"] = f"패턴 매칭: {description}"
+
                 if len(tools) > 1:
-                    exp_manager.logger.write(f"순차 실행 도구: {' → '.join(tools)}")
+                    state["pipeline_description"] = f"순차 실행: {' → '.join(tools)}"
                 else:
-                    exp_manager.logger.write(f"단일 도구 실행: {tools[0]}")
+                    state["pipeline_description"] = f"단일 도구: {tools[0]}"
 
-            # tool_pipeline 설정 (순차 실행 도구 목록)
-            state["tool_pipeline"] = tools
-            state["tool_choice"] = tools[0]  # 첫 번째 도구부터 실행
-            state["pipeline_index"] = 1      # 첫 번째 도구 실행 후 index는 1
-
-            # 도구 선택 이유 및 방법 기록
-            state["routing_method"] = "pattern_based"
-            state["routing_reason"] = f"패턴 매칭: {description}"
-
-            if len(tools) > 1:
-                state["pipeline_description"] = f"순차 실행: {' → '.join(tools)}"
-            else:
-                state["pipeline_description"] = f"단일 도구: {tools[0]}"
-
-            return state
+                return state
 
     # -------------- 단일 요청 처리 (기존 로직) -------------- #
     # 난이도 추출 (프롬프트 포맷팅 전에 필요)
