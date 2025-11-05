@@ -93,8 +93,43 @@ def router_node(state: AgentState, exp_manager=None):
         lines = [line for line in lines if not line.strip().startswith("```")]
         cleaned_response = "\n".join(lines).strip()
 
-    # 응답 파싱: 첫 번째 단어만 추출
-    tool_choice = cleaned_response.split()[0] if cleaned_response else "general"
+    # 응답 파싱: JSON 형식이면 JSON으로, 아니면 첫 단어 추출
+    tool_choice = "general"  # 기본값
+
+    # 1. JSON 파싱 시도
+    if cleaned_response.strip().startswith("{"):
+        try:
+            import json
+            parsed = json.loads(cleaned_response)
+
+            # {"tools": [{"name": "xxx"}]} 형식
+            if "tools" in parsed and len(parsed["tools"]) > 0:
+                tool_name = parsed["tools"][0].get("name", "general")
+                # 도구명 추출 (full name이 아닌 짧은 이름으로 매핑)
+                if "search_paper" in tool_name.lower() or "paper" in tool_name.lower():
+                    tool_choice = "search_paper"
+                elif "web_search" in tool_name.lower() or "web" in tool_name.lower():
+                    tool_choice = "web_search"
+                elif "glossary" in tool_name.lower() or "용어" in tool_name.lower():
+                    tool_choice = "glossary"
+                elif "summarize" in tool_name.lower() or "요약" in tool_name.lower():
+                    tool_choice = "summarize"
+                elif "text2sql" in tool_name.lower() or "sql" in tool_name.lower():
+                    tool_choice = "text2sql"
+                elif "save" in tool_name.lower() or "저장" in tool_name.lower():
+                    tool_choice = "save_file"
+                else:
+                    tool_choice = "general"
+            elif "tool" in parsed:
+                # {"tool": "xxx"} 형식
+                tool_choice = parsed["tool"]
+
+        except (json.JSONDecodeError, KeyError, IndexError):
+            # JSON 파싱 실패 시 첫 단어 추출
+            tool_choice = cleaned_response.split()[0] if cleaned_response else "general"
+    else:
+        # 2. 일반 텍스트: 첫 번째 단어만 추출
+        tool_choice = cleaned_response.split()[0] if cleaned_response else "general"
 
     # 유효한 도구 목록
     valid_tools = ["general", "glossary", "search_paper", "web_search", "summarize", "text2sql", "save_file"]
