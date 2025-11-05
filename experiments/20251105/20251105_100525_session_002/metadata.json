@@ -1,0 +1,11 @@
+{
+  "session_id": "002",
+  "start_time": "2025-11-05T10:05:25.086460",
+  "difficulty": "easy",
+  "tool_used": null,
+  "user_query": "Prompt Engineering 관련 논문 알려줘",
+  "success": false,
+  "response_time_ms": null,
+  "end_time": null,
+  "error": "'routing_prompt'"
+}

@@ -1,0 +1,5 @@
+ViT의 구조를 간단히 설명해줘
+
+===== 메타데이터 =====
+tool: general_answer
+difficulty: easy

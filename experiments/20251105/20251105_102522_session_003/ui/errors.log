@@ -1,0 +1,33 @@
+에러 발생 시각: 2025-11-05 10:25:31
+질문: Prompt Engineering 관련 논문 알려줘
+난이도: hard
+에러 메시지: 'difficulty'
+
+상세 트레이스:
+Traceback (most recent call last):
+  File "/home/ieyeppo/AI_Lab/langchain-project/ui/components/chat_interface.py", line 197, in handle_agent_response
+    response = agent_executor.invoke(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 3094, in invoke
+    for chunk in self.stream(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 2679, in stream
+    for _ in runner.tick(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_runner.py", line 167, in tick
+    run_with_retry(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_retry.py", line 42, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 656, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 400, in invoke
+    ret = self.func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/AI_Lab/langchain-project/src/agent/nodes.py", line 74, in router_node
+    routing_prompt = routing_prompt_template.format(question=question)  # 질문 삽입
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'difficulty'
+During task with name 'router' and id '5ae1f99d-a864-7db0-bdc2-d22e1bb2988f'
+
+================================================================================
+

@@ -1,0 +1,32 @@
+[
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "최근 Attention Mechanism 관련 논문을 찾고, 핵심 내용을 요약해줘",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 4187,
+    "timestamp": "2025-11-05T10:30:10.553758"
+  },
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "최근 AI 윤리(Ethics) 관련 논문이 있다면 찾아서 주요 논점을 요약해줘",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 3419,
+    "timestamp": "2025-11-05T10:36:10.919279"
+  },
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "“Multimodal AI” 관련 논문을 찾아서 주요 응용 사례를 정리해줘",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 4485,
+    "timestamp": "2025-11-05T10:43:23.535918"
+  }
+]

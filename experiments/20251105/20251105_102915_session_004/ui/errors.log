@@ -1,0 +1,99 @@
+에러 발생 시각: 2025-11-05 10:34:55
+질문: 저장 해줘
+난이도: easy
+에러 메시지: '\n  "tools"'
+
+상세 트레이스:
+Traceback (most recent call last):
+  File "/home/ieyeppo/AI_Lab/langchain-project/ui/components/chat_interface.py", line 197, in handle_agent_response
+    response = agent_executor.invoke(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 3094, in invoke
+    for chunk in self.stream(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 2679, in stream
+    for _ in runner.tick(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_runner.py", line 167, in tick
+    run_with_retry(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_retry.py", line 42, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 656, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 400, in invoke
+    ret = self.func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/AI_Lab/langchain-project/src/agent/nodes.py", line 77, in router_node
+    routing_prompt = routing_prompt_template.format(question=question, difficulty=difficulty)  # 질문 및 난이도 삽입
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: '\n  "tools"'
+During task with name 'router' and id '602e9077-d3e5-dd6a-560d-7e822008554f'
+
+================================================================================
+
+에러 발생 시각: 2025-11-05 10:35:39
+질문: 2024년 이후 Reinforcement Learning 관련 논문 중 상위 인용 5개만 골라서 보여줘
+난이도: easy
+에러 메시지: '\n  "tools"'
+
+상세 트레이스:
+Traceback (most recent call last):
+  File "/home/ieyeppo/AI_Lab/langchain-project/ui/components/chat_interface.py", line 197, in handle_agent_response
+    response = agent_executor.invoke(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 3094, in invoke
+    for chunk in self.stream(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 2679, in stream
+    for _ in runner.tick(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_runner.py", line 167, in tick
+    run_with_retry(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_retry.py", line 42, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 656, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 400, in invoke
+    ret = self.func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/AI_Lab/langchain-project/src/agent/nodes.py", line 77, in router_node
+    routing_prompt = routing_prompt_template.format(question=question, difficulty=difficulty)  # 질문 및 난이도 삽입
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: '\n  "tools"'
+During task with name 'router' and id '616e7694-9ab3-6eda-9a66-2060782bc177'
+
+================================================================================
+
+에러 발생 시각: 2025-11-05 10:35:48
+질문: 2024년 이후 Reinforcement Learning 관련 논문 중 상위 인용 5개만 골라서 보여줘
+난이도: easy
+에러 메시지: '\n  "tools"'
+
+상세 트레이스:
+Traceback (most recent call last):
+  File "/home/ieyeppo/AI_Lab/langchain-project/ui/components/chat_interface.py", line 197, in handle_agent_response
+    response = agent_executor.invoke(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 3094, in invoke
+    for chunk in self.stream(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 2679, in stream
+    for _ in runner.tick(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_runner.py", line 167, in tick
+    run_with_retry(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_retry.py", line 42, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 656, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 400, in invoke
+    ret = self.func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/AI_Lab/langchain-project/src/agent/nodes.py", line 77, in router_node
+    routing_prompt = routing_prompt_template.format(question=question, difficulty=difficulty)  # 질문 및 난이도 삽입
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: '\n  "tools"'
+During task with name 'router' and id 'c6142da5-6a97-2cf6-aaa0-858d04603e61'
+
+================================================================================
+

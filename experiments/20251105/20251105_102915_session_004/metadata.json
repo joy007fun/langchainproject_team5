@@ -1,0 +1,11 @@
+{
+  "session_id": "004",
+  "start_time": "2025-11-05T10:29:15.227666",
+  "difficulty": "hard",
+  "tool_used": "search_paper",
+  "user_query": "“Multimodal AI” 관련 논문을 찾아서 주요 응용 사례를 정리해줘",
+  "success": true,
+  "response_time_ms": 246291,
+  "end_time": null,
+  "error": "'\\n  \"tools\"'"
+}

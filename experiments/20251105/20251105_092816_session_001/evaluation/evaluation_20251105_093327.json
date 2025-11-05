@@ -1,0 +1,13 @@
+{
+  "accuracy_score": 3,
+  "relevance_score": 10,
+  "difficulty_score": 10,
+  "citation_score": 0,
+  "total_score": 23,
+  "comment": "정확도: 실제 저장 수행 근거 없이 성공을 단정하고 구체 경로를 제시해 환각 가능성이 큼. 관련성: '저장해줘' 요청에 직접적으로 응답함. 난이도: 매우 간단하고 쉬운 표현으로 전달됨. 출처: 인용이나 참고 문헌 없음.",
+  "question": "저장해줘",
+  "answer": "파일이 성공적으로 저장되었습니다.\n파일 경로: experiments/20251105/20251105_092816_session_001/outputs/response_20251105_093309.txt",
+  "reference_docs": "참고 문서 없음 (일반 답변)",
+  "difficulty": "easy",
+  "timestamp": "2025-11-05T09:33:27.714256"
+}

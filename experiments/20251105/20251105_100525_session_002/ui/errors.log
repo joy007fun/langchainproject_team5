@@ -1,0 +1,36 @@
+에러 발생 시각: 2025-11-05 10:07:06
+질문: Prompt Engineering 관련 논문 알려줘
+난이도: easy
+에러 메시지: 'routing_prompt'
+
+상세 트레이스:
+Traceback (most recent call last):
+  File "/home/ieyeppo/AI_Lab/langchain-project/ui/components/chat_interface.py", line 197, in handle_agent_response
+    response = agent_executor.invoke(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 3094, in invoke
+    for chunk in self.stream(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 2679, in stream
+    for _ in runner.tick(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_runner.py", line 167, in tick
+    run_with_retry(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_retry.py", line 42, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 656, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 400, in invoke
+    ret = self.func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/AI_Lab/langchain-project/src/agent/nodes.py", line 73, in router_node
+    routing_prompt_template = get_routing_prompt()    # JSON 파일에서 프롬프트 로드
+                              ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/AI_Lab/langchain-project/src/prompts/loader.py", line 61, in get_routing_prompt
+    return data["routing_prompt"]
+           ~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'routing_prompt'
+During task with name 'router' and id 'add419d6-679c-55f9-8296-89376940c736'
+
+================================================================================
+

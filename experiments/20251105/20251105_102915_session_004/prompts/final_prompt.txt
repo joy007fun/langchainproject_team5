@@ -1,0 +1,138 @@
+[SYSTEM PROMPT - advanced]
+당신은 논문을 학술적으로 심층 분석하는 전문 연구자입니다.
+
+답변 규칙:
+- 검색된 논문들을 학술적 관점에서 분석하세요
+- 각 논문마다:
+  1. 이론적 배경 및 수식
+  2. 선행 연구와의 차이점
+  3. 실험 설계 및 통계적 유의성
+  4. Novelty 및 기여도
+  5. 한계점 및 비판적 분석
+  6. 재현성
+- 논문들의 학술적 관계 분석
+- 연구 동향 및 향후 방향 제시
+- APA 형식 인용
+
+[USER PROMPT]
+[논문 검색 결과]
+## 검색된 논문
+
+### 1. AI Agents and Agentic AI-Navigating a Plethora of Concepts for Future Manufacturing
+- **저자**: Yinwang Ren, Yangyang Liu, Tang Ji, Xun Xu
+- **출판일**: 2025-07-02
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2507.01376v1
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.4798
+
+multimodal large language models, National Science Review 11 (12)
+(2024) nwae403. doi:10.1093/nsr/nwae403.
+[11] W. Yu, J. Lv, W. Zhuang, X. Pan, S. Wen, J. Bao, X. Li, Rescheduling
+human-robot collaboration tasks under dynamic disassembly scenarios:
+An mllm-kg collaboratively enabled approach, Journal of Manufacturing
+Systems 80 (2025) 20–37. doi:10.1016/j.jmsy.2025.02.015.
+[12] M. Wooldridge, N. R. Jennings, Intelligent agents: theory and
+practice, The Knowledge Engineering Review 10 (1995) 115 – 152.
+doi:10.1017/S0269888900008122.
+[13] J. Xie, Z. Chen, R. Zhang, X. Wan, G. Li, Large multimod...
+
+---
+
+### 2. AI Agents and Agentic AI-Navigating a Plethora of Concepts for Future Manufacturing
+- **저자**: Yinwang Ren, Yangyang Liu, Tang Ji, Xun Xu
+- **출판일**: 2025-07-02
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2507.01376v1
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.4798
+
+multimodal large language models, National Science Review 11 (12)
+(2024) nwae403. doi:10.1093/nsr/nwae403.
+[11] W. Yu, J. Lv, W. Zhuang, X. Pan, S. Wen, J. Bao, X. Li, Rescheduling
+human-robot collaboration tasks under dynamic disassembly scenarios:
+An mllm-kg collaboratively enabled approach, Journal of Manufacturing
+Systems 80 (2025) 20–37. doi:10.1016/j.jmsy.2025.02.015.
+[12] M. Wooldridge, N. R. Jennings, Intelligent agents: theory and
+practice, The Knowledge Engineering Review 10 (1995) 115 – 152.
+doi:10.1017/S0269888900008122.
+[13] J. Xie, Z. Chen, R. Zhang, X. Wan, G. Li, Large multimod...
+
+---
+
+### 3. AI Agents and Agentic AI-Navigating a Plethora of Concepts for Future Manufacturing
+- **저자**: Yinwang Ren, Yangyang Liu, Tang Ji, Xun Xu
+- **출판일**: 2025-07-02
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2507.01376v1
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.4798
+
+multimodal large language models, National Science Review 11 (12)
+(2024) nwae403. doi:10.1093/nsr/nwae403.
+[11] W. Yu, J. Lv, W. Zhuang, X. Pan, S. Wen, J. Bao, X. Li, Rescheduling
+human-robot collaboration tasks under dynamic disassembly scenarios:
+An mllm-kg collaboratively enabled approach, Journal of Manufacturing
+Systems 80 (2025) 20–37. doi:10.1016/j.jmsy.2025.02.015.
+[12] M. Wooldridge, N. R. Jennings, Intelligent agents: theory and
+practice, The Knowledge Engineering Review 10 (1995) 115 – 152.
+doi:10.1017/S0269888900008122.
+[13] J. Xie, Z. Chen, R. Zhang, X. Wan, G. Li, Large multimod...
+
+---
+
+### 4. AI Agents and Agentic AI-Navigating a Plethora of Concepts for Future Manufacturing
+- **저자**: Yinwang Ren, Yangyang Liu, Tang Ji, Xun Xu
+- **출판일**: 2025-07-02
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2507.01376v1
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.5048
+
+By moving beyond rigid keyword-based queries and enabling cross-system
+semantic integration, these systems enhance retrieval precision, improve in-
+terpretability, and optimize decision-making efficiency through natural lan-
+guage interaction and automated knowledge synthesis.
+4.2. Multimodal Cognitive Perception and Contextual Reasoning
+Modern manufacturing environments generate multimodal data spanning
+structured system outputs (ERP, MES, SCADA, PLC), unstructured text
+(maintenance logs, technical manuals, quality reports, operator notes), and
+real-time sensor and machine vision inputs (imag...
+
+---
+
+### 5. AI Agents and Agentic AI-Navigating a Plethora of Concepts for Future Manufacturing
+- **저자**: Yinwang Ren, Yangyang Liu, Tang Ji, Xun Xu
+- **출판일**: 2025-07-02
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2507.01376v1
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.5048
+
+By moving beyond rigid keyword-based queries and enabling cross-system
+semantic integration, these systems enhance retrieval precision, improve in-
+terpretability, and optimize decision-making efficiency through natural lan-
+guage interaction and automated knowledge synthesis.
+4.2. Multimodal Cognitive Perception and Contextual Reasoning
+Modern manufacturing environments generate multimodal data spanning
+structured system outputs (ERP, MES, SCADA, PLC), unstructured text
+(maintenance logs, technical manuals, quality reports, operator notes), and
+real-time sensor and machine vision inputs (imag...
+
+---
+
+
+[질문]
+“Multimodal AI” 관련 논문을 찾아서 주요 응용 사례를 정리해줘
+
+위 검색 결과를 바탕으로 질문에 답변해주세요.
+
+===== 메타데이터 =====
+tool: search_paper
+difficulty: hard
+level: advanced

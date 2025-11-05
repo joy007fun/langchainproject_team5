@@ -1,0 +1,11 @@
+{
+  "session_id": "003",
+  "start_time": "2025-11-05T10:25:22.019638",
+  "difficulty": "hard",
+  "tool_used": null,
+  "user_query": "Prompt Engineering 관련 논문 알려줘",
+  "success": false,
+  "response_time_ms": null,
+  "end_time": null,
+  "error": "'difficulty'"
+}
