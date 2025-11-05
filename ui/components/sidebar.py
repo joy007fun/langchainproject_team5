@@ -179,10 +179,14 @@ def render_sidebar(exp_manager=None):
 
         # 콜백 함수: 슬라이더 변경 시 session_state 업데이트
         def update_from_slider():
-            """슬라이더 값 변경 시 session_state 즉시 업데이트"""
+            """슬라이더 값 변경 시 session_state 즉시 업데이트 + number_input 위젯도 동기화"""
             slider_value = st.session_state.glossary_slider
             st.session_state.glossary_min_terms = slider_value[0]
             st.session_state.glossary_max_terms = slider_value[1]
+
+            # number_input 위젯의 키도 동시 업데이트 (UI 동기화)
+            st.session_state.glossary_min_input = slider_value[0]
+            st.session_state.glossary_max_input = slider_value[1]
 
             if exp_manager:
                 exp_manager.log_ui_interaction(
@@ -191,7 +195,7 @@ def render_sidebar(exp_manager=None):
 
         # 콜백 함수: number_input 변경 시 검증 및 업데이트
         def update_from_inputs():
-            """텍스트 입력 값 변경 시 검증 후 session_state 업데이트"""
+            """텍스트 입력 값 변경 시 검증 후 session_state 업데이트 + 슬라이더도 동기화"""
             min_val = st.session_state.glossary_min_input
             max_val = st.session_state.glossary_max_input
 
@@ -199,6 +203,9 @@ def render_sidebar(exp_manager=None):
             if min_val <= max_val:
                 st.session_state.glossary_min_terms = min_val
                 st.session_state.glossary_max_terms = max_val
+
+                # 슬라이더 위젯의 키도 동시 업데이트 (UI 동기화)
+                st.session_state.glossary_slider = (min_val, max_val)
 
                 if exp_manager:
                     exp_manager.log_ui_interaction(
