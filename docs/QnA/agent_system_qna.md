@@ -698,11 +698,27 @@ tool_status = "failed" → Fallback Router
 **스키마:**
 ```python
 class AgentState(TypedDict):
-    question: str           # 사용자 질문
-    difficulty: str         # 난이도 (easy/hard)
-    tool_choice: str        # 선택된 도구
-    final_answer: str       # 최종 답변
-    messages: Sequence[BaseMessage]  # 대화 메모리
+    # 기본 필드
+    question: str                    # 사용자 질문
+    difficulty: str                  # 난이도 (easy/hard)
+    tool_choice: str                 # 선택된 도구
+    final_answer: str                # 최종 답변 (하위 호환성)
+    final_answers: Dict[str, str]    # 두 수준의 답변 {"elementary": "...", "beginner": "..."} 등
+    messages: list                   # 대화 히스토리
+    source_documents: list           # 참고 논문 문서
+
+    # Fallback Chain 관련 필드
+    retry_count: int                 # 현재 재시도 횟수
+    failed_tools: List[str]          # 실패한 도구 리스트
+    question_type: str               # 질문 유형
+    fallback_chain: List[str]        # 도구 우선순위 리스트
+    tool_status: str                 # 도구 실행 상태
+    failure_reason: str              # 도구 실패 사유
+    tool_timeline: List[Dict]        # 도구 실행 타임라인
+
+    # Pipeline 관련 필드
+    tool_pipeline: List[str]         # 순차 실행 도구 리스트
+    pipeline_index: int              # 현재 Pipeline 실행 인덱스
 ```
 
 ---
@@ -743,16 +759,25 @@ state["messages"].append(AIMessage(content=final_answer))
 
 ### Q5-1. Easy와 Hard 모드의 차이는?
 
-**A:**
+**A:** 각 모드는 **두 가지 수준의 답변**을 동시에 생성합니다.
 
-| 항목 | Easy 모드 | Hard 모드 |
-|------|-----------|-----------|
-| **대상** | 초심자 | 전문가 |
-| **LLM** | Solar Pro2 | GPT-5 |
-| **용어** | 쉬운 말 풀어쓰기 | 전문 용어 사용 |
-| **수식** | 최소화 | 수식 포함 |
-| **설명** | 비유/예시 중심 | 기술적 세부사항 |
-| **길이** | 간결 (핵심 3가지) | 상세 (구현 포함) |
+| 모드 | 생성되는 수준 | LLM | 대상 |
+|------|-------------|-----|------|
+| **Easy 모드** | Elementary (초등학생용 8-13세) + Beginner (초급자용 14-22세) | Solar Pro2 | 학생 및 초심자 |
+| **Hard 모드** | Intermediate (중급자용 23-30세) + Advanced (고급자용 30세 이상) | GPT-5 | 전문가 및 연구자 |
+
+**각 수준별 특징:**
+
+| 수준 | 대상 연령 | 용어 | 수식 | 설명 방식 |
+|------|----------|------|------|----------|
+| **Elementary** | 8-13세 | 초등학생도 이해 가능 | 거의 없음 | 일상 비유 중심 |
+| **Beginner** | 14-22세 | 쉬운 말 풀어쓰기 | 최소화 | 비유/예시 중심 |
+| **Intermediate** | 23-30세 | 전문 용어 일부 사용 | 기본 수식 | 기술적 설명 |
+| **Advanced** | 30세 이상 | 전문 용어 자유롭게 | 수식 포함 | 구현 세부사항 |
+
+**답변 표시:**
+- UI에서 두 수준의 답변을 **탭**으로 분리하여 표시
+- 사용자가 원하는 수준을 선택하여 확인 가능
 
 ---
 
