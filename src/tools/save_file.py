@@ -64,27 +64,40 @@ def save_file_node(state: AgentState, exp_manager=None):
         content_to_save = "\n".join(content_lines)
     else:
         # 단일 답변 저장: LLM 답변만 저장 (사용자 질문 제외)
-        # 우선순위 1: 파이프라인 실행 중이면 이전 도구의 결과 사용
-        tool_pipeline = state.get("tool_pipeline", [])
-        pipeline_index = state.get("pipeline_index", 0)
+        # 우선순위: tool_result → final_answer → messages의 마지막 assistant 답변
+        content_to_save = ""
 
-        if tool_pipeline and pipeline_index > 1:
-            # 파이프라인 실행 중: tool_result (이전 도구 결과) 사용
-            content_to_save = state.get("tool_result", "")
-        else:
-            # 단일 도구 실행 또는 첫 번째 도구: messages에서 마지막 AI 답변 추출
-            content_to_save = ""
+        # 우선순위 1: tool_result (파이프라인 실행 결과)
+        tool_result = state.get("tool_result", "")
+        if tool_result and tool_result.strip():
+            content_to_save = tool_result
+            if exp_manager:
+                exp_manager.logger.write(f"저장 출처: tool_result")
 
-            # messages에서 마지막 assistant 메시지 찾기
-            if messages:
-                for msg in reversed(messages):
-                    if msg.get("role") == "assistant":
-                        content_to_save = msg.get("content", "")
+        # 우선순위 2: final_answer
+        if not content_to_save:
+            final_answer = state.get("final_answer", "")
+            if final_answer and final_answer.strip():
+                content_to_save = final_answer
+                if exp_manager:
+                    exp_manager.logger.write(f"저장 출처: final_answer")
+
+        # 우선순위 3: messages에서 마지막 assistant 답변
+        if not content_to_save and messages:
+            for msg in reversed(messages):
+                if msg.get("role") == "assistant":
+                    content = msg.get("content", "")
+                    if content.strip():
+                        content_to_save = content
+                        if exp_manager:
+                            exp_manager.logger.write(f"저장 출처: messages")
                         break
 
-            # 찾지 못했으면 tool_result 또는 final_answer 사용
-            if not content_to_save:
-                content_to_save = state.get("tool_result") or state.get("final_answer") or "저장할 내용이 없습니다."
+        # 저장할 내용이 없는 경우
+        if not content_to_save or not content_to_save.strip():
+            content_to_save = "저장할 내용이 없습니다."
+            if exp_manager:
+                exp_manager.logger.write(f"경고: 저장할 내용을 찾지 못함")
 
     if exp_manager:
         exp_manager.logger.write(f"저장할 내용 길이: {len(content_to_save)} 글자")
