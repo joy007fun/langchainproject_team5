@@ -70,6 +70,19 @@ rag:
     provider: solar                             # MultiQuery용 LLM 제공자 (비용 효율)
     model: solar-pro2                           # MultiQuery용 모델
     temperature: 0.0                            # 쿼리 생성은 결정론적
+  # 하이브리드 검색 가중치 설정 (벡터 검색 + 키워드 검색)
+  hybrid_search:
+    enabled: true                               # 하이브리드 검색 활성화 여부
+    vector_weight: 0.7                          # 벡터 검색 가중치 (기본값: 0.7, 실무 평균)
+    keyword_weight: 0.3                         # 키워드 검색 가중치 (기본값: 0.3, 실무 평균)
+    # 도구별 가중치 조정 (선택적)
+    tool_specific_weights:
+      glossary:                                 # 용어집: 키워드가 중요
+        vector_weight: 0.5
+        keyword_weight: 0.5
+      search_paper:                             # 논문 검색: 벡터가 중요
+        vector_weight: 0.7
+        keyword_weight: 0.3
 
 # Temperature 용도별 설정
 temperature_settings:
