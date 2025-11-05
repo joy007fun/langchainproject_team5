@@ -222,42 +222,75 @@ def handle_agent_response(agent_executor, prompt: str, difficulty: str, exp_mana
                 "web_search": "🌐 웹 검색",
                 "glossary": "📖 RAG 용어집",
                 "summarize": "📄 논문 요약",
-                "save_file": "💾 파일 저장"
+                "save_file": "💾 파일 저장",
+                "text2sql": "📊 통계 조회"
             }
             tool_label = tool_labels.get(tool_choice, f"🔧 {tool_choice}")
             st.caption(f"**사용된 도구**: {tool_label}")
+
+            # -------------- 도구 선택 이유 표시 -------------- #
+            routing_reason = response.get("routing_reason")
+            routing_method = response.get("routing_method")
+            pipeline_description = response.get("pipeline_description")
+
+            if routing_reason or routing_method:
+                with st.expander("🔍 도구 선택 이유", expanded=False):
+                    if routing_method:
+                        method_labels = {
+                            "multi_request": "다중 요청 패턴",
+                            "question_type": "질문 유형 분석",
+                            "llm": "LLM 분석",
+                            "keyword_fallback": "키워드 매칭"
+                        }
+                        method_label = method_labels.get(routing_method, routing_method)
+                        st.info(f"**선택 방법**: {method_label}")
+
+                    if routing_reason:
+                        st.write(f"**이유**: {routing_reason}")
+
+                    if pipeline_description:
+                        st.success(f"**파이프라인**: {pipeline_description}")
 
             # -------------- 도구 선택 로그 기록 -------------- #
             if exp_manager:
                 exp_manager.log_ui_interaction(f"선택된 도구: {tool_choice} ({tool_label})")
                 exp_manager.update_metadata(tool_used=tool_choice)
 
-            # -------------- Fallback 전환 메시지 표시 -------------- #
-            # response에 tool_timeline이 있고, fallback 이벤트가 있으면 표시
+            # -------------- 도구 실행 타임라인 표시 -------------- #
+            # response에 tool_timeline이 있으면 모든 이벤트 표시
             if "tool_timeline" in response and response["tool_timeline"]:
-                fallback_events = [
-                    event for event in response["tool_timeline"]
-                    if event.get("event") == "fallback"
-                ]
+                timeline_events = response["tool_timeline"]
 
-                if fallback_events:
-                    for fb_event in fallback_events:
-                        from_tool = fb_event.get("from_tool", "unknown")
-                        to_tool = fb_event.get("to_tool", "unknown")
-                        failure_reason = fb_event.get("failure_reason", "알 수 없는 이유")
+                if timeline_events:
+                    with st.expander("📋 도구 실행 과정", expanded=False):
+                        for idx, event in enumerate(timeline_events, 1):
+                            event_type = event.get("event", "unknown")
+                            description = event.get("description", "")
 
-                        # 도구 이름을 한글 라벨로 변환
-                        from_label = tool_labels.get(from_tool, f"🔧 {from_tool}")
-                        to_label = tool_labels.get(to_tool, f"🔧 {to_tool}")
+                            # 이벤트 타입별 아이콘 및 스타일
+                            if event_type == "fallback":
+                                from_tool = event.get("from_tool", "unknown")
+                                to_tool = event.get("to_tool", "unknown")
+                                from_label = tool_labels.get(from_tool, f"🔧 {from_tool}")
+                                to_label = tool_labels.get(to_tool, f"🔧 {to_tool}")
+                                st.warning(f"**{idx}. 🔄 도구 자동 전환**\n\n{description}\n\n- {from_label} → {to_label}")
 
-                        # 경고 메시지 표시
-                        st.warning(f"""
-                        🔄 **도구 자동 전환**
+                            elif event_type == "pipeline_fallback":
+                                from_tool = event.get("from_tool", "unknown")
+                                to_tool = event.get("to_tool", "unknown")
+                                from_label = tool_labels.get(from_tool, f"🔧 {from_tool}")
+                                to_label = tool_labels.get(to_tool, f"🔧 {to_tool}")
+                                st.error(f"**{idx}. ⚠️ 파이프라인 도구 대체**\n\n{description}\n\n- {from_label} → {to_label}")
 
-                        - **실패한 도구**: {from_label}
-                        - **실패 사유**: {failure_reason}
-                        - **전환된 도구**: {to_label}
-                        """)
+                            elif event_type == "pipeline_progress":
+                                tool = event.get("tool", "unknown")
+                                tool_label = tool_labels.get(tool, f"🔧 {tool}")
+                                pipeline_idx = event.get("pipeline_index", "?")
+                                total = event.get("total_tools", "?")
+                                st.info(f"**{idx}. ▶️ 다중 요청 진행**\n\n{description}\n\n- 도구: {tool_label} ({pipeline_idx}/{total})")
+
+                            else:
+                                st.write(f"**{idx}. {event_type}**: {description}")
 
             # -------------- 답변 표시 (두 수준으로 분리) -------------- #
             final_answers = response.get("final_answers")
