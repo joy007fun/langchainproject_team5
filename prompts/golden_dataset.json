@@ -676,33 +676,193 @@
       "answer_style": "파일명, 경로 포함",
       "example_answer_intro": "대화 내용을 response_20250104_143025.txt로 저장했습니다...",
       "expected_tools": []
+    },
+    {
+      "question": "Attention Mechanism 논문 찾아서 요약해줘",
+      "difficulty": "beginner",
+      "expected_tool": "search_paper",
+      "expected_answer_keywords": [
+        "논문",
+        "요약",
+        "Attention",
+        "핵심"
+      ],
+      "category": "다중요청: 논문검색+요약",
+      "complexity": "medium",
+      "answer_style": "논문 검색 결과 + 요약 내용",
+      "example_answer_intro": "Attention Mechanism 관련 논문을 찾았습니다. 주요 내용을 요약하면...",
+      "expected_tools": ["search_paper", "summarize"]
+    },
+    {
+      "question": "최근 Transformer 관련 논문을 찾고, 핵심 내용을 요약해줘",
+      "difficulty": "beginner",
+      "expected_tool": "search_paper",
+      "expected_answer_keywords": [
+        "Transformer",
+        "논문",
+        "요약",
+        "최근"
+      ],
+      "category": "다중요청: 논문검색+요약",
+      "complexity": "medium",
+      "answer_style": "최신 논문 목록 + 핵심 요약",
+      "example_answer_intro": "최근 Transformer 논문들을 찾았습니다. 핵심 내용은...",
+      "expected_tools": ["search_paper", "summarize"]
+    },
+    {
+      "question": "2024년 이후 Reinforcement Learning 관련 논문 중 상위 인용 5개만 골라서 보여줘",
+      "difficulty": "beginner",
+      "expected_tool": "text2sql",
+      "expected_answer_keywords": [
+        "2024",
+        "Reinforcement Learning",
+        "인용",
+        "상위 5개"
+      ],
+      "category": "다중요청: 통계+논문검색",
+      "complexity": "medium",
+      "answer_style": "통계 조회 결과 + 논문 상세 정보",
+      "example_answer_intro": "2024년 이후 RL 논문 중 상위 인용 5개를 찾았습니다...",
+      "expected_tools": ["text2sql", "search_paper"]
+    },
+    {
+      "question": "GPT 계열 모델의 발전 과정을 논문 기준으로 정리해줘",
+      "difficulty": "intermediate",
+      "expected_tool": "search_paper",
+      "expected_answer_keywords": [
+        "GPT",
+        "발전",
+        "논문",
+        "정리"
+      ],
+      "category": "다중요청: 논문검색+요약",
+      "complexity": "high",
+      "answer_style": "GPT 시리즈 논문 + 발전 과정 요약",
+      "example_answer_intro": "GPT 계열 모델의 발전 과정을 논문 기준으로 정리하면: GPT-1부터...",
+      "expected_tools": ["search_paper", "summarize"]
+    },
+    {
+      "question": "BERT와 RoBERTa의 차이점을 관련 논문들을 바탕으로 비교해줘",
+      "difficulty": "intermediate",
+      "expected_tool": "search_paper",
+      "expected_answer_keywords": [
+        "BERT",
+        "RoBERTa",
+        "차이점",
+        "비교"
+      ],
+      "category": "다중요청: 논문검색+요약",
+      "complexity": "high",
+      "answer_style": "두 논문 비교 분석 + 주요 차이점",
+      "example_answer_intro": "BERT와 RoBERTa 논문을 비교하면, 주요 차이점은...",
+      "expected_tools": ["search_paper", "summarize"]
+    },
+    {
+      "question": "최신 AI 컨퍼런스 소식을 찾아서 정리해줘",
+      "difficulty": "beginner",
+      "expected_tool": "web_search",
+      "expected_answer_keywords": [
+        "최신",
+        "컨퍼런스",
+        "AI",
+        "정리"
+      ],
+      "category": "다중요청: 웹검색+요약",
+      "complexity": "medium",
+      "answer_style": "웹 검색 결과 + 주요 내용 요약",
+      "example_answer_intro": "최신 AI 컨퍼런스 소식을 찾았습니다. 주요 내용은...",
+      "expected_tools": ["web_search", "summarize"]
+    },
+    {
+      "question": "Transformer 설명하고 관련 논문도 보여줘",
+      "difficulty": "beginner",
+      "expected_tool": "glossary",
+      "expected_answer_keywords": [
+        "Transformer",
+        "설명",
+        "논문"
+      ],
+      "category": "다중요청: 용어집+논문검색",
+      "complexity": "medium",
+      "answer_style": "용어 정의 + 관련 논문 목록",
+      "example_answer_intro": "Transformer는 2017년 제안된 모델로... 관련 논문은...",
+      "expected_tools": ["glossary", "search_paper"]
+    },
+    {
+      "question": "Multimodal AI 관련 논문을 찾아서 주요 응용 사례를 정리해줘",
+      "difficulty": "intermediate",
+      "expected_tool": "search_paper",
+      "expected_answer_keywords": [
+        "Multimodal",
+        "AI",
+        "응용",
+        "사례"
+      ],
+      "category": "다중요청: 논문검색+요약",
+      "complexity": "high",
+      "answer_style": "논문 검색 + 응용 사례 중심 요약",
+      "example_answer_intro": "Multimodal AI 논문들을 찾았습니다. 주요 응용 사례는...",
+      "expected_tools": ["search_paper", "summarize"]
+    },
+    {
+      "question": "2024년 BERT 계열 논문 통계 보여주고 대표 논문 하나 요약해줘",
+      "difficulty": "intermediate",
+      "expected_tool": "text2sql",
+      "expected_answer_keywords": [
+        "2024",
+        "BERT",
+        "통계",
+        "요약"
+      ],
+      "category": "다중요청: 통계+요약",
+      "complexity": "high",
+      "answer_style": "통계 정보 + 대표 논문 요약",
+      "example_answer_intro": "2024년 BERT 계열 논문은 총 X편입니다. 대표 논문을 요약하면...",
+      "expected_tools": ["text2sql", "summarize"]
+    },
+    {
+      "question": "AI 윤리 관련 논문이 있다면 찾아서 주요 논점을 요약해줘",
+      "difficulty": "beginner",
+      "expected_tool": "search_paper",
+      "expected_answer_keywords": [
+        "AI",
+        "윤리",
+        "논문",
+        "논점"
+      ],
+      "category": "다중요청: 논문검색+요약",
+      "complexity": "medium",
+      "answer_style": "논문 검색 + 주요 논점 요약",
+      "example_answer_intro": "AI 윤리 관련 논문을 찾았습니다. 주요 논점은...",
+      "expected_tools": ["search_paper", "summarize"]
     }
   ],
   "dataset_metadata": {
-    "total_questions": 42,
-    "version": "2.0",
+    "total_questions": 52,
+    "version": "3.0",
     "created_date": "2025-11-04",
-    "updated_date": "2025-11-04",
-    "description": "4단계 난이도, user_level 필드 제거 완료",
+    "updated_date": "2025-11-05",
+    "description": "다중 요청 질문 10개 추가 (42→52개), 실제 시나리오 기반",
     "difficulty_distribution": {
       "elementary": 8,
-      "beginner": 12,
-      "intermediate": 17,
+      "beginner": 18,
+      "intermediate": 21,
       "advanced": 5
     },
     "user_level_distribution": {
       "elementary": 8,
-      "beginner": 12,
-      "intermediate": 10,
+      "beginner": 18,
+      "intermediate": 16,
       "advanced": 10
     },
     "tool_distribution": {
-      "glossary": 8,
-      "search_paper": 4,
-      "web_search": 8,
-      "summarize": 4,
+      "glossary": 9,
+      "search_paper": 12,
+      "web_search": 9,
+      "summarize": 13,
       "general": 14,
-      "save_file": 2
+      "save_file": 2,
+      "text2sql": 3
     },
     "category_distribution": {
       "용어 정의": 10,
@@ -712,12 +872,17 @@
       "개념 비교": 8,
       "개념 설명": 2,
       "기술적 분석": 10,
-      "파일 관리": 2
+      "파일 관리": 2,
+      "다중요청: 논문검색+요약": 7,
+      "다중요청: 통계+논문검색": 1,
+      "다중요청: 웹검색+요약": 1,
+      "다중요청: 용어집+논문검색": 1,
+      "다중요청: 통계+요약": 1
     },
     "complexity_distribution": {
       "low": 18,
-      "medium": 12,
-      "high": 10
+      "medium": 18,
+      "high": 16
     },
     "user_level_mapping": {
       "elementary": {
@@ -781,6 +946,11 @@
       "prompt_engineering": "user_level별 프롬프트 최적화",
       "evaluation": "expected_answer_keywords + answer_style로 답변 품질 평가"
     },
-    "last_updated": "2025-11-04"
+    "last_updated": "2025-11-05",
+    "changelog": {
+      "v3.0": "다중 요청 질문 10개 추가 (scenarios 분석 기반)",
+      "v2.0": "4단계 난이도, user_level 필드 제거",
+      "v1.0": "초기 버전"
+    }
   }
 }
