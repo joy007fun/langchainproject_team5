@@ -47,15 +47,21 @@ def router_node(state: AgentState, exp_manager=None):
 
     # -------------- Multi-turn 맥락 참조 감지 -------------- #
     # 대명사나 맥락 참조 표현이 있으면 이전 대화 컨텍스트를 고려해야 함
-    # 이 경우 패턴 매칭을 건너뛰고 LLM 라우팅으로 진행
     contextual_keywords = ["관련", "그거", "이거", "저거", "해당", "방금", "위", "앞서", "이전", "그"]
     has_contextual_ref = any(kw in question for kw in contextual_keywords)
 
-    if has_contextual_ref and len(state.get("messages", [])) > 1:
-        # 맥락 참조가 있고 이전 대화가 있는 경우
+    # 명확한 다중 요청 키워드 (저장, 요약 등)가 있으면 패턴 매칭 우선 시도
+    multi_request_indicators = ["저장", "요약", "정리"]
+    has_multi_request_indicator = any(kw in question for kw in multi_request_indicators)
+
+    # 맥락 참조가 있어도 명확한 다중 요청 키워드가 있으면 패턴 매칭 시도
+    skip_pattern_matching = has_contextual_ref and len(state.get("messages", [])) > 1 and not has_multi_request_indicator
+
+    if skip_pattern_matching:
+        # 맥락 참조가 있고 다중 요청 아닌 경우만 패턴 매칭 건너뛰기
         if exp_manager:
             exp_manager.logger.write(f"Multi-turn 맥락 참조 감지: 패턴 매칭 건너뛰고 LLM 라우팅 사용")
-        # 패턴 매칭을 건너뛰고 LLM 라우팅으로 진행 (tool_choice는 None으로 유지)
+        # 패턴 매칭을 건너뛰고 LLM 라우팅으로 진행
         pass
     else:
         # -------------- 다중 요청 감지 (YAML 패턴 기반) -------------- #
