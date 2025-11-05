@@ -56,15 +56,22 @@ def router_node(state: AgentState, exp_manager=None):
 
         # 모든 키워드가 질문에 포함되는지 확인
         if all(kw in question for kw in keywords):
+            description = pattern.get('description', 'N/A')
+
             if exp_manager:
                 exp_manager.logger.write(f"다중 요청 감지: {keywords} → {tools}")
-                exp_manager.logger.write(f"패턴 설명: {pattern.get('description', 'N/A')}")
+                exp_manager.logger.write(f"패턴 설명: {description}")
                 exp_manager.logger.write(f"순차 실행 도구: {' → '.join(tools)}")
 
             # tool_pipeline 설정 (순차 실행 도구 목록)
             state["tool_pipeline"] = tools
             state["tool_choice"] = tools[0]  # 첫 번째 도구부터 실행
             state["pipeline_index"] = 1      # 첫 번째 도구 실행 후 index는 1
+
+            # 도구 선택 이유 및 방법 기록
+            state["routing_method"] = "multi_request"
+            state["routing_reason"] = f"다중 요청 패턴 감지: {description}"
+            state["pipeline_description"] = f"순차 실행: {' → '.join(tools)}"
 
             return state
 
@@ -83,6 +90,10 @@ def router_node(state: AgentState, exp_manager=None):
         tool_choice = fallback_chain[0]
         if exp_manager:
             exp_manager.logger.write(f"질문 유형 기반 라우팅: {question_type} → {tool_choice}")
+
+        # 도구 선택 이유 및 방법 기록
+        state["routing_method"] = "question_type"
+        state["routing_reason"] = f"질문 유형 '{question_type}'에 가장 적합한 도구"
 
     # ========== 우선순위 2: LLM 라우팅 (보조) ==========
     if tool_choice is None:
@@ -149,6 +160,10 @@ def router_node(state: AgentState, exp_manager=None):
                     # {"tool": "xxx"} 형식
                     tool_choice = parsed["tool"]
 
+                # JSON 파싱 성공 시 routing_method 설정
+                state["routing_method"] = "llm"
+                state["routing_reason"] = f"LLM이 질문 분석 후 '{tool_choice}' 도구 선택"
+
             except (json.JSONDecodeError, KeyError, IndexError) as e:
                 # JSON 파싱 실패 시 키워드 기반 폴백 매칭
                 if exp_manager:
@@ -179,6 +194,10 @@ def router_node(state: AgentState, exp_manager=None):
                     tool_choice = "save_file"
                 else:
                     tool_choice = "general"
+
+                # 키워드 폴백 시 routing_method 설정
+                state["routing_method"] = "keyword_fallback"
+                state["routing_reason"] = f"LLM 파싱 실패로 키워드 기반 매칭하여 '{tool_choice}' 도구 선택"
 
                 if exp_manager:
                     exp_manager.logger.write(f"키워드 기반 폴백 매칭 결과: {tool_choice}")
@@ -363,7 +382,8 @@ def fallback_router_node(state: AgentState, exp_manager=None):
                     "to_tool": fallback_tool,
                     "failure_reason": failure_reason,
                     "retry_count": retry_count,
-                    "pipeline_index": current_index
+                    "pipeline_index": current_index,
+                    "description": f"파이프라인 도구 전환: '{failed_tool}' 실패 → '{fallback_tool}'로 대체 ({failure_reason})"
                 })
                 state["tool_timeline"] = timeline
 
@@ -420,7 +440,8 @@ def fallback_router_node(state: AgentState, exp_manager=None):
         "from_tool": failed_tool,
         "to_tool": next_tool,
         "failure_reason": failure_reason,
-        "retry_count": retry_count
+        "retry_count": retry_count,
+        "description": f"도구 자동 전환: '{failed_tool}' 실패 (사유: {failure_reason}) → '{next_tool}'로 변경"
     })
     state["tool_timeline"] = timeline
 
