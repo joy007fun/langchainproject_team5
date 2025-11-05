@@ -43,9 +43,56 @@ patterns:
   - 전체 대화 저장해줘
   - 전체 대화 내용 저장해줘
 
+- keywords:
+  - 논문
+  - 찾
+  exclude_keywords:
+  - 저장
+  - 요약
+  tools:
+  - search_paper
+  description: 논문 검색 (찾기)
+  priority: 140
+  examples:
+  - Transformer 논문 찾아줘
+  - 관련 논문 찾아줘
+  - GPT 논문 검색해줘
+
 
 # ==================== 2-도구 패턴 (Priority 100-120) ==================== #
 # 자주 사용되는 조합
+
+- keywords:
+  - 뭐야
+  - 저장
+  exclude_keywords:
+  - 전체
+  - 논문
+  tools:
+  - glossary
+  - save_file
+  description: 용어 정의 후 저장
+  priority: 140
+  examples:
+  - LLM이 뭐야? 저장해줘
+  - Transformer가 뭐야? 저장해줘
+  - RNN이 뭐야 찾아서 저장해줘
+
+- keywords:
+  - 뭔지
+  - 저장
+  exclude_keywords:
+  - 전체
+  - 논문
+  tools:
+  - glossary
+  - save_file
+  description: 용어 정의 후 저장
+  priority: 140
+  examples:
+  - AI가 뭔지 찾아서 저장해줘
+  - GAN이 뭔지 알려주고 저장해줘
+  - Transformer가 뭔지 검색해서 저장해줘
 
 - keywords:
   - 논문
@@ -221,21 +268,23 @@ patterns:
 
 # ==================== 메타데이터 ==================== #
 metadata:
-  version: '3.0'
+  version: '3.1'
   created_date: '2025-11-05'
   updated_date: '2025-11-05'
-  description: 핵심 패턴만 선별 - 성능 최적화
-  total_patterns: 14
+  description: 핵심 패턴만 선별 - 성능 최적화 + 복합 요청 지원
+  total_patterns: 17
   removed_patterns: 62
   pattern_breakdown:
-    single_tool: 3
-    two_tool: 4
+    single_tool: 4
+    two_tool: 6
     three_tool: 4
     four_tool: 3
   pattern_categories:
     용어_정의: 2
     전체_저장: 1
-    논문_검색: 1
+    논문_찾기: 1
+    용어_저장: 2
+    논문_요약: 1
     최신_정보: 1
     통계_논문: 1
     용어_논문: 1
@@ -247,8 +296,10 @@ metadata:
     통계_논문_저장: 1
     최신_분석_저장: 1
   notes:
-  - 76개 → 14개로 대폭 축소 (성능 5.4배 향상)
+  - 76개 → 14개 → 17개 (복합 요청 패턴 추가)
   - 단일 글자 키워드 완전 제거
   - exclude_keywords로 정확한 매칭 구현
   - 우선순위 재조정 (200 → 70)
   - 핵심 패턴만 유지하여 유지보수성 향상
+  - 용어 정의 + 저장 복합 패턴 추가
+  - 논문 검색 단일 패턴 추가 (multi-turn 지원)
