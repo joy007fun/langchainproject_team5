@@ -171,9 +171,19 @@ def router_node(state: AgentState, exp_manager=None):
                 import json
                 parsed = json.loads(cleaned_response)
 
-                # {"tools": [{"name": "xxx"}]} 형식
+                # {"tools": [{"name": "xxx", "query": "..."}]} 형식
                 if "tools" in parsed and len(parsed["tools"]) > 0:
-                    tool_name = parsed["tools"][0].get("name", "general")
+                    tool_info = parsed["tools"][0]
+                    tool_name = tool_info.get("name", "general")
+
+                    # ✅ query 필드 추출 (Multi-turn 지원)
+                    if "query" in tool_info and tool_info["query"]:
+                        refined_query = tool_info["query"].strip()
+                        if refined_query:
+                            state["refined_query"] = refined_query
+                            if exp_manager:
+                                exp_manager.logger.write(f"재작성된 질문: {refined_query}")
+
                     # 도구명 추출 (full name이 아닌 짧은 이름으로 매핑)
                     if ("search_paper" in tool_name.lower() or "paper" in tool_name.lower() or "논문" in tool_name.lower() or
                         "arxiv" in tool_name.lower() or "검색" in tool_name.lower() or "찾" in tool_name.lower() or
@@ -208,6 +218,16 @@ def router_node(state: AgentState, exp_manager=None):
                 # JSON 파싱 실패 시 키워드 기반 폴백 매칭
                 if exp_manager:
                     exp_manager.logger.write(f"JSON 파싱 실패: {str(e)}", print_error=True)
+
+                # ✅ 파싱 실패해도 query 필드 추출 시도 (regex 사용)
+                import re
+                query_match = re.search(r'"query"\s*:\s*"([^"]+)"', cleaned_response)
+                if query_match:
+                    refined_query = query_match.group(1).strip()
+                    if refined_query:
+                        state["refined_query"] = refined_query
+                        if exp_manager:
+                            exp_manager.logger.write(f"재작성된 질문 (regex 추출): {refined_query}")
 
                 # 사용자 질문과 LLM 응답 모두 체크 (대소문자 무시)
                 question_lower = question.lower()
