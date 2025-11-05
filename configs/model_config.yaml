@@ -144,8 +144,8 @@ fallback_chain:
 
     # 논문 요약 요청
     paper_summary:
-      - summarize     # 1순위: 요약 도구
-      - search_paper  # 2순위: DB 검색 후 LLM 요약
+      - search_paper  # 1순위: RAG 논문 검색
+      - web_search    # 2순위: 웹 논문 검색
       - general       # 3순위: 일반 답변
 
     # 통계 정보 질문

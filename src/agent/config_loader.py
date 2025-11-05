@@ -24,7 +24,7 @@ DEFAULT_CONFIG = {
             "term_definition": ["glossary", "general"],
             "paper_search": ["search_paper", "web_search", "general"],
             "latest_research": ["web_search", "search_paper", "general"],
-            "paper_summary": ["summarize", "search_paper", "general"],
+            "paper_summary": ["search_paper", "web_search", "general"],
             "statistics": ["text2sql", "general"],
             "general_question": ["general"],
             "file_save": ["save_file"],
