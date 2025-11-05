@@ -269,7 +269,7 @@ def run_all_tests(questions: List[Dict], difficulty: str, mode_name: str):
                     print(f"      에러: {r['error'][:100]}")
 
     # 실험 종료
-    exp_manager.end_session()
+    exp_manager.close()
 
     print(f"\n실험 폴더: {exp_manager.experiment_dir}")
 
