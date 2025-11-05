@@ -1,5 +1,16 @@
 patterns:
 - keywords:
+  - 전체
+  - 저장
+  tools:
+  - save_file
+  description: 전체 대화 내용 저장
+  priority: 150
+  examples:
+  - 전체 저장해줘
+  - 전체 대화 저장해줘
+  - 전체 대화 내용 저장해줘
+- keywords:
   - 설명
   - 논문
   - 요약
