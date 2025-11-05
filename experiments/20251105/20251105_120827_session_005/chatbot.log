@@ -1,0 +1,597 @@
+2025-11-05 12:08:27 | 세션 시작: session_005
+2025-11-05 12:08:27 | 폴더 경로: experiments/20251105/20251105_120827_session_005
+2025-11-05 12:08:27 | 설정 파일 저장: db_config.yaml
+2025-11-05 12:08:27 | 설정 파일 저장: model_config.yaml
+2025-11-05 12:08:27 | 설정 파일 저장: multi_request_patterns.yaml
+2025-11-05 12:08:27 | Agent 그래프 생성 시작
+2025-11-05 12:08:27 | Fallback Chain 활성화
+2025-11-05 12:08:27 | 최대 재시도 횟수: 3
+2025-11-05 12:08:27 | Router 검증 활성화: True
+2025-11-05 12:08:27 | Agent 그래프 컴파일 완료
+2025-11-05 12:08:27 | 라우터 노드 실행: Attention 논문 찾아서 요약해줘
+2025-11-05 12:08:27 | 다중 요청 감지: ['찾', '요약'] → ['search_paper', 'summarize']
+2025-11-05 12:08:27 | 패턴 설명: 논문 찾아서 요약
+2025-11-05 12:08:27 | 순차 실행 도구: search_paper → summarize
+2025-11-05 12:08:29 | pgvector 검색 기록: search_paper
+2025-11-05 12:08:29 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 12:08:29 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 12:08:29 | 시스템 프롬프트 저장 완료
+2025-11-05 12:08:29 | 최종 프롬프트 저장 완료
+2025-11-05 12:08:31 | 시스템 프롬프트 저장 완료
+2025-11-05 12:08:31 | 최종 프롬프트 저장 완료
+2025-11-05 12:08:38 | 도구 실행 성공: search_paper
+2025-11-05 12:08:38 | 라우터 노드 실행: Transformer 논문 검색해서 요약하고 저장해줘
+2025-11-05 12:08:38 | 다중 요청 감지: ['검색', '요약'] → ['search_paper', 'summarize']
+2025-11-05 12:08:38 | 패턴 설명: 논문 검색 후 요약
+2025-11-05 12:08:38 | 순차 실행 도구: search_paper → summarize
+2025-11-05 12:08:38 | pgvector 검색 기록: search_paper
+2025-11-05 12:08:39 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 12:08:39 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 12:08:39 | 시스템 프롬프트 저장 완료
+2025-11-05 12:08:39 | 최종 프롬프트 저장 완료
+2025-11-05 12:08:41 | 시스템 프롬프트 저장 완료
+2025-11-05 12:08:41 | 최종 프롬프트 저장 완료
+2025-11-05 12:08:46 | 도구 실행 실패 감지: search_paper
+2025-11-05 12:08:46 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 12:08:46 | ============================================================
+2025-11-05 12:08:46 | Fallback Router 실행
+2025-11-05 12:08:46 | 실패한 도구: search_paper
+2025-11-05 12:08:46 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 12:08:46 | 재시도 횟수: 0/3
+2025-11-05 12:08:46 | 모든 도구 시도 완료
+2025-11-05 12:08:46 | 최종 Fallback: general 도구 선택
+2025-11-05 12:08:46 | 다음 도구로 전환: general
+2025-11-05 12:08:46 | 전환 이유: search_paper 도구가 실패했기 때문
+2025-11-05 12:08:46 | Fallback Chain:
+2025-11-05 12:08:46 | ============================================================
+2025-11-05 12:08:46 | 일반 답변 노드 실행: Transformer 논문 검색해서 요약하고 저장해줘
+2025-11-05 12:08:46 | 난이도: easy
+2025-11-05 12:08:46 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 12:08:46 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 12:08:46 | 수준 'elementary' 답변 생성 시작
+2025-11-05 12:08:46 | 시스템 프롬프트 저장 완료
+2025-11-05 12:08:46 | 최종 프롬프트 저장 완료
+2025-11-05 12:08:50 | 수준 'elementary' 답변 생성 완료: 734 글자
+2025-11-05 12:08:50 | ================================================================================
+2025-11-05 12:08:50 | [elementary 답변 전체 내용]
+2025-11-05 12:08:50 | 🌟 **트랜스포머 논문 요약 (초등학생 버전)** 🌟  
+
+안녕! 좋은 질문이야! 👏 트랜스포머는 **언어 모델의 슈퍼히어로** 같은 거야.  
+
+1️⃣ **"주의(Attention)"**라는 특별한 능력이 있어.  
+- 문장 속 단어들의 관계를 **레고 블록 연결**하듯 분석해요.  
+- 예: "고양이가 쥐를 쫓는다" → "고양이-쥐"에 집중! 🐱🐀  
+
+2️⃣ **순차적 처리 대신 병렬 처리**!  
+- 옛날 모델(RNN)은 단어 하나씩 처리했지만,  
+- 트랜스포머는 **모든 단어를 동시에** 처리해 빨라요! ⚡  
+
+3️⃣ **인코더-디코더 구조**  
+- 인코더: 문장 의미 해석 (예: "사과 먹어" → 과일 먹는 행동)  
+- 디코더: 해석된 정보로 새 문장 생성 (예: "I eat an apple") 🍏  
+
+4️⃣ **위치 정보(Positional Encoding)**  
+- 단어 순서를 기억하기 위해 **숨겨진 좌표**를 추가해.  
+- 마치 책에 페이지 번호가 있는 것처럼! 📖  
+
+🎉 **트랜스포머의 성과**:  
+- GPT, BERT 같은 AI 모델의 기반이 됐어.  
+- 번역, 요약, 질문 답변 등 다양한 일을 해낸다구! 💡  
+
+📝 **저장 방법 추천**:  
+1. 노션(Notion)이나 원노트에 요약해 적어보자.  
+2. 키워드만 적어두고 나중에 예시로 채워도 좋아.  
+3. 그림으로 그리면 더 기억하기 쉬워! 🎨  
+
+잘 이해했어? 궁금한 점 있으면 또 물어봐! 🤗
+2025-11-05 12:08:50 | ================================================================================
+2025-11-05 12:08:50 | 수준 'beginner' 답변 생성 시작
+2025-11-05 12:08:50 | 시스템 프롬프트 저장 완료
+2025-11-05 12:08:50 | 최종 프롬프트 저장 완료
+2025-11-05 12:09:00 | 수준 'beginner' 답변 생성 완료: 2260 글자
+2025-11-05 12:09:00 | ================================================================================
+2025-11-05 12:09:00 | [beginner 답변 전체 내용]
+2025-11-05 12:09:00 | 안녕하세요! 😊 Transformer 논문을 검색하고 요약해드리겠습니다. 초보자도 이해하기 쉽게 단계별로 설명해드릴게요!
+
+---
+
+### 1. **Transformer 논문 기본 정보**  
+🔍 **"Attention Is All You Need" (2017)**  
+- **저자**: Vaswani et al. (구글 브레인 팀)  
+- **핵심 아이디어**: RNN/LSTM 없이 **Attention 메커니즘**만으로 번역 모델 구축  
+- **혁신성**: 병렬 처리 가능 → 훈련 속도 향상, 장기 의존성 문제 해결  
+
+> 📌 **용어 설명**:  
+> - **Attention**: 입력 데이터에서 중요한 부분에 집중하는 메커니즘 (예: 문장에서 "고양이"에 집중하려면 "야옹" 같은 단어에 가중치 부여)  
+> - **RNN/LSTM**: 순차적 데이터 처리에 사용되는 기존 모델 (문장 단어를 **하나씩** 처리)  
+
+---
+
+### 2. **주요 구성 요소** (비유로 설명)  
+#### (1) **Self-Attention (자기 주의)**  
+- **"단어들이 서로를 평가하는 시스템"**  
+  - 예시: "The cat sat on the mat"에서 "cat"은 "sat"과 강하게 연결, "the"와는 약하게 연결  
+- **계산 과정**: Q(Query), K(Key), V(Value) 벡터로 유사도 측정  
+
+#### (2) **Multi-Head Attention (다중 헤드 주의)**  
+- **"여러 관점에서 동시에 평가하는 시스템"**  
+  - 8~16개의 Self-Attention 헤드를 병렬로 사용해 다양한 관계 포착  
+
+#### (3) **Positional Encoding (위치 인코딩)**  
+- **"단어의 순서 정보를 추가"**  
+  - Transformer는 단어 순서를 모르므로, 사인/코사인 함수로 위치 정보 부여  
+  - (예: "I eat apple" vs "Apple eat I" 구분)  
+
+#### (4) **Feed-Forward Network & Residual Connection**  
+- **FFN**: 각 단어를 독립적으로 처리 (2층 신경망)  
+- **Residual Connection**: 그래디언트 소실 문제 방지 (고층 건물에서 엘리베이터처럼 정보 전달)  
+
+---
+
+### 3. **간단한 아키텍처 도식화**  
+```python
+# 의사코드(Pseudo-code)로 본 Transformer 블록
+class TransformerBlock:
+    def __init__(self):
+        self.attention = MultiHeadAttention()
+        self.ffn = FeedForwardNetwork()
+        self.norm1 = LayerNorm()
+        self.norm2 = LayerNorm()
+
+    def forward(self, x):
+        # 1. Self-Attention + Residual
+        attn_output = self.attention(x)
+        x = self.norm1(x + attn_output)  # Residual Connection
+        
+        # 2. Feed-Forward + Residual
+        ffn_output = self.ffn(x)
+        x = self.norm2(x + ffn_output)
+        return x
+```
+
+---
+
+### 4. **핵심 아이디어 3-5개 요약**  
+1. **Attention만으로 RNN/LSTM 대체** → 병렬 처리 가능  
+2. **Self-Attention**: 단어 간 관계를 직접 계산해 장기 의존성 해결  
+3. **Positional Encoding**: 순서 정보 보존을 위한 수학적 트릭  
+4. **Scaled Dot-Product Attention**: 유사도 계산 시 차원 조정으로 안정성 향상  
+5. **BERT/GPT의 기반**: 이후 모든 대규모 언어 모델의 토대가 됨  
+
+---
+
+### 5. **논문 PDF 저장 방법**  
+- **공식 링크**: [arXiv 논문 페이지](https://arxiv.org/abs/1706.03762)  
+- **저장 팁**:  
+  1. 페이지 우측 상단 "Other formats" → PDF 다운로드  
+  2. 구글 스칼라에서 검색 후 "PDF 보기" 클릭  
+
+도움이 되셨나요? 😊 추가로 궁금한 점이 있다면 언제든 질문해주세요!
+2025-11-05 12:09:00 | ================================================================================
+2025-11-05 12:09:00 | 도구 실행 성공: general (fallback 도구)
+2025-11-05 12:09:00 | 라우터 노드 실행: Attention 개념 설명하고 관련 논문 정리해서 저장해줘
+2025-11-05 12:09:00 | 다중 요청 감지: ['설명', '논문'] → ['glossary', 'search_paper']
+2025-11-05 12:09:00 | 패턴 설명: 용어 설명 후 관련 논문
+2025-11-05 12:09:00 | 순차 실행 도구: glossary → search_paper
+2025-11-05 12:09:00 | pgvector 검색 기록: glossary
+2025-11-05 12:09:00 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 12:09:00 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 12:09:01 | 시스템 프롬프트 저장 완료
+2025-11-05 12:09:01 | 최종 프롬프트 저장 완료
+2025-11-05 12:09:49 | 도구 실행 실패 감지: glossary
+2025-11-05 12:09:49 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 12:09:49 | ============================================================
+2025-11-05 12:09:49 | Fallback Router 실행
+2025-11-05 12:09:49 | 실패한 도구: glossary
+2025-11-05 12:09:49 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 12:09:49 | 재시도 횟수: 0/3
+2025-11-05 12:09:49 | 모든 도구 시도 완료
+2025-11-05 12:09:49 | 최종 Fallback: general 도구 선택
+2025-11-05 12:09:49 | 다음 도구로 전환: general
+2025-11-05 12:09:49 | 전환 이유: glossary 도구가 실패했기 때문
+2025-11-05 12:09:49 | Fallback Chain:
+2025-11-05 12:09:49 | ============================================================
+2025-11-05 12:09:49 | 일반 답변 노드 실행: Attention 개념 설명하고 관련 논문 정리해서 저장해줘
+2025-11-05 12:09:49 | 난이도: hard
+2025-11-05 12:09:49 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 12:09:49 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 12:09:49 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 12:09:49 | 시스템 프롬프트 저장 완료
+2025-11-05 12:09:49 | 최종 프롬프트 저장 완료
+2025-11-05 12:11:14 | 수준 'intermediate' 답변 생성 완료: 15005 글자
+2025-11-05 12:11:14 | ================================================================================
+2025-11-05 12:11:14 | [intermediate 답변 전체 내용]
+2025-11-05 12:11:14 | 다음은 Attention의 핵심 개념 설명, 알고리즘/수식/의사코드, PyTorch 예제, 관련 기술 비교, 실무 고려사항, 그리고 주요 논문 요약입니다. 마지막에 논문 메타데이터를 JSON으로 제공하므로 그대로 저장해 사용할 수 있도록 저장 스크립트도 함께 드립니다.
+
+1) Attention 개념 요약
+- 목적: 입력의 각 위치가 다른 모든 위치(토큰)와의 연관도를 계산해 “어디를 볼지”를 학습. 가변 길이 문맥에서 중요한 부분을 동적으로 집중.
+- 기본 메커니즘: Query(Q), Key(K), Value(V)를 정의하고 정렬 점수 s_ij = score(q_i, k_j)를 계산 → 확률로 정규화 α_ij = softmax_j(s_ij) → 가중합 v_j의 합 o_i = Σ_j α_ij v_j.
+- Scaled Dot-Product Attention:
+  Attention(Q, K, V) = softmax((Q K^T) / sqrt(d_k) + mask) V
+  - sqrt(d_k)로 나눠서 d_k가 커질 때 내적 분산이 커져 softmax가 과도하게 saturated 되는 문제를 완화.
+  - mask는 패딩 마스크와 causal 마스크(미래 차단)에 사용.
+- Multi-Head: 서로 다른 서브공간에서 병렬로 주의집중(heads)을 수행 후 concat → 선형 결합. 다양한 관계를 동시에 포착.
+- Self-Attention vs Cross-Attention:
+  - Self: Q=K=V(같은 시퀀스). 문맥 내 상호 의존 포착.
+  - Cross: Q는 디코더, K/V는 인코더 출력(예: 번역 인코더-디코더).
+- Soft vs Hard / Additive vs Multiplicative:
+  - Soft: softmax로 확률 분포(연속, 미분 가능).
+  - Hard: argmax 등 비연속(훈련 어려움, REINFORCE/straight-through 등 필요).
+  - Additive(Bahdanau): MLP로 score(q, k).
+  - Multiplicative(Luong)/Dot-product: q^T k. 연산 효율이 좋고 GPU 친화적. Scaled-버전이 Transformer 표준.
+
+2) 알고리즘 절차(Scaled Dot-Product)
+입력: Q∈R^{B×Nq×d}, K∈R^{B×Nk×d}, V∈R^{B×Nk×dv}, 마스크 M∈{0, -∞}^{B×Nq×Nk}
+- S = (Q K^T) / sqrt(d)           # 점수 행렬, shape B×Nq×Nk
+- if M: S = S + M                 # 패딩/causal 마스킹
+- A = softmax(S, dim=-1)          # attention 확률
+- O = A V                         # 출력, shape B×Nq×dv
+
+의사코드:
+function attention(Q, K, V, mask=None):
+    S = matmul(Q, K.T) / sqrt(d_k)
+    if mask: S = S + mask  # mask entries are -inf for disallowed positions
+    A = softmax(S, axis=-1)
+    O = matmul(A, V)
+    return O, A
+
+3) PyTorch 구현 예시
+3-1) 순수 PyTorch로 Scaled Dot-Product 및 Multi-Head
+
+import math
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+def scaled_dot_product_attention(q, k, v, attn_mask=None, dropout_p=0.0):
+    # q: (B, H, Nq, Dh), k: (B, H, Nk, Dh), v: (B, H, Nk, Dhv)
+    scores = torch.matmul(q, k.transpose(-2, -1)) / math.sqrt(q.size(-1))
+    if attn_mask is not None:
+        # attn_mask shape: (B, 1 or H, Nq, Nk) or (1, 1, Nq, Nk)
+        scores = scores + attn_mask
+    attn = F.softmax(scores, dim=-1)
+    attn = F.dropout(attn, p=dropout_p, training=q.requires_grad)
+    out = torch.matmul(attn, v)  # (B, H, Nq, Dhv)
+    return out, attn
+
+class MultiHeadAttention(nn.Module):
+    def __init__(self, d_model, num_heads, d_head=None, dropout=0.0, bias=True):
+        super().__init__()
+        assert d_model % num_heads == 0
+        self.d_model = d_model
+        self.num_heads = num_heads
+        self.d_head = d_head or (d_model // num_heads)
+        self.w_q = nn.Linear(d_model, num_heads * self.d_head, bias=bias)
+        self.w_k = nn.Linear(d_model, num_heads * self.d_head, bias=bias)
+        self.w_v = nn.Linear(d_model, num_heads * self.d_head, bias=bias)
+        self.w_o = nn.Linear(num_heads * self.d_head, d_model, bias=bias)
+        self.dropout = dropout
+
+    def forward(self, x_q, x_kv=None, attn_mask=None):
+        # x_q: (B, Nq, d_model), x_kv: (B, Nk, d_model) or None -> self-attn
+        if x_kv is None:
+            x_kv = x_q
+        B, Nq, _ = x_q.shape
+        Nk = x_kv.size(1)
+
+        q = self.w_q(x_q).view(B, Nq, self.num_heads, self.d_head).transpose(1, 2)  # (B,H,Nq,Dh)
+        k = self.w_k(x_kv).view(B, Nk, self.num_heads, self.d_head).transpose(1, 2) # (B,H,Nk,Dh)
+        v = self.w_v(x_kv).view(B, Nk, self.num_heads, self.d_head).transpose(1, 2) # (B,H,Nk,Dh)
+
+        if attn_mask is not None:
+            # Ensure shape: (B, H, Nq, Nk)
+            if attn_mask.dim() == 2:
+                # (Nq, Nk)
+                attn_mask = attn_mask.unsqueeze(0).unsqueeze(0)
+            elif attn_mask.dim() == 3:
+                # (B, Nq, Nk) -> (B,1,Nq,Nk)
+                attn_mask = attn_mask.unsqueeze(1)
+            # mask values: 0 for allowed, -inf for masked
+            attn_mask = attn_mask.to(q.dtype)
+
+        out, attn = scaled_dot_product_attention(q, k, v, attn_mask, self.dropout)
+        out = out.transpose(1, 2).contiguous().view(B, Nq, self.num_heads * self.d_head)
+        out = self.w_o(out)
+        return out, attn
+
+# 사용 예시
+B, N, d_model, H = 2, 16, 256, 8
+x = torch.randn(B, N, d_model)
+mha = MultiHeadAttention(d_model, H, dropout=0.1)
+# causal mask 만들기 (N x N, 상삼각을 -inf로)
+causal = torch.triu(torch.ones(N, N), diagonal=1).bool()
+attn_mask = torch.zeros(N, N)
+attn_mask[causal] = float("-inf")
+y, attn = mha(x, attn_mask=attn_mask)
+
+3-2) PyTorch 2.x 가속 커널(sdp/FlashAttention) 사용
+PyTorch 2.0+에서는 F.scaled_dot_product_attention이 상황에 따라 FlashAttention 커널까지 자동 선택합니다.
+
+def mha_fast(x_q, x_kv=None, is_causal=False, attn_mask=None, dropout_p=0.0):
+    # x_*: (B, N, d_model)
+    B, Nq, d_model = x_q.shape
+    H = 8
+    Dh = d_model // H
+    wq, wk, wv, wo = [nn.Linear(d_model, d_model, bias=False) for _ in range(4)]
+    q = wq(x_q).view(B, Nq, H, Dh).transpose(1, 2)  # (B,H,Nq,Dh)
+    if x_kv is None:
+        x_kv = x_q
+    Nk = x_kv.size(1)
+    k = wk(x_kv).view(B, Nk, H, Dh).transpose(1, 2)
+    v = wv(x_kv).view(B, Nk, H, Dh).transpose(1, 2)
+    # F.sdp_attention expects (..., Nq, Dh) shapes
+    out = F.scaled_dot_product_attention(q, k, v, attn_mask=attn_mask, dropout_p=dropout_p, is_causal=is_causal)
+    out = out.transpose(1, 2).contiguous().view(B, Nq, d_model)
+    return wo(out)
+
+주의:
+- attn_mask는 additive mask 형태(허용=0, 금지=-inf) 또는 bool mask(Pytorch 2.1+) 사용. dtype/shape 브로드캐스팅을 확인.
+- is_causal=True면 별도 causal mask 없이 미래 토큰 차단.
+
+4) 복잡도와 롱시퀀스 변형
+- 표준 Self-Attention: 시간/메모리 O(N^2). 긴 시퀀스에서는 병목.
+- 대표적 경량화 기법
+  - Sparse 패턴: Longformer(window+global), BigBird(window+random+global, 이론적 표현력 보장), Sparse Transformer, Routing Transformer → O(N√N)~O(N log N).
+  - 저랭크/프로젝션: Linformer(K,V를 저차원으로 투영) → O(Nr), r≪N.
+  - 커널 근사: Performer(FAVOR+), Linear Transformers(φ(K)^T φ(Q)) → O(Nd).
+  - 해시/리커런스: Reformer(LSH), Transformer-XL(세그먼트 재사용+상대 위치) → 효과적 문맥 확장.
+  - I/O 최적화: FlashAttention(온칩 타일링, 재산출로 메모리 최소화) → 같은 O(N^2)이지만 대폭 가속/저메모리.
+- 위치정보
+  - 절대 위치: Sinusoidal, Learnable.
+  - 상대 위치: Shaw et al. 2018, Transformer-XL.
+  - RoPE(회전 위치 임베딩), ALiBi(선형 바이어스): 길이 일반화와 추론 길이 확장에 강함.
+
+5) 다른 기술과 비교
+- RNN+Attention vs Transformer(Self-Attention)
+  - 장점: 병렬화(트레이닝 속도), 장거리 의존 포착이 용이.
+  - 단점: O(N^2) 메모리/시간(표준). RNN은 O(N)이지만 병렬화가 제한적.
+- Additive vs Scaled Dot-Product
+  - Additive: 작은 차원에서 성능 우수 보고도 있으나, 매 스코어에 MLP → 연산/메모리 비효율.
+  - Scaled Dot-Product: 행렬곱으로 고효율, 현대 표준.
+- Attention vs Convolution
+  - CNN: 지역성/전이학습 강점, O(N) 또는 O(N log N)로 효율적.
+  - Attention: 전역 컨텍스트, 토큰 간 임의 상호작용 표현력이 큼.
+
+6) 실무 적용 시 고려사항
+- 마스킹
+  - 패딩 마스크: 패딩 토큰 스코어에 -inf 추가.
+  - Causal 마스크: 미래 토큰 차단(오토리그레시브).
+- 수치 안정성
+  - scale 1/sqrt(d_k) 필수. fp16/bf16 혼합정밀 시 -inf 마스크 처리와 softmax 안정성 점검.
+  - F.scaled_dot_product_attention 사용 시 내부적으로 안정화/커널 최적화.
+- 성능/메모리
+  - FlashAttention/SDPA 우선 사용. 시퀀스 길이↑면 gradient checkpointing, 시퀀스 병합(packing), 길이 버킷팅 고려.
+- 포지셔널 인코딩
+  - RoPE/ALiBi 채택 시 길이 일반화와 extrapolation 이점. 상대위치(Transformer-XL)로 장거리 모델링 개선.
+- 구조/학습 안정성
+  - Pre-LN Transformer(입력에 LayerNorm 후 서브층) → 딥한 네트워크에서 안정적.
+  - Dropout(특히 attention weights), label smoothing, warmup 스케줄.
+- 디코딩 최적화
+  - KV 캐시로 O(T^2)→O(T)로 추론 가속. 배치 내 길이 가변 처리, beam search 시 캐시 관리.
+- 스파스/선형 어텐션 채택
+  - 도메인(문서/생물서열/시계열)과 길이 분포를 보고 선택. 근사 기법은 정확도-효율 트레이드오프 존재.
+
+7) 핵심 논문 정리(JSON)
+아래 JSON을 파일로 저장하면 탐색/참조에 편합니다.
+
+[
+  {
+    "title": "Neural Machine Translation by Jointly Learning to Align and Translate",
+    "year": 2015,
+    "venue": "ICLR",
+    "authors": ["Dzmitry Bahdanau", "Kyunghyun Cho", "Yoshua Bengio"],
+    "link": "https://arxiv.org/abs/1409.0473",
+    "tags": ["Additive Attention", "NMT", "Encoder-Decoder"],
+    "summary": "어텐션을 정렬 모델로 공식화하여 번역에서 RNN 디코더가 인코더 은닉 상태에 가중합으로 접근하도록 함.",
+    "key_ideas": ["Additive(score)=v^T tanh(W_q q + W_k k)", "소프트 정렬로 장거리 의존 해결"]
+  },
+  {
+    "title": "Effective Approaches to Attention-based Neural Machine Translation",
+    "year": 2015,
+    "venue": "EMNLP",
+    "authors": ["Minh-Thang Luong", "Hieu Pham", "Christopher D. Manning"],
+    "link": "https://arxiv.org/abs/1508.04025",
+    "tags": ["Multiplicative Attention", "NMT"],
+    "summary": "Dot/general/concat 등 다양한 어텐션 변형을 비교, multiplicative의 효율 강조.",
+    "key_ideas": ["q^T k 형태의 점수", "입출력 연계 방식 비교"]
+  },
+  {
+    "title": "Attention Is All You Need",
+    "year": 2017,
+    "venue": "NeurIPS",
+    "authors": ["Ashish Vaswani", "Noam Shazeer", "Niki Parmar", "et al."],
+    "link": "https://arxiv.org/abs/1706.03762",
+    "tags": ["Transformer", "Scaled Dot-Product", "Multi-Head"],
+    "summary": "Self-Attention 기반 인코더-디코더로 RNN/CNN 없이 SOTA 달성.",
+    "key_ideas": ["Scaled Dot-Product", "Multi-Head", "Positional Encoding", "Residual+LayerNorm"]
+  },
+  {
+    "title": "Self-Attention with Relative Position Representations",
+    "year": 2018,
+    "venue": "NAACL",
+    "authors": ["Peter Shaw", "Jakob Uszkoreit", "Ashish Vaswani"],
+    "link": "https://arxiv.org/abs/1803.02155",
+    "tags": ["Relative Position"],
+    "summary": "상대적 위치 임베딩으로 위치 불변성과 일반화 강화.",
+    "key_ideas": ["content+position 분해", "상대 위치 바이어스"]
+  },
+  {
+    "title": "Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context",
+    "year": 2019,
+    "venue": "ACL",
+    "authors": ["Zihang Dai", "et al."],
+    "link": "https://arxiv.org/abs/1901.02860",
+    "tags": ["Long Context", "Relative Position", "Recurrence"],
+    "summary": "세그먼트 간 메모리 재사용과 상대 위치로 길이 한계를 넘음.",
+    "key_ideas": ["메모리 캐시 재사용", "상대 위치 스킴"]
+  },
+  {
+    "title": "Generating Long Sequences with Sparse Transformers",
+    "year": 2019,
+    "venue": "arXiv",
+    "authors": ["Rewon Child", "et al."],
+    "link": "https://arxiv.org/abs/1904.10509",
+    "tags": ["Sparse Attention"],
+    "summary": "Factorized/sparse 패턴으로 O(N^2) 부담 완화.",
+    "key_ideas": ["Strided+Fixed 패턴", "이미지/텍스트에 적용"]
+  },
+  {
+    "title": "Reformer: The Efficient Transformer",
+    "year": 2020,
+    "venue": "ICLR",
+    "authors": ["Nikita Kitaev", "Łukasz Kaiser", "Anselm Levskaya"],
+    "link": "https://arxiv.org/abs/2001.04451",
+    "tags": ["LSH Attention", "Reversible Layers"],
+    "summary": "LSH로 근접 토큰만 주의, 메모리 절감 위해 reversible network 사용.",
+    "key_ideas": ["O(N log N) 근사", "역전파 메모리 절약"]
+  },
+  {
+    "title": "Linformer: Self-Attention with Linear Complexity",
+    "year": 2020,
+    "venue": "NeurIPS",
+    "authors": ["Sinong Wang", "et al."],
+    "link": "https://arxiv.org/abs/2006.04768",
+    "tags": ["Low-Rank", "Linear-Time"],
+    "summary": "K,V를 저차원으로 선형 투영해 시간/메모리 O(N).",
+    "key_ideas": ["저랭크 가정", "프로젝션 행렬 학습"]
+  },
+  {
+    "title": "Longformer: The Long-Document Transformer",
+    "year": 2020,
+    "venue": "arXiv",
+    "authors": ["Iz Beltagy", "Matthew E. Peters", "Arman Cohan"],
+    "link": "https://arxiv.org/abs/2004.05150",
+    "tags": ["Sparse Window", "Global Tokens"],
+    "summary": "슬라이딩 윈도우+글로벌 토큰으로 긴 문서 처리.",
+    "key_ideas": ["O(N) 근사", "도메인 문서 태스크 개선"]
+  },
+  {
+    "title": "Big Bird: Transformers for Longer Sequences",
+    "year": 2020,
+    "venue": "NeurIPS",
+    "authors": ["Manzil Zaheer", "et al."],
+    "link": "https://arxiv.org/abs/2007.14062",
+    "tags": ["Sparse Attention", "Theoretical Guarantees"],
+    "summary": "랜덤+윈도우+글로벌로 연결성 보장, 표현력/유니버설 근사 성질 증명.",
+    "key_ideas": ["O(N)~O(N√N)", "그래프 연결성 분석"]
+  },
+  {
+    "title": "Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention",
+    "year": 2020,
+    "venue": "ICML",
+    "authors": ["Angelos Katharopoulos", "et al."],
+    "link": "https://arxiv.org/abs/2006.16236",
+    "tags": ["Linear Attention", "Kernel Trick"],
+    "summary": "커널 특징사상으로 어텐션을 선형화, 오토리그레시브에서 O(Nd).",
+    "key_ideas": ["Φ(q)Φ(k)^T V 누적", "캐시 효율↑"]
+  },
+  {
+    "title": "Rethinking Attention with Performers",
+    "year": 2021,
+    "venue": "ICLR",
+    "authors": ["Krzysztof Choromanski", "et al."],
+    "link": "https://arxiv.org/abs/2009.14794",
+    "tags": ["Kernel Approx", "Random Features"],
+    "summary": "FAVOR+ 랜덤 피처로 정확한 비편향 근사 제공.",
+    "key_ideas": ["정확도-효율 균형", "대규모 시퀀스 처리"]
+  },
+  {
+    "title": "Roformer: Enhanced Transformer with Rotary Position Embedding",
+    "year": 2021,
+    "venue": "NeurIPS",
+    "authors": ["Jianlin Su", "et al."],
+    "link": "https://arxiv.org/abs/2104.09864",
+    "tags": ["RoPE", "Positional Encoding"],
+    "summary": "복소수 회전 해석으로 상대적 각도 보존, 길이 외삽 성능 개선.",
+    "key_ideas": ["Q/K 공간에 회전 적용", "주파수별 회전"]
+  },
+  {
+    "title": "Train Short, Test Long: Attention with Linear Biases (ALiBi)",
+    "year": 2021,
+    "venue": "arXiv",
+    "authors": ["Ofir Press", "Noah A. Smith", "Mike Lewis"],
+    "link": "https://arxiv.org/abs/2108.12409",
+    "tags": ["Positional Bias", "Extrapolation"],
+    "summary": "거리 기반 선형 바이어스만으로 긴 길이 일반화 강화.",
+    "key_ideas": ["head별 기울기", "간단/효과적"]
+  },
+  {
+    "title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+    "year": 2022,
+    "venue": "NeurIPS",
+    "authors": ["Tri Dao", "et al."],
+    "link": "https://arxiv.org/abs/2205.14135",
+    "tags": ["Kernel Fusion", "Memory Optimization"],
+    "summary": "온칩 타일링과 재계산으로 정확 어텐션을 고속/저메모리로 구현.",
+    "key_ideas": ["블록-스트리밍 softmax", "캐시/DRAM 왕복 최소화"]
+  },
+  {
+    "title": "FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning",
+    "year": 2023,
+    "venue": "NeurIPS",
+    "authors": ["Tri Dao", "et al."],
+    "link": "https://arxiv.org/abs/2307.08691",
+    "tags": ["Kernel Optimization"],
+    "summary": "워크 분할/병렬성 개선으로 추가 가속. 대형 배치/헤드에 효율적.",
+    "key_ideas": ["warp-level 최적화", "더 넓은 지원"]
+  },
+  {
+    "title": "Decomposable Attention Models for Natural Language Inference",
+    "year": 2016,
+    "venue": "EMNLP",
+    "authors": ["Ankur P. Parikh", "et al."],
+    "link": "https://arxiv.org/abs/1606.01933",
+    "tags": ["Alignment", "NLI"],
+    "summary": "간단한 어텐션 분해로 NLI에서 강력한 성능.",
+    "key_ideas": ["Attend-Compare-Aggregate", "병렬화 용이"]
+  },
+  {
+    "title": "Talking-Heads Attention",
+    "year": 2021,
+    "venue": "ICML",
+    "authors": ["Noam Shazeer", "et al."],
+    "link": "https://arxiv.org/abs/2003.02436",
+    "tags": ["Head Mixing"],
+    "summary": "head 간 상호작용을 위한 선형 변환으로 성능 향상.",
+    "key_ideas": ["before/after softmax mixing", "표현력 증가"]
+  },
+  {
+    "title": "On Layer Normalization in the Transformer Architecture",
+    "year": 2020,
+    "venue": "ICML",
+    "authors": ["Ruibin Xiong", "et al."],
+    "link": "https://arxiv.org/abs/2002.04745",
+    "tags": ["Stability", "Pre-LN"],
+    "summary": "Pre-LN이 깊은 네트워크 학습 안정성과 수렴에 유리함을 분석.",
+    "key_ideas": ["그라디언트 흐름 개선", "실무 표준화"]
+  }
+]
+
+8) 저장 방법
+- 파일로 저장(Python):
+
+import json, io
+data = [ ... 위 JSON 붙여넣기 ... ]
+with io.open("attention_papers.json", "w", encoding="utf-8") as f:
+    json.dump(data, f, ensure_ascii=False, indent=2)
+print("Saved to attention_papers.json")
+
+- 쉘에서 즉시 저장(Unix 계열):
+cat > attention_papers.json << 'EOF'
+[여기에 JSON 그대로 붙여넣기]
+EOF
+
+- 추가로 본 설명을 Markdown으로 저장하고 싶다면:
+with open("attention_notes.md", "w", encoding="utf-8") as f:
+    f.write("""Attention 개념 요약 ... (이 답변의 섹션 1~6을 정리해 붙여넣으세요)""")
+
+원하시면 특정 포맷(BibTeX/CSV/Markdown 표)로도 변환해 드립니다. 저장 파일명이나 경로를 지정해주시면 그에 맞춰 출력 형식을 조정해 드릴게요.
+2025-11-05 12:11:14 | 도구 실행 오류: general
+2025-11-05 12:11:14 | 오류 내용: [Errno 32] Broken pipe
+2025-11-05 12:11:14 | ==================================================
+2025-11-05 12:11:14 | 실험 종료
+2025-11-05 12:11:14 | ==================================================
+2025-11-05 12:11:14 | 빈 폴더 삭제: experiments/20251105/20251105_120827_session_005/evaluation
+2025-11-05 12:11:14 | 빈 폴더 삭제: experiments/20251105/20251105_120827_session_005/ui
+2025-11-05 12:11:14 | 빈 폴더 삭제: experiments/20251105/20251105_120827_session_005/outputs
+2025-11-05 12:11:14 | 총 3개의 빈 폴더 삭제 완료

@@ -1,0 +1,429 @@
+에러 발생 시각: 2025-11-05 12:45:55
+질문: LangGraph가 뭐야? langchain과 langgraph 차이를 알려줘
+난이도: easy
+에러 메시지: '```json'
+
+상세 트레이스:
+Traceback (most recent call last):
+  File "/home/ieyeppo/AI_Lab/langchain-project/ui/components/chat_interface.py", line 197, in handle_agent_response
+    response = agent_executor.invoke(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 3094, in invoke
+    for chunk in self.stream(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 2679, in stream
+    for _ in runner.tick(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_runner.py", line 167, in tick
+    run_with_retry(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_retry.py", line 42, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 658, in invoke
+    input = step.invoke(input, config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 400, in invoke
+    ret = self.func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 167, in _route
+    return self._finish(writer, input, result, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 202, in _finish
+    destinations: Sequence[Send | str] = [
+                                         ^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 203, in <listcomp>
+    r if isinstance(r, Send) else self.ends[r] for r in result
+                                  ~~~~~~~~~^^^
+KeyError: '```json'
+During task with name 'router' and id '78725675-c317-99fc-8d6c-5fe006bcddce'
+
+================================================================================
+
+에러 발생 시각: 2025-11-05 12:49:21
+질문: Few-shot learning을 개선한 연구는 어떤게 있어?
+난이도: easy
+에러 메시지: '```json'
+
+상세 트레이스:
+Traceback (most recent call last):
+  File "/home/ieyeppo/AI_Lab/langchain-project/ui/components/chat_interface.py", line 197, in handle_agent_response
+    response = agent_executor.invoke(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 3094, in invoke
+    for chunk in self.stream(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 2679, in stream
+    for _ in runner.tick(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_runner.py", line 167, in tick
+    run_with_retry(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_retry.py", line 42, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 658, in invoke
+    input = step.invoke(input, config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 400, in invoke
+    ret = self.func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 167, in _route
+    return self._finish(writer, input, result, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 202, in _finish
+    destinations: Sequence[Send | str] = [
+                                         ^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 203, in <listcomp>
+    r if isinstance(r, Send) else self.ends[r] for r in result
+                                  ~~~~~~~~~^^^
+KeyError: '```json'
+During task with name 'router' and id '96ebf8cc-e690-6fd1-d139-e9903986301d'
+
+================================================================================
+
+에러 발생 시각: 2025-11-05 12:49:37
+질문: LLM의 효율적인 Fine-tuning 기법 논문 찾아줘
+난이도: easy
+에러 메시지: '```json'
+
+상세 트레이스:
+Traceback (most recent call last):
+  File "/home/ieyeppo/AI_Lab/langchain-project/ui/components/chat_interface.py", line 197, in handle_agent_response
+    response = agent_executor.invoke(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 3094, in invoke
+    for chunk in self.stream(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 2679, in stream
+    for _ in runner.tick(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_runner.py", line 167, in tick
+    run_with_retry(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_retry.py", line 42, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 658, in invoke
+    input = step.invoke(input, config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 400, in invoke
+    ret = self.func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 167, in _route
+    return self._finish(writer, input, result, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 202, in _finish
+    destinations: Sequence[Send | str] = [
+                                         ^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 203, in <listcomp>
+    r if isinstance(r, Send) else self.ends[r] for r in result
+                                  ~~~~~~~~~^^^
+KeyError: '```json'
+During task with name 'router' and id '759f85f5-3030-ada8-ec00-8c5c9069508d'
+
+================================================================================
+
+에러 발생 시각: 2025-11-05 12:49:45
+질문: 최근 Transformer 기반 음성인식 논문이 있을까?
+난이도: easy
+에러 메시지: '```json'
+
+상세 트레이스:
+Traceback (most recent call last):
+  File "/home/ieyeppo/AI_Lab/langchain-project/ui/components/chat_interface.py", line 197, in handle_agent_response
+    response = agent_executor.invoke(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 3094, in invoke
+    for chunk in self.stream(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 2679, in stream
+    for _ in runner.tick(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_runner.py", line 167, in tick
+    run_with_retry(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_retry.py", line 42, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 658, in invoke
+    input = step.invoke(input, config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 400, in invoke
+    ret = self.func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 167, in _route
+    return self._finish(writer, input, result, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 202, in _finish
+    destinations: Sequence[Send | str] = [
+                                         ^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 203, in <listcomp>
+    r if isinstance(r, Send) else self.ends[r] for r in result
+                                  ~~~~~~~~~^^^
+KeyError: '```json'
+During task with name 'router' and id '2acc68b7-2490-04e7-a3f7-a1342caee60c'
+
+================================================================================
+
+에러 발생 시각: 2025-11-05 12:49:57
+질문: 최근 Transformer 기반 음성인식 논문이 있을까?
+난이도: easy
+에러 메시지: '```json'
+
+상세 트레이스:
+Traceback (most recent call last):
+  File "/home/ieyeppo/AI_Lab/langchain-project/ui/components/chat_interface.py", line 197, in handle_agent_response
+    response = agent_executor.invoke(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 3094, in invoke
+    for chunk in self.stream(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 2679, in stream
+    for _ in runner.tick(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_runner.py", line 167, in tick
+    run_with_retry(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_retry.py", line 42, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 658, in invoke
+    input = step.invoke(input, config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 400, in invoke
+    ret = self.func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 167, in _route
+    return self._finish(writer, input, result, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 202, in _finish
+    destinations: Sequence[Send | str] = [
+                                         ^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 203, in <listcomp>
+    r if isinstance(r, Send) else self.ends[r] for r in result
+                                  ~~~~~~~~~^^^
+KeyError: '```json'
+During task with name 'router' and id 'b17ff4a3-2907-d7ba-c0c4-bbb5f0aeaa96'
+
+================================================================================
+
+에러 발생 시각: 2025-11-05 12:50:10
+질문: Attention이 왜 필요해?
+난이도: easy
+에러 메시지: '```json'
+
+상세 트레이스:
+Traceback (most recent call last):
+  File "/home/ieyeppo/AI_Lab/langchain-project/ui/components/chat_interface.py", line 197, in handle_agent_response
+    response = agent_executor.invoke(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 3094, in invoke
+    for chunk in self.stream(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 2679, in stream
+    for _ in runner.tick(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_runner.py", line 167, in tick
+    run_with_retry(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_retry.py", line 42, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 658, in invoke
+    input = step.invoke(input, config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 400, in invoke
+    ret = self.func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 167, in _route
+    return self._finish(writer, input, result, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 202, in _finish
+    destinations: Sequence[Send | str] = [
+                                         ^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 203, in <listcomp>
+    r if isinstance(r, Send) else self.ends[r] for r in result
+                                  ~~~~~~~~~^^^
+KeyError: '```json'
+During task with name 'router' and id 'f10a5927-c1c1-75a6-e6d9-c68af99ecd98'
+
+================================================================================
+
+에러 발생 시각: 2025-11-05 12:50:16
+질문: AI 모델의 발전 과정을 간단히 설명해줘
+난이도: easy
+에러 메시지: '```json'
+
+상세 트레이스:
+Traceback (most recent call last):
+  File "/home/ieyeppo/AI_Lab/langchain-project/ui/components/chat_interface.py", line 197, in handle_agent_response
+    response = agent_executor.invoke(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 3094, in invoke
+    for chunk in self.stream(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 2679, in stream
+    for _ in runner.tick(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_runner.py", line 167, in tick
+    run_with_retry(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_retry.py", line 42, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 658, in invoke
+    input = step.invoke(input, config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 400, in invoke
+    ret = self.func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 167, in _route
+    return self._finish(writer, input, result, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 202, in _finish
+    destinations: Sequence[Send | str] = [
+                                         ^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 203, in <listcomp>
+    r if isinstance(r, Send) else self.ends[r] for r in result
+                                  ~~~~~~~~~^^^
+KeyError: '```json'
+During task with name 'router' and id '77a97cda-9e60-f9d9-2dea-604463dcc80e'
+
+================================================================================
+
+에러 발생 시각: 2025-11-05 12:50:23
+질문: Backpropagation 수식의 의미를 설명해줘
+난이도: easy
+에러 메시지: '```json'
+
+상세 트레이스:
+Traceback (most recent call last):
+  File "/home/ieyeppo/AI_Lab/langchain-project/ui/components/chat_interface.py", line 197, in handle_agent_response
+    response = agent_executor.invoke(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 3094, in invoke
+    for chunk in self.stream(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 2679, in stream
+    for _ in runner.tick(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_runner.py", line 167, in tick
+    run_with_retry(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_retry.py", line 42, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 658, in invoke
+    input = step.invoke(input, config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 400, in invoke
+    ret = self.func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 167, in _route
+    return self._finish(writer, input, result, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 202, in _finish
+    destinations: Sequence[Send | str] = [
+                                         ^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 203, in <listcomp>
+    r if isinstance(r, Send) else self.ends[r] for r in result
+                                  ~~~~~~~~~^^^
+KeyError: '```json'
+During task with name 'router' and id 'ed3f5b91-015c-99eb-1d6b-62534ef2d93f'
+
+================================================================================
+
+에러 발생 시각: 2025-11-05 12:50:55
+질문: Reinforcement Learning이란 무엇이며, 어떻게 작동해?
+난이도: hard
+에러 메시지: '{'
+
+상세 트레이스:
+Traceback (most recent call last):
+  File "/home/ieyeppo/AI_Lab/langchain-project/ui/components/chat_interface.py", line 197, in handle_agent_response
+    response = agent_executor.invoke(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 3094, in invoke
+    for chunk in self.stream(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 2679, in stream
+    for _ in runner.tick(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_runner.py", line 167, in tick
+    run_with_retry(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_retry.py", line 42, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 658, in invoke
+    input = step.invoke(input, config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 400, in invoke
+    ret = self.func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 167, in _route
+    return self._finish(writer, input, result, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 202, in _finish
+    destinations: Sequence[Send | str] = [
+                                         ^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 203, in <listcomp>
+    r if isinstance(r, Send) else self.ends[r] for r in result
+                                  ~~~~~~~~~^^^
+KeyError: '{'
+During task with name 'router' and id '0d9f2e7a-9475-8feb-a797-ca888a209209'
+
+================================================================================
+
+에러 발생 시각: 2025-11-05 12:51:24
+질문: GAN(Generative Adversarial Network)의 기본 개념 설명해줘
+난이도: hard
+에러 메시지: '{'
+
+상세 트레이스:
+Traceback (most recent call last):
+  File "/home/ieyeppo/AI_Lab/langchain-project/ui/components/chat_interface.py", line 197, in handle_agent_response
+    response = agent_executor.invoke(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 3094, in invoke
+    for chunk in self.stream(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 2679, in stream
+    for _ in runner.tick(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_runner.py", line 167, in tick
+    run_with_retry(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_retry.py", line 42, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 658, in invoke
+    input = step.invoke(input, config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 400, in invoke
+    ret = self.func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 167, in _route
+    return self._finish(writer, input, result, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 202, in _finish
+    destinations: Sequence[Send | str] = [
+                                         ^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 203, in <listcomp>
+    r if isinstance(r, Send) else self.ends[r] for r in result
+                                  ~~~~~~~~~^^^
+KeyError: '{'
+During task with name 'router' and id '4fcf0025-7d36-9dcf-66b3-363c5dbb6dfb'
+
+================================================================================
+
+에러 발생 시각: 2025-11-05 13:03:46
+질문: 요약한 내용을 마크다운 형식으로 깔끔하게 정리해줘
+난이도: hard
+에러 메시지: '{'
+
+상세 트레이스:
+Traceback (most recent call last):
+  File "/home/ieyeppo/AI_Lab/langchain-project/ui/components/chat_interface.py", line 197, in handle_agent_response
+    response = agent_executor.invoke(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 3094, in invoke
+    for chunk in self.stream(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/main.py", line 2679, in stream
+    for _ in runner.tick(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_runner.py", line 167, in tick
+    run_with_retry(
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/pregel/_retry.py", line 42, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 658, in invoke
+    input = step.invoke(input, config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/_internal/_runnable.py", line 400, in invoke
+    ret = self.func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 167, in _route
+    return self._finish(writer, input, result, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 202, in _finish
+    destinations: Sequence[Send | str] = [
+                                         ^
+  File "/home/ieyeppo/.pyenv/versions/langchain_py3_11_9/lib/python3.11/site-packages/langgraph/graph/_branch.py", line 203, in <listcomp>
+    r if isinstance(r, Send) else self.ends[r] for r in result
+                                  ~~~~~~~~~^^^
+KeyError: '{'
+During task with name 'router' and id '028f3077-addc-fabb-4a85-1abf82ef0aaa'
+
+================================================================================
+

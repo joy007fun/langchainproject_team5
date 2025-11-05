@@ -1,0 +1,13 @@
+{
+  "accuracy_score": 2,
+  "relevance_score": 5,
+  "difficulty_score": 2,
+  "citation_score": 0,
+  "total_score": 9,
+  "comment": "SQL WHERE 절에서 괄호 부재로 AND/OR 우선순위 오류가 발생해 2021, 2017 등 2022년 이전 결과가 포함되었습니다. 질문은 ‘연도별로 논문을 보여달라’인데 실제로는 연도별 개수만 제시하여 핵심 요구(논문 목록)도 충족하지 못했습니다. Hard 모드에 기대되는 전문적 설명이나 분석도 부족합니다. 참고 문헌/출처는 전혀 제공되지 않았습니다.",
+  "question": "2022년 이후 Attention 메커니즘 관련 논문을 연도별로 보여줘",
+  "answer": "**질문**: 2022년 이후 Attention 메커니즘 관련 논문을 연도별로 보여줘\n\n**생성된 SQL**:\n```sql\nSELECT EXTRACT(YEAR FROM publish_date) AS year, COUNT(*) AS paper_count FROM papers WHERE publish_date >= DATE '2022-01-01' AND abstract ILIKE '%attention%' OR title ILIKE '%attention%' OR authors ILIKE '%attention%' GROUP BY EXTRACT(YEAR FROM publish_date) ORDER BY year DESC LIMIT 100;\n```\n**결과**:\n\nyear | paper_count\n--- | ---\n2025 | 1\n2024 | 6\n2023 | 3\n2022 | 4\n2021 | 4\n2017 | 1",
+  "reference_docs": "참고 문서 없음 (일반 답변)",
+  "difficulty": "hard",
+  "timestamp": "2025-11-05T12:59:03.196481"
+}

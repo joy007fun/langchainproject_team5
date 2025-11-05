@@ -171,11 +171,17 @@ def render_sidebar(exp_manager=None):
         # -------------- 용어 추출 설정 섹션 -------------- #
         st.markdown("### 📖 용어 추출 설정")
 
-        # session_state 초기화
+        # session_state 초기화 (위젯 키도 함께 초기화)
         if "glossary_min_terms" not in st.session_state:
             st.session_state.glossary_min_terms = 1
         if "glossary_max_terms" not in st.session_state:
             st.session_state.glossary_max_terms = 5
+        if "glossary_slider" not in st.session_state:
+            st.session_state.glossary_slider = (1, 5)
+        if "glossary_min_input" not in st.session_state:
+            st.session_state.glossary_min_input = 1
+        if "glossary_max_input" not in st.session_state:
+            st.session_state.glossary_max_input = 5
 
         # 콜백 함수: 슬라이더 변경 시 session_state 업데이트
         def update_from_slider():
@@ -212,19 +218,18 @@ def render_sidebar(exp_manager=None):
                         f"용어 추출 범위 변경 (수동): {min_val}-{max_val}개"
                     )
 
-        # 슬라이더 위젯 (범위 선택) - session_state 직접 참조
+        # 슬라이더 위젯 (범위 선택) - key를 통해 session_state와 자동 바인딩
         st.caption("용어 추출 개수 범위:")
         st.slider(
             "슬라이더로 범위 조정",
             min_value=1,
             max_value=100,
-            value=(st.session_state.glossary_min_terms, st.session_state.glossary_max_terms),
             key="glossary_slider",
             on_change=update_from_slider,
             label_visibility="collapsed"
         )
 
-        # 텍스트 입력 위젯 (수동 입력) - session_state 직접 참조
+        # 텍스트 입력 위젯 (수동 입력) - key를 통해 session_state와 자동 바인딩
         col1, col2 = st.columns(2)
 
         with col1:
@@ -232,7 +237,6 @@ def render_sidebar(exp_manager=None):
                 "최소 개수",
                 min_value=1,
                 max_value=100,
-                value=st.session_state.glossary_min_terms,
                 step=1,
                 key="glossary_min_input",
                 on_change=update_from_inputs
@@ -243,7 +247,6 @@ def render_sidebar(exp_manager=None):
                 "최대 개수",
                 min_value=1,
                 max_value=100,
-                value=st.session_state.glossary_max_terms,
                 step=1,
                 key="glossary_max_input",
                 on_change=update_from_inputs

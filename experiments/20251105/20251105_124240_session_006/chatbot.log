@@ -1,0 +1,1845 @@
+2025-11-05 12:42:40 | 세션 시작: session_006
+2025-11-05 12:42:40 | 폴더 경로: experiments/20251105/20251105_124240_session_006
+2025-11-05 12:42:40 | 설정 파일 저장: db_config.yaml
+2025-11-05 12:42:40 | 설정 파일 저장: model_config.yaml
+2025-11-05 12:42:40 | 설정 파일 저장: multi_request_patterns.yaml
+2025-11-05 12:42:40 | Agent 그래프 생성 시작
+2025-11-05 12:42:40 | Fallback Chain 활성화
+2025-11-05 12:42:40 | 최대 재시도 횟수: 3
+2025-11-05 12:42:40 | Router 검증 활성화: True
+2025-11-05 12:42:40 | Agent 그래프 컴파일 완료
+2025-11-05 12:42:40 | Streamlit UI 시작
+2025-11-05 12:42:40 | 실험 폴더: experiments/20251105/20251105_124240_session_006
+2025-11-05 12:45:51 | 메타데이터 업데이트: ['user_query']
+2025-11-05 12:45:51 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 12:45:51 | 라우터 노드 실행: LangGraph가 뭐야? langchain과 langgraph 차이를 알려줘
+2025-11-05 12:45:51 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 12:45:51 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 12:45:55 | 라우팅 결정 (원본): ```json
+{
+  "tools": [
+    {
+      "name": "LangGraph & LangChain 비교 검색",
+      "query": "LangGraph ...
+2025-11-05 12:45:55 | 라우팅 결정 (파싱): ```json
+2025-11-05 12:45:55 | 메타데이터 업데이트: ['success', 'error']
+2025-11-05 12:45:55 | UI 에러: '```json'
+2025-11-05 12:45:55 | 메타데이터 업데이트: ['success', 'error']
+2025-11-05 12:46:21 | 메타데이터 업데이트: ['user_query']
+2025-11-05 12:46:21 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 12:46:21 | 라우터 노드 실행: BERT 모델의 구조와 주요 개선점을 다룬 논문이 있을까?
+2025-11-05 12:46:21 | 다중 요청 감지: ['논문', '주요'] → ['search_paper', 'summarize']
+2025-11-05 12:46:21 | 패턴 설명: 논문 주요 내용
+2025-11-05 12:46:21 | 순차 실행 도구: search_paper → summarize
+2025-11-05 12:46:21 | pgvector 검색 기록: search_paper
+2025-11-05 12:46:21 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 12:46:21 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 12:46:22 | 시스템 프롬프트 저장 완료
+2025-11-05 12:46:22 | 최종 프롬프트 저장 완료
+2025-11-05 12:46:25 | 시스템 프롬프트 저장 완료
+2025-11-05 12:46:25 | 최종 프롬프트 저장 완료
+2025-11-05 12:46:32 | 도구 실행 성공: search_paper
+2025-11-05 12:46:32 | 메타데이터 업데이트: ['success', 'response_time_ms']
+2025-11-05 12:46:32 | 메타데이터 업데이트: ['tool_used']
+2025-11-05 12:46:32 | 용어 추출 시작 (범위: 1-32개)
+2025-11-05 12:46:32 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 12:46:32 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 12:46:44 | LLM 응답: ```json
+{
+  "terms": [
+    {
+      "term": "BERT",
+      "definition": "Bidirectional Encoder Representations from Transformers의 약자로, 문맥을 양방향에서 이해하는 자연어 처리 모델",
+      "easy_explanation": "문장을 앞뒤로 모두 읽...
+2025-11-05 12:46:44 | 추출된 용어 수: 10
+2025-11-05 12:46:44 | IT 용어 아님 (필터링): 도메인 특화 모델
+2025-11-05 12:46:44 | IT 용어 아님 (필터링): F1-score
+2025-11-05 12:46:44 | IT 용어 아님 (필터링): 해석 가능성(Interpretability)
+2025-11-05 12:46:44 | 용어 검증 완료: 10개 → 7개 (IT 필터링) → 7개 (최대 개수 제한)
+2025-11-05 12:46:44 | glossary 테이블에 7개 용어 저장 시작
+2025-11-05 12:46:44 | 용어 이미 존재 (건너뜀): BERT
+2025-11-05 12:46:44 | 용어 저장 성공: 트랜스포머(Transformer)
+2025-11-05 12:46:44 | 용어 저장 성공: 마스크드 언어 모델링(MLM)
+2025-11-05 12:46:44 | 용어 저장 성공: 환각(Hallucination)
+2025-11-05 12:46:44 | 용어 저장 성공: 미세 조정(Fine-tuning)
+2025-11-05 12:46:44 | 용어 저장 성공: 트랜스포머 인코더
+2025-11-05 12:46:44 | 용어 저장 성공: 다음 문장 예측(NSP)
+2025-11-05 12:46:44 | 용어 저장 완료: 6/7개
+2025-11-05 12:47:11 | 평가 결과 저장: evaluation_20251105_124711.json
+2025-11-05 12:47:11 | 대화 저장: conversation_easy_20251105_124711.json (3개 메시지)
+2025-11-05 12:49:17 | 메타데이터 업데이트: ['user_query']
+2025-11-05 12:49:17 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 12:49:17 | 라우터 노드 실행: Few-shot learning을 개선한 연구는 어떤게 있어?
+2025-11-05 12:49:17 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 12:49:17 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 12:49:21 | 라우팅 결정 (원본): ```json
+{
+  "tools": [
+    {
+      "name": "학술 논문 검색 도구",
+      "query": "Few-shot learning improvem...
+2025-11-05 12:49:21 | 라우팅 결정 (파싱): ```json
+2025-11-05 12:49:21 | 메타데이터 업데이트: ['success', 'error']
+2025-11-05 12:49:21 | UI 에러: '```json'
+2025-11-05 12:49:21 | 메타데이터 업데이트: ['success', 'error']
+2025-11-05 12:49:33 | 메타데이터 업데이트: ['user_query']
+2025-11-05 12:49:33 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 12:49:33 | 라우터 노드 실행: LLM의 효율적인 Fine-tuning 기법 논문 찾아줘
+2025-11-05 12:49:33 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 12:49:33 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 12:49:37 | 라우팅 결정 (원본): ```json
+{
+  "tools": [
+    {
+      "name": "학술 논문 검색 도구",
+      "query": "\"efficient fine-tuning la...
+2025-11-05 12:49:37 | 라우팅 결정 (파싱): ```json
+2025-11-05 12:49:37 | 메타데이터 업데이트: ['success', 'error']
+2025-11-05 12:49:37 | UI 에러: '```json'
+2025-11-05 12:49:37 | 메타데이터 업데이트: ['success', 'error']
+2025-11-05 12:49:41 | 메타데이터 업데이트: ['user_query']
+2025-11-05 12:49:41 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 12:49:41 | 라우터 노드 실행: 최근 Transformer 기반 음성인식 논문이 있을까?
+2025-11-05 12:49:42 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 12:49:42 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 12:49:45 | 라우팅 결정 (원본): ```json
+{
+  "tools": [
+    {
+      "name": "학술 검색 엔진 (예: Google Scholar, Semantic Scholar)",
+      "...
+2025-11-05 12:49:45 | 라우팅 결정 (파싱): ```json
+2025-11-05 12:49:45 | 메타데이터 업데이트: ['success', 'error']
+2025-11-05 12:49:45 | UI 에러: '```json'
+2025-11-05 12:49:45 | 메타데이터 업데이트: ['success', 'error']
+2025-11-05 12:49:54 | 메타데이터 업데이트: ['user_query']
+2025-11-05 12:49:54 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 12:49:54 | 라우터 노드 실행: 최근 Transformer 기반 음성인식 논문이 있을까?
+2025-11-05 12:49:54 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 12:49:54 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 12:49:57 | 라우팅 결정 (원본): ```json
+{
+  "tools": [
+    {
+      "name": "학술 논문 검색 엔진 (예: Google Scholar, Semantic Scholar)",
+    ...
+2025-11-05 12:49:57 | 라우팅 결정 (파싱): ```json
+2025-11-05 12:49:57 | 메타데이터 업데이트: ['success', 'error']
+2025-11-05 12:49:57 | UI 에러: '```json'
+2025-11-05 12:49:57 | 메타데이터 업데이트: ['success', 'error']
+2025-11-05 12:50:07 | 메타데이터 업데이트: ['user_query']
+2025-11-05 12:50:07 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 12:50:07 | 라우터 노드 실행: Attention이 왜 필요해?
+2025-11-05 12:50:07 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 12:50:07 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 12:50:10 | 라우팅 결정 (원본): ```json
+{
+  "tools": [
+    {
+      "name": "AI 개념 설명 도구",
+      "query": "Attention 메커니즘의 필요성과 작동 원리...
+2025-11-05 12:50:10 | 라우팅 결정 (파싱): ```json
+2025-11-05 12:50:10 | 메타데이터 업데이트: ['success', 'error']
+2025-11-05 12:50:10 | UI 에러: '```json'
+2025-11-05 12:50:10 | 메타데이터 업데이트: ['success', 'error']
+2025-11-05 12:50:13 | 메타데이터 업데이트: ['user_query']
+2025-11-05 12:50:13 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 12:50:13 | 라우터 노드 실행: AI 모델의 발전 과정을 간단히 설명해줘
+2025-11-05 12:50:13 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 12:50:13 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 12:50:16 | 라우팅 결정 (원본): ```json
+{
+  "tools": [
+    {
+      "name": "학술 데이터베이스 검색",
+      "query": "AI 모델 발전 역사 주요 단계 간단한 설명"...
+2025-11-05 12:50:16 | 라우팅 결정 (파싱): ```json
+2025-11-05 12:50:16 | 메타데이터 업데이트: ['success', 'error']
+2025-11-05 12:50:16 | UI 에러: '```json'
+2025-11-05 12:50:16 | 메타데이터 업데이트: ['success', 'error']
+2025-11-05 12:50:18 | 메타데이터 업데이트: ['user_query']
+2025-11-05 12:50:18 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 12:50:18 | 라우터 노드 실행: Backpropagation 수식의 의미를 설명해줘
+2025-11-05 12:50:18 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 12:50:18 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 12:50:23 | 라우팅 결정 (원본): ```json
+{
+  "tools": [
+    {
+      "name": "Google Scholar",
+      "query": "Backpropagation 수식 의미 쉬...
+2025-11-05 12:50:23 | 라우팅 결정 (파싱): ```json
+2025-11-05 12:50:23 | 메타데이터 업데이트: ['success', 'error']
+2025-11-05 12:50:23 | UI 에러: '```json'
+2025-11-05 12:50:23 | 메타데이터 업데이트: ['success', 'error']
+2025-11-05 12:50:36 | 메타데이터 업데이트: ['user_query']
+2025-11-05 12:50:36 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 12:50:36 | 라우터 노드 실행: Reinforcement Learning이란 무엇이며, 어떻게 작동해?
+2025-11-05 12:50:36 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 12:50:36 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 12:50:55 | 라우팅 결정 (원본): {
+  "tools": [
+    {
+      "name": "학술검색(ArXiv/Google Scholar)",
+      "query": "Reinforcement Learn...
+2025-11-05 12:50:55 | 라우팅 결정 (파싱): {
+2025-11-05 12:50:55 | 메타데이터 업데이트: ['success', 'error']
+2025-11-05 12:50:55 | UI 에러: '{'
+2025-11-05 12:50:55 | 메타데이터 업데이트: ['success', 'error']
+2025-11-05 12:51:06 | 메타데이터 업데이트: ['user_query']
+2025-11-05 12:51:06 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 12:51:06 | 라우터 노드 실행: GAN(Generative Adversarial Network)의 기본 개념 설명해줘
+2025-11-05 12:51:06 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 12:51:06 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 12:51:24 | 라우팅 결정 (원본): {
+  "tools": [
+    {
+      "name": "학술검색",
+      "query": "Generative Adversarial Nets Goodfellow 20...
+2025-11-05 12:51:24 | 라우팅 결정 (파싱): {
+2025-11-05 12:51:24 | 메타데이터 업데이트: ['success', 'error']
+2025-11-05 12:51:24 | UI 에러: '{'
+2025-11-05 12:51:24 | 메타데이터 업데이트: ['success', 'error']
+2025-11-05 12:51:27 | 메타데이터 업데이트: ['user_query']
+2025-11-05 12:51:27 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 12:51:27 | 라우터 노드 실행: 2022년 이후 Attention 메커니즘 관련 논문을 연도별로 보여줘
+2025-11-05 12:51:27 | 다중 요청 감지: ['년', '관련', '논문'] → ['text2sql', 'search_paper']
+2025-11-05 12:51:27 | 패턴 설명: 연도별 특정 주제 논문
+2025-11-05 12:51:27 | 순차 실행 도구: text2sql → search_paper
+2025-11-05 12:51:27 | Text-to-SQL 노드 실행: 2022년 이후 Attention 메커니즘 관련 논문을 연도별로 보여줘
+2025-11-05 12:51:28 | SQL 실행 완료: 421 글자
+2025-11-05 12:51:28 | 도구 실행 성공: text2sql
+2025-11-05 12:51:28 | 메타데이터 업데이트: ['success', 'response_time_ms']
+2025-11-05 12:51:28 | 메타데이터 업데이트: ['tool_used']
+2025-11-05 12:51:45 | 메타데이터 업데이트: ['user_query']
+2025-11-05 12:51:45 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 12:51:45 | 라우터 노드 실행: 2023년 이후 Self-supervised learning 관련 논문 찾아줘
+2025-11-05 12:51:45 | 다중 요청 감지: ['년', '찾', '논문'] → ['text2sql', 'search_paper']
+2025-11-05 12:51:45 | 패턴 설명: 연도별 논문 통계 후 검색
+2025-11-05 12:51:45 | 순차 실행 도구: text2sql → search_paper
+2025-11-05 12:51:45 | Text-to-SQL 노드 실행: 2023년 이후 Self-supervised learning 관련 논문 찾아줘
+2025-11-05 12:51:45 | SQL 실행 완료: 282 글자
+2025-11-05 12:51:45 | 도구 실행 실패 감지: text2sql
+2025-11-05 12:51:45 | 실패 사유: 정규식 패턴 매치: .*결과가?\s*없.*
+2025-11-05 12:51:45 | ============================================================
+2025-11-05 12:51:45 | Fallback Router 실행
+2025-11-05 12:51:45 | 실패한 도구: text2sql
+2025-11-05 12:51:45 | 실패 사유: 정규식 패턴 매치: .*결과가?\s*없.*
+2025-11-05 12:51:45 | 재시도 횟수: 0/3
+2025-11-05 12:51:45 | 모든 도구 시도 완료
+2025-11-05 12:51:45 | 최종 Fallback: general 도구 선택
+2025-11-05 12:51:45 | 다음 도구로 전환: general
+2025-11-05 12:51:45 | 전환 이유: text2sql 도구가 실패했기 때문
+2025-11-05 12:51:45 | Fallback Chain:
+2025-11-05 12:51:45 | ============================================================
+2025-11-05 12:51:45 | 일반 답변 노드 실행: 2023년 이후 Self-supervised learning 관련 논문 찾아줘
+2025-11-05 12:51:45 | 난이도: hard
+2025-11-05 12:51:45 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 12:51:45 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 12:51:45 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 12:51:45 | 시스템 프롬프트 저장 완료
+2025-11-05 12:51:45 | 최종 프롬프트 저장 완료
+2025-11-05 12:51:48 | 평가 결과 저장: evaluation_20251105_125148.json
+2025-11-05 12:53:34 | 수준 'intermediate' 답변 생성 완료: 8663 글자
+2025-11-05 12:53:34 | ================================================================================
+2025-11-05 12:53:34 | [intermediate 답변 전체 내용]
+2025-11-05 12:53:34 | 아래는 2023년 이후(Self-supervised learning, SSL) 주요 논문들을 모달리티별로 정리한 큐레이션입니다. 각 방법의 핵심 아이디어(대조·마스킹·JEPA 등), 장단점, 실무 적용 포인트와 함께, 핵심 손실함수의 파이토치 예제 코드도 포함했습니다. 필요하시면 특정 도메인(비전·오디오·비디오·시계열·의료 등)으로 좁혀 상세 리뷰/비교표/재현용 스크립트를 드릴 수 있습니다.
+
+1) 이미지(비전) SSL
+- DINOv2: Learning Robust Visual Features without Supervision (Meta, 2023)
+  - 요지: ViT를 교사-학생 자가증류(EMA teacher, centering, sharpening, multi-crop)로 학습. 대규모 무라벨 데이터(LVD-142M) 큐레이션과 스케일링 레시피로 선형 프로빙/전이 성능 대폭 향상.
+  - 방법: 비대칭 teacher-student, 다중뷰 증강, non-contrastive(분산/정규화로 collapse 방지).
+  - 장점: 강력한 전이, 다운스트림에서 적은 라벨로도 우수. 단점: 증강/하이퍼 파고들기와 대규모 데이터·연산 필요.
+  - 코드: facebookresearch/dinov2 (공식)
+
+- I-JEPA: Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture (Meta/LeCun, 2023; ICLR 2024)
+  - 요지: JEPA(공동 임베딩 예측). 픽셀 복원 대신 잠재공간 예측. 컨텍스트 패치로부터 가려진 타깃 패치의 representation을 직접 예측.
+  - 방법: target encoder(gradient stop) + context encoder + predictor; 마스킹된 블록에 대해 L2/코사인 손실. 대조학습/픽셀 재구성 없이 collapse를 구조적으로 방지.
+  - 장점: 적은 증강 의존, 저주파 복원 편향 없음, 스케일 효율. 단점: 구현 복잡도와 마스킹 설계 감도.
+  - 코드: facebookresearch/ijepa
+
+- MAGE: Masked Generative Encoder (2023, NeurIPS)
+  - 요지: 마스킹 기반 생성적 프리텍스트와 판별적 인코더의 결합. MIM(픽셀/feature 복원)과 contrastive의 장점 절충.
+  - 장점: 다양한 다운스트림에 안정적. 단점: 학습 레시피가 다소 복잡.
+
+- 추가: Masked Feature Prediction 개선 계열(예: MaskFeat 계열 후속, SimMIM 계열 후속), SemMAE/MAE 변형(semantic-aware masking 등)도 2023~24에 다수 보고.
+
+2) 비디오 SSL
+- VideoMAE V2: Scaling Video Masked Autoencoders with Dual Masking and Efficient Sampling (2023)
+  - 요지: VideoMAE(2022)의 확장. 시공간 이중 마스킹, 효율적 프레임 샘플링, 더 큰 모델/데이터로 스케일.
+  - 장점: 영상 인식/탐지/행동분류 전반에 강함. 단점: GPU 메모리·I/O 부담 큼.
+  - 코드: MCG-NJU/VideoMAE
+
+- V-JEPA: Joint-Embedding Predictive Architecture for Video (Meta, 2024)
+  - 요지: 영상에 JEPA를 적용. 현재/미래 스패티오-템포럴 토큰 잠재를 직접 예측.
+  - 장점: 장면 동역학 학습에 유리, 픽셀 복원 대비 고수준 표현. 단점: 마스킹/뷰 설계가 성능에 민감.
+
+3) 오디오/음성 SSL
+- BEATs: Audio Pre-Training with Acoustic Tokenizers (Microsoft, 2023)
+  - 요지: teacher 모델이 만든 음향 토큰/feature를 예측하는 BERT-스타일 프리트레이닝.
+  - 장점: 라벨 없이 ASR/음향이벤트/스피커 태스크 전이 우수. 단점: teacher 의존성·토크나이저 편향.
+  - 코드: microsoft/BEATs
+
+- data2vec 2.0 (Meta, 2023)
+  - 요지: 음성·비전·텍스트 공통 JEPA류 프레임워크. teacher의 잠재표현을 학생이 예측.
+  - 장점: 멀티모달 범용 SSL, 효율적. 단점: 구현·튜닝 복잡.
+
+4) 멀티모달 SSL
+- ImageBind: One Embedding Space To Bind Them All (Meta, 2023)
+  - 요지: 이미지-텍스트-오디오-Depth-IMU-열화상 등 이질 모달을 라벨 없이 동시 임베딩 정렬. 공존(co-occurrence) 기반 대조/정렬.
+  - 장점: 제로샷 cross-modal retrieval/전이. 단점: 데이터 소스 품질·편향 관리 필요.
+  - 코드: facebookresearch/ImageBind
+
+5) 3D/포인트클라우드 SSL
+- Point-MAE v2 / 3D MAE 변형들 (2023)
+  - 요지: 포인트클라우드에 마스킹-복원 프레임워크 확장, sparse/voxel 혼합 토큰화, 인코더 경량화.
+  - 장점: 라벨 부족한 3D 도메인에 효과적. 단점: 데이터 전처리/샘플링 설계 난이도.
+
+핵심 알고리즘 분류와 비교
+- Contrastive(InfoNCE)
+  - 아이디어: 같은 인스턴스의 증강 뷰는 끌어당기고(positive), 다른 인스턴스는 밀어냄(negative).
+  - 장점: 강한 선형 프로빙, 시멘틱 클러스터링. 단점: 대배치/메모리뱅크 필요, 증강 의존도 높음.
+  - 손실: L = -log exp(sim(q,k+)/τ) / Σ_j exp(sim(q,k_j)/τ)
+
+- Masked Image/Video Modeling(MIM/MVM)
+  - 아이디어: 입력 일부 마스킹 후 픽셀/feature 복원. MAE는 경량 decoder, heavy masking(60~90%).
+  - 장점: 대배치/네거티브 불필요, 안정적 스케일링. 단점: 저수준 복원 편향, 고수준 의미 학습 한계.
+
+- Non-contrastive Distillation(BYOL/DINO/DINOv2)
+  - 아이디어: teacher-student로 같은 이미지 뷰 간 임베딩 일치. EMA/정규화로 collapse 방지.
+  - 장점: 네거티브 불필요, 강한 전이. 단점: 레시피 복잡, 증강 설계 민감.
+
+- JEPA(I-JEPA/V-JEPA, data2vec 계열)
+  - 아이디어: 보이는 컨텍스트로 가려진 타깃의 잠재표현을 직접 예측(픽셀 복원·네거티브 불필요).
+  - 장점: 의미 표현에 집중, 증강 의존 낮음, 스케일 효율. 단점: 마스킹/뷰/아키텍처 설계 중요.
+
+실무 적용 시 고려사항
+- 데이터: 대규모 무라벨 수집 시 중복 제거나 품질 필터링(DINOv2는 aesthetic/near-dup/NSFW 필터) 성능 영향 큼.
+- 증강: contrastive는 강한 컬러/크롭/멀티크롭, MIM/JEPA는 과도한 색 왜곡 지양, 공간·블록 마스킹 비율(이미지 40~75%, 비디오 시공간 혼합).
+- 모델/옵티마이저: ViT-B/L/H + AdamW, weight decay 0.05~0.2, cosine schedule, warmup; DINO류는 teacher EMA 0.996~0.9995.
+- 배치/분산: contrastive는 큰 글로벌 배치(>= 1024) 유리, MIM/JEPA는 상대적으로 덜 민감하나 I/O와 마스크 샘플링 효율 중요.
+- 평가: 선형 프로빙 vs 풀 파인튜닝, k-NN, 검출/세그/키포인트/비디오 전이. 도메인 특화(의료/위성/산업)일수록 파인지닝 전략이 성능 좌우.
+
+핵심 손실/학습 루프 미니멀 PyTorch 예시
+
+1) Contrastive InfoNCE (SimCLR식)
+import torch
+import torch.nn.functional as F
+
+def info_nce_loss(z1, z2, temperature=0.1):
+    # z1, z2: [B, D], L2 normalize
+    z1 = F.normalize(z1, dim=-1)
+    z2 = F.normalize(z2, dim=-1)
+    B = z1.size(0)
+    reps = torch.cat([z1, z2], dim=0)                     # [2B, D]
+    sim = reps @ reps.t() / temperature                   # [2B, 2B]
+    mask = torch.eye(2*B, dtype=torch.bool, device=sim.device)
+    sim.masked_fill_(mask, -1e9)
+
+    # positives are on (i, i+B) and (i+B, i)
+    pos = torch.cat([torch.arange(B)+B, torch.arange(B)], dim=0).to(sim.device)
+    target = pos
+    loss = F.cross_entropy(sim, target)
+    return loss
+
+2) MAE식 마스킹 복원(MSE on pixels or features)
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+class SimpleMAE(nn.Module):
+    def __init__(self, encoder, decoder, patch_embed, mask_ratio=0.75):
+        super().__init__()
+        self.encoder = encoder
+        self.decoder = decoder
+        self.patch_embed = patch_embed
+        self.mask_ratio = mask_ratio
+
+    def forward(self, imgs):
+        # patchify
+        patches = self.patch_embed(imgs)    # [B, N, D]
+        B, N, D = patches.shape
+
+        # random mask
+        num_mask = int(self.mask_ratio * N)
+        idx = torch.rand(B, N, device=imgs.device).argsort(dim=1)
+        keep_idx = idx[:, :-num_mask]
+        mask_idx = idx[:, -num_mask:]
+
+        patches_keep = torch.gather(patches, 1, keep_idx[..., None].expand(-1, -1, D))
+        enc = self.encoder(patches_keep)    # [B, Nk, De]
+
+        # decode to reconstruct masked tokens
+        dec_in = self._insert_mask_tokens(enc, keep_idx, N)
+        rec = self.decoder(dec_in)          # [B, N, patch_dim]
+        # compute loss only on masked tokens
+        target = self._patchify_pixels(imgs)  # [B, N, patch_dim]
+        target_masked = torch.gather(target, 1, mask_idx[..., None].expand(-1, -1, target.size(-1)))
+        rec_masked = torch.gather(rec, 1, mask_idx[..., None].expand(-1, -1, rec.size(-1)))
+        loss = F.mse_loss(rec_masked, target_masked)
+        return loss
+
+    def _insert_mask_tokens(self, enc, keep_idx, N):
+        # 구현 단순화: 자리 채우기용 mask token 생성 후 원래 순서로 복원
+        B, Nk, De = enc.shape
+        mask_tokens = enc.new_zeros(B, N - Nk, De)
+        tokens = torch.cat([enc, mask_tokens], dim=1)
+        # 복원 인덱스는 생략(학습 코드에서는 복원 permutation 필요)
+        return tokens
+
+3) I-JEPA식 잠재 예측(타깃 임베딩 예측, stop-grad)
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+class IJEPALoss(nn.Module):
+    def __init__(self, context_encoder, target_encoder, predictor, proj_dim=1024, mask_generator=None):
+        super().__init__()
+        self.context_encoder = context_encoder
+        self.target_encoder = target_encoder
+        self.predictor = predictor
+        self.mask_generator = mask_generator
+
+    @torch.no_grad()
+    def _stop_grad(self, x):
+        return x.detach()
+
+    def forward(self, img):
+        # generate block-wise masks: visible(ctx_mask) and target blocks(tgt_mask)
+        ctx_mask, tgt_mask = self.mask_generator(img)   # boolean masks over patch grid
+        # encode
+        z_ctx = self.context_encoder(img, ctx_mask)     # [B, N_ctx, D]
+        with torch.no_grad():
+            z_tgt = self._stop_grad(self.target_encoder(img, tgt_mask))  # [B, N_tgt, D]
+        # predict target embeddings from context tokens
+        pred = self.predictor(z_ctx, tgt_mask)          # [B, N_tgt, D]
+        # cosine or L2 loss on target blocks
+        pred = F.normalize(pred, dim=-1)
+        z_tgt = F.normalize(z_tgt, dim=-1)
+        loss = 2 - 2 * (pred * z_tgt).sum(dim=-1).mean()
+        return loss
+
+비교 요약
+- 대규모 이미지 표현: DINOv2(자가증류)와 I-JEPA(JEPA)가 2023~24 기준 강력한 축. 대조학습 대비 적은 증강 의존/스케일 효율이 장점.
+- 영상: VideoMAE v2(마스킹 복원) vs V-JEPA(잠재 예측). 동역학/미래예측이 중요하면 V-JEPA가 유리, 넓은 벤치마크 커버리지는 VideoMAE v2가 안전한 선택.
+- 오디오/음성: BEATs, data2vec 2.0이 범용 전이 성능 우수.
+- 멀티모달: ImageBind가 라벨 없이 크로스모달 임베딩 정렬의 대표작.
+
+참고(검색 키워드와 공식 저장소)
+- DINOv2 — “DINOv2: Learning robust visual features without supervision”, GitHub: facebookresearch/dinov2
+- I-JEPA — “Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture”, GitHub: facebookresearch/ijepa
+- V-JEPA — “Joint-Embedding Predictive Architecture for Video”, Meta AI resources
+- VideoMAE V2 — “Scaling Video Masked Autoencoders…”, GitHub: MCG-NJU/VideoMAE
+- BEATs — “Audio Pre-Training with Acoustic Tokenizers”, GitHub: microsoft/BEATs
+- data2vec 2.0 — fairseq examples: facebookresearch/fairseq
+- ImageBind — “One Embedding Space to Bind Them All”, GitHub: facebookresearch/ImageBind
+- MAGE — “Masked Generative Encoder”, 검색 키워드: “MAGE NeurIPS 2023”
+
+원하시면
+- 특정 모달리티(예: 의료 영상, 위성/원격탐사, 로보틱스) 중심으로 2023~2024 논문만 골라, 벤치마크 점수/학습 레시피/리소스 요구사항을 표로 정리하고
+- BibTeX와 함께 재현 코드 스캐폴드(train.py, config, 데이터 파이프라인)까지 제공해 드릴게요. 어느 분야를 더 깊게 보길 원하시나요?
+2025-11-05 12:53:34 | ================================================================================
+2025-11-05 12:53:34 | 수준 'advanced' 답변 생성 시작
+2025-11-05 12:53:34 | 시스템 프롬프트 저장 완료
+2025-11-05 12:53:34 | 최종 프롬프트 저장 완료
+2025-11-05 12:55:23 | 수준 'advanced' 답변 생성 완료: 4871 글자
+2025-11-05 12:55:23 | ================================================================================
+2025-11-05 12:55:23 | [advanced 답변 전체 내용]
+2025-11-05 12:55:23 | 요청 범위 메모: 제 지식은 2024-10까지의 공개 논문을 포함합니다. 아래는 2023년 이후(= 2023–2024 기간) Self-Supervised Learning(SSL)의 핵심 논문과 동향을 분야별로 정리한 것입니다. 2025년 최신 업데이트나 특정 하위분야(비전/음성/그래프/시계열 등)로 더 좁혀 드리길 원하시면 알려주세요.
+
+핵심 논문(2023–2024)
+- Vision (이미지)
+  - Assran et al., 2023, I-JEPA: Image-based Joint-Embedding Predictive Architecture. 예측적 자기지도(복원 대신 잠재표현 예측) 패러다임을 정립. 대규모 ViT에서 라벨 없이 강력한 선형 프로브/전이 성능 보고.
+  - Oquab et al., 2023, DINOv2: 대규모 비전 자기지도 사전학습의 강력한 베이스라인. 라벨 없는 데이터 큐레이션+ViT 스케일링으로 분류/검출/세그먼테이션 전이에서 SOTA급.
+  - Bao et al., 2023, CAE v2: Masked Autoencoder(MAE) 계열의 문맥 예측 강화. 재구성 편향을 줄이고 전이 성능 개선.
+- Vision (비디오)
+  - Wang et al., 2023, VideoMAE v2: 비디오용 MAE의 스케일링/효율화. Kinetics, Something-Something 등에서 비지도 사전학습 후 SOTA 전이 성능.
+  - Assran et al., 2024, V-JEPA: 비디오용 JEPA. 시간적 예측을 통해 단기 변형에는 불변, 장기 변화에는 민감한 표현을 학습.
+- 멀티모달(비전-언어; 약지도/자기지도 경계)
+  - Fang et al., 2023, EVA-CLIP: 대규모 이미지-텍스트 대조학습 스케일링과 로버스트니스 개선.
+  - Zhai et al., 2024, SigLIP 2: CLIP 대비 단순한 시그모이드 대조목적과 데이터/모델 스케일링으로 멀티모달 전반 성능 향상. (텍스트 짝 데이터를 쓰므로 “완전” 자기지도는 아님)
+- 음성/오디오
+  - Pratap et al., 2023, MMS: 초대규모 자기지도 음성 사전학습으로 다언어 인식/합성 기초모델. 레이블 희소 언어에서 강점.
+- 그래프
+  - Hou et al., 2023, GraphMAE2: 그래프용 마스킹-복원 기반 SSL의 안정성/전이 성능 강화(노드·링크 예측, 분류 전이).
+- 시계열
+  - (대표 동향) Masked reconstruction·변형-불변 대조학습·예측적(autoregressive/JEPA류) 목적의 스케일링. 도메인(의료/산업) 특화 마스킹 설계가 성능 좌우.
+
+핵심 목적함수 개요(수식)와 복잡도
+- 대조학습(InfoNCE; SimCLR/CLIP 계열)
+  - LInfoNCE = − Σi log [ exp(sim(z_i, z_i+)/τ) / Σj exp(sim(z_i, z_j)/τ) ], sim(u,v)=u^T v / (||u||·||v||)
+  - 배치당 복잡도: 유사도 계산 O(B^2 d), 정규화 O(B^2). 메모리 뱅크/모멘텀 인코더(MoCo류)로 음수 샘플 수를 확장.
+  - 장점: 불변 표현에 강함. 단점: 양/음수 정의 민감, O(B^2) 스케일 병목.
+- 마스킹-복원(MAE/CAE/VideoMAE)
+  - 입력 x를 마스크 M로 부분 관측 xM, 인코더 f로 잠재 h=f(xM), 디코더 g로 복원 x̂=g(h); Lrec = ||x − x̂||_p (대개 p=2) 또는 지각적 손실.
+  - 시퀀스 길이 N, 잠재 차원 d, 마스크율 m일 때, 인코더 FLOPs ~ O(B (1−m) N d^2) (ViT 기준), 디코더 O(B N d^2), m↑로 인코더 비용↓. 고해상도/장시퀀스에 효율적.
+  - 장점: 음수 샘플 불필요, 스케일에 유리. 단점: 픽셀/스펙트럼 복원 편향.
+- JEPA(I/V-JEPA)
+  - 컨텍스트 c와 타깃 t를 분할(공간/시간). 타깃 임베딩 y = stopgrad(ϕ(t)), 예측 p = ψ(f(c)); 손실 LJEPA = ||p − y||_2^2 (또는 cosine/MSE). 복원 대신 잠재예측이므로 저주파 수월성/저수준 복원 편향 감소.
+  - 복잡도: 인코더 두 번(컨텍스트/타깃) O(BNd^2) + 예측기 ψ의 O(Bd^2); 대조학습처럼 O(B^2) 유사도 계산이 없어 대규모 배치에 유리.
+  - 이론적 관점: mutual information 최대화 대신 예측가능한 부분만 보존하는 추상화 가설(LeCun, 2022 제안)을 실증.
+
+실험·벤치마크 요약(주요 경향)
+- DINOv2(Oquab et al., 2023): ImageNet-1K 선형 프로브·k-NN에서 강력, COCO/Cityscapes/ ADE20K 전이에서 감독 대비 경쟁력 보고. 데이터 큐레이션·학습 레시피가 결정적.
+- I-JEPA(Assran et al., 2023): ImageNet 선형 프로브에서 MAE 대비 우수, 적은 학습 스텝으로 수렴. 디코더가 없는 구조로 추론 효율성↑.
+- VideoMAE v2(Wang et al., 2023): Kinetics-400/600, Something-Something V2에서 자기지도 사전학습 후 미세조정 시 SOTA 혹은 준SOTA. 높은 마스크율과 sparse tube 샘플링이 효과적.
+- V-JEPA(Assran et al., 2024): 비디오에서 시간적 예측으로 행동인식·템포럴 전이에서 강함. 복원 없이 잠재예측이라 계산·스케일 효율.
+- EVA-CLIP(Fang et al., 2023), SigLIP 2(Zhai et al., 2024): 이미지-텍스트 대조에서 제로샷/리트리벌/VL 전이 개선. 완전 자기지도는 아니지만 대조목적 설계의 최신 추세를 대변.
+
+최근 연구 동향 비교
+- 복원(reconstruction) → 예측(prediction)으로: MAE 계열의 한계를 줄이고 JEPA류가 고수준 의미표현에 유리함을 보임(Assran et al., 2023/2024).
+- 불변(invariance) + 등변(equivariance) 공존: 순수 불변 대조의 한계를 보완하려 회전/기하 변환에 대한 등변 제약을 추가하는 SSL이 확산(예: equivariant regularization, 2023–2024 다수 후속).
+- 비디오·시계열로 확장: 높은 마스크율·튜브 마스킹, 장문맥 모델링(메모리/스트라이드) 등 효율 중심 설계.
+- 데이터 스케일·큐레이션의 중요성: DINOv2는 레시피·필터링이 핵심임을 보였고, 멀티모달(이미지-텍스트)도 캡션 품질/필터가 성능 좌우.
+- 평가 프로토콜의 다변화: 선형 프로브, 저샷, 분류 외 검출/세그/리트리벌/로버스트니스/OOD/공정성 등 다면 평가.
+
+알고리즘 복잡도 비교(요지)
+- 대조학습: O(B^2 d) 유사도 → 큰 B에서 병목. 메모리/시간 비용 큼.
+- MAE/CAE: O(B (1−m) N d^2) 인코더 우세, m↑로 비용 감소. 고해상도 시 효율적.
+- JEPA: O(B N d^2), pairwise 유사도 없음. 디코더 제거로 메모리·시간 효율. 비디오 확장 시 튜브 샘플링으로 시간축 비용 제어.
+
+미해결 문제와 향후 연구 방향
+- 자기지도 평가 표준화: 전이 세팅/데이터 누수/하이퍼 최적화 공정성.
+- 등변성 학습의 일반해: 변환군(G) 전반에 대한 이론적 보장과 실용적 레시피 결합.
+- 장문맥 시공간 모델링: 수만 프레임/초장기 시계열에서의 메모리-계산 트레이드오프(부분 관측, 압축 상태, 기호적 요약).
+- 데이터 큐레이션·저작권/편향: “라벨 없는” 데이터의 편향 제어와 합법성.
+- 멀티모달에서의 “진정한” 자기지도: 텍스트 의존 없이 다감각 정렬을 학습하는 방법(예: ImageBind 계열의 확장).
+- 경량화·온디바이스 SSL: 사전학습·어댑테이션의 효율적 저자원화.
+
+참고 문헌(선정)
+- Assran, M. et al., 2023. Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture (I-JEPA).
+- Assran, M. et al., 2024. V-JEPA: Self-Supervised Learning from Video with Joint-Embedding Prediction.
+- Oquab, M. et al., 2023. DINOv2: Learning Robust Visual Features without Supervision.
+- Bao, H. et al., 2023. CAE v2: Context Autoencoders for Self-Supervised Representation Learning.
+- Wang, J. et al., 2023. VideoMAE v2: Scaling Video Masked Autoencoders with Transformers.
+- Fang, Y. et al., 2023. EVA-CLIP: Improved Training of CLIP at Scale.
+- Zhai, X. et al., 2024. SigLIP 2: Multimodal Contrastive Learning with a Sigmoid Loss at Scale.
+- Pratap, V. et al., 2023. MMS: Scaling Speech Self-Supervision to Massive Multilingual Data.
+- Hou, Z. et al., 2023. GraphMAE2: Revisiting Masked Autoencoders for Graphs.
+
+원하시면
+- 특정 하위 분야(예: 비전-이미지 vs 비디오 vs 음성 vs 그래프 vs 시계열)
+- 과제(분류/검출/세그/리트리벌/로버스트니스)
+- 형식(BibTeX/CSV)과 함께, 2024년 논문 위주로 더 많은 타이틀과 링크, 간단 요약, 데이터셋·성능 표, 연산량(FLOPs/Throughput)까지 정리해 드리겠습니다.
+2025-11-05 12:55:23 | ================================================================================
+2025-11-05 12:55:23 | 도구 실행 성공: general (fallback 도구)
+2025-11-05 12:55:23 | 메타데이터 업데이트: ['success', 'response_time_ms']
+2025-11-05 12:55:23 | 메타데이터 업데이트: ['tool_used']
+2025-11-05 12:55:23 | 용어 추출 시작 (범위: 1-32개)
+2025-11-05 12:55:23 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 12:55:23 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 12:57:06 | LLM 응답: {
+  "terms": [
+    {
+      "term": "Self-Supervised Learning (SSL)",
+      "definition": "레이블 없이 데이터 자체에서 감독 신호를 만들고 표현을 학습하는 방법론이다. 대조, 마스킹 복원, 잠재 예측 등 다양한 목적함수를 사용한다.",
+      "easy_explanation": "정답...
+2025-11-05 12:57:06 | 용어 추출 실패: Invalid \escape: line 7 column 84 (char 380)
+2025-11-05 12:57:39 | 평가 결과 저장: evaluation_20251105_125739.json
+2025-11-05 12:57:39 | 대화 저장: conversation_hard_20251105_125739.json (5개 메시지)
+2025-11-05 12:58:49 | 메타데이터 업데이트: ['user_query']
+2025-11-05 12:58:49 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 12:58:49 | 라우터 노드 실행: 2022년 이후 Attention 메커니즘 관련 논문을 연도별로 보여줘
+2025-11-05 12:58:49 | 다중 요청 감지: ['년', '관련', '논문'] → ['text2sql', 'search_paper']
+2025-11-05 12:58:49 | 패턴 설명: 연도별 특정 주제 논문
+2025-11-05 12:58:49 | 순차 실행 도구: text2sql → search_paper
+2025-11-05 12:58:49 | Text-to-SQL 노드 실행: 2022년 이후 Attention 메커니즘 관련 논문을 연도별로 보여줘
+2025-11-05 12:58:50 | SQL 실행 완료: 452 글자
+2025-11-05 12:58:50 | 도구 실행 성공: text2sql
+2025-11-05 12:58:50 | 메타데이터 업데이트: ['success', 'response_time_ms']
+2025-11-05 12:58:50 | 메타데이터 업데이트: ['tool_used']
+2025-11-05 12:59:03 | 평가 결과 저장: evaluation_20251105_125903.json
+2025-11-05 12:59:03 | 대화 저장: conversation_hard_20251105_125739.json (6개 메시지)
+2025-11-05 12:59:05 | 메타데이터 업데이트: ['user_query']
+2025-11-05 12:59:05 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 12:59:05 | 라우터 노드 실행: "Attention Is All You Need" 논문의 내용을 요약해줘
+2025-11-05 12:59:05 | 다중 요청 감지: ['논문', '요약'] → ['search_paper', 'summarize']
+2025-11-05 12:59:05 | 패턴 설명: 논문 + 요약 키워드
+2025-11-05 12:59:05 | 순차 실행 도구: search_paper → summarize
+2025-11-05 12:59:06 | pgvector 검색 기록: search_paper
+2025-11-05 12:59:06 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 12:59:06 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 12:59:06 | 시스템 프롬프트 저장 완료
+2025-11-05 12:59:06 | 최종 프롬프트 저장 완료
+2025-11-05 13:00:38 | 시스템 프롬프트 저장 완료
+2025-11-05 13:00:38 | 최종 프롬프트 저장 완료
+2025-11-05 13:02:07 | 도구 실행 성공: search_paper
+2025-11-05 13:02:07 | 메타데이터 업데이트: ['success', 'response_time_ms']
+2025-11-05 13:02:07 | 메타데이터 업데이트: ['tool_used']
+2025-11-05 13:02:07 | 용어 추출 시작 (범위: 1-32개)
+2025-11-05 13:02:07 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 13:02:07 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 13:03:25 | 메타데이터 업데이트: ['user_query']
+2025-11-05 13:03:25 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 13:03:25 | 라우터 노드 실행: 요약한 내용을 마크다운 형식으로 깔끔하게 정리해줘
+2025-11-05 13:03:25 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 13:03:25 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 13:03:38 | LLM 응답: {
+  "terms": [
+    {
+      "term": "Transformer",
+      "definition": "순환이나 합성곱 없이 전적으로 어텐션으로 구성된 시퀀스 모델 아키텍처이다. 병렬화가 뛰어나면서 장거리 의존성 학습에 강하다.",
+      "easy_explanation": "문장을 이해할 때, 모두가 동시에 서로의 말을 참고하며...
+2025-11-05 13:03:38 | 추출된 용어 수: 32
+2025-11-05 13:03:38 | IT 용어 아님 (필터링): BLEU
+2025-11-05 13:03:38 | 용어 검증 완료: 32개 → 31개 (IT 필터링) → 31개 (최대 개수 제한)
+2025-11-05 13:03:38 | glossary 테이블에 31개 용어 저장 시작
+2025-11-05 13:03:38 | 용어 이미 존재 (건너뜀): Transformer
+2025-11-05 13:03:38 | 용어 이미 존재 (건너뜀): Self-Attention
+2025-11-05 13:03:38 | 용어 저장 성공: Scaled Dot-Product Attention
+2025-11-05 13:03:38 | 용어 저장 성공: Multi-Head Attention
+2025-11-05 13:03:38 | 용어 이미 존재 (건너뜀): Positional Encoding
+2025-11-05 13:03:38 | 용어 이미 존재 (건너뜀): Encoder-Decoder Architecture
+2025-11-05 13:03:38 | 용어 저장 성공: Masked Self-Attention
+2025-11-05 13:03:38 | 용어 저장 성공: Cross-Attention (Encoder-Decoder Attention)
+2025-11-05 13:03:38 | 용어 저장 성공: Position-wise Feed-Forward Network (FFN)
+2025-11-05 13:03:38 | 용어 저장 성공: Residual Connection
+2025-11-05 13:03:38 | 용어 이미 존재 (건너뜀): Layer Normalization
+2025-11-05 13:03:38 | 용어 저장 성공: Adam
+2025-11-05 13:03:38 | 용어 저장 성공: Noam 러닝레이트 스케줄
+2025-11-05 13:03:38 | 용어 저장 성공: Dropout
+2025-11-05 13:03:38 | 용어 저장 성공: Label Smoothing
+2025-11-05 13:03:38 | 용어 저장 성공: Sequence-to-Sequence (Seq2Seq)
+2025-11-05 13:03:38 | 용어 저장 성공: Recurrent Neural Network (RNN)
+2025-11-05 13:03:38 | 용어 저장 성공: Convolutional Neural Network (CNN)
+2025-11-05 13:03:38 | 용어 이미 존재 (건너뜀): Linear Attention
+2025-11-05 13:03:38 | 용어 저장 성공: Sparse Attention
+2025-11-05 13:03:38 | 용어 저장 성공: Monotonic Attention
+2025-11-05 13:03:38 | 용어 저장 성공: Softmax
+2025-11-05 13:03:38 | 용어 저장 성공: Kernel Approximation
+2025-11-05 13:03:38 | 용어 저장 성공: Feature Map (커널 특징맵)
+2025-11-05 13:03:38 | 용어 저장 성공: Long-range Dependency
+2025-11-05 13:03:38 | 용어 저장 성공: Autoregressive Decoding
+2025-11-05 13:03:38 | 용어 저장 성공: Inductive Bias (귀납편향)
+2025-11-05 13:03:38 | 용어 저장 성공: Rotary Positional Encoding (RoPE)
+2025-11-05 13:03:38 | 용어 저장 성공: ALiBi (Attention with Linear Biases)
+2025-11-05 13:03:38 | 용어 이미 존재 (건너뜀): Retrieval-Augmented Generation (RAG)
+2025-11-05 13:03:38 | 용어 저장 성공: Computational Complexity O(n^2) in Attention
+2025-11-05 13:03:38 | 용어 저장 완료: 24/31개
+2025-11-05 13:03:46 | 라우팅 결정 (원본): {
+  "tools": [
+    {
+      "name": "MarkdownFormatter",
+      "query": "요약된 텍스트를 마크다운 구조(제목, 핵심 요점 b...
+2025-11-05 13:03:46 | 라우팅 결정 (파싱): {
+2025-11-05 13:03:46 | 메타데이터 업데이트: ['success', 'error']
+2025-11-05 13:03:46 | UI 에러: '{'
+2025-11-05 13:03:46 | 메타데이터 업데이트: ['success', 'error']
+2025-11-05 13:03:58 | 메타데이터 업데이트: ['user_query']
+2025-11-05 13:03:58 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 13:03:58 | 라우터 노드 실행: BERT와 GPT 논문 비교해서 분석하고 저장해줘
+2025-11-05 13:03:58 | 다중 요청 감지: ['비교', '논문', '분석', '저장'] → ['search_paper', 'summarize', 'general', 'save_file']
+2025-11-05 13:03:58 | 패턴 설명: 논문 비교 후 요약, 분석 및 저장
+2025-11-05 13:03:58 | 순차 실행 도구: search_paper → summarize → general → save_file
+2025-11-05 13:03:59 | pgvector 검색 기록: search_paper
+2025-11-05 13:03:59 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 13:03:59 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 13:03:59 | 시스템 프롬프트 저장 완료
+2025-11-05 13:03:59 | 최종 프롬프트 저장 완료
+2025-11-05 13:05:05 | 시스템 프롬프트 저장 완료
+2025-11-05 13:05:05 | 최종 프롬프트 저장 완료
+2025-11-05 13:06:10 | 도구 실행 실패 감지: search_paper
+2025-11-05 13:06:10 | 실패 사유: 정규식 패턴 매치: .*에러.*
+2025-11-05 13:06:10 | ============================================================
+2025-11-05 13:06:10 | Fallback Router 실행
+2025-11-05 13:06:10 | 실패한 도구: search_paper
+2025-11-05 13:06:10 | 실패 사유: 정규식 패턴 매치: .*에러.*
+2025-11-05 13:06:10 | 재시도 횟수: 0/3
+2025-11-05 13:06:10 | 모든 도구 시도 완료
+2025-11-05 13:06:10 | 최종 Fallback: general 도구 선택
+2025-11-05 13:06:10 | 다음 도구로 전환: general
+2025-11-05 13:06:10 | 전환 이유: search_paper 도구가 실패했기 때문
+2025-11-05 13:06:10 | Fallback Chain:
+2025-11-05 13:06:10 | ============================================================
+2025-11-05 13:06:10 | 일반 답변 노드 실행: BERT와 GPT 논문 비교해서 분석하고 저장해줘
+2025-11-05 13:06:10 | 난이도: hard
+2025-11-05 13:06:10 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 13:06:10 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 13:06:10 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 13:06:10 | 시스템 프롬프트 저장 완료
+2025-11-05 13:06:10 | 최종 프롬프트 저장 완료
+2025-11-05 13:07:21 | 수준 'intermediate' 답변 생성 완료: 8339 글자
+2025-11-05 13:07:21 | ================================================================================
+2025-11-05 13:07:21 | [intermediate 답변 전체 내용]
+2025-11-05 13:07:21 | 아래는 BERT(BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding, 2018)와 GPT(Improving Language Understanding by Generative Pre-Training, 2018) 원 논문을 기준으로 한 비교·분석입니다. 마지막에 이 분석 결과를 파일로 저장하는 방법(파이썬 스크립트)도 제공합니다.
+
+1) 한눈에 보는 차이
+- 아키텍처
+  - BERT: Transformer Encoder 스택. 양방향 self-attention.
+  - GPT: Transformer Decoder 스택. 좌→우 causal(미래 차단) self-attention.
+- 사전학습(Objective)
+  - BERT: Masked Language Modeling(MLM) + Next Sentence Prediction(NSP).
+  - GPT: Causal Language Modeling(CLM; next-token prediction).
+- 입력/토크나이저
+  - BERT: [CLS], [SEP], segment(A/B) + position + WordPiece(≈30k).
+  - GPT: 단일 segment + position + BPE(원 GPT는 BooksCorpus 기반 BPE).
+- 사전학습 데이터(원 논문 시점)
+  - BERT: BooksCorpus + English Wikipedia.
+  - GPT: BooksCorpus.
+- 파인튜닝 전략
+  - BERT: 태스크별 작은 헤드 추가(분류, QA span 등).
+  - GPT: 통합된 생성 포맷으로 태스크 입력을 재구성하고, 동일 LM 헤드를 통해 학습(필요시 얕은 헤드 추가).
+- 강점/약점(요약)
+  - BERT: 이해/인코딩 중심 태스크에서 강함(GLUE, SQuAD 등), bidirectional 문맥으로 특징 추출 우수. 텍스트 생성은 약함.
+  - GPT: 생성/완성/요약/대화 등 생성형 태스크에서 자연스러움. 이해형 태스크는 2018 기준 BERT 대비 약함.
+
+2) 학습 목표(수식)와 마스킹 차이
+- GPT의 Causal LM
+  - 목표: 최대화 L_GPT = sum_{t=1..T} log pθ(x_t | x_1..x_{t-1})
+  - 어텐션 마스크: 엄격한 하삼각(causal) 마스크. 미래 토큰 접근 금지.
+- BERT의 MLM(+NSP)
+  - MLM 목표: L_MLM = sum_{i∈M} log pθ(x_i | x_{/M})
+    - M: 15% 정도 뽑힌 마스크 위치 집합
+    - 80% [MASK], 10% 랜덤 토큰, 10% 원토큰 유지
+  - NSP 목표: 두 문장(S_A, S_B)이 실제 이어지는지 이진 분류. L_NSP = log pθ(y | S_A, S_B)
+  - 총 손실: L = L_MLM + λ L_NSP (논문에서는 함께 학습)
+  - 어텐션: 완전 양방향. 모든 토큰이 서로를 참조(단, 마스킹된 위치의 라벨만 손실 계산).
+
+3) 입력 표현과 포맷
+- BERT
+  - [CLS] S_A [SEP] S_B [SEP]
+  - Segment embedding(E_A/E_B), position embedding, token embedding 합
+  - NSP 덕에 두 문장 관계학습 가능(후속 연구에서는 NSP 제거한 RoBERTa가 더 좋았음)
+- GPT
+  - 단일 시퀀스에 special token과 템플릿을 섞어 태스크 포맷팅
+  - 예: premise </delim> hypothesis </delim> [answer token] 식 구성 후, 다음 토큰 예측으로 분류 유도
+
+4) 왜 성능 차이가 났나(2018 시점)
+- 데이터/양방향성: BERT는 Wikipedia까지 사용하고 양방향 문맥을 활용하여 문장 이해가 크게 향상.
+- 태스크 정렬: BERT는 분류/QA 등의 discriminative 태스크에 바로 맞는 head와 손실 설계. GPT는 생성 프레임에 태스크를 매핑하므로 2018 기준에는 약간의 간접성 존재.
+- 모델 규모: BERT Large(340M)가 GPT(117M)보다 규모가 커 파인튜닝 성능 우위.
+
+5) 알고리즘 의사코드
+- BERT(MLM+NSP) 미니배치 학습
+  ```
+  for batch in loader:
+      tokens_a, tokens_b = batch.sent_a, batch.sent_b
+      input_ids, segment_ids = pack_with_special_tokens(tokens_a, tokens_b)
+      positions = arange(len(input_ids))
+      # MLM 마스킹
+      mask_positions = sample_15_percent(input_ids, avoid_special=True)
+      labels = input_ids.clone()
+      labels[~mask_positions] = -100  # ignore index
+
+      input_ids_masked = apply_80_10_10_masking(input_ids, mask_positions, vocab)
+
+      h = Encoder(input_ids_masked, segment_ids, positions)  # bidirectional attention
+      mlm_logits = MLMHead(h)
+      mlm_loss = cross_entropy(mlm_logits, labels, ignore_index=-100)
+
+      nsp_logits = NSPHead(h[CLS_index])
+      nsp_loss = binary_cross_entropy_with_logits(nsp_logits, batch.is_next)
+
+      loss = mlm_loss + nsp_loss
+      loss.backward(); optimizer.step()
+  ```
+- GPT(Causal LM) 미니배치 학습
+  ```
+  for batch in loader:
+      input_ids = batch.input_ids  # x_1..x_T
+      positions = arange(len(input_ids))
+      attn_mask = causal_triangle_mask(T)  # t는 <= t 위치만 볼 수 있음
+
+      h = Decoder(input_ids, positions, attn_mask)  # masked self-attention
+      logits = LMHead(h)
+      loss = cross_entropy(logits[:, :-1], input_ids[:, 1:])  # next-token
+      loss.backward(); optimizer.step()
+  ```
+
+6) PyTorch 예시 코드
+- BERT-스타일 MLM 마스크와 손실
+  ```python
+  import torch
+  from transformers import BertTokenizerFast, BertForMaskedLM
+
+  tokenizer = BertTokenizerFast.from_pretrained("bert-base-uncased")
+  model = BertForMaskedLM.from_pretrained("bert-base-uncased")
+
+  texts = ["Machine learning is [MASK] fun.", "Transformers are [MASK] powerful."]
+  enc = tokenizer(texts, padding=True, return_tensors="pt")
+
+  # 이미 [MASK]가 들어간 예시이므로 그대로 사용
+  labels = enc["input_ids"].clone()
+  # [MASK]가 아닌 위치는 -100으로 ignore
+  mask_token_id = tokenizer.mask_token_id
+  mask_positions = enc["input_ids"].eq(mask_token_id)
+  labels[~mask_positions] = -100
+
+  out = model(**enc, labels=labels)
+  loss = out.loss
+  loss.backward()
+  ```
+- GPT-스타일 Causal LM 손실
+  ```python
+  import torch
+  from transformers import GPT2TokenizerFast, GPT2LMHeadModel
+
+  tokenizer = GPT2TokenizerFast.from_pretrained("gpt2")
+  model = GPT2LMHeadModel.from_pretrained("gpt2")
+
+  texts = ["Today I went to the", "The capital of France is"]
+  enc = tokenizer(texts, padding=True, return_tensors="pt")
+  input_ids = enc["input_ids"]
+  attention_mask = enc["attention_mask"]
+
+  # GPT2 모델은 내부에서 causal mask를 적용
+  out = model(input_ids=input_ids, attention_mask=attention_mask, labels=input_ids)
+  loss = out.loss
+  loss.backward()
+  ```
+- 직접 causal 마스크 만들기(커스텀 모델용)
+  ```python
+  def causal_mask(sz: int):
+    # [T,T] 상삼각을 -inf로, 하삼각(포함)은 0으로
+    mask = torch.full((sz, sz), float("-inf"))
+    mask = torch.triu(mask, diagonal=1)
+    return mask
+
+  T = 10
+  attn_bias = causal_mask(T)  # 이를 attention score에 더해 softmax 전에 적용
+  ```
+
+7) 성능·평가(원 논문 기준)
+- BERT
+  - GLUE, SQuAD 1.1/2.0, SWAG 등에서 당시 SOTA 다수 달성. 특히 QA span 예측이 강함.
+- GPT
+  - 다양한 NLU 벤치마크에서 기존 RNN/ELMo 기반 대비 큰 향상. 단, GLUE·QA에서 BERT Large 대비 열세.
+- 이후 발전
+  - BERT 계열: RoBERTa(NSP 제거, 대규모 데이터/배치), ALBERT(파라미터 공유), DeBERTa(상대적 position).
+  - GPT 계열: GPT-2/3(스케일업), InstructGPT/ChatGPT(지도/강화학습 기반 지시 따르기).
+
+8) 장단점 비교
+- BERT(Encoder, 양방향)
+  - 장점: 문장·문서 인코딩, 분류/매칭/추출 기반 태스크에 강함. feature extractor로 유용.
+  - 단점: 생성 태스크에 직접 쓰기 어려움. [MASK] 토큰 mismatch(사전학습-추론 차이) 존재. 길이 확장 어려움.
+- GPT(Decoder, causal)
+  - 장점: 자연스러운 생성. 단일 포맷으로 다양한 태스크를 텍스트-생성 문제로 통일.
+  - 단점: 2018 기준 이해형 벤치마크에서 BERT 대비 약함. 분류 등에선 학습 샘플/포맷 설계의 민감도.
+
+9) 실무 적용 가이드
+- 태스크 성격으로 선택
+  - 생성/요약/대화/작성: GPT 계열 선호.
+  - 분류/탐지/엔티티추출/문장쌍 유사도: BERT 계열 선호.
+- 파인튜닝 팁
+  - BERT: 학습률 2e-5~5e-5 범위, 워밍업(10% 내외), weight decay(0.01), seq length 128→512 점진 확대.
+  - GPT: 프롬프트 설계 품질이 성능에 크게 영향. 분류도 텍스트-완성으로 포맷하면 라벨 누수 방지 필요.
+- 도메인 적응
+  - Continual pretraining(특정 도메인 코퍼스로 MLM/CLM 추가 사전학습) 후 파인튜닝이 효과적.
+- 길이/리소스
+  - 양쪽 모두 O(n^2) self-attention 비용. 긴 문서는 Longformer/FlashAttention/Sliding Window 등 고려.
+- 최신 대체
+  - BERT 계열: RoBERTa나 DeBERTa가 기본 선택지로 많이 사용.
+  - GPT 계열: GPT-2/Neo/OPT/LLaMA 등 공개 모델 활용. 지시 미세조정(SFT)·RLHF는 추가 비용.
+
+10) 간단 결론
+- 이해 중심 태스크에는 BERT 계열이 여전히 강력한 베이스라인.
+- 생성 중심 태스크에는 GPT 계열이 자연스럽고 범용적.
+- 2018 원 논문 시점의 비교에서는 BERT가 더 큰 데이터/양방향성/태스크 일치 덕에 NLU 벤치마크에서 앞섰음.
+
+11) 참고(원 논문)
+- BERT: arXiv:1810.04805 (Devlin et al., 2018)
+- GPT: Radford et al., 2018, Improving Language Understanding by Generative Pre-Training
+
+저장 방법 안내
+- 아래 파이썬 스크립트를 실행하면 분석 내용을 두 가지 형식으로 저장합니다.
+  - bert_vs_gpt_분석.md: 사람이 읽기 쉬운 요약
+  - bert_vs_gpt_분석.json: 구조화된 메타데이터 포함
+
+파이썬 스크립트
+```python
+import json
+from datetime import datetime
+analysis_md = """[BERT vs GPT 논문 비교·분석 요약]
+- 아키텍처: BERT(Encoder, 양방향) vs GPT(Decoder, causal)
+- 사전학습: BERT(MLM+NSP) vs GPT(Causal LM)
+- 데이터: BERT(BooksCorpus+Wikipedia) vs GPT(BooksCorpus)
+- 입력: BERT([CLS]/[SEP]/segment) vs GPT(단일 시퀀스)
+- 장단점: BERT-이해형 강, GPT-생성형 강
+- 실무: 태스크 성격, 도메인 적응, 리소스/길이 고려
+(상세 내용은 본 문서 상단 분석을 참조)
+"""
+analysis_json = {
+  "title": "BERT와 GPT 원 논문 비교 분석",
+  "updated_at": datetime.utcnow().isoformat() + "Z",
+  "papers": [
+    {"name": "BERT", "arxiv": "1810.04805", "year": 2018,
+     "objective": ["MLM", "NSP"], "arch": "Transformer Encoder (bidirectional)"},
+    {"name": "GPT", "reference": "Radford et al., 2018", "year": 2018,
+     "objective": ["Causal LM"], "arch": "Transformer Decoder (causal)"},
+  ],
+  "key_differences": {
+    "attention": "BERT: bidirectional vs GPT: causal mask",
+    "pretraining": "BERT uses MLM(+NSP) vs GPT uses next-token prediction",
+    "inputs": "BERT uses [CLS]/[SEP]/segment embeddings vs GPT uses single stream",
+    "data": "BERT: BooksCorpus+Wikipedia vs GPT: BooksCorpus"
+  },
+  "practical_guide": {
+    "choose": {
+      "generation": "GPT-family",
+      "classification_qa": "BERT-family"
+    },
+    "finetune_hints": {
+      "bert": "lr 2e-5~5e-5, warmup, weight decay, seq length schedule",
+      "gpt": "prompt formatting, label leakage prevention"
+    }
+  }
+}
+
+with open("bert_vs_gpt_분석.md", "w", encoding="utf-8") as f:
+    f.write(analysis_md)
+
+with open("bert_vs_gpt_분석.json", "w", encoding="utf-8") as f:
+    json.dump(analysis_json, f, ensure_ascii=False, indent=2)
+
+print("Saved: bert_vs_gpt_분석.md, bert_vs_gpt_분석.json")
+```
+
+원하시면 위 전체 분석 본문을 그대로 포함한 긴 Markdown 버전으로 저장해 드릴 수 있습니다. 파일명/형식을 지정해 주시면 그에 맞춰 출력 포맷을 바꿔 드리겠습니다.
+2025-11-05 13:07:21 | ================================================================================
+2025-11-05 13:07:21 | 수준 'advanced' 답변 생성 시작
+2025-11-05 13:07:21 | 시스템 프롬프트 저장 완료
+2025-11-05 13:07:21 | 최종 프롬프트 저장 완료
+2025-11-05 13:08:39 | 수준 'advanced' 답변 생성 완료: 8455 글자
+2025-11-05 13:08:39 | ================================================================================
+2025-11-05 13:08:39 | [advanced 답변 전체 내용]
+2025-11-05 13:08:39 | 요청하신 BERT와 GPT의 핵심 논문들을 비교·분석한 정리입니다. 마지막에 머신-리더블(JSON) 요약을 포함했으니 그대로 저장해 사용할 수 있습니다. 추가로 특정 형식(예: .md, .tex, .pdf)으로 파일을 생성해 드리길 원하시면 형식을 알려주세요.
+
+1) 문제 설정과 사전학습 목적 함수의 차이
+- BERT(Devlin et al., 2019): 양방향 Encoder 전용 Transformer. 마스크드 언어모델(MLM)과 Next Sentence Prediction(NSP) 목적.
+  - MLM 손실: L_MLM(θ) = E_{x∼D, M}[ Σ_{i∈M} −log p_θ(x_i | x_{¬i}) ]. 여기서 M은 마스크 위치 집합, x_{¬i}는 마스크된 토큰을 제외한 컨텍스트.
+  - NSP 손실: L_NSP(θ) = E_{(s1,s2)}[ −y log p_θ(IsNext | s1, s2) − (1−y) log(1−p_θ(IsNext | s1, s2)) ].
+  - 이론적 관점: MLM은 합성곱적(autoreg) 요인화를 직접 최적화하지 않고 pseudo-likelihood 최대화와 유사(= 데이터를 구성하는 각 좌표의 조건부분포 합)하며, 마스크 비율과 패턴에 따른 추정 편향이 존재. RoBERTa(Liu et al., 2019)는 NSP를 제거하고 더 큰 데이터·긴 학습으로 성능 향상 보고.
+
+- GPT(Radford et al., 2018; 2019; Brown et al., 2020): 단방향 Decoder 전용 Transformer. 자기회귀 언어모델(AR-LM) 목적.
+  - AR 손실: L_AR(θ) = E_{x∼D}[ Σ_{t=1}^T −log p_θ(x_t | x_{<t}) ].
+  - 이론적 관점: AR은 데이터의 실제 결합분포 log p(x) = Σ_t log p(x_t | x_{<t})를 직접 최대화. 예측과 사용 시나리오(생성)가 정합적. 스케일이 커질수록 In-context Learning, 제로/소샷 능력이 출현(Kaplan et al., 2020; Brown et al., 2020).
+
+간단한 정리: AR은 결합우도 직접최대화(정합성 높음), MLM은 pseudo-likelihood 근사(양방향 표현력 높고 판별 과제에 유리).
+
+2) 아키텍처적 비교
+- 공통: Transformer 기반(Vaswani et al., 2017), 다중 헤드 자기어텐션, 포지셔널 임베딩, GELU 활성화 등.
+- BERT: Encoder 블록만 사용, 양방향 self-attention, [MASK]/[CLS]/[SEP] 토큰, absolute position(원 논문). 변형: Whole-word/Span masking(SpanBERT), disentangled attention(DeBERTa), factorized/parameter sharing(ALBERT), dynamic masking(RoBERTa).
+- GPT: Decoder 블록(마스크드 self-attention + causal), layer norm 배치 위치 차이(프리/포스트), KV 캐시를 통한 효율적 오토리그레시브 추론. 대형화와 데이터 확장(GPT-2, GPT-3), 지시튜닝/정렬(RLHF; Ouyang et al., 2022), MoE(Switch Transformer, Fedus et al., 2021), 장문맥(FlashAttention, Dao et al., 2022; GPT-4/Claude 계열).
+
+3) 계산 복잡도와 자원
+- 한 레이어 당 시간복잡도(히든 크기 d, 시퀀스 길이 L):
+  - Self-attention: O(L^2 d)
+  - FFN: O(L d^2)
+  - 총합 O(L^2 d + L d^2) × 레이어수 H. 메모리: 어텐션맵 O(L^2), KV 캐시 O(H L d) (추론 시).
+- BERT 추론: 전토큰 양방향 주의 → 문장/문서 인코딩 시 병렬 처리 유리. 토큰 분류, 문장 분류에 고효율.
+- GPT 추론: 오토리그레시브 생성으로 토큰별 순차 디코딩 필요(지연 증가). 다만 KV 캐시와 speculative decoding 등으로 실무 지연 완화.
+- 학습 FLOPs(밀집 Transformer 근사): ≈ 6 N T (N=파라미터 수, T=학습 토큰수) (Hoffmann et al., 2022). 스케일법칙에 따라 성능은 파라미터·데이터·컴퓨트 균형에 민감(Kaplan et al., 2020; Hoffmann et al., 2022).
+
+4) 이론적 성질(간단한 정당화)
+- 정리(AR 일치성): 모델 용량이 충분하고 최적화가 전역최적에 도달하면 AR 학습은 데이터의 진짜 결합분포 p(x)를 회복한다. 증명: log p_θ(x)=Σ_t log p_θ(x_t|x_{<t})를 최대화하는 θ*가 p(x_t|x_{<t})=p*(x_t|x_{<t})를 만족하면 p_θ=p*.
+- 정리(MLM과 pseudo-likelihood): 충분히 다양한 마스킹 분포 q(M)로 모든 위치가 독립적으로 양의 확률로 마스킹되고, 모델이 조건분포를 정확히 표현 가능하면, L_MLM 최대화는 Besag(1975) 의미의 pseudo-likelihood 최대화이며, 특정 정규성 조건 하에서 일치 추정량이 된다. 단, 실제 BERT는 부분 마스킹(15%), [MASK] 토큰 노이즈, 마스크-미스매치 등으로 편향이 잔존(ELECTRA, Clark et al., 2020가 이를 완화).
+
+5) 학습 데이터와 스케일
+- BERT: BooksCorpus(800M 단어) + Wikipedia(2.5B 단어) 중심. 비교적 정제된 코퍼스.
+- GPT 계열:
+  - GPT-1: BooksCorpus 위주(약 1B 토큰 수준).
+  - GPT-2: WebText(수십 GB; 크롤링·필터링).
+  - GPT-3: 약 300B 토큰( Common Crawl, WebText2, Books, Wikipedia 혼합) (Brown et al., 2020).
+- 동향: 데이터 규모·다양성·필터링 품질이 성능에 핵심. 데이터 커리큘럼, 라이선스/윤리, 데이터 누수 검출이 중요 이슈.
+
+6) 벤치마크와 실험적 차이(요점 중심)
+- BERT:
+  - 발표 당시 GLUE, SQuAD 1.1/2.0, SWAG 등 판별형 벤치마크 SOTA. 파인튜닝 효율이 높음.
+  - 후속: RoBERTa는 더 긴 학습·큰 배치·NSP 제거·동적 마스킹으로 재학습하여 광범위한 개선. ELECTRA는 Replaced Token Detection으로 적은 compute에 높은 효율.
+- GPT:
+  - GPT-2: LAMBADA, Wikitext-103 등에서 제로·소샷 생성 능력 부각.
+  - GPT-3: 광범위한 과제에서 In-context Learning으로 소·제로샷 SOTA 다수 달성, 특히 추론·지시 따르기 능력이 스케일로 개선.
+  - 이후 RLHF(InstructGPT)로 안전성·유용성 대폭 향상.
+- 정리: 판별형 태스크(분류, NER, 랭킹)에서 BERT류 파인튜닝이 경량·강력. 생성·지시추종·지식호라이즌에서는 대규모 GPT류가 우위.
+
+7) 실제 사용상의 차이와 파인튜닝
+- BERT:
+  - 장점: 인코더 벡터화를 통한 빠른 서빙(배치 가능), 검색/재현/문서 인코딩, 클래시피케이션. 파라미터 효율형 튜닝(LoRA, prompt-tuning, adapters) 유용.
+  - 약점: 텍스트 생성·다양한 제로샷 능력은 제한. 다운스트림 별로 태스크 전용 헤드 필요.
+- GPT:
+  - 장점: 범용 텍스트 생성, 제로·소샷/ICL, 지시튜닝·RLHF로 범용 비서화. 도메인 적응은 컨텍스트·RAG로 실시간 가능.
+  - 약점: 생성 지연·비용, 컨텍스트 길이에 따른 O(L^2) 제약, 최신성·사실성 이슈(정렬 필요).
+
+8) 최신 연구 동향 대비
+- Encoder 계열: RoBERTa, ELECTRA, ALBERT, DeBERTa, SpanBERT, SimCSE(대조학습) 등으로 판별형 성능·효율 개선. 여전히 검색(DPR), 랭킹, 문서 임베딩에서 주력.
+- Decoder 계열: 지시튜닝(FLAN/FLAN-T5; Chung et al., 2022), 거대 모델(LLaMA, GPT-4), 장문맥(FlashAttention 2, Hyena/SSM, LongRoPE), MoE(Switch/Mixtral), 멀티모달(GPT-4V, LLaVA).
+- 혼합/대안: T5/UL2(denoising mixture로 encoder-decoder), Prefix/Span-Infilling(Filled-in-the-Middle; GELU), Retrieval-Augmented Generation(RAG), State Space Models(Mamba; Gu & Dao, 2024)로 장문맥·선형 복잡도 탐색.
+
+9) 미해결 문제와 향후 연구
+- 장문맥 확장: O(L^2) 어텐션의 근본적 한계. 근사·커널화(Performer, Linformer), 압축, 메모리 모듈, SSM, 하이브리드 구조 설계.
+- 목적 함수 정합성: MLM의 마스크-미스매치와 pseudo-likelihood 편향을 줄이는 대안(Span corruption, ELECTRA, denoising mixtures)의 이론적 보장 강화.
+- 데이터 거버넌스: 누수 방지, 라이선싱 준수, 데이터 밸런싱·디덕플리케이션, 장기적 지식 업데이트.
+- 정렬·안전성: RLHF/RLAIF의 신뢰성, 보상 해킹, 다단계 평가 자동화. 다국어·멀티모달 정렬.
+- 효율적 튜닝·서빙: PEFT(LoRA, IA3), 저정밀(8/4/2-bit), 지연 감소(speculative decoding, Medusa), 에너지 효율.
+- 해석가능성·견고성: In-context 작동 원리 이론화, 반사실성·역추적, 적대적 강건성.
+
+10) 선택 가이드
+- 판별형(분류/추출/검색/재현) + 제한된 컴퓨트/지연 민감: 고성능 BERT류(RoBERTa/DeBERTa) 파인튜닝이 합리적.
+- 생성/요약/에이전트/제로샷: 대규모 GPT류 + 지시튜닝/RLHF + RAG 권장.
+- 도메인 한정 생성: 중형 Decoder + RAG/PEFT로 비용-성능 균형.
+
+참고 수식 요약
+- AR-LM: maximize L_AR = E[Σ_t log p_θ(x_t|x_{<t})], perplexity = exp(−(1/T) Σ_t log p_θ(x_t|x_{<t})).
+- MLM(denoising): maximize L_MLM = E_{M}[Σ_{i∈M} log p_θ(x_i|x_{¬i})], pseudo-likelihood PL(θ)=Σ_i log p_θ(x_i|x_{¬i}); L_MLM ≈ E_M[PL(θ; M⊆{1..T})].
+
+핵심 비교 요약
+- 목적: BERT는 양방향 표현 학습(MLM/NSP), GPT는 생성 정합 AR.
+- 구조: Encoder-only vs Decoder-only.
+- 성능 경향: BERT류는 판별형 SOTA(효율적 파인튜닝), GPT류는 생성/지시/제로샷 SOTA(스케일 의존).
+- 복잡도: 둘 다 레이어당 O(L^2 d + L d^2); GPT는 생성 시 순차 디코딩으로 지연 부담, BERT는 인코딩 병렬화 유리.
+- 최신: Encoder는 RoBERTa/DeBERTa/ELECTRA로 성숙, Decoder는 지시튜닝·RLHF·RAG·장문맥·MoE로 급진적 진화.
+
+대표 인용(연도)
+- Vaswani et al., 2017. Attention Is All You Need.
+- Devlin et al., 2019. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding.
+- Radford et al., 2018. Improving Language Understanding by Generative Pre-Training (GPT-1).
+- Radford et al., 2019. Language Models are Unsupervised Multitask Learners (GPT-2).
+- Brown et al., 2020. Language Models are Few-Shot Learners (GPT-3).
+- Liu et al., 2019. RoBERTa.
+- Lan et al., 2019. ALBERT.
+- Clark et al., 2020. ELECTRA.
+- He et al., 2021. DeBERTa.
+- Raffel et al., 2020. T5.
+- Kaplan et al., 2020. Scaling Laws for Neural Language Models.
+- Hoffmann et al., 2022. Training Compute-Optimal Large Language Models (Chinchilla).
+- Ouyang et al., 2022. InstructGPT (RLHF).
+- Dao et al., 2022. FlashAttention.
+- Fedus et al., 2021. Switch Transformers.
+- Gu & Dao, 2024. Mamba.
+
+머신-리더블 요약(JSON)
+{
+  "title": "BERT_vs_GPT_analytic_comparison",
+  "version": "2025-11-05",
+  "core_difference": {
+    "objective": {
+      "BERT": "Masked LM (pseudo-likelihood approximation) + NSP",
+      "GPT": "Autoregressive LM (joint likelihood maximization)"
+    },
+    "architecture": {
+      "BERT": "Encoder-only, bidirectional self-attention",
+      "GPT": "Decoder-only, causal self-attention"
+    },
+    "use_cases": {
+      "BERT": ["classification", "NER", "retrieval/reranking", "embedding"],
+      "GPT": ["text generation", "instruction following", "zero-/few-shot", "agents"]
+    }
+  },
+  "losses": {
+    "MLM": "E_{x,M}[ sum_{i in M} -log p(x_i | x_{¬i}) ]",
+    "AR": "E_{x}[ sum_{t=1}^T -log p(x_t | x_{<t}) ]"
+  },
+  "complexity": {
+    "per_layer_time": "O(L^2 d + L d^2)",
+    "memory": "O(L^2) attention map; KV cache O(H L d)",
+    "training_flops_rule": "~6 N T (dense Transformer)"
+  },
+  "data_scale": {
+    "BERT": "BooksCorpus + Wikipedia (~3B words)",
+    "GPT": "from ~1B tokens (GPT-1) to ~300B (GPT-3)"
+  },
+  "benchmarks": {
+    "BERT": ["GLUE", "SQuAD 1.1/2.0", "SWAG"],
+    "GPT": ["LAMBADA", "Wikitext-103", "zero-/few-shot tasks across many benchmarks"]
+  },
+  "trends": ["RoBERTa/ELECTRA/DeBERTa improvements", "Instruction tuning, RLHF", "RAG", "Long-context attention/SSM", "MoE"],
+  "open_problems": ["long-context efficiency", "objective mismatch for MLM", "data governance", "alignment/safety", "efficient PEFT/serving", "interpretability"],
+  "citations": [
+    "Devlin et al., 2019",
+    "Radford et al., 2018; 2019",
+    "Brown et al., 2020",
+    "Liu et al., 2019",
+    "Lan et al., 2019",
+    "Clark et al., 2020",
+    "He et al., 2021",
+    "Raffel et al., 2020",
+    "Kaplan et al., 2020",
+    "Hoffmann et al., 2022",
+    "Ouyang et al., 2022",
+    "Dao et al., 2022",
+    "Fedus et al., 2021",
+    "Gu & Dao, 2024"
+  ]
+}
+
+저장 관련 안내
+- 위 JSON 블록을 파일로 저장하려면 파일명 예: BERT_vs_GPT_analytic_comparison_2025-11-05.json 로 저장하세요.
+- 인간 가독성 요약을 .md나 .tex로 원하시면 형식을 지정해 주세요. 원하시는 파일명과 포맷을 주시면 해당 형식으로 출력해 드리겠습니다.
+2025-11-05 13:08:39 | ================================================================================
+2025-11-05 13:08:39 | 도구 실행 성공: general (fallback 도구)
+2025-11-05 13:08:39 | 메타데이터 업데이트: ['success', 'response_time_ms']
+2025-11-05 13:08:39 | 메타데이터 업데이트: ['tool_used']
+2025-11-05 13:08:39 | 용어 추출 시작 (범위: 1-32개)
+2025-11-05 13:08:39 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 13:08:39 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 13:10:36 | LLM 응답: {
+  "terms": [
+    {
+      "term": "Transformer",
+      "definition": "시퀀스 데이터를 처리하는 딥러닝 아키텍처로, 어텐션 메커니즘을 통해 토큰 간 의존성을 병렬로 학습한다.",
+      "easy_explanation": "문장을 읽을 때 모든 단어를 동시에 보며 서로 얼마나 관련 있는지 점수를 매...
+2025-11-05 13:10:36 | 추출된 용어 수: 31
+2025-11-05 13:10:36 | IT 용어 아님 (필터링): KV Cache
+2025-11-05 13:10:36 | IT 용어 아님 (필터링): Scaling Laws
+2025-11-05 13:10:36 | IT 용어 아님 (필터링): Pseudo-likelihood
+2025-11-05 13:10:36 | 용어 검증 완료: 31개 → 28개 (IT 필터링) → 28개 (최대 개수 제한)
+2025-11-05 13:10:36 | glossary 테이블에 28개 용어 저장 시작
+2025-11-05 13:10:36 | 용어 이미 존재 (건너뜀): Transformer
+2025-11-05 13:10:36 | 용어 이미 존재 (건너뜀): BERT
+2025-11-05 13:10:36 | 용어 이미 존재 (건너뜀): GPT
+2025-11-05 13:10:36 | 용어 이미 존재 (건너뜀): Self-Attention
+2025-11-05 13:10:36 | 용어 저장 성공: Encoder
+2025-11-05 13:10:36 | 용어 저장 성공: Decoder
+2025-11-05 13:10:36 | 용어 저장 성공: Masked Language Modeling (MLM)
+2025-11-05 13:10:36 | 용어 저장 성공: Autoregressive Language Modeling (Causal LM)
+2025-11-05 13:10:36 | 용어 저장 성공: Next Sentence Prediction (NSP)
+2025-11-05 13:10:36 | 용어 저장 성공: Bidirectional Attention
+2025-11-05 13:10:36 | 용어 저장 성공: Causal Mask (Triangular Mask)
+2025-11-05 13:10:36 | 용어 저장 성공: Tokenizer
+2025-11-05 13:10:36 | 용어 저장 성공: WordPiece
+2025-11-05 13:10:37 | 용어 저장 성공: Byte Pair Encoding (BPE)
+2025-11-05 13:10:37 | 용어 저장 성공: Special Tokens ([CLS], [SEP])
+2025-11-05 13:10:37 | 용어 저장 성공: Segment Embedding
+2025-11-05 13:10:37 | 용어 저장 성공: Positional Embedding
+2025-11-05 13:10:37 | 용어 이미 존재 (건너뜀): Fine-tuning
+2025-11-05 13:10:37 | 용어 저장 성공: Pretraining
+2025-11-05 13:10:37 | 용어 저장 성공: Cross-Entropy Loss
+2025-11-05 13:10:37 | 용어 저장 성공: In-Context Learning
+2025-11-05 13:10:37 | 용어 저장 성공: Reinforcement Learning from Human Feedback (RLHF)
+2025-11-05 13:10:37 | 용어 이미 존재 (건너뜀): Mixture of Experts (MoE)
+2025-11-05 13:10:37 | 용어 이미 존재 (건너뜀): FlashAttention
+2025-11-05 13:10:37 | 용어 이미 존재 (건너뜀): Retrieval-Augmented Generation (RAG)
+2025-11-05 13:10:37 | 용어 저장 성공: Perplexity
+2025-11-05 13:10:37 | 용어 저장 성공: Feed-Forward Network (FFN)
+2025-11-05 13:10:37 | 용어 저장 성공: Layer Normalization (LayerNorm)
+2025-11-05 13:10:37 | 용어 저장 완료: 20/28개
+2025-11-05 13:11:12 | 평가 결과 저장: evaluation_20251105_131112.json
+2025-11-05 13:11:12 | 대화 저장: conversation_hard_20251105_125739.json (10개 메시지)
+2025-11-05 13:11:26 | 메타데이터 업데이트: ['user_query']
+2025-11-05 13:11:26 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 13:11:26 | 라우터 노드 실행: 최신 AI 기술 찾아서 정리하고 분석해서 저장해줘
+2025-11-05 13:11:26 | 다중 요청 감지: ['최신', '정리', '분석', '저장'] → ['web_search', 'summarize', 'general', 'save_file']
+2025-11-05 13:11:26 | 패턴 설명: 최신 정보 검색, 정리, 분석 후 저장
+2025-11-05 13:11:26 | 순차 실행 도구: web_search → summarize → general → save_file
+2025-11-05 13:11:28 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 13:11:28 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 13:11:28 | 시스템 프롬프트 저장 완료
+2025-11-05 13:11:28 | 최종 프롬프트 저장 완료
+2025-11-05 13:13:14 | 시스템 프롬프트 저장 완료
+2025-11-05 13:13:14 | 최종 프롬프트 저장 완료
+2025-11-05 13:16:04 | 도구 실행 실패 감지: web_search
+2025-11-05 13:16:04 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 13:16:04 | ============================================================
+2025-11-05 13:16:04 | Fallback Router 실행
+2025-11-05 13:16:04 | 실패한 도구: web_search
+2025-11-05 13:16:04 | 실패 사유: 정규식 패턴 매치: .*오류.*
+2025-11-05 13:16:04 | 재시도 횟수: 0/3
+2025-11-05 13:16:04 | 모든 도구 시도 완료
+2025-11-05 13:16:04 | 최종 Fallback: general 도구 선택
+2025-11-05 13:16:04 | 다음 도구로 전환: general
+2025-11-05 13:16:04 | 전환 이유: web_search 도구가 실패했기 때문
+2025-11-05 13:16:04 | Fallback Chain:
+2025-11-05 13:16:04 | ============================================================
+2025-11-05 13:16:04 | 일반 답변 노드 실행: 최신 AI 기술 찾아서 정리하고 분석해서 저장해줘
+2025-11-05 13:16:04 | 난이도: hard
+2025-11-05 13:16:04 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 13:16:04 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 13:16:04 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 13:16:04 | 시스템 프롬프트 저장 완료
+2025-11-05 13:16:04 | 최종 프롬프트 저장 완료
+2025-11-05 13:18:09 | 수준 'intermediate' 답변 생성 완료: 16463 글자
+2025-11-05 13:18:09 | ================================================================================
+2025-11-05 13:18:09 | [intermediate 답변 전체 내용]
+2025-11-05 13:18:09 | 요청 요약
+- 제한: 제 지식은 2024-10 기준의 최신 동향까지 반영됩니다. 그 이후 소식은 직접 웹을 조회할 수 없으니, 주기적 업데이트나 특정 도메인(예: 멀티모달·코드·음성·RAG·추론향상·경량화·배포) 우선순위를 알려주시면 맞춤 정리본을 유지 보수해 드릴 수 있습니다.
+- 제공물: 실무 적용을 위한 기술 지도, 알고리즘 해설, 장단점, 코드 스니펫(PyTorch/Transformers), 저장용 Markdown/JSON, 저장 스크립트.
+
+실무 중심 요약(2024년 최신 트렌드 스냅샷)
+- LLM 추론강화: o1 스타일의 “테스트-타임 컴퓨트”(self-verify, deliberate sampling, verifier-guided decoding), ToT/GoT/SC(자기일관성) 재부상. 장점: 논리적·계산적 문제에서 급격한 향상. 단점: 지연시간/비용 상승, 안정적 검증기 필요.
+- 효율 추론: FlashAttention 2/3, vLLM(PagedAttention), speculative decoding(EAGLE/Medusa), MoE(예: Mixtral), KV-cache 최적화/압축, TensorRT-LLM. 장점: 토큰당 비용 대폭 절감. 단점: 엔지니어링 난이도↑, 하드웨어별 튜닝 필요.
+- 롱컨텍스트: RoPE 스케일링(NTK/YaRN), Sparse/Sliding-window, RetNet/State-Space(Mamba-2), KV de/rehash. 장점: 100K+ 컨텍스트 실용화. 단점: 품질 유지 위한 데이터/학습 레시피 중요.
+- RAG 2.0: 멀티벡터(ColBERTv2), 하이브리드 BM25+dense, reranker(BGE), Graph RAG, agentic RAG(계획/툴사용). 장점: 최신성·사실성 확보. 단점: 파이프라인 복잡도, 관찰가능성 필요.
+- 멀티모달: GPT-4o 계열(실시간 음성/영상 이해), LLaVA/Idefics2/Qwen2-VL, Stable Video Diffusion/Sora류(텍스트→동영상), 대화형 음성(TTS/ASR) 통합. 장점: 제품경험 혁신. 단점: 지연·비용·안전성 이슈.
+- 파인튜닝: QLoRA/DoRA/LoRA+/ReLoRA, DPO/IPO/KTO/ORPO(선호학습), 코드/툴사용·함수호출·구조화 출력 튜닝. 장점: 소형모델로 도메인 성능↑. 단점: 데이터 정제와 안전튜닝 중요.
+- 양자화/경량화: AWQ/GPTQ/RPTQ/SmoothQuant, KV-양자화, gguf/llama.cpp/TensorRT-LLM/ONNX Runtime GenAI. 장점: 엣지·온프레미스 배포. 단점: 정밀도-품질 trade-off.
+- 에이전트/툴사용: ReAct/Reflexion/ToT, LangGraph, 함수호출/JSON schema/검증기, 샌드박스 실행. 장점: 복합업무 자동화. 단점: 신뢰성·관찰성·비용 관리 과제.
+- 평가/안전: SWE-bench, GPQA, MATH/AGIEval, LLM-as-a-judge/베리파이어, 프롬프트·컨텐츠 안전가드, 레드팀·모니터링. 장점: 회귀방지/품질보증. 단점: 벤치마크 과적합 리스크.
+
+핵심 기술 상세와 알고리즘(코드 포함)
+
+1) 추론강화(Reasoning-time compute, Verifier-guided decoding)
+- 개념: 생성 단계에서 추가 샘플링/검증을 통해 최종 답 변별력 향상. 예: Self-consistency(다중 샘플→투표), Verifier 모델로 후보 스코어링.
+- 간단 의사코드
+```
+def reason_with_verifier(model, verifier, prompt, n=8, beta=0.7):
+    candidates = [model.generate(prompt, temperature=1.0) for _ in range(n)]
+    scores = [verifier.score(prompt, c) for c in candidates]  # logit/prob
+    i = np.argmax(scores)
+    # 가중 보정(샘플링 확률 * 검증점수)도 가능
+    return candidates[i], scores[i]
+```
+- 장단점
+  - 장점: 수학/코딩/논리에서 큰 폭의 정확도 향상. 모델 파라미터 변경 없이 효과.
+  - 단점: 지연시간 선형 증가, 검증기 학습 필요, 실패모드 모니터링 필수.
+
+2) 효율 추론 스택(vLLM, FlashAttention, Speculative decoding, MoE)
+- FlashAttention 2/3: attention 계산을 타일링해 HBM 왕복 최소화. 시간·메모리 O(BHL^2) 상수항 대폭 축소.
+- vLLM(PagedAttention): KV cache를 가상 메모리처럼 페이징, 프롬프트 병렬화 극대화로 토큰/초 향상.
+- Speculative decoding: 빠른 draft 모델이 여러 토큰 제안→느린 target 모델이 여러 토큰 한번에 검증/수용.
+  - 기대 이론치: 수용율 p일 때 속도 향상 ~ 1/(1 - p·k) 근사(k는 제안 토큰 길이).
+- MoE: Top-k expert 활성화로 FLOPs/파라미터 분리. 추론 시 활성 expert만 계산.
+- PyTorch: 라우팅형 MoE 레이어 예시
+```
+import torch, torch.nn as nn, torch.nn.functional as F
+
+class Top2Router(nn.Module):
+    def __init__(self, d_model, n_expert):
+        super().__init__()
+        self.w = nn.Linear(d_model, n_expert)
+
+    def forward(self, x):
+        logits = self.w(x)                  # [B, L, E]
+        top2 = logits.topk(2, dim=-1)
+        idx = top2.indices                  # expert indices
+        gate = F.softmax(top2.values, -1)   # gates
+        return idx, gate
+
+class ExpertFFN(nn.Module):
+    def __init__(self, d_model, d_ff):
+        super().__init__()
+        self.w1, self.w2 = nn.Linear(d_model, d_ff), nn.Linear(d_ff, d_model)
+
+    def forward(self, x): return self.w2(F.gelu(self.w1(x)))
+
+class MoE(nn.Module):
+    def __init__(self, d_model, d_ff, n_expert):
+        super().__init__()
+        self.router = Top2Router(d_model, n_expert)
+        self.experts = nn.ModuleList([ExpertFFN(d_model, d_ff) for _ in range(n_expert)])
+
+    def forward(self, x):                   # x: [B, L, D]
+        idx, gate = self.router(x)          # [B, L, 2], [B, L, 2]
+        y = torch.zeros_like(x)
+        for k in range(2):
+            expert_ids = idx[..., k]        # [B, L]
+            g = gate[..., k].unsqueeze(-1)  # [B, L, 1]
+            # gather tokens per expert (naive; 실제론 토큰-버킷팅으로 효율화)
+            for e in range(len(self.experts)):
+                mask = (expert_ids == e).unsqueeze(-1)
+                if mask.any():
+                    y = y + self.experts[e](x * mask.float()) * g
+        return y
+```
+- Speculative decoding(HF Transformers) 예시
+```
+from transformers import AutoModelForCausalLM, AutoTokenizer
+import torch
+tok = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B")
+draft = AutoModelForCausalLM.from_pretrained("meta-llama/Meta-Llama-3-8B-Instruct", torch_dtype=torch.float16).cuda()
+target = AutoModelForCausalLM.from_pretrained("meta-llama/Meta-Llama-3-70B-Instruct", torch_dtype=torch.float16, device_map="auto")
+
+prompt = "Solve: 24*17-19="
+inputs = tok(prompt, return_tensors="pt").to("cuda")
+# transformers>=4.41 기준: assistant(=draft) 모델 지정
+out = target.generate(**inputs, max_new_tokens=64, do_sample=True, assistant_model=draft)
+print(tok.decode(out[0], skip_special_tokens=True))
+```
+- vLLM로 서빙
+```
+# 설치: pip install vllm
+from vllm import LLM, SamplingParams
+llm = LLM(model="meta-llama/Meta-Llama-3-8B-Instruct", tensor_parallel_size=2)
+params = SamplingParams(temperature=0.7, max_tokens=128)
+outputs = llm.generate(["Explain KV cache in LLMs"], params)
+print(outputs[0].outputs[0].text)
+```
+- 실무 고려: 프롬프트 병렬화, paged KV, 텐서/파이프라인 병렬, INT4/FP8 혼합, 배치 어그리게이션, 샘플링 파라미터 표준화.
+
+3) 롱컨텍스트(Attention/State-Space/Mixed)
+- Attention O(L^2) 비용. 최적화:
+  - RoPE 스케일링(NTK/YaRN): 로터리 주파수 재매핑으로 장문 일반화 향상.
+  - Sliding-window/Block-sparse: 최근 토큰에 집중해 계산 절감(Longformer/BigBird 계열).
+  - KV-cache 재활용/압축: 반복 패턴 중복 제거, 8bit/4bit KV, 그룹화.
+  - State-space/RetNet/Mamba-2: O(L) 순차 스캔, 롱-레인지 상호작용은 파라미터화된 필터로 표현.
+- RoPE 스케일링(Transformers 예시)
+```
+from transformers import AutoModelForCausalLM, AutoTokenizer
+m = AutoModelForCausalLM.from_pretrained("meta-llama/Meta-Llama-3-8B", rope_scaling={"type":"yarn","factor":4.0})
+```
+- 트레이드오프: 롱컨텍스트 튜닝 시 훈련 데이터의 장문 비율·분포가 품질 좌우. 단순 컨텍스트 확장만으로 사실성/추론력이 보장되지 않음.
+
+4) RAG 2.0(멀티벡터/Graph/에이전트형)
+- 파이프라인: Query transform(MQ/MR), retrieve(BM25+dense), rerank(cross-encoder), synthesize(CoT), cite.
+- 멀티벡터(ColBERTv2): 토큰 단위 임베딩으로 부분정합 강화.
+- Graph RAG: 엔티티/관계 그래프 위의 서브그래프 탐색→근거 집약.
+- Agentic RAG: 계획-실행-검증 루프(ReAct), 툴사용(Web/API/코드 실행).
+- Python 예시(FAISS + BGE reranker)
+```
+# pip install faiss-cpu sentence-transformers rank-bm25
+from sentence_transformers import SentenceTransformer, CrossEncoder
+from rank_bm25 import BM25Okapi
+import faiss, numpy as np
+
+docs = [...]  # list of str
+bm25 = BM25Okapi([d.split() for d in docs])
+dense = SentenceTransformer("sentence-transformers/all-mpnet-base-v2")
+index = faiss.IndexFlatIP(dense.get_sentence_embedding_dimension())
+embs = dense.encode(docs, normalize_embeddings=True)
+index.add(embs)
+reranker = CrossEncoder("BAAI/bge-reranker-base")
+
+def retrieve(q, k=20):
+    bm = bm25.get_top_n(q.split(), docs, n=k)
+    qv = dense.encode([q], normalize_embeddings=True)
+    D, I = index.search(qv, k)
+    dv = [docs[i] for i in I[0]]
+    cand = list({*bm, *dv})
+    pairs = [(q, d) for d in cand]
+    scores = reranker.predict(pairs)
+    reranked = [d for _, d in sorted(zip(scores, cand), reverse=True)]
+    return reranked[:10]
+```
+- 실무 고려: 소스 신뢰도/버전 관리, 인용(grounding), 캐시 전략, 프롬프트 가드, 관찰가능성(질의→문서→답 경로).
+
+5) 멀티모달(텍스트+비전/오디오/비디오)
+- VLM: LLaVA-1.6, Idefics2, Qwen2-VL 등. 이미지→토큰 매핑(비전 인코더 CLIP/ViT) + LLM 디코더, 투-타워/프로젝터 설계.
+- 실시간 대화형 모델: GPT-4o 계열(음성·시각 스트리밍) 접근. 지연 줄이기 위해 어텐션 윈도우, 오디오 특화 토큰화, 서버-클라이언트 비동기 채널.
+- 비디오 생성: Latent video diffusion, rectified flow/flow matching, 다중스케일 시간 어텐션. OpenAI Sora(2024)로 품질 상한 인식 상승.
+- 예시(Transformers로 VLM 추론)
+```
+from transformers import AutoProcessor, AutoModelForCausalLM
+from PIL import Image
+proc = AutoProcessor.from_pretrained("llava-hf/llava-1.6-mistral-7b-hf")
+model = AutoModelForCausalLM.from_pretrained("llava-hf/llava-1.6-mistral-7b-hf").eval()
+img = Image.open("chart.png")
+prompt = "이 차트의 주요 추세를 요약해줘."
+inputs = proc(text=prompt, images=img, return_tensors="pt")
+out = model.generate(**inputs, max_new_tokens=128)
+print(proc.batch_decode(out, skip_special_tokens=True)[0])
+```
+- 고려사항: 프라이버시/저작권, 스트리밍 전송량, 실시간 안전가드.
+
+6) 파인튜닝/선호학습(LoRA 계열, QLoRA, DPO/IPO/KTO/ORPO)
+- QLoRA: 4bit NF4로 베이스 가중치 고정, LoRA만 학습→VRAM 절감.
+- DoRA/LoRA+: 랭크 분해·스케일 재파라미터화로 성능 향상.
+- DPO: 정책과 참조모델 대비로 선호도 직접 최적화.
+- 코드 예시(QLoRA + TRL DPO)
+```
+# pip install transformers peft accelerate bitsandbytes trl datasets
+from datasets import load_dataset
+from transformers import AutoModelForCausalLM, AutoTokenizer
+from peft import LoraConfig, get_peft_model
+from trl import DPOTrainer, DPOConfig
+
+model_name = "meta-llama/Meta-Llama-3-8B"
+tok = AutoTokenizer.from_pretrained(model_name, use_fast=True)
+model = AutoModelForCausalLM.from_pretrained(model_name, load_in_4bit=True, device_map="auto")
+
+peft_cfg = LoraConfig(r=16, lora_alpha=32, target_modules=["q_proj","v_proj","k_proj","o_proj"], lora_dropout=0.05)
+model = get_peft_model(model, peft_cfg)
+
+dataset = load_dataset("my/dpo-pairs")  # fields: prompt, chosen, rejected
+trainer = DPOTrainer(
+    model=model, ref_model=None, args=DPOConfig(output_dir="dpo-out", per_device_train_batch_size=2),
+    beta=0.1, train_dataset=dataset["train"], tokenizer=tok
+)
+trainer.train()
+```
+- 주의: 레퍼런스(참조) 모델 고정, KL 제어, 분포 drift 감시, 안전/해루프롬프트 포함한 튜닝.
+
+7) 양자화/배포(gguf, AWQ/GPTQ, TensorRT-LLM, ONNX Runtime GenAI)
+- 정적 양자화(AWQ/GPTQ/RPTQ): 가중치 단정도↓, 에러 최소화로 중요채널 보호.
+- 활성/KV 양자화(SmoothQuant, KV-Int4/8): 메모리 절감.
+- llama.cpp/ggml/gguf: CPU/모바일 배포. TensorRT-LLM: NVIDIA GPU 최적화, FP8/INT8, fused kernels.
+- 비교
+  - 장점: 하드웨어 범위 확대·비용 절감.
+  - 단점: 지표 손실·추론 안정성 이슈, 레이어별 스케일링·outlier 대응 필요.
+
+8) 에이전트·툴사용(ReAct/Reflexion/ToT, LangGraph)
+- ReAct: 추론(Thought)과 행동(Action) 인터리브, 도구 호출을 체계화.
+- Reflexion: 실패 시 자기피드백 메모리 업데이트.
+- LangGraph: 상태머신 기반 에이전트 워크플로우 선언적 정의.
+- 간단 ReAct 루프
+```
+tools = {"search": google_api, "code": exec_sandbox}
+
+def react(agent, question):
+    ctx = []
+    for _ in range(8):
+        prompt = build_prompt(question, ctx)
+        step = agent.generate(prompt)
+        if "Action:" in step:
+            name, arg = parse_action(step)
+            obs = tools[name](arg)
+            ctx += [step, f"Observation: {obs}"]
+        if "Final Answer:" in step:
+            return step.split("Final Answer:")[-1].strip()
+    return "I don't know"
+```
+- 운영: 샌드박스/리소스할당, 타임아웃/회로차단기, 추적(Span/Token/Tool logs), 안전가드.
+
+9) 평가/옵스
+- 벤치: HumanEval/SWE-bench(코드), GSM8K/MATH/GPQA(수학/과학), MMLU/IFEval, LVLM(ScienceQA), LLM-as-a-judge+Verificaton.
+- 옵스: Canary prompt, 샘플링 지표(토큰/초, 수용율, 장문 품질), 회귀 테스트, 데이터 drift·프롬프트 drift 관측.
+
+기술 간 비교 요점
+- MoE vs Dense: 같은 FLOPs에서 더 큰 파라미터 용량 확보 vs 라우팅/로드밸런싱 복잡성.
+- Speculative vs KV 최적화: 전자는 지연 단축에 즉효(모델 2개 필요), 후자는 서버 이용률↑과 메모리절감.
+- RAG vs 파인튜닝: 최신성·사실성은 RAG, 스타일·사소한 변환은 FT가 효율. 하이브리드가 실무 최적.
+- 롱컨텍스트 vs 검색: 초장문 질의는 롱컨텍스트, 광범위 코퍼스는 검색(RAG) 우위. 비용·지연 기준으로 스위칭.
+
+실무 적용 체크리스트
+- 요구사항: 지연/비용/정확도 목표 수치화(SLO).
+- 모델선정: 공개/상용, 라이선스, 언어/도메인.
+- 파이프라인: 프롬프트·RAG·툴사용·검증기·가드 체인.
+- 성능: vLLM+Paged KV, FlashAttn, SpecDec, quant.
+- 품질: Reranker·Verifier·Self-consistency, 회귀벤치.
+- 안전/규정: PII 마스킹, 우회 방지, 로깅/감사.
+- 운영: Canary, A/B, 샤딩·오토스케일, 비용 모니터.
+
+저장 아티팩트 제공(JSON/Markdown)
+- 아래 문자열을 파일로 저장하면 바로 문서·데이터베이스로 활용 가능합니다.
+
+파일 1: latest_ai_tech_2024Q4.md
+```
+# 2024-Q4 AI 기술 지도
+[요약/장단점/코드/실무 고려사항 — 본 답변 상단 섹션 그대로 포함]
+```
+
+파일 2: latest_ai_tech_2024Q4.json
+```
+{
+  "version": "2024Q4",
+  "categories": [
+    {
+      "category": "reasoning",
+      "items": [
+        {
+          "name": "Verifier-guided decoding",
+          "what": "생성 단계에서 검증기로 후보 응답 점수화하여 최종 선택",
+          "algorithms": ["self-consistency", "verifier scoring", "majority vote"],
+          "pros": ["정확도 향상", "모델 교체 없이 적용"],
+          "cons": ["지연 증가", "검증기 학습 필요"],
+          "maturity": "production-ready",
+          "tooling": ["HF Transformers", "LangGraph"],
+          "refs": ["arXiv:2305.10601", "arXiv:2203.11171"]
+        }
+      ]
+    },
+    {
+      "category": "inference_efficiency",
+      "items": [
+        {
+          "name": "vLLM PagedAttention",
+          "what": "KV cache 페이징으로 프롬프트 병렬화 극대화",
+          "algorithms": ["paged KV", "continuous batching"],
+          "pros": ["토큰/초↑", "메모리 파편화↓"],
+          "cons": ["엔진 의존", "디버깅 러닝커브"],
+          "maturity": "production-ready",
+          "tooling": ["vLLM", "TGI"]
+        },
+        {
+          "name": "Speculative decoding",
+          "what": "draft/target 이중모델로 멀티토큰 수용",
+          "algorithms": ["Medusa", "EAGLE"],
+          "pros": ["지연↓"],
+          "cons": ["모델 2개 필요", "수용율 튜닝"],
+          "maturity": "beta",
+          "tooling": ["HF generate(assistant_model)", "vLLM"]
+        },
+        {
+          "name": "MoE routing",
+          "what": "Top-k expert 활성화로 파라미터 용량 대비 FLOPs 효율",
+          "algorithms": ["top-2 gating", "load balancing loss"],
+          "pros": ["스케일 효율"],
+          "cons": ["라우팅 불안정", "통신비용"],
+          "maturity": "production-ready",
+          "tooling": ["Megablocks", "DeepSpeed-MoE"]
+        }
+      ]
+    },
+    {
+      "category": "long_context",
+      "items": [
+        {
+          "name": "RoPE scaling (NTK/YaRN)",
+          "what": "로터리 주파수 재매핑으로 장문 일반화",
+          "pros": ["간단/효과적"],
+          "cons": ["튜닝 민감"],
+          "maturity": "production-ready",
+          "tooling": ["Transformers rope_scaling"]
+        },
+        {
+          "name": "Mamba-2",
+          "what": "state-space 기반 O(L) 시퀀스 모델",
+          "pros": ["롱컨텍스트 비용↓"],
+          "cons": ["생성 품질 편차"],
+          "maturity": "research-to-prod",
+          "tooling": ["mamba-ssm"]
+        }
+      ]
+    },
+    {
+      "category": "rag",
+      "items": [
+        {
+          "name": "Hybrid+Rerank RAG",
+          "what": "BM25+dense 멀티스테이지 검색과 cross-encoder reranker",
+          "pros": ["정확/근거 강화"],
+          "cons": ["지연↑"],
+          "maturity": "production-ready",
+          "tooling": ["FAISS", "sentence-transformers", "BGE reranker"]
+        },
+        {
+          "name": "Graph RAG",
+          "what": "지식그래프 기반 서브그래프 증거 집약",
+          "pros": ["복잡 쿼리 강함"],
+          "cons": ["그래프 구축비용"],
+          "maturity": "beta",
+          "tooling": ["Neo4j", "NetworkX"]
+        }
+      ]
+    },
+    {
+      "category": "multimodal",
+      "items": [
+        {
+          "name": "VLM (LLaVA/Idefics2/Qwen2-VL)",
+          "what": "비전 인코더 + LLM 디코더로 이미지 이해/대화",
+          "pros": ["다양한 태스크"],
+          "cons": ["리소스/지연"],
+          "maturity": "production-ready",
+          "tooling": ["Transformers"]
+        },
+        {
+          "name": "Video diffusion (Sora class)",
+          "what": "잠재공간 비디오 확산/플로우 매칭",
+          "pros": ["고품질 생성"],
+          "cons": ["대규모 연산/데이터"],
+          "maturity": "research-to-prod",
+          "tooling": ["Diffusers"]
+        }
+      ]
+    },
+    {
+      "category": "finetune_pref",
+      "items": [
+        {
+          "name": "QLoRA + DPO",
+          "what": "4bit 베이스 + LoRA 어댑터, 선호학습으로 응답 품질 향상",
+          "pros": ["VRAM 절감", "도메인 적합"],
+          "cons": ["데이터 품질 민감"],
+          "maturity": "production-ready",
+          "tooling": ["PEFT", "TRL"]
+        }
+      ]
+    },
+    {
+      "category": "quantization_deploy",
+      "items": [
+        {
+          "name": "AWQ/GPTQ",
+          "what": "가중치 양자화로 추론 메모리/지연 감소",
+          "pros": ["엣지 배포"],
+          "cons": ["정확도 손실"],
+          "maturity": "production-ready",
+          "tooling": ["auto-gptq", "awq"]
+        },
+        {
+          "name": "TensorRT-LLM",
+          "what": "NVIDIA GPU 최적화 커널/그래프",
+          "pros": ["최고 성능"],
+          "cons": ["GPU 종속"],
+          "maturity": "production-ready",
+          "tooling": ["tensorrt-llm"]
+        }
+      ]
+    },
+    {
+      "category": "agents_tools",
+      "items": [
+        {
+          "name": "ReAct + LangGraph",
+          "what": "상태머신 기반 도구연계 워크플로우",
+          "pros": ["복합업무 자동화"],
+          "cons": ["관찰성/안전설계 필요"],
+          "maturity": "production-ready",
+          "tooling": ["LangGraph", "LangChain"]
+        }
+      ]
+    }
+  ]
+}
+```
+
+파일 저장 스크립트(save_latest_ai.py)
+```
+content_md = """[여기에 latest_ai_tech_2024Q4.md 문자열 붙여넣기]"""
+content_json = """[여기에 latest_ai_tech_2024Q4.json 문자열 붙여넣기]"""
+
+import json, os
+os.makedirs("latest_ai_tech_2024Q4", exist_ok=True)
+with open("latest_ai_tech_2024Q4/README.md", "w", encoding="utf-8") as f: f.write(content_md)
+with open("latest_ai_tech_2024Q4/index.json", "w", encoding="utf-8") as f: f.write(content_json)
+print("Saved to latest_ai_tech_2024Q4/")
+```
+
+다음 단계 제안
+- 범위 확정: 특정 도메인(예: 법률/헬스/금융/코딩/제조)과 배포타깃(온프레미스 vs 클라우드, 지연/비용 SLO)을 알려주시면 맞춤형 로드맵과 벤치 구성으로 재정리합니다.
+- 업데이트 주기: 월간/분기별 자동 업데이트(원하시면 Git 리포 구조와 CI 스크립트까지 드립니다).
+- 데모: 귀사의 데이터로 RAG 2.0 파이프라인과 vLLM 서빙 PoC 코드를 바로 제공 가능합니다.
+
+원하시면 위 아카이브를 바로 붙여넣을 수 있게 완성된 Markdown/JSON 본문을 전달해 드리겠습니다.
+2025-11-05 13:18:09 | ================================================================================
+2025-11-05 13:18:09 | 수준 'advanced' 답변 생성 시작
+2025-11-05 13:18:09 | 시스템 프롬프트 저장 완료
+2025-11-05 13:18:09 | 최종 프롬프트 저장 완료
+2025-11-05 13:20:51 | 수준 'advanced' 답변 생성 완료: 12131 글자
+2025-11-05 13:20:51 | ================================================================================
+2025-11-05 13:20:51 | [advanced 답변 전체 내용]
+2025-11-05 13:20:51 | 아래는 2024년 10월까지의 최신 AI 기술을 학술적으로 정리·분석한 요약본입니다. 지식 최신성 한계로 2025년 발표·성능 수치는 포함하지 않습니다. 마지막에 저장용 요약(JSON)도 제공합니다. 저장 형식/위치(예: 파일, 노트 앱, 벤치마크 트래커)가 있으면 알려주시면 변환해 드리겠습니다.
+
+1) 대규모 언어모델(LLM): 아키텍처, 훈련, 추론 가속
+- 핵심 동향
+  - 스케일링 법칙 재정립: 데이터 우선(Chinchilla; Hoffmann et al., 2022), 장문맥·멀티모달로의 확장, 테스트타임 컴퓨트 증대(o1; OpenAI, 2024).
+  - 희소화/전문화: Mixture-of-Experts(MoE)로 파라미터 대형화·계산량 제한(Fedus et al., 2021; Mistral Mixtral, 2024).
+  - 효율화: FlashAttention(DAO et al., 2022, 2023), Speculative decoding(Leviathan et al., 2023), 양자화 GPTQ/ AWQ/ SmoothQuant(Frantar et al., 2022; Lin et al., 2023; Xiao et al., 2023), vLLM의 PagedAttention(Kwon et al., 2023).
+  - 장문맥: RoPE 변형(YaRN; Peng et al., 2023, NTK-aware), StreamingLLM(Xiao et al., 2023), Infini-attention(Munkhdalai et al., 2024).
+- 수식·복잡도
+  - 어텐션: Att(Q,K,V)=softmax(QK^T/√d)V. 시간복잡도 O(n^2 d), 메모리 O(n^2). FlashAttention는 타일링으로 정확도 손실 없이 메모리 O(n d)로 감소(시간은 여전히 O(n^2 d)이나 IO 최적화로 대폭 가속; Dao et al., 2022).
+  - MoE(top-k 게이팅): 토큰별 k개 전문가만 활성. 한 스텝 연산량 O(k·d^2) (dense 대비 k/E 비율로 감소, E는 전문가 수), 통신 오버헤드가 병목(샤딩·토큰 라우팅 필요).
+  - Speculative decoding: 작은 초안 모델 p_draft로 길이 τ 초안 생성, 큰 모델 p_large가 검증. 토큰당 기대 비용 ~ C_draft/τ + p_acc·C_large. 속도향상 S ≈ C_large/(p_acc·C_large + C_draft/τ). p_acc는 KL(p_large||p_draft)가 작을수록 증가(Leviathan et al., 2023; Medusa: Cai et al., 2023).
+  - 장문맥 포지셔닝: RoPE에서 위치 t에 대해 복소회전 R_θ(t); 스케일링/보간으로 유효 맥시멈 길이 확대(Peng et al., 2023).
+- 선호최적화(RLHF 계열)
+  - PPO-KL 기반 RLHF(Christiano et al., 2017): J(θ)=E[A^{π}(s,a)·r_θ(a|s)] − β·D_KL(π_θ||π_ref).
+  - DPO(Rafailov et al., 2023): 쌍별 선호(y^+≻y^−) 가정하에 브래들리–테리 모델로 유도된 폐형식 목적:
+    L_DPO(θ)=E[log σ(β(Δ log π_θ − Δ log π_ref))], Δ log π = log π(y^+|x) − log π(y^−|x).
+    스케치 증명: P(y^+≻y^−|x)=σ(β(R(y^+)-R(y^-))). 최대우도에서 R(y)=log π_θ(y|x)−log π_ref(y|x)+const로 귀결되어 위 로지스틱 회귀 형태가 됨. KL 제약 하의 Lagrangian과 등가.
+  - 변형: IPO(Azar et al., 2023), ORPO(Hong et al., 2023), KTO/EIPO 등(라벨 효율·안정성 개선).
+- 대표 모델·결과(일부)
+  - LLaMA 2/3(Touvron et al., 2023; Meta, 2024), Qwen2/2.5(Bai et al., 2024), Mixtral(Mistral, 2024), o1(OpenAI, 2024). 벤치마크: MMLU(Hendrycks et al., 2020), GSM8K(Cobbe et al., 2021), HumanEval(Chen et al., 2021). 2024년 중반 기준 70B급 오픈모델이 MMLU 80%± 성능 보고, 코드·수학은 사전학습/미세조정 레시피에 민감.
+
+2) 시퀀스 모델 대안: 상태공간모델(SSM)·RNN 르네상스
+- S4(Gu et al., 2022): 연속-이산 선형 SSM의 컨볼루션 커널 k를 FFT로 계산해 O(n log n) 시퀀스 처리.
+- Mamba(Gu & Dao, 2023): 데이터-의존 선택 스캔(selective scan)으로 선형 시간·상수 메모리. 길이 n, 채널 d에서 O(n d^2) 또는 적절한 저랭크화로 O(n d r).
+- 비교: Transformer는 장거리 상호작용에 유리, SSM은 매우 긴 n에서 우수한 스루풋·메모리. 하이브리드(Attention+SSM) 구조가 활발.
+- 벤치마크: Long Range Arena, LongBench(Bai et al., 2023) 등에서 SSM 변형이 긴 입력에서 경쟁력 확인.
+
+3) 멀티모달 모델: 비전·비디오·오디오
+- 비전-언어
+  - Flamingo(Alayrac et al., 2022), LLaVA(Liu et al., 2023), Idefics2(Laurençon et al., 2024), Qwen2-VL(Bai et al., 2024), InternVL2(Chen et al., 2024). SigLIP(Zhai et al., 2023)로 텍스트-이미지 정렬 개선.
+  - 벤치마크: MMMU(Yue et al., 2024), MathVista(Lu et al., 2024), TextVQA 등. 복합추론·차트이해에서 여전히 취약.
+- 세그멘테이션·기초 비전
+  - SAM(Kirillov et al., 2023), SAM 2(2024): 프롬프트 가능한 범용 세그멘터(비디오·스트리밍 확장).
+- 비디오 생성
+  - Diffusion-Transformer(DiT; Peebles & Xie, 2023), 3D/시공간 어텐션. Sora(OpenAI, 2024), Lumiere(Google, 2024) 등으로 고품질 장면 일관성. 평가: VBench·FVD.
+- 오디오/음성
+  - 음성 인식·번역: Whisper-v3(Radford et al., 2023), SeamlessM4T(Meta, 2023).
+  - 오디오 생성: AudioLM(Borsos et al., 2023), MusicGen(Copet et al., 2023).
+- 생성모델 기법
+  - DDPM(Ho et al., 2020), Latent Diffusion(Rombach et al., 2022), DiT(Peebles & Xie, 2023).
+  - Flow/ODE류: Rectified Flow(Liu et al., 2022), Flow Matching(Lipman et al., 2023).
+    · 정식화: 데이터 분포 p_1에서 노이즈 p_0로의 확률 경로 ρ_t, 연속 변환 φ_t가 ∂_t φ_t = v_t(φ_t)를 따른다고 할 때, v_t를 최소제곱 회귀로 근사: L = E_{t,x∼ρ_t} ||s_θ(x,t) − v_t(x)||^2. 최적 s_θ는 진정한 벡터장 v_t에 일치(증명 스케치: Fokker–Planck 연계 및 최소제곱의 일의성).
+  - Consistency Models(Song et al., 2023), CTM(Kim et al., 2023): 적은 스텝에서의 샘플링 가속.
+  - 복잡도: U-Net 대비 DiT는 어텐션 O(n^2) 병목이 있으나 TPU/GPU에서 더 나은 병렬성.
+
+4) RAG(검색확장생성)·지식접근
+- 검색기술
+  - Dense retriever: DPR(Karpukhin et al., 2020), Contriever(Izacard et al., 2021), E5(Wang et al., 2023), BGE(Xiao et al., 2023).
+  - 토크나이즈 후 행 단위 압축: SPLADE(Formal et al., 2021). 세밀 매칭: ColBERTv2(Santhanam et al., 2022).
+- 생성+검색 통합
+  - RAG(Lewis et al., 2020), REALM(Guu et al., 2020), RETRO(Borgeaud et al., 2022), Atlas(Izacard et al., 2022).
+  - 자가검증형: Self-RAG(Asai et al., 2023), Corrective-RAG/GraphRAG(Microsoft, 2024).
+- 평가: BEIR(Thakur et al., 2021), MTEB(Muennighoff et al., 2023), FreshQA/Temporal RAG. 여전히 최신성·충실성 트레이드오프 존재.
+- 복잡도: 인퍼런스에서 k개 문서 검색 시 O(k·L) 재랭킹 비용(크로스인코더), 토큰 비용은 입력 길이에 선형.
+
+5) 추론·도구사용 에이전트
+- 체인·트리 추론
+  - CoT(Wei et al., 2022), Self-Consistency(Wang et al., 2022), ReAct(Yao et al., 2023), Tree-of-Thought(Yao et al., 2023), Graph-of-Thought(Zhou et al., 2024).
+  - 과정감독 PRM(Uesato et al., 2022; Lightman et al., 2023). o1(OpenAI, 2024)은 테스트타임 컴퓨트 확대로 복잡문제 성능 향상 보고.
+- 코드·툴
+  - StarCoder2(Lozanov et al., 2024), DeepSeek-Coder(2024), Code Llama(Touvron et al., 2023). 툴포밍: Toolformer(Schick et al., 2023), Gorilla(Patil et al., 2023).
+- 벤치마크: SWE-bench(Jimenez et al., 2023), MBPP(Austin et al., 2021), HumanEval(Chen et al., 2021), AIDER계열. 함수호출 정확도, 실행안전성 병행 평가가 중요.
+
+6) 효율화: 양자화·서빙·메모리
+- 양자화
+  - GPTQ(Frantar et al., 2022), AWQ(Lin et al., 2023), SmoothQuant(Xiao et al., 2023), NF4 QLoRA(Dettmers et al., 2023). 4~8bit 가중치/액티베이션 실사용 단계.
+- 서빙
+  - vLLM의 PagedAttention(Kwon et al., 2023): KV 캐시를 페이징해 프래그멘테이션 최소화. 동시성·스루풋 향상.
+  - 텐서·커널: FlashAttention-2/3(DAO et al., 2023/2024), TensorRT-LLM(NVIDIA, 2023), DeepSpeed-Inference.
+- 컨텍스트 확장
+  - LongRoPE/YaRN/NTK-aware 스케일링(Peng et al., 2023), Sliding Window(Longformer; Beltagy et al., 2020), Linear/Performer(Katharopoulos et al., 2020; Choromanski et al., 2021), Infini-attention(Munkhdalai et al., 2024).
+- 복잡도 요약
+  - KV 캐시 메모리: O(n_layers·d·seq_len). 페이징/압축으로 상수 계수 절감.
+  - Speculative/멀티드래프트: 병렬화로 지연 감소, 수용률-드래프트 비용의 최적화 필요.
+
+7) 안전성·견고성·프라이버시
+- 정렬·선호
+  - Constitutional AI(Bai et al., 2022), RLAIF(Bai et al., 2022), DPO/IPO/ORPO 계열.
+- 프롬프트 공격·탈옥
+  - 평가: AdvBench(Zou et al., 2023), RealToxicityPrompts(Gehman et al., 2020). Robust prompting 방어, 콘텐츠 필터링, 정책 강건화 연구 활발.
+- 출처표시·워터마킹
+  - GMM watermark(Kirchenbauer et al., 2023), SynthID(Google, 2023). 강적 대항성·재샘플링 내구성은 개방문제.
+- 프라이버시·언러닝
+  - DP-SGD(Abadi et al., 2016) 대규모 모델 적용의 효율-성능 균형 난제. LLM unlearning은 이론적 보장과 실용적 성능 사이 간극 존재(미해결).
+
+8) 로보틱스·체화지능(Embodied AI)
+- 데이터·스케일
+  - Open-X-Embodiment/RT-X(2023), DROID(Chi et al., 2024): 로봇 데이터 집성·표준화.
+- 모델
+  - RT-1/RT-2(Brohan et al., 2022/2023): VLA(비전-언어-행동) 스케일링. Diffusion Policy(Chi et al., 2023), Octo(2023).
+- 평가: CALVIN, LIBERO, RealRobotBench. 시뮬-실세계 갭, 안전·실패 복구가 핵심 과제.
+
+실험·벤치마크 총평
+- 지식·종합: MMLU·MMMU가 포괄적 지표로 활용되나 데이터 누수·튜닝 민감도 문제. 더 강건한 오픈 평가 세트 요구.
+- 수학·코딩: GSM8K·MATH·HumanEval·SWE-bench 등에서 과정감독, 테스트타임 탐색 확대가 유의미한 향상.
+- 멀티모달: MathVista·MMMU에서 추론형 VLM의 격차가 두드러짐(차트, 과학도해).
+- RAG: BEIR·MTEB 상에서도 도메인·신선성에 따라 랭커 선택(E5/BGE+크로스리랭커)이 성능 좌우.
+
+미해결 문제·향후 연구
+- 장문맥의 진정한 활용: 단순 길이 확장 대비 선택적 주의/메모리(RMT, 외부 메모리)와 학습 안정성.
+- 추론의 신뢰성: PRM/Verifier의 확장과 증명가능한 오류 상한, 자기검증(Self-Consistency+Verifier)의 비용-성능 최적화.
+- 데이터 커링·합성: 고품질 장문맥·멀티스텝 데이터의 자동 생성과 평가 기준. 오표식 레이블 정정.
+- 효율성과 정확도의 동시달성: 4bit 양자화에서의 수치불안정, KV 캐시 압축·공유의 이론적 분석.
+- 안전성: 워터마킹의 강적 내구성, 탈옥 방어의 일반화 보장, 언러닝의 PAC-보장.
+- 에이전트: 도구 선택·순서 계획의 합리성 증명, 환경 상호작용에서의 오프폴리시 안정 학습.
+
+간단한 이론 스케치 두 가지
+- DPO의 BT(Bradley–Terry) 유도
+  가정: P(y^+≻y^-|x)=σ(β(R(y^+)−R(y^-))). 정합 제약 max_π E[log σ(β(R^π_Δ))] s.t. KL(π||π_ref)≤ε. 라그랑주 이중화로 R(y)=log π(y|x)−log π_ref(y|x)+const가 최적. 대입하면 L_DPO(θ)=E[log σ(β(Δ log π_θ − Δ log π_ref))].
+- FlashAttention의 정확성
+  어텐션 A=softmax(QK^T/√d)V의 원-패스 타일링 계산에서 각 타일의 정규화 상수 Z를 로그-서밍으로 누적하면 전역 softmax와 동치. 따라서 메모리 O(n d)로 정확 계산이 가능(DAO et al., 2022).
+
+참고문헌(발췌)
+- Hoffmann et al., 2022, Training Compute-Optimal LMs. Fedus et al., 2021, Switch Transformer. Touvron et al., 2023, LLaMA 2. Bai et al., 2024, Qwen2/2-VL. Mistral, 2024, Mixtral. OpenAI, 2024, o1. Dao et al., 2022/2023, FlashAttention. Leviathan et al., 2023, Speculative Decoding. Cai et al., 2023, Medusa. Kwon et al., 2023, vLLM/PagedAttention. Peng et al., 2023, YaRN. Munkhdalai et al., 2024, Infini-attention. Gu et al., 2022, S4. Gu & Dao, 2023, Mamba. Alayrac et al., 2022, Flamingo. Liu et al., 2023, LLaVA. Laurençon et al., 2024, Idefics2. Kirillov et al., 2023, SAM. Peebles & Xie, 2023, DiT. Ho et al., 2020, DDPM. Rombach et al., 2022, LDM. Liu et al., 2022, Rectified Flow. Lipman et al., 2023, Flow Matching. Song et al., 2023, Consistency Models. Kim et al., 2023, CTM. Lewis et al., 2020, RAG. Guu et al., 2020, REALM. Borgeaud et al., 2022, RETRO. Izacard et al., 2022, Atlas. Asai et al., 2023, Self-RAG. Santhanam et al., 2022, ColBERTv2. Wang et al., 2023, E5. Xiao et al., 2023, BGE/SmoothQuant. Frantar et al., 2022, GPTQ. Dettmers et al., 2023, QLoRA. Christiano et al., 2017, RLHF. Rafailov et al., 2023, DPO. Bai et al., 2022, Constitutional AI/RLAIF. Gehman et al., 2020, RealToxicityPrompts. Thakur et al., 2021, BEIR. Muennighoff et al., 2023, MTEB. Cobbe et al., 2021, GSM8K. Hendrycks et al., 2020/2021, MMLU/MATH. Chen et al., 2021, HumanEval. Jimenez et al., 2023, SWE-bench. Brohan et al., 2022/2023, RT-1/RT-2. Chi et al., 2023/2024, Diffusion Policy/DROID.
+
+저장용 컴팩트 요약(JSON)
+{
+  "timestamp": "2024-10",
+  "areas": [
+    {
+      "area": "LLM",
+      "trends": ["MoE", "테스트타임 컴퓨트(o1)", "장문맥", "효율화(FlashAttention, SpecDec)", "선호최적화(DPO 계열)"],
+      "algorithms": [
+        {"name": "FlashAttention", "complexity": {"time": "O(n^2 d)", "memory": "O(n d)"}, "refs": ["Dao 2022","Dao 2023"]},
+        {"name": "MoE(top-k)", "complexity": {"per-token": "O(k d^2)"}, "refs": ["Fedus 2021","Mistral 2024"]},
+        {"name": "Speculative Decoding", "speedup": "S ≈ C_large/(p_acc·C_large + C_draft/τ)", "refs": ["Leviathan 2023","Cai 2023"]},
+        {"name": "DPO", "objective": "E[log σ(β(Δ log π_θ − Δ log π_ref))]", "refs": ["Rafailov 2023"]}
+      ],
+      "benchmarks": ["MMLU","GSM8K","HumanEval"]
+    },
+    {
+      "area": "SSM/RNN",
+      "trends": ["S4/Mamba", "하이브리드 Attention+SSM"],
+      "algorithms": [
+        {"name": "S4", "complexity": {"time": "O(n log n)"}, "refs": ["Gu 2022"]},
+        {"name": "Mamba", "complexity": {"time": "O(n d^2)"}, "refs": ["Gu&Dao 2023"]}
+      ],
+      "benchmarks": ["Long Range Arena","LongBench"]
+    },
+    {
+      "area": "Multimodal",
+      "trends": ["VLM 확대", "비디오 생성 품질 향상", "SAM2 비디오 세그멘트"],
+      "algorithms": [
+        {"name": "DiT", "note": "Transformer 기반 확산", "refs": ["Peebles&Xie 2023"]},
+        {"name": "Flow Matching/Rectified Flow", "refs": ["Lipman 2023","Liu 2022"]},
+        {"name": "SAM/SAM2", "refs": ["Kirillov 2023","Meta 2024"]}
+      ],
+      "benchmarks": ["MMMU","MathVista","FVD/VBench"]
+    },
+    {
+      "area": "RAG",
+      "trends": ["Self-RAG/GraphRAG", "조합형 retriever+reranker"],
+      "algorithms": [
+        {"name": "E5/BGE", "refs": ["Wang 2023","Xiao 2023"]},
+        {"name": "ColBERTv2", "refs": ["Santhanam 2022"]}
+      ],
+      "benchmarks": ["BEIR","MTEB"]
+    },
+    {
+      "area": "Agents/Reasoning",
+      "trends": ["CoT→ToT/GoT", "PRM/Verifier"],
+      "algorithms": [
+        {"name": "ReAct/ToT", "refs": ["Yao 2023"]},
+        {"name": "PRM", "refs": ["Uesato 2022","Lightman 2023"]}
+      ],
+      "benchmarks": ["SWE-bench","GSM8K","MATH"]
+    },
+    {
+      "area": "Efficiency",
+      "trends": ["4–8bit 양자화", "PagedAttention 서빙", "KV 캐시 최적화"],
+      "algorithms": [
+        {"name": "GPTQ/AWQ/SmoothQuant", "refs": ["Frantar 2022","Lin 2023","Xiao 2023"]},
+        {"name": "vLLM PagedAttention", "refs": ["Kwon 2023"]}
+      ],
+      "benchmarks": ["Latency/Throughput","Energy per token"]
+    },
+    {
+      "area": "Safety/Privacy",
+      "trends": ["Constitutional AI", "워터마킹/출처표시", "언러닝"],
+      "benchmarks": ["AdvBench","RealToxicityPrompts"]
+    },
+    {
+      "area": "Robotics",
+      "trends": ["대규모 다기관 데이터", "VLA/디퓨전 정책"],
+      "algorithms": [
+        {"name": "RT-2", "refs": ["Brohan 2023"]},
+        {"name": "Diffusion Policy", "refs": ["Chi 2023"]}
+      ],
+      "benchmarks": ["LIBERO","RealRobotBench"]
+    }
+  ]
+}
+
+원하시면 위 JSON을 파일(.json/.md)로 저장하거나, 분야별로 더 자세한 수식·알고리즘(예: 장문맥 RoPE 보정의 정밀 도출, Flow Matching의 엄밀한 편미분 방정식 유도, Speculative 수용률의 KL 상계)을 확장해 드리겠습니다. 저장 위치와 형식을 알려주세요.
+2025-11-05 13:20:51 | ================================================================================
+2025-11-05 13:20:51 | 도구 실행 성공: general (fallback 도구)
+2025-11-05 13:20:51 | 메타데이터 업데이트: ['success', 'response_time_ms']
+2025-11-05 13:20:51 | 메타데이터 업데이트: ['tool_used']
+2025-11-05 13:20:51 | 용어 추출 시작 (범위: 1-32개)
+2025-11-05 13:20:51 | 난이도별 LLM 선택: difficulty=hard, provider=openai, model=gpt-5
+2025-11-05 13:20:51 | LLM 초기화: provider=openai, model=gpt-5
+2025-11-05 13:23:00 | LLM 응답: {
+  "terms": [
+    {
+      "term": "Large Language Model (LLM)",
+      "definition": "대규모 텍스트 데이터로 학습된 거대 신경망으로, 자연어 생성과 이해를 수행하는 모델군이다. Transformer 구조를 주로 사용한다.",
+      "easy_explanation": "많은 책과 웹글을...
+2025-11-05 13:23:00 | 추출된 용어 수: 32
+2025-11-05 13:23:00 | IT 용어 아님 (필터링): BM25
+2025-11-05 13:23:00 | 용어 검증 완료: 32개 → 31개 (IT 필터링) → 31개 (최대 개수 제한)
+2025-11-05 13:23:00 | glossary 테이블에 31개 용어 저장 시작
+2025-11-05 13:23:00 | 용어 저장 성공: Large Language Model (LLM)
+2025-11-05 13:23:00 | 용어 이미 존재 (건너뜀): Transformer
+2025-11-05 13:23:00 | 용어 이미 존재 (건너뜀): Self-Attention
+2025-11-05 13:23:00 | 용어 이미 존재 (건너뜀): Retrieval-Augmented Generation (RAG)
+2025-11-05 13:23:00 | 용어 이미 존재 (건너뜀): Mixture of Experts (MoE)
+2025-11-05 13:23:00 | 용어 저장 성공: Speculative Decoding
+2025-11-05 13:23:00 | 용어 이미 존재 (건너뜀): FlashAttention
+2025-11-05 13:23:00 | 용어 저장 성공: PagedAttention (vLLM)
+2025-11-05 13:23:00 | 용어 저장 성공: KV Cache
+2025-11-05 13:23:00 | 용어 저장 성공: RoPE (Rotary Positional Embedding) 및 RoPE 스케일링
+2025-11-05 13:23:00 | 용어 저장 성공: State-Space Model (SSM)
+2025-11-05 13:23:00 | 용어 저장 성공: Mamba (Mamba-2)
+2025-11-05 13:23:00 | 용어 저장 성공: RetNet
+2025-11-05 13:23:00 | 용어 저장 성공: Vision-Language Model (VLM)
+2025-11-05 13:23:00 | 용어 저장 성공: CLIP
+2025-11-05 13:23:00 | 용어 저장 성공: Diffusion Model
+2025-11-05 13:23:00 | 용어 저장 성공: Flow Matching
+2025-11-05 13:23:00 | 용어 저장 성공: QLoRA
+2025-11-05 13:23:00 | 용어 이미 존재 (건너뜀): LoRA
+2025-11-05 13:23:00 | 용어 저장 성공: Direct Preference Optimization (DPO)
+2025-11-05 13:23:00 | 용어 저장 성공: RLHF (Reinforcement Learning from Human Feedback)
+2025-11-05 13:23:00 | 용어 저장 성공: GPTQ
+2025-11-05 13:23:00 | 용어 저장 성공: AWQ
+2025-11-05 13:23:00 | 용어 저장 성공: SmoothQuant
+2025-11-05 13:23:00 | 용어 저장 성공: TensorRT-LLM
+2025-11-05 13:23:00 | 용어 저장 성공: ReAct
+2025-11-05 13:23:00 | 용어 저장 성공: Tree-of-Thoughts (ToT)
+2025-11-05 13:23:00 | 용어 저장 성공: Verifier-Guided Decoding
+2025-11-05 13:23:00 | 용어 저장 성공: Self-Consistency
+2025-11-05 13:23:00 | 용어 저장 성공: Cross-Encoder Reranker
+2025-11-05 13:23:00 | 용어 저장 성공: ColBERTv2
+2025-11-05 13:23:00 | 용어 저장 완료: 25/31개
+2025-11-05 13:23:29 | 평가 결과 저장: evaluation_20251105_132329.json
+2025-11-05 13:23:29 | 대화 저장: conversation_hard_20251105_125739.json (12개 메시지)

@@ -1,0 +1,11 @@
+{
+  "session_id": "006",
+  "start_time": "2025-11-05T12:42:40.885127",
+  "difficulty": "hard",
+  "tool_used": "general",
+  "user_query": "최신 AI 기술 찾아서 정리하고 분석해서 저장해줘",
+  "success": true,
+  "response_time_ms": 564847,
+  "end_time": null,
+  "error": "'{'"
+}

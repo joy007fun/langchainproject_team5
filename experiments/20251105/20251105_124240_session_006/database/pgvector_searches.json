@@ -1,0 +1,32 @@
+[
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "BERT 모델의 구조와 주요 개선점을 다룬 논문이 있을까?",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 4445,
+    "timestamp": "2025-11-05T12:46:21.988459"
+  },
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "\"Attention Is All You Need\" 논문의 내용을 요약해줘",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 4610,
+    "timestamp": "2025-11-05T12:59:06.741491"
+  },
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "BERT와 GPT 논문 비교해서 분석하고 저장해줘",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 4911,
+    "timestamp": "2025-11-05T13:03:59.937230"
+  }
+]

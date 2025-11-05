@@ -1,0 +1,195 @@
+2025-11-05 12:09:00 | 용어집 노드 실행: Attention 개념 설명하고 관련 논문 정리해서 저장해줘
+2025-11-05 12:09:00 | 난이도: hard
+2025-11-05 12:09:00 | 검색 결과: 17 글자
+2025-11-05 12:09:01 | 수준 'intermediate' 답변 생성 시작
+2025-11-05 12:09:49 | 수준 'intermediate' 답변 생성 완료: 8812 글자
+2025-11-05 12:09:49 | ================================================================================
+2025-11-05 12:09:49 | [intermediate 답변 전체 내용]
+2025-11-05 12:09:49 | 정의(기술적):  
+Attention은 쿼리 벡터 q와 키-값 쌍 (k, v) 집합 사이의 호환도(score)를 통해 가중치 a = softmax(score(q, K))를 계산하고, 이를 값 V에 가중합하여 문맥 표현 o = Σ_j a_j v_j를 산출하는 내용 기반 주소지정(content-based addressing) 메커니즘이다. 자기어텐션(self-attention)은 Q, K, V가 동일 시퀀스에서 나오며, 교차어텐션(cross-attention)은 Q와 K,V가 다른 소스에서 온다.
+
+핵심 수식(알고리즘/스코어 함수):
+- 일반형:  
+  a_i = softmax_j s(q_i, k_j)  
+  o_i = Σ_j a_{ij} v_j
+- 스코어 함수 s(·):
+  - Dot-product: s(q, k) = q^T k
+  - Scaled dot-product: s(q, k) = (q^T k) / sqrt(d_k)
+  - Additive (Bahdanau): s(q, k) = v_a^T tanh(W_q q + W_k k + b)
+  - General: s(q, k) = q^T W k
+- 멀티헤드 어텐션:  
+  head_h = softmax( (Q W_Q^h) (K W_K^h)^T / sqrt(d_k) + mask + bias ) (V W_V^h)  
+  MHA(Q,K,V) = Concat_h(head_h) W_O
+
+알고리즘 절차(Scaled Dot-Product Attention):
+1) 입력: Q ∈ R^{B×N_q×d}, K ∈ R^{B×N_k×d}, V ∈ R^{B×N_k×d}, 선택적 mask  
+2) Q', K', V'로 선형 사영(멀티헤드일 경우 H개로 분할, 각 차원 d_k = d/H)  
+3) L = (Q' K'^T) / sqrt(d_k)  
+4) 선택적으로 마스크 적용(패딩 또는 인과 마스크: masked 위치에 -∞ 가산)  
+5) A = softmax(L)  
+6) O = A V'  
+7) 헤드 결합 후 최종 선형 변환
+
+시간/공간 복잡도:
+- 표준 자기어텐션(길이 N, 헤드 H, 헤드 차원 d_k, 배치 B)
+  - 시간: O(B H N^2 d_k) ≈ O(B N^2 d)  
+  - 메모리: O(B H N^2) (어텐션 가중치 A 저장), 활성값 포함 시 O(B N d + B H N^2)
+- 교차어텐션(쿼리 길이 M, 키/값 길이 N): O(B H M N d_k) 시간, O(B H M N) 메모리
+- 효율화 기법:
+  - Sparse/Local/Window: 시간·메모리 O(N w) 수준(윈도 크기 w)
+  - Low-rank/Kernel(Performer/Linear): 시간·메모리 O(N d) 내지 O(N r) (r: 랭크/특징 차원)
+  - FlashAttention: 시간은 여전히 O(N^2)이나 타일링과 온칩 누적을 통해 메모리 O(N d)로 낮추고 상수항 크게 개선
+
+구현 예시(PyTorch, 단일/멀티헤드):
+- 단일 헤드 Scaled Dot-Product Attention
+
+  import torch, torch.nn.functional as F
+
+  def scaled_dot_product_attention(q, k, v, mask=None, dropout_p=0.0):
+      # q: [B, Nq, d], k/v: [B, Nk, d]
+      d_k = q.size(-1)
+      scores = torch.matmul(q, k.transpose(-2, -1)) / (d_k ** 0.5)
+      if mask is not None:
+          scores = scores.masked_fill(mask == 0, float('-inf'))
+      attn = F.softmax(scores, dim=-1)
+      if dropout_p > 0:
+          attn = F.dropout(attn, p=dropout_p, training=q.requires_grad)
+      out = torch.matmul(attn, v)  # [B, Nq, d]
+      return out, attn
+
+- 멀티헤드(Self/Cross) Attention 스켈레톤
+
+  import torch
+  import torch.nn as nn
+  import torch.nn.functional as F
+
+  class MultiHeadAttention(nn.Module):
+      def __init__(self, d_model, num_heads, dropout=0.0, bias=True):
+          super().__init__()
+          assert d_model % num_heads == 0
+          self.h = num_heads
+          self.d_k = d_model // num_heads
+          self.W_q = nn.Linear(d_model, d_model, bias=bias)
+          self.W_k = nn.Linear(d_model, d_model, bias=bias)
+          self.W_v = nn.Linear(d_model, d_model, bias=bias)
+          self.W_o = nn.Linear(d_model, d_model, bias=bias)
+          self.drop = nn.Dropout(dropout)
+
+      def _split_heads(self, x):
+          B, N, D = x.size()
+          x = x.view(B, N, self.h, self.d_k).transpose(1, 2)  # [B,H,N,d_k]
+          return x
+
+      def _merge_heads(self, x):
+          B, H, N, d_k = x.size()
+          x = x.transpose(1, 2).contiguous().view(B, N, H * d_k)
+          return x
+
+      def forward(self, q, k, v, mask=None):
+          # q: [B,Nq,D], k/v: [B,Nk,D]
+          Q = self._split_heads(self.W_q(q))
+          K = self._split_heads(self.W_k(k))
+          V = self._split_heads(self.W_v(v))
+          # attention logits
+          scores = torch.matmul(Q, K.transpose(-2, -1)) / (self.d_k ** 0.5)  # [B,H,Nq,Nk]
+          if mask is not None:
+              # mask shape: [B,1,Nq,Nk] or [1,1,Nq,Nk]
+              scores = scores.masked_fill(mask == 0, float('-inf'))
+          attn = F.softmax(scores, dim=-1)
+          attn = self.drop(attn)
+          context = torch.matmul(attn, V)  # [B,H,Nq,d_k]
+          out = self._merge_heads(context)  # [B,Nq,D]
+          out = self.W_o(out)
+          return out, attn
+
+- 실전에서는 torch.nn.functional.scaled_dot_product_attention 또는 nn.MultiheadAttention(>= PyTorch 2는 FlashAttention 경로 자동 사용 가능)을 권장.
+
+관련 논문/기술(연도, 핵심 기여):
+- Bahdanau et al., 2015, Neural Machine Translation by Jointly Learning to Align and Translate: 가산(additive) 어텐션, RNN 기반 NMT의 소프트 얼라인먼트 도입.
+- Luong et al., 2015, Effective Approaches to Attention-based NMT: dot/general/additive 스코어 변형과 글로벌/로컬 어텐션 정리.
+- Vaswani et al., 2017, Attention Is All You Need: Scaled dot-product, 멀티헤드 자기어텐션 및 Transformer 아키텍처.
+- Shaw et al., 2018, Self-Attention with Relative Position Representations: 상대적 위치 바이어스로 길이 일반화 개선.
+- Dai et al., 2019, Transformer-XL: 순환 메모리와 상대 위치로 장기 의존성 모델링.
+- Child et al., 2019, Sparse Transformers: 희소 패턴으로 O(N^2) 완화.
+- Beltagy et al., 2020, Longformer: 슬라이딩 윈도+글로벌 토큰으로 긴 문서 효율화(O(Nw)).
+- Kitaev et al., 2020, Reformer: 로컬리티-센서티브 해싱(LSH) 어텐션, 가역적 레이어로 메모리 절감.
+- Wang et al., 2020, Linformer: 저랭크 근사로 O(N) 시간/메모리 지향.
+- Katharopoulos et al., 2020, Transformers are RNNs: 커널 트릭으로 선형 어텐션 제시.
+- Choromanski et al., 2021, Performer: FAVOR+ 랜덤 피쳐로 양의 정의 커널 선형화.
+- Press et al., 2022, ALiBi: 선형 위치 바이어스, 길이 일반화 및 메모리 효율 우수.
+- Su et al., 2021, RoPE: 회전 위치 임베딩으로 상대위치 인코딩.
+- Dao et al., 2022/2023, FlashAttention/2: 타일링된 온칩 소프트맥스-가중합으로 O(N^2) 시간 유지하되 O(N d) 메모리 및 큰 속도 향상.
+- Xiong et al., 2021, Nyströmformer: Nyström 근사로 O(N) 어텐션 근사.
+- Zaheer et al., 2020, Big Bird: 랜덤+슬라이딩+글로벌 희소 연결로 이론적 표현력 보장.
+
+장점:
+- 전역적 의존성 캡처, 병렬화 용이(특히 자기어텐션), 해석 가능(가중치 시각화 가능).
+- 멀티헤드로 다양한 서브공간 패턴 병렬 학습.
+- 모달리티-불문(텍스트, 시계열, 비전) 적용 가능.
+
+단점:
+- 표준 자기어텐션의 O(N^2) 시간/메모리 병목.
+- 헤드 중복과 비효율, 긴 시퀀스에서 위치 일반화 어려움(절대 위치만 사용 시).
+- 수치 불안정성(스케일링, 소프트맥스, fp16 혼합정밀) 및 메모리 사용량 큼.
+
+실무 팁:
+- 스케일링: 점곱에 1/sqrt(d_k) 필수. 수치 안정화 위해 logits에서 행 단위 최대값 빼고 softmax.
+- 마스킹: 패딩 마스크와 인과 마스크를 확실히 분리. 마스크 dtype=bool 권장.
+- 차원 설정: 헤드 차원 d_k=64가 경험적으로 안정적. d_model은 H*d_k.
+- 정규화: Pre-LN(입력에 LayerNorm) 또는 RMSNorm로 학습 안정화.
+- 드롭아웃: 어텐션 가중치와 MLP에 dropout 별도 적용.
+- 포지셔닝: RoPE 또는 ALiBi로 길이 일반화 및 extrapolation 개선.
+- 긴 시퀀스: Longformer/BigBird/FlashAttention-2/Slide 기반 커널 사용. PyTorch 2.x의 scaled_dot_product_attention는 GPU에서 자동으로 플래시 경로 사용 가능.
+- 정밀도: bfloat16 권장(GPU 지원 시). 안정성 이슈 시 QK^T 계산만 fp32 캐스팅.
+- 성능: 배치·길이 최적화, fused kernel 사용, attn mask를 4D로 브로드캐스트해 불필요한 확장을 피함.
+- 디버깅: attention weights의 합(각 쿼리 행이 1)을 수시로 체크.
+
+관련 구현 포인트(추가):
+- 상대적 위치: logits에 위치별 바이어스 추가(Llama류), 또는 RoPE를 Q,K에 적용.
+- KV 캐싱: 생성형 디코딩에서 K,V를 누적 캐시하여 시간 O(T) 유지.
+- 그룹·멀티쿼리 어텐션(MQA/GQA): K,V를 헤드 간 공유해 메모리/대역폭 절약.
+
+저장용 요약(JSON):
+[
+  {
+    "term": "Attention",
+    "definition": "쿼리-키 호환도 기반 가중합으로 문맥 표현을 계산하는 메커니즘. a=softmax(s(Q,K)), O=aV.",
+    "core_equations": [
+      "a_i = softmax_j s(q_i, k_j)",
+      "o_i = Σ_j a_{ij} v_j",
+      "s_dot = q^T k / sqrt(d_k)",
+      "head_h = softmax((QW_Q^h)(KW_K^h)^T/sqrt(d_k)+mask)(VW_V^h)"
+    ],
+    "complexity": {
+      "self_attention": {"time": "O(B N^2 d)", "memory": "O(B H N^2)"},
+      "cross_attention": {"time": "O(B M N d)", "memory": "O(B H M N)"},
+      "efficient": ["Sparse O(N w)", "Linear/Kernels O(N d)", "FlashAttention mem O(N d)"]
+    },
+    "algorithms": ["Scaled Dot-Product", "Additive(Bahdanau)", "Multi-Head", "Relative/Rotary Positional Bias"],
+    "pros": ["전역 의존성", "병렬화", "해석 가능"],
+    "cons": ["O(N^2) 병목", "헤드 중복", "수치/메모리 이슈"],
+    "practical_tips": ["1/sqrt(d_k) 스케일", "정확한 마스크", "d_k≈64", "RoPE/ALiBi", "FlashAttention", "bfloat16+fp32 QK"],
+    "key_papers": [
+      {"year": 2015, "title": "Neural Machine Translation by Jointly Learning to Align and Translate", "authors": ["Bahdanau","Cho","Bengio"]},
+      {"year": 2015, "title": "Effective Approaches to Attention-based NMT", "authors": ["Luong","Pham","Manning"]},
+      {"year": 2017, "title": "Attention Is All You Need", "authors": ["Vaswani et al."]},
+      {"year": 2018, "title": "Self-Attention with Relative Position Representations", "authors": ["Shaw","Uszkoreit","Vaswani"]},
+      {"year": 2019, "title": "Transformer-XL", "authors": ["Dai et al."]},
+      {"year": 2019, "title": "Sparse Transformers", "authors": ["Child et al."]},
+      {"year": 2020, "title": "Longformer", "authors": ["Beltagy","Peters","Cohan"]},
+      {"year": 2020, "title": "Reformer", "authors": ["Kitaev","Kaiser","Levskaya"]},
+      {"year": 2020, "title": "Linformer", "authors": ["Wang et al."]},
+      {"year": 2020, "title": "Transformers are RNNs (Linear Attention)", "authors": ["Katharopoulos et al."]},
+      {"year": 2021, "title": "Performer", "authors": ["Choromanski et al."]},
+      {"year": 2021, "title": "RoPE", "authors": ["Su et al."]},
+      {"year": 2022, "title": "ALiBi", "authors": ["Press et al."]},
+      {"year": 2022, "title": "FlashAttention", "authors": ["Dao et al."]}
+    ]
+  }
+]
+
+참고 문헌 인용:
+- Bahdanau et al., 2015; Luong et al., 2015; Vaswani et al., 2017; Shaw et al., 2018; Dai et al., 2019; Child et al., 2019; Beltagy et al., 2020; Kitaev et al., 2020; Wang et al., 2020 (Linformer); Katharopoulos et al., 2020; Choromanski et al., 2021; Su et al., 2021; Press et al., 2022; Dao et al., 2022/2023.
+
+저장에 관해: 이 인터페이스에는 영구 저장 기능이 없으므로, 위 JSON을 복사해 지식베이스나 파일로 저장하시길 권장합니다. 원하시는 저장 위치/형식을 알려주시면 해당 포맷으로 변환해 드리겠습니다.
+2025-11-05 12:09:49 | 용어집 검색 실패: [Errno 32] Broken pipe
