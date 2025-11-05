@@ -1,0 +1,162 @@
+2025-11-05 22:18:28 | 세션 시작: session_031
+2025-11-05 22:18:28 | 폴더 경로: experiments/20251105/20251105_221828_session_031
+2025-11-05 22:18:28 | 설정 파일 저장: db_config.yaml
+2025-11-05 22:18:28 | 설정 파일 저장: model_config.yaml
+2025-11-05 22:18:28 | 설정 파일 저장: multi_request_patterns.yaml
+2025-11-05 22:18:28 | ==========
+2025-11-05 22:18:28 | Agent 그래프 생성 시작
+2025-11-05 22:18:28 | Fallback Chain 활성화
+2025-11-05 22:18:28 | 최대 재시도 횟수: 3
+2025-11-05 22:18:28 | Router 검증 활성화: True
+2025-11-05 22:18:28 | Agent 그래프 컴파일 완료
+2025-11-05 22:18:28 | Streamlit UI 시작
+2025-11-05 22:18:28 | 실험 폴더: experiments/20251105/20251105_221828_session_031
+2025-11-05 22:18:34 | 메타데이터 업데이트: ['user_query']
+2025-11-05 22:18:34 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 22:18:34 | 라우터 노드 실행: llm이 뭐야?
+2025-11-05 22:18:34 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 22:18:34 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 22:18:36 | 정제된 응답 (파싱 전): {
+  "tools": [
+    {
+      "name": "웹_검색",
+      "query": "LLM 정의",
+      "filtering_attempts": 3,
+      "step": 1
+    }
+  ],
+  "reason": "LLM(Large Language Model)은 인공지능 분야에서 널리 사용되는 용어이므로, 웹 검색을 통해 ...
+2025-11-05 22:18:36 | LLM 라우팅 결정 (원본): ```json
+{
+  "tools": [
+    {
+      "name": "웹_검색",
+      "query": "LLM 정의",
+      "filtering_attempt...
+2025-11-05 22:18:36 | LLM 라우팅 결정 (파싱): search_paper
+2025-11-05 22:18:36 | 최종 선택 도구: search_paper
+2025-11-05 22:18:37 | pgvector 검색 기록: search_paper
+2025-11-05 22:18:37 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 22:18:37 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 22:18:37 | 시스템 프롬프트 저장 완료
+2025-11-05 22:18:37 | 최종 프롬프트 저장 완료
+2025-11-05 22:18:40 | 시스템 프롬프트 저장 완료
+2025-11-05 22:18:40 | 최종 프롬프트 저장 완료
+2025-11-05 22:18:45 | 도구 실행 성공: search_paper
+2025-11-05 22:18:45 | 메타데이터 업데이트: ['success', 'response_time_ms']
+2025-11-05 22:18:45 | 메타데이터 업데이트: ['tool_used']
+2025-11-05 22:18:45 | 용어 추출 시작 (범위: 1-5개)
+2025-11-05 22:18:45 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 22:18:45 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 22:18:53 | LLM 응답: ```json
+{
+  "terms": [
+    {
+      "term": "LLM (Large Language Model)",
+      "definition": "방대한 텍스트 데이터를 학습하여 인간처럼 언어를 이해하고 생성하는 AI 모델",
+      "easy_explanation": "LLM은 매우 똑똑한 책 읽기 기계예요. 수많은 책을 읽고 배...
+2025-11-05 22:18:53 | 용어 추출 실패: Invalid \escape: line 7 column 127 (char 383)
+2025-11-05 22:19:22 | 평가 결과 저장: evaluation_20251105_221922.json
+2025-11-05 22:19:22 | 대화 저장: conversation_easy_20251105_221922.json (2개 메시지)
+2025-11-05 22:19:22 | ==========
+2025-11-05 22:26:26 | 메타데이터 업데이트: ['user_query']
+2025-11-05 22:26:26 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 22:26:26 | 라우터 노드 실행: 앞에 말한 답변 저장해줘
+2025-11-05 22:26:26 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 22:26:26 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 22:26:28 | 정제된 응답 (파싱 전): {
+  "tools": [
+    {
+      "name": "메모 도구",
+      "query": "앞에 말한 답변 저장 요청",
+      "filtering_attempts": 0,
+      "step": 1
+    }
+  ],
+  "reason": "사용자가 이전 대화 내용을 저장하도록 요청했기 때문에 기본 메모 도구를 선택하여 처리합니다. ...
+2025-11-05 22:26:28 | JSON 파싱 실패: Extra data: line 13 column 1 (char 231)
+2025-11-05 22:26:28 | 키워드 기반 폴백 매칭 결과: glossary
+2025-11-05 22:26:28 | LLM 라우팅 결정 (원본): ```json
+{
+  "tools": [
+    {
+      "name": "메모 도구",
+      "query": "앞에 말한 답변 저장 요청",
+      "filterin...
+2025-11-05 22:26:28 | LLM 라우팅 결정 (파싱): glossary
+2025-11-05 22:26:28 | 최종 선택 도구: glossary
+2025-11-05 22:26:29 | pgvector 검색 기록: glossary
+2025-11-05 22:26:29 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 22:26:29 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 22:26:29 | 시스템 프롬프트 저장 완료
+2025-11-05 22:26:29 | 최종 프롬프트 저장 완료
+2025-11-05 22:26:31 | 시스템 프롬프트 저장 완료
+2025-11-05 22:26:31 | 최종 프롬프트 저장 완료
+2025-11-05 22:26:34 | 도구 실행 성공: glossary
+2025-11-05 22:26:34 | 메타데이터 업데이트: ['success', 'response_time_ms']
+2025-11-05 22:26:34 | 메타데이터 업데이트: ['tool_used']
+2025-11-05 22:26:34 | 용어 추출 시작 (범위: 1-5개)
+2025-11-05 22:26:34 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 22:26:34 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 22:26:38 | LLM 응답: ```json
+{
+  "terms": [
+    {
+      "term": "컨텍스트 유지",
+      "definition": "대화에서 이전 문맥을 기억하여 일관된 응답을 생성하는 능력",
+      "easy_explanation": "친구와의 대화에서 이전에 말한 내용을 기억해 다음 대화를 이어가는 것처럼, AI가 이전 대화 내용을 기억하고 활용...
+2025-11-05 22:26:38 | 용어 추출 실패: Invalid \escape: line 7 column 156 (char 403)
+2025-11-05 22:26:57 | 평가 결과 저장: evaluation_20251105_222657.json
+2025-11-05 22:26:57 | 대화 저장: conversation_easy_20251105_221922.json (4개 메시지)
+2025-11-05 22:26:57 | ==========
+2025-11-05 22:27:02 | 메타데이터 업데이트: ['user_query']
+2025-11-05 22:27:02 | 메타데이터 업데이트: ['difficulty']
+2025-11-05 22:27:02 | 라우터 노드 실행: llm이 뭔지 찾아서 저장해줘
+2025-11-05 22:27:02 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 22:27:02 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 22:27:05 | 정제된 응답 (파싱 전): {
+  "tools": [
+    {
+      "name": "GoogleSearch",
+      "query": "LLM 정의 및 개념",
+      "filtering_attempts": 3,
+      "step": 1
+    },
+    {
+      "name": "WikipediaSearch",
+      "query": "Large Lang...
+2025-11-05 22:27:05 | JSON 파싱 실패: Extra data: line 19 column 1 (char 428)
+2025-11-05 22:27:05 | 키워드 기반 폴백 매칭 결과: search_paper
+2025-11-05 22:27:05 | LLM 라우팅 결정 (원본): ```json
+{
+  "tools": [
+    {
+      "name": "GoogleSearch",
+      "query": "LLM 정의 및 개념",
+      "filt...
+2025-11-05 22:27:05 | LLM 라우팅 결정 (파싱): search_paper
+2025-11-05 22:27:05 | 최종 선택 도구: search_paper
+2025-11-05 22:27:07 | pgvector 검색 기록: search_paper
+2025-11-05 22:27:07 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 22:27:07 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 22:27:07 | 시스템 프롬프트 저장 완료
+2025-11-05 22:27:07 | 최종 프롬프트 저장 완료
+2025-11-05 22:27:10 | 시스템 프롬프트 저장 완료
+2025-11-05 22:27:10 | 최종 프롬프트 저장 완료
+2025-11-05 22:27:13 | 도구 실행 성공: search_paper
+2025-11-05 22:27:13 | 메타데이터 업데이트: ['success', 'response_time_ms']
+2025-11-05 22:27:13 | 메타데이터 업데이트: ['tool_used']
+2025-11-05 22:27:13 | 용어 추출 시작 (범위: 1-5개)
+2025-11-05 22:27:13 | 난이도별 LLM 선택: difficulty=easy, provider=solar, model=solar-pro2
+2025-11-05 22:27:13 | LLM 초기화: provider=solar, model=solar-pro2
+2025-11-05 22:27:21 | LLM 응답: ```json
+{
+  "terms": [
+    {
+      "term": "LLM",
+      "definition": "대규모 언어 모델로, 대량의 텍스트 데이터를 학습하여 언어 패턴을 이해하고 생성하는 인공지능 모델",
+      "easy_explanation": "책이나 인터넷 글을 많이 읽고 사람의 질문에 답하는 컴퓨터 프로그램. 예를 들어 ...
+2025-11-05 22:27:21 | 용어 추출 실패: Invalid \escape: line 7 column 146 (char 373)
+2025-11-05 22:27:46 | 평가 결과 저장: evaluation_20251105_222746.json
+2025-11-05 22:27:46 | 대화 저장: conversation_easy_20251105_221922.json (6개 메시지)
+2025-11-05 22:27:46 | ==========

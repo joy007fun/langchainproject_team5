@@ -1,0 +1,99 @@
+[SYSTEM PROMPT - beginner]
+당신은 논문을 쉽게 설명하는 친절한 전문가입니다.
+
+답변 규칙:
+- 검색된 논문들을 번호로 정리하세요
+- 각 논문마다:
+  1. 제목 (저자, 연도)
+  2. 핵심 내용 3-5줄 요약
+  3. 왜 이 논문이 중요한지
+  4. 유사도 점수 (있으면)
+- 전문 용어는 괄호로 쉽게 설명
+- 최대 5개까지만 소개
+- 친근하고 이해하기 쉬운 톤
+
+[USER PROMPT]
+[논문 검색 결과]
+## 검색된 논문
+
+### 1. Controlled Retrieval-augmented Context Evaluation for Long-form RAG
+- **저자**: Jia-Huei Ju, Suzan Verberne, Maarten de Rijke, Andrew Yates
+- **출판일**: 2025-06-24
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2506.20051v1
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.6538
+
+RetrievalContext <latexit sha1_base64="QGWDBTmCAVkbMz185etLQMjXE/Q=">AAAB6nicbZDLSgMxFIbP1Fsdb1WXboJFEBdlRoq6EYtuXFa0F2zHkkkzbWgmMyQZoQx9BDcuFHGp7+Lejfg2ppeFtv4Q+Pj/c8g5x485U9pxvq3M3PzC4lJ22V5ZXVvfyG1uVVWUSEIrJOKRrPtYUc4ErWimOa3HkuLQ57Tm9y6Gee2eSsUicaP7MfVC3BEsYARrY13f3h20cnmn4IyEZsGdQP7swz6N377sciv32WxHJAmp0IRjpRquE2svxVIzwunAbiaKxpj0cIc2DAocUuWlo1EHaM84bRRE0jyh0cj93ZHiUKl+6JvKEOuums6G5n9ZI9HBiZcyESeaCjL+KEg40hEa7o3aTFKied8AJpKZWRHpYomJNtexzRHc6ZVnoXpYcI8KxSsnXzqHsbKwA7uwDy4cQwkuoQwVINCBB3iCZ4tbj9aL9TouzViTnm34I+v9BzRQkMA=</latexit>Z⇤
+
+---
+
+### 2. Controlled Retrieval-augmented Context Evaluation for Long-form RAG
+- **저자**: Jia-Huei Ju, Suzan Verberne, Maarten de Rijke, Andrew Yates
+- **출판일**: 2025-06-24
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2506.20051v1
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.6601
+
+Retrieval Context <latexit sha1_base64="SnYQS61M9QihKlqmdyE6xQ3C+Lw=">AAAB6HicbVDLTgJBEOzFF+IL9ehlIjHxRHYNUY9ELx4hkUeEDZkdemFkdnYzM2tCCF/gxYPGePWTvPk3DrAHBSvppFLVne6uIBFcG9f9dnJr6xubW/ntws7u3v5B8fCoqeNUMWywWMSqHVCNgktsGG4EthOFNAoEtoLR7cxvPaHSPJb3ZpygH9GB5CFn1Fip/tArltyyOwdZJV5GSpCh1it+dfsxSyOUhgmqdcdzE+NPqDKcCZwWuqnGhLIRHWDHUkkj1P5kfuiUnFmlT8JY2ZKGzNXfExMaaT2OAtsZUTPUy95M/M/rpCa89idcJqlByRaLwlQQE5PZ16TPFTIjxpZQpri9lbAhVZQZm03BhuAtv7xKmhdl77JcqVdK1ZssjjycwCmcgwdXUIU7qEEDGCA8wyu8OY/Oi/PufCxac042cwx/4Hz+ALuvjOc=</latexit>Z<latexit
+
+---
+
+### 3. Retrieval-Augmented Generation: A Comprehensive Survey of Architectures, Enhancements, and Robustness Frontiers
+- **저자**: Chaitanya Sharma
+- **출판일**: 2025-05-28
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2506.00054v1
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.6613
+
+each LLM as a user of the search engine. uRAG’s training protocol enables evaluation and optimization of retrieval
+Manuscript submitted to ACM
+
+---
+
+### 4. Modelling Language
+- **저자**: Jumbly Grindrod
+- **출판일**: 2024-04-15
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2404.09579v1
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.6634
+
+source of scientific insight.  
+  
+ 
+18 In this respect, LLMs are important disanalogous to compression files such as jpegs, pace (Chiang 2023) . Jpegs 
+essentially do attempt to overfit to the initial data, whereas LLMs and other machine learning models attempt to 
+generalize the patterns found in the initial data.
+
+---
+
+### 5. Controlled Retrieval-augmented Context Evaluation for Long-form RAG
+- **저자**: Jia-Huei Ju, Suzan Verberne, Maarten de Rijke, Andrew Yates
+- **출판일**: 2025-06-24
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2506.20051v1
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.6638
+
+01005430034540015223Open-ended Query <latexit sha1_base64="jqylwcxBagMhesCQ8VFOWEkScmo=">AAAB6HicbVDLTgJBEOzFF+IL9ehlIjHxRHYNUY9ELx4hkUcCGzI79MLI7OxmZtZICF/gxYPGePWTvPk3DrAHBSvppFLVne6uIBFcG9f9dnJr6xubW/ntws7u3v5B8fCoqeNUMWywWMSqHVCNgktsGG4EthOFNAoEtoLR7cxvPaLSPJb3ZpygH9GB5CFn1Fip/tQrltyyOwdZJV5GSpCh1it+dfsxSyOUhgmqdcdzE+NPqDKcCZwWuqnGhLIRHWDHUkkj1P5kfuiUnFmlT8JY2ZKGzNXfExMaaT2OAtsZUTPUy95M/M/rpCa89idcJqlByRaLwlQQE5PZ16TPFTIjxpZQpri9lbAhVZQZm03BhuAtv7xKmhdl77JcqVdK1ZssjjycwCmcgwdXUIU7qEEDGCA8wyu8OQ/Oi/PufCxac042cwx/4Hz+AOknjQU=</latexit>x<latexit
+
+---
+
+
+[질문]
+llm이 뭔지 찾아서 저장해줘
+
+위 검색 결과를 바탕으로 질문에 답변해주세요.
+
+===== 메타데이터 =====
+tool: search_paper
+difficulty: easy
+level: beginner

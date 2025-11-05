@@ -1,0 +1,893 @@
+patterns:
+- keywords:
+  - 전체
+  - 저장
+  tools:
+  - save_file
+  description: 전체 대화 내용 저장
+  priority: 150
+  examples:
+  - 전체 저장해줘
+  - 전체 대화 저장해줘
+  - 전체 대화 내용 저장해줘
+- keywords:
+  - 설명
+  - 논문
+  - 요약
+  - 저장
+  tools:
+  - glossary
+  - search_paper
+  - summarize
+  - save_file
+  description: 용어 설명 후 논문 검색, 요약 및 저장
+  priority: 120
+  examples:
+  - Transformer 설명하고 논문 찾아서 요약하고 저장해줘
+  - Attention 개념 설명하고 관련 논문 정리해서 저장해줘
+- keywords:
+  - 통계
+  - 찾
+  - 요약
+  - 저장
+  tools:
+  - text2sql
+  - search_paper
+  - summarize
+  - save_file
+  description: 통계 조회 후 논문 검색, 요약 및 저장
+  priority: 120
+  examples:
+  - 2024년 상위 인용 논문 통계 보고 찾아서 요약하고 저장해줘
+  - 인용 많은 AI 논문 통계 조회하고 요약해서 저장해줘
+- keywords:
+  - 최신
+  - 정리
+  - 분석
+  - 저장
+  tools:
+  - web_search
+  - summarize
+  - general
+  - save_file
+  description: 최신 정보 검색, 정리, 분석 후 저장
+  priority: 115
+  examples:
+  - 최신 AI 기술 찾아서 정리하고 분석해서 저장해줘
+  - 최근 LLM 동향 검색해서 요약하고 분석해서 저장해줘
+- keywords:
+  - 년
+  - 인용
+  - 요약
+  - 저장
+  tools:
+  - text2sql
+  - search_paper
+  - summarize
+  - save_file
+  description: 연도별 인용 통계 후 논문 요약 및 저장
+  priority: 115
+  examples:
+  - 2024년 인용 상위 5개 논문 찾아서 요약하고 저장해줘
+  - 2025년 상위 인용 AI 논문 통계 보고 정리해서 저장해줘
+- keywords:
+  - 용어
+  - 예시
+  - 요약
+  - 저장
+  tools:
+  - glossary
+  - search_paper
+  - summarize
+  - save_file
+  description: 용어 설명 후 예시 논문 요약 및 저장
+  priority: 110
+  examples:
+  - RAG 설명하고 예시 논문 요약해서 저장해줘
+  - Attention 개념 설명하고 관련 논문 정리해서 저장해줘
+- keywords:
+  - 비교
+  - 논문
+  - 분석
+  - 저장
+  tools:
+  - search_paper
+  - summarize
+  - general
+  - save_file
+  description: 논문 비교 후 요약, 분석 및 저장
+  priority: 110
+  examples:
+  - BERT와 GPT 논문 비교해서 분석하고 저장해줘
+  - Transformer 모델들 비교 정리하고 분석해서 저장해줘
+- keywords:
+  - 웹
+  - 핵심
+  - 분석
+  - 저장
+  tools:
+  - web_search
+  - summarize
+  - general
+  - save_file
+  description: 웹 검색 후 핵심 요약, 분석 및 저장
+  priority: 105
+  examples:
+  - 최신 AI 뉴스 핵심만 정리하고 분석해서 저장해줘
+  - 최근 딥러닝 동향 검색해서 요약하고 분석해서 저장해줘
+- keywords:
+  - 통계
+  - 논문
+  - 정리
+  - 저장
+  tools:
+  - text2sql
+  - search_paper
+  - summarize
+  - save_file
+  description: 통계 조회 후 논문 검색, 정리 및 저장
+  priority: 105
+  examples:
+  - AI 논문 수 통계 보고 대표 논문 정리해서 저장해줘
+  - 2024년 논문 통계 조회하고 주요 논문 요약해서 저장해줘
+- keywords:
+  - 설명
+  - 관련
+  - 핵심
+  - 저장
+  tools:
+  - glossary
+  - search_paper
+  - summarize
+  - save_file
+  description: 용어 설명 후 관련 논문 핵심 요약 및 저장
+  priority: 105
+  examples:
+  - Transformer 설명하고 관련 논문 핵심만 정리해서 저장해줘
+  - BERT 개념 설명하고 논문 주요 내용 요약해서 저장해줘
+- keywords:
+  - 최신
+  - 비교
+  - 분석
+  - 저장
+  tools:
+  - web_search
+  - search_paper
+  - general
+  - save_file
+  description: 최신 정보 및 논문 비교 분석 후 저장
+  priority: 100
+  examples:
+  - 최신 LLM 모델들 비교 분석해서 저장해줘
+  - 최근 AI 프레임워크 웹에서 찾고 논문도 검색해서 비교 분석하고 저장해줘
+- keywords:
+  - 논문
+  - 요약
+  - 저장
+  tools:
+  - search_paper
+  - summarize
+  - save_file
+  description: 논문 요약 후 저장
+  priority: 105
+  examples:
+  - Attention Is All You Need 논문 요약해서 저장해줘
+  - GPT 논문 요약하고 저장해줘
+  - BERT 논문 요약해서 파일로 저장해줘
+- keywords:
+  - 찾
+  - 요약
+  - 저장
+  tools:
+  - search_paper
+  - summarize
+  - save_file
+  description: 논문 찾아서 요약 후 저장
+  priority: 105
+  examples:
+  - Attention 논문 찾아서 요약하고 저장해줘
+  - BERT 논문 검색해서 정리하고 저장해줘
+- keywords:
+  - 검색
+  - 요약
+  - 저장
+  tools:
+  - search_paper
+  - summarize
+  - save_file
+  description: 논문 검색 후 요약 및 저장
+  priority: 105
+  examples:
+  - Transformer 논문 검색해서 요약하고 저장해줘
+  - GPT 관련 논문 찾아서 정리하고 저장해줘
+- keywords:
+  - 통계
+  - 찾
+  - 요약
+  tools:
+  - text2sql
+  - search_paper
+  - summarize
+  description: 통계 조회 후 논문 검색 및 요약
+  priority: 100
+  examples:
+  - 2024년 상위 인용 논문 통계 보고 찾아서 요약해줘
+  - 인용 많은 AI 논문 통계 조회하고 요약해줘
+- keywords:
+  - 설명하고
+  - 논문
+  - 요약
+  tools:
+  - glossary
+  - search_paper
+  - summarize
+  description: 용어 설명 후 관련 논문 검색 및 요약
+  priority: 95
+  examples:
+  - Transformer 설명하고 관련 논문 찾아서 요약해줘
+  - RAG가 뭔지 설명하고 논문 검색해서 정리해줘
+- keywords:
+  - 최신
+  - 정리
+  - 저장
+  tools:
+  - web_search
+  - summarize
+  - save_file
+  description: 최신 정보 검색 후 정리 및 저장
+  priority: 90
+  examples:
+  - 최신 AI 트렌드 정리해서 저장해줘
+  - 최근 LLM 동향 찾아서 정리하고 저장해줘
+- keywords:
+  - 년
+  - 인용
+  - 요약
+  tools:
+  - text2sql
+  - search_paper
+  - summarize
+  description: 연도별 인용 통계 후 논문 요약
+  priority: 95
+  examples:
+  - 2024년 상위 인용 논문 찾아서 요약해줘
+  - 2025년 인용 많은 AI 논문 통계 보고 요약해줘
+- keywords:
+  - 비교
+  - 분석
+  - 저장
+  tools:
+  - search_paper
+  - general
+  - save_file
+  description: 논문 비교 분석 후 저장
+  priority: 85
+  examples:
+  - BERT와 RoBERTa 비교 분석해서 저장해줘
+  - GPT 모델들 비교하고 분석해서 저장해줘
+- keywords:
+  - 웹
+  - 요약
+  - 저장
+  tools:
+  - web_search
+  - summarize
+  - save_file
+  description: 웹 검색 후 요약 및 저장
+  priority: 85
+  examples:
+  - 최신 컨퍼런스 소식 찾아서 요약하고 저장해줘
+  - AI 뉴스 검색해서 정리하고 저장해줘
+- keywords:
+  - 용어
+  - 예시
+  - 요약
+  tools:
+  - glossary
+  - search_paper
+  - summarize
+  description: 용어 설명 후 예시 논문 요약
+  priority: 85
+  examples:
+  - Attention 설명하고 관련 논문 요약해줘
+  - RAG 개념 설명하고 예시 논문 정리해줘
+- keywords:
+  - 통계
+  - 분석
+  - 저장
+  tools:
+  - text2sql
+  - general
+  - save_file
+  description: 통계 조회 후 분석 및 저장
+  priority: 80
+  examples:
+  - AI 논문 통계 분석해서 저장해줘
+  - 2024년 논문 수 조회하고 분석해서 저장해줘
+- keywords:
+  - 찾
+  - 요약
+  tools:
+  - search_paper
+  - summarize
+  description: 논문 찾아서 요약
+  priority: 100
+  examples:
+  - Attention Mechanism 논문 찾아서 요약해줘
+  - Transformer 논문 찾아서 핵심 내용 요약해줘
+- keywords:
+  - 검색
+  - 요약
+  tools:
+  - search_paper
+  - summarize
+  description: 논문 검색 후 요약
+  priority: 100
+  examples:
+  - BERT 논문 검색해서 요약해줘
+  - GPT 관련 논문 검색하고 요약해줘
+- keywords:
+  - 논문
+  - 요약
+  tools:
+  - search_paper
+  - summarize
+  description: 논문 + 요약 키워드
+  priority: 100
+  examples:
+  - RAG 논문 요약해줘
+  - 최근 Transformer 논문 요약해줘
+- keywords:
+  - 찾
+  - 정리
+  tools:
+  - search_paper
+  - summarize
+  description: 논문 찾아서 정리
+  priority: 95
+  examples:
+  - Multimodal AI 논문 찾아서 정리해줘
+  - Diffusion 모델 논문 찾아서 정리해줘
+- keywords:
+  - 검색
+  - 정리
+  tools:
+  - search_paper
+  - summarize
+  description: 논문 검색 후 정리
+  priority: 95
+  examples:
+  - GAN 논문 검색해서 정리해줘
+- keywords:
+  - 찾
+  - 핵심
+  tools:
+  - search_paper
+  - summarize
+  description: 논문 찾아서 핵심 내용
+  priority: 90
+  examples:
+  - 최근 Attention 논문 찾아서 핵심 내용 알려줘
+- keywords:
+  - 논문
+  - 핵심
+  tools:
+  - search_paper
+  - summarize
+  description: 논문 핵심 내용
+  priority: 90
+  examples:
+  - BERT 논문 핵심 내용 알려줘
+- keywords:
+  - 찾
+  - 주요
+  tools:
+  - search_paper
+  - summarize
+  description: 논문 찾아서 주요 내용
+  priority: 85
+  examples:
+  - AI 윤리 논문 찾아서 주요 논점 알려줘
+- keywords:
+  - 논문
+  - 주요
+  tools:
+  - search_paper
+  - summarize
+  description: 논문 주요 내용
+  priority: 85
+  examples:
+  - Prompt Engineering 논문 주요 실험 결과
+- keywords:
+  - 찾
+  - 비교
+  tools:
+  - search_paper
+  - summarize
+  description: 논문 찾아서 비교
+  priority: 80
+  examples:
+  - BERT와 RoBERTa 논문 찾아서 비교해줘
+  - Vision Transformer와 Swin Transformer 비교해줘
+- keywords:
+  - 발전
+  - 정리
+  tools:
+  - search_paper
+  - summarize
+  description: 발전 과정 정리
+  priority: 75
+  examples:
+  - GPT 계열 모델의 발전 과정을 정리해줘
+- keywords:
+  - 응용
+  - 정리
+  tools:
+  - search_paper
+  - summarize
+  description: 응용 사례 정리
+  priority: 75
+  examples:
+  - Multimodal AI 관련 논문 응용 사례 정리해줘
+- keywords:
+  - 년
+  - 찾
+  - 논문
+  tools:
+  - text2sql
+  - search_paper
+  description: 연도별 논문 통계 후 검색
+  priority: 90
+  examples:
+  - 2024년 이후 RL 논문 중 상위 인용 5개 찾아줘
+  - 2025년 ViT 논문 찾아줘
+- keywords:
+  - 년
+  - 관련
+  - 논문
+  tools:
+  - text2sql
+  - search_paper
+  description: 연도별 특정 주제 논문
+  priority: 85
+  examples:
+  - 2024년 BERT 관련 논문
+- keywords:
+  - 상위
+  - 인용
+  tools:
+  - text2sql
+  - search_paper
+  description: 인용 상위 논문
+  priority: 85
+  examples:
+  - 인용이 많은 상위 5개 논문
+- keywords:
+  - 순위
+  - 논문
+  tools:
+  - text2sql
+  - search_paper
+  description: 논문 순위
+  priority: 80
+  examples:
+  - Transformer 논문 인용 순위
+- keywords:
+  - 통계
+  - 요약
+  tools:
+  - text2sql
+  - summarize
+  description: 통계 조회 후 대표 논문 요약
+  priority: 85
+  examples:
+  - 2024년 BERT 논문 통계 보여주고 대표 논문 요약해줘
+- keywords:
+  - 개수
+  - 요약
+  tools:
+  - text2sql
+  - summarize
+  description: 논문 개수 조회 후 요약
+  priority: 80
+  examples:
+  - Transformer 논문 개수 보여주고 하나 요약해줘
+- keywords:
+  - 몇 편
+  - 요약
+  tools:
+  - text2sql
+  - summarize
+  description: 논문 수 조회 후 요약
+  priority: 80
+  examples:
+  - AI 논문 몇 편인지 보여주고 대표 하나 요약해줘
+- keywords:
+  - 최신
+  - 정리
+  tools:
+  - web_search
+  - summarize
+  description: 최신 정보 검색 후 정리
+  priority: 85
+  examples:
+  - 최신 AI 컨퍼런스 소식 정리해줘
+  - 최신 Reinforcement Learning 논문 정리해줘
+- keywords:
+  - 최신
+  - 요약
+  tools:
+  - web_search
+  - summarize
+  description: 최신 정보 검색 후 요약
+  priority: 85
+  examples:
+  - 최신 AI 트렌드 요약해줘
+- keywords:
+  - 최근
+  - 정리
+  tools:
+  - web_search
+  - summarize
+  description: 최근 정보 검색 후 정리
+  priority: 80
+  examples:
+  - 최근 LLM 동향 정리해줘
+- keywords:
+  - 최근
+  - 요약
+  tools:
+  - web_search
+  - summarize
+  description: 최근 정보 검색 후 요약
+  priority: 80
+  examples:
+  - 최근 AI 뉴스 요약해줘
+- keywords:
+  - 2024년
+  - 정리
+  tools:
+  - web_search
+  - summarize
+  description: 특정 연도 정보 정리
+  priority: 75
+  examples:
+  - 2024년 AI 발전 정리해줘
+- keywords:
+  - 2025년
+  - 정리
+  tools:
+  - web_search
+  - summarize
+  description: 특정 연도 정보 정리
+  priority: 75
+  examples:
+  - 2025년 LLM 트렌드 정리해줘
+- keywords:
+  - 설명하고
+  - 논문
+  tools:
+  - glossary
+  - search_paper
+  description: 용어 설명 후 관련 논문
+  priority: 75
+  examples:
+  - Transformer 설명하고 관련 논문 보여줘
+  - Attention Mechanism 설명하고 논문도 보여줘
+- keywords:
+  - 뭐야
+  - 논문
+  tools:
+  - glossary
+  - search_paper
+  description: 용어 정의 후 관련 논문
+  priority: 70
+  examples:
+  - BERT가 뭐야? 그리고 논문도 보여줘
+- keywords:
+  - 차이
+  - 논문
+  tools:
+  - glossary
+  - search_paper
+  description: 개념 차이 설명 후 논문
+  priority: 70
+  examples:
+  - Attention과 Feed Forward 차이 설명하고 논문 보여줘
+- keywords:
+  - 찾
+  - 저장
+  tools:
+  - search_paper
+  - save_file
+  description: 논문 찾아서 저장
+  priority: 70
+  examples:
+  - 한국 연구자 LLM 논문 찾아서 저장해줘
+- keywords:
+  - 검색
+  - 저장
+  tools:
+  - search_paper
+  - save_file
+  description: 논문 검색 후 저장
+  priority: 70
+  examples:
+  - Transformer 논문 검색해서 저장해줘
+- keywords:
+  - 통계
+  - 저장
+  tools:
+  - text2sql
+  - save_file
+  description: 통계 조회 후 저장
+  priority: 65
+  examples:
+  - Transformer 논문 수 조회하고 저장해줘
+- keywords:
+  - SQL
+  - 저장
+  tools:
+  - text2sql
+  - save_file
+  description: SQL 조회 후 저장
+  priority: 65
+  examples:
+  - SQL로 논문 수 조회하고 저장해줘
+- keywords:
+  - 검색
+  - 설명
+  tools:
+  - search_paper
+  - general
+  description: 논문 검색 후 설명
+  priority: 60
+  examples:
+  - RAG 논문 검색해서 설명해줘
+- keywords:
+  - 찾
+  - 설명
+  tools:
+  - search_paper
+  - general
+  description: 논문 찾아서 설명
+  priority: 60
+  examples:
+  - BERT 논문 찾아서 설명해줘
+- keywords:
+  - 논문
+  - 분석
+  tools:
+  - search_paper
+  - general
+  description: 논문 검색 후 분석
+  priority: 75
+  examples:
+  - Transformer 논문 분석해줘
+  - 최근 LLM 논문 분석해줘
+- keywords:
+  - 논문
+  - 방법론
+  tools:
+  - search_paper
+  - general
+  description: 논문 방법론 설명
+  priority: 70
+  examples:
+  - BERT 논문 방법론 설명해줘
+  - GPT 논문의 방법론 알려줘
+- keywords:
+  - 웹
+  - 핵심
+  tools:
+  - web_search
+  - summarize
+  description: 웹 검색 후 핵심 내용
+  priority: 80
+  examples:
+  - 최신 AI 뉴스 핵심만 정리해줘
+  - 최근 논문 동향 핵심 내용 알려줘
+- keywords:
+  - 용어
+  - 요약
+  tools:
+  - glossary
+  - general
+  description: 용어 정의 및 요약
+  priority: 65
+  examples:
+  - Attention이 뭔지 요약해줘
+  - Transformer 개념 요약해줘
+- keywords:
+  - 통계
+  - 분석
+  tools:
+  - text2sql
+  - general
+  description: 통계 조회 후 분석
+  priority: 70
+  examples:
+  - 2024년 AI 논문 통계 분석해줘
+  - Transformer 논문 수 통계 분석해줘
+- keywords:
+  - 최신
+  - 저장
+  tools:
+  - web_search
+  - save_file
+  description: 최신 정보 검색 후 저장
+  priority: 65
+  examples:
+  - 최신 AI 뉴스 찾아서 저장해줘
+  - 최근 컨퍼런스 정보 검색해서 저장해줘
+- keywords:
+  - 논문
+  - 트렌드
+  tools:
+  - search_paper
+  - general
+  description: 논문 기반 트렌드 분석
+  priority: 70
+  examples:
+  - 최근 LLM 논문 트렌드 분석해줘
+  - AI 논문 트렌드 알려줘
+- keywords:
+  - 최신
+  - 분석
+  tools:
+  - web_search
+  - general
+  description: 최신 정보 검색 후 분석
+  priority: 75
+  examples:
+  - 최신 AI 기술 분석해줘
+  - 최근 딥러닝 발전 분석해줘
+- keywords:
+  - 비교
+  - 분석
+  tools:
+  - search_paper
+  - general
+  description: 논문 비교 분석
+  priority: 75
+  examples:
+  - BERT와 GPT 비교 분석해줘
+  - Transformer 모델들 비교 분석해줘
+- keywords:
+  - 통계
+  - 인용
+  tools:
+  - text2sql
+  - search_paper
+  description: 인용 통계 조회 후 논문 검색
+  priority: 80
+  examples:
+  - 인용 많은 AI 논문 통계 조회하고 보여줘
+  - 2024년 인용 상위 논문 통계
+- keywords:
+  - 용어
+  - 예시
+  tools:
+  - glossary
+  - search_paper
+  description: 용어 설명 후 예시 논문
+  priority: 70
+  examples:
+  - Attention 설명하고 예시 논문 보여줘
+  - RAG가 뭔지 설명하고 예시 보여줘
+- keywords:
+  - 논문
+  - 한계
+  tools:
+  - search_paper
+  - summarize
+  description: 논문의 한계점 분석
+  priority: 70
+  examples:
+  - BERT 논문 한계점 정리해줘
+  - Transformer 논문의 한계 분석해줘
+- keywords:
+  - 논문
+  - 기여
+  tools:
+  - search_paper
+  - summarize
+  description: 논문의 주요 기여
+  priority: 75
+  examples:
+  - GPT 논문 주요 기여 정리해줘
+  - BERT 논문의 기여도 요약해줘
+- keywords:
+  - 논문
+  - 실험
+  tools:
+  - search_paper
+  - summarize
+  description: 논문의 실험 결과
+  priority: 70
+  examples:
+  - Transformer 논문 실험 결과 정리해줘
+  - BERT 논문 실험 내용 요약해줘
+- keywords:
+  - 최신
+  - 비교
+  tools:
+  - web_search
+  - general
+  description: 최신 정보 비교 분석
+  priority: 70
+  examples:
+  - 최신 LLM 모델들 비교해줘
+  - 최근 AI 프레임워크 비교 분석해줘
+- keywords:
+  - 요약
+  - 비교
+  tools:
+  - search_paper
+  - summarize
+  description: 논문 요약 및 비교
+  priority: 75
+  examples:
+  - GPT-3와 GPT-4 논문 요약하고 비교해줘
+  - Vision Transformer 계열 논문들 요약 비교해줘
+- keywords:
+  - 웹
+  - 저장
+  tools:
+  - web_search
+  - save_file
+  description: 웹 검색 후 저장
+  priority: 60
+  examples:
+  - 최근 AI 동향 검색해서 저장해줘
+  - LLM 뉴스 찾아서 저장해줘
+- keywords:
+  - 논문
+  - 영향
+  tools:
+  - search_paper
+  - general
+  description: 논문의 영향력 분석
+  priority: 70
+  examples:
+  - Attention 논문의 영향 분석해줘
+  - Transformer 논문 영향력 알려줘
+metadata:
+  version: '2.0'
+  created_date: '2025-11-05'
+  updated_date: '2025-11-05'
+  description: 다중 요청 패턴 정의 - scenarios 분석 기반 (확장판)
+  total_patterns: 72
+  pattern_breakdown:
+    two_tool_patterns: 52
+    three_tool_patterns: 10
+    four_tool_patterns: 10
+  pattern_categories:
+    논문검색+요약: 12
+    통계+논문검색: 4
+    통계+요약: 3
+    웹검색+요약: 6
+    용어집+논문검색: 3
+    논문검색+저장: 2
+    통계+저장: 2
+    검색+설명: 2
+    논문검색+분석: 6
+    웹검색+저장: 2
+    용어집+일반: 1
+    통계+일반: 1
+    기타 2-Tool: 8
+    논문검색+요약+저장: 2
+    통계+논문검색+요약: 2
+    용어집+논문검색+요약: 2
+    웹검색+요약+저장: 2
+    통계+분석+저장: 1
+    논문검색+분석+저장: 1
+    용어집+논문검색+요약+저장: 3
+    통계+논문검색+요약+저장: 3
+    웹검색+요약+분석+저장: 4
+  notes:
+  - 우선순위가 높은 패턴부터 확인합니다
+  - 모든 키워드가 질문에 포함되어야 패턴이 매칭됩니다
+  - 첫 번째로 매칭되는 패턴을 사용합니다
+  - 3-Tool 및 4-Tool 패턴 지원으로 복잡한 요청 처리 가능
+  - '패턴 우선순위: 60-100 (높을수록 먼저 확인)'

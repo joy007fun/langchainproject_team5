@@ -1,0 +1,10 @@
+{
+  "session_id": "031",
+  "start_time": "2025-11-05T22:18:28.909614",
+  "difficulty": "easy",
+  "tool_used": "search_paper",
+  "user_query": "llm이 뭔지 찾아서 저장해줘",
+  "success": true,
+  "response_time_ms": 11549,
+  "end_time": null
+}
