@@ -672,12 +672,12 @@ def render_chat_export_buttons():
             st.markdown(export_copy_html, unsafe_allow_html=True)
 
         with col_export_save:
-            # 전체 채팅 저장 버튼 (마크다운 형식)
+            # 경로 지정 저장 버튼 (마크다운 형식)
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             filename = f"chat_history_{timestamp}.md"
 
             st.download_button(
-                label="💾 전체 대화 저장",
+                label="💾 경로 지정 저장",
                 data=chat_content,
                 file_name=filename,
                 mime="text/markdown",
