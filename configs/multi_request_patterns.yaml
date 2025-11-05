@@ -314,10 +314,19 @@ patterns:
 # 복잡한 작업 흐름
 
 - keywords:
-  - 용어
   - 논문
   - 요약
   - 저장
+  any_of_keywords:
+  - 용어
+  - 뭐야
+  - 뭔지
+  - 뭔데
+  - 무엇인지
+  - 어떤건지
+  - 어떤거야
+  - 설명
+  - 개념
   tools:
   - glossary
   - search_paper
@@ -326,10 +335,12 @@ patterns:
   - summarize
   - save_file
   description: 용어 설명, 논문 검색, 요약 후 저장 (6단계 파이프라인)
-  priority: 80
+  priority: 105
   examples:
   - Transformer 설명하고 논문 찾아서 요약하고 저장해줘
   - RAG 개념 설명하고 관련 논문 정리해서 저장해줘
+  - RAG가 뭔지 설명하고 관련 논문도 요약해서 저장해줘
+  - BERT가 뭐야? 논문 찾아서 요약하고 저장해줘
 
 - keywords:
   - 논문
@@ -374,10 +385,10 @@ patterns:
 
 # ==================== 메타데이터 ==================== #
 metadata:
-  version: '3.7'
+  version: '3.8'
   created_date: '2025-11-05'
   updated_date: '2025-11-06'
-  description: 핵심 패턴만 선별 - 성능 최적화 + 완전한 파이프라인 지원 + 키워드 변형 지원 + 통계 조회 패턴 강화 + 이유 질문 패턴 추가 + 최신 정보 조회 패턴 추가
+  description: 핵심 패턴만 선별 - 성능 최적화 + 완전한 파이프라인 지원 + 키워드 변형 지원 + 통계 조회 패턴 강화 + 이유 질문 패턴 추가 + 최신 정보 조회 패턴 추가 + 용어 설명 패턴 강화
   total_patterns: 21
   removed_patterns: 62
   pattern_breakdown:
@@ -425,3 +436,6 @@ metadata:
   - '최신 조회' 패턴 추가: 최신 단독 키워드로 웹 검색 우선 실행 (v3.7)
   - 웹 검색 실패 시 일반 답변으로 fallback 보장 (v3.7)
   - exclude_keywords로 복합 최신 패턴과 충돌 방지 (v3.7)
+  - '용어 논문 저장' 패턴 강화: any_of_keywords에 [용어/뭐야/뭔지/뭔데/설명/개념] 추가 (v3.8)
+  - 우선순위 상승 (80 → 105)으로 [논문/요약/저장] 패턴보다 우선 매칭 (v3.8)
+  - "RAG가 뭔지 설명하고 논문 요약" 요청에서 glossary 도구 우선 실행 보장 (v3.8)
