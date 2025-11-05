@@ -74,7 +74,7 @@ def search_glossary(search_term: str = "", category_filter: str = "전체"):
             query += " AND category = %s"
             params.append(category_filter)
 
-        query += " ORDER BY created_at DESC LIMIT 1000"
+        query += " ORDER BY created_at DESC"
 
         # -------------- 쿼리 실행 -------------- #
         cursor.execute(query, params)
