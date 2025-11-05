@@ -47,10 +47,10 @@ class Logger:                                    # Logger 클래스 정의
         message = message.strip()                # 메시지 공백 제거
         if not message:                          # 메시지가 비어있으면
             return                               # 함수 종료
-            
+
         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')  # 현재 시간 타임스탬프 생성
         line = f"{timestamp} | {message}\n"      # 타임스탬프와 메시지 결합
-        
+
         self.log_file.write(line)                # 로그 파일에 기록
         self.log_file.flush()                    # 버퍼 즉시 플러시 (데이터 손실 방지)
 
@@ -64,6 +64,26 @@ class Logger:                                    # Logger 클래스 정의
             # 일반 메시지인 경우
             else:
                 self.original_stdout.write(line) # 일반 출력
+
+
+    # 분기점 기록 함수 정의
+    def write_separator(self, separator: str = "=========="):
+        """
+        로그 파일에 분기점을 기록합니다.
+        질의-응답 종료 시 또는 주요 이벤트 후에 사용합니다.
+
+        Args:
+            separator: 분기점 문자열 (기본값: "==========")
+        """
+        timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')  # 현재 시간 타임스탬프 생성
+        line = f"{timestamp} | {separator}\n"    # 타임스탬프와 분기점 결합
+
+        self.log_file.write(line)                # 로그 파일에 기록
+        self.log_file.flush()                    # 버퍼 즉시 플러시 (데이터 손실 방지)
+
+        # 콘솔에도 출력 (기본 설정에 따름)
+        if self.print_also:
+            self.original_stdout.write(line)     # 분기점 출력
     
     
     # 플러시 함수 정의
