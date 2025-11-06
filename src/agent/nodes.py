@@ -57,6 +57,14 @@ def router_node(state: AgentState, exp_manager=None):
     # 맥락 참조가 있어도 명확한 다중 요청 키워드가 있으면 패턴 매칭 시도
     skip_pattern_matching = has_contextual_ref and len(state.get("messages", [])) > 1 and not has_multi_request_indicator
 
+    # 디버깅 로그
+    if exp_manager:
+        exp_manager.logger.write(f"패턴 매칭 조건 체크:")
+        exp_manager.logger.write(f"  has_contextual_ref: {has_contextual_ref}")
+        exp_manager.logger.write(f"  has_multi_request_indicator: {has_multi_request_indicator}")
+        exp_manager.logger.write(f"  messages 개수: {len(state.get('messages', []))}")
+        exp_manager.logger.write(f"  skip_pattern_matching: {skip_pattern_matching}")
+
     if skip_pattern_matching:
         # 맥락 참조가 있고 다중 요청 아닌 경우만 패턴 매칭 건너뛰기
         if exp_manager:
@@ -68,7 +76,11 @@ def router_node(state: AgentState, exp_manager=None):
         # YAML 파일에서 패턴 로드 (우선순위 정렬됨)
         multi_request_patterns = get_multi_request_patterns()
 
+        if exp_manager:
+            exp_manager.logger.write(f"패턴 매칭 시작: 총 {len(multi_request_patterns)}개 패턴 체크")
+
         # 다중 요청 패턴 확인 (우선순위 높은 순서대로)
+        pattern_matched = False
         for pattern in multi_request_patterns:
             keywords = pattern.get("keywords", [])
             any_of_keywords = pattern.get("any_of_keywords", [])
@@ -86,6 +98,7 @@ def router_node(state: AgentState, exp_manager=None):
             exclude_match = any(ex_kw in question for ex_kw in exclude_keywords) if exclude_keywords else False
 
             if keywords_match and any_keywords_match and not exclude_match:
+                pattern_matched = True
                 description = pattern.get('description', 'N/A')
 
                 if exp_manager:
@@ -94,7 +107,7 @@ def router_node(state: AgentState, exp_manager=None):
                         pattern_info += f" + 선택 키워드: {any_of_keywords}"
                     if exclude_keywords:
                         pattern_info += f" (제외: {exclude_keywords})"
-                    exp_manager.logger.write(f"다중 요청 감지: {pattern_info} → {tools}")
+                    exp_manager.logger.write(f"✅ 다중 요청 감지: {pattern_info} → {tools}")
                     exp_manager.logger.write(f"패턴 설명: {description}")
                     if len(tools) > 1:
                         exp_manager.logger.write(f"순차 실행 도구: {' → '.join(tools)}")
@@ -185,6 +198,10 @@ def router_node(state: AgentState, exp_manager=None):
                             exp_manager.logger.write(f"LLM 호출 실패: {str(e)}", print_error=True)
 
                 return state
+
+        # 패턴 매칭 실패 시 로그
+        if not pattern_matched and exp_manager:
+            exp_manager.logger.write(f"⚠️ 패턴 매칭 실패: 어떤 패턴도 매칭되지 않음 → LLM 라우팅 사용")
 
     # -------------- 단일 요청 처리 (기존 로직) -------------- #
     # 난이도 추출 (프롬프트 포맷팅 전에 필요)
