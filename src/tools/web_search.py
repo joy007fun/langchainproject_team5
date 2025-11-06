@@ -188,6 +188,7 @@ def web_search_node(state: AgentState, exp_manager=None):
         # -------------- 최종 답변 저장 -------------- #
         state["final_answers"] = final_answers
         state["final_answer"] = final_answers[levels[1]]
+        state["tool_result"] = final_answers[levels[1]]  # Skip 로직을 위한 tool_result 설정
 
     except Exception as e:
         if tool_logger:
