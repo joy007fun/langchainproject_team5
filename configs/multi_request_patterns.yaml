@@ -85,6 +85,31 @@ patterns:
   - 최근 AI 발전 상황 알려줘
   - 최신 기술 트렌드 알려줘
 
+- keywords: []
+  any_of_keywords:
+  - 은?
+  - 는?
+  - 의?
+  - 이란?
+  exclude_keywords:
+  - 논문
+  - 최신
+  - 저장
+  - 검색
+  - 찾
+  - 요약
+  tools:
+  - glossary
+  - general
+  description: 단순 질문 (용어 우선 검색 후 일반 답변)
+  priority: 130
+  examples:
+  - Self-Attention의 시간 복잡도는?
+  - Transformer의 성능은?
+  - BERT의 특징은?
+  - GPT의 장점은?
+  - 배치 정규화란?
+
 - keywords:
   - 논문
   - 찾
@@ -385,15 +410,15 @@ patterns:
 
 # ==================== 메타데이터 ==================== #
 metadata:
-  version: '3.8'
+  version: '3.9'
   created_date: '2025-11-05'
   updated_date: '2025-11-06'
-  description: 핵심 패턴만 선별 - 성능 최적화 + 완전한 파이프라인 지원 + 키워드 변형 지원 + 통계 조회 패턴 강화 + 이유 질문 패턴 추가 + 최신 정보 조회 패턴 추가 + 용어 설명 패턴 강화
-  total_patterns: 21
+  description: 핵심 패턴만 선별 - 성능 최적화 + 완전한 파이프라인 지원 + 키워드 변형 지원 + 통계 조회 패턴 강화 + 이유 질문 패턴 추가 + 최신 정보 조회 패턴 추가 + 용어 설명 패턴 강화 + 단순 질문 패턴 추가
+  total_patterns: 22
   removed_patterns: 62
   pattern_breakdown:
     single_tool: 5
-    two_tool: 8
+    two_tool: 9
     three_tool: 3
     four_tool: 3
     five_tool: 1
@@ -403,6 +428,7 @@ metadata:
     전체_저장: 1
     이유_질문: 1
     최신_조회: 1
+    단순_질문: 1
     논문_찾기: 1
     용어_저장: 2
     논문_요약: 1
@@ -417,7 +443,7 @@ metadata:
     통계_논문_저장: 1
     최신_분석_저장: 1
   notes:
-  - 76개 → 14개 → 17개 → 19개 → 20개 → 21개 (최신 정보 조회 패턴 추가)
+  - 76개 → 14개 → 17개 → 19개 → 20개 → 21개 → 22개 (단순 질문 패턴 추가)
   - 단일 글자 키워드 완전 제거
   - exclude_keywords로 정확한 매칭 구현
   - 우선순위 재조정 (200 → 70)
@@ -436,6 +462,9 @@ metadata:
   - '최신 조회' 패턴 추가: 최신 단독 키워드로 웹 검색 우선 실행 (v3.7)
   - 웹 검색 실패 시 일반 답변으로 fallback 보장 (v3.7)
   - exclude_keywords로 복합 최신 패턴과 충돌 방지 (v3.7)
-  - '용어 논문 저장' 패턴 강화: any_of_keywords에 [용어/뭐야/뭔지/뭔데/설명/개념] 추가 (v3.8)
+  - '용어 논문 저장' 패턴 강화: any_of_keywords에 [용어/뭐야/뭔지/뭔de/설명/개념] 추가 (v3.8)
   - 우선순위 상승 (80 → 105)으로 [논문/요약/저장] 패턴보다 우선 매칭 (v3.8)
   - "RAG가 뭔지 설명하고 논문 요약" 요청에서 glossary 도구 우선 실행 보장 (v3.8)
+  - '단순 질문' 패턴 추가: [은?/는?/의?/이란?] 패턴으로 짧은 질문 감지 (v3.9)
+  - glossary → general 파이프라인으로 용어 우선 검색 후 일반 답변 fallback (v3.9)
+  - "Self-Attention의 시간 복잡도는?" 같은 질문에서 논문 검색 오인 방지 (v3.9)
