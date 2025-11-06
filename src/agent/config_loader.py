@@ -345,12 +345,26 @@ def _validate_multi_request_patterns(patterns: List[Dict[str, Any]]):
             raise ValueError(f"패턴 {i}에 keywords 필드가 없습니다.")
 
         keywords = pattern["keywords"]
-        if not isinstance(keywords, list) or len(keywords) == 0:
-            raise ValueError(f"패턴 {i}의 keywords는 비어있지 않은 리스트여야 합니다.")
+        if not isinstance(keywords, list):
+            raise ValueError(f"패턴 {i}의 keywords는 리스트여야 합니다.")
+
+        # keywords는 비어있을 수 있지만, any_of_keywords가 있어야 함
+        if len(keywords) == 0 and "any_of_keywords" not in pattern:
+            raise ValueError(f"패턴 {i}의 keywords가 비어있으면 any_of_keywords가 있어야 합니다.")
 
         for kw in keywords:
             if not isinstance(kw, str) or len(kw) == 0:
                 raise ValueError(f"패턴 {i}의 키워드는 비어있지 않은 문자열이어야 합니다.")
+
+        # any_of_keywords 검증 (선택 사항)
+        if "any_of_keywords" in pattern:
+            any_of_keywords = pattern["any_of_keywords"]
+            if not isinstance(any_of_keywords, list) or len(any_of_keywords) == 0:
+                raise ValueError(f"패턴 {i}의 any_of_keywords는 비어있지 않은 리스트여야 합니다.")
+
+            for kw in any_of_keywords:
+                if not isinstance(kw, str) or len(kw) == 0:
+                    raise ValueError(f"패턴 {i}의 any_of_keywords는 비어있지 않은 문자열이어야 합니다.")
 
         # tools 검증
         if "tools" not in pattern:

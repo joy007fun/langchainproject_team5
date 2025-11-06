@@ -71,20 +71,30 @@ def router_node(state: AgentState, exp_manager=None):
         # 다중 요청 패턴 확인 (우선순위 높은 순서대로)
         for pattern in multi_request_patterns:
             keywords = pattern.get("keywords", [])
+            any_of_keywords = pattern.get("any_of_keywords", [])
             exclude_keywords = pattern.get("exclude_keywords", [])
             tools = pattern.get("tools", [])
 
-            # 모든 키워드가 질문에 포함되는지 확인
+            # 모든 키워드가 질문에 포함되는지 확인 (AND 로직)
             keywords_match = all(kw in question for kw in keywords)
+
+            # any_of_keywords 중 하나라도 질문에 포함되는지 확인 (OR 로직)
+            # any_of_keywords가 없으면 True (조건 무시)
+            any_keywords_match = any(kw in question for kw in any_of_keywords) if any_of_keywords else True
 
             # 제외 키워드가 하나라도 있으면 패턴 불일치
             exclude_match = any(ex_kw in question for ex_kw in exclude_keywords) if exclude_keywords else False
 
-            if keywords_match and not exclude_match:
+            if keywords_match and any_keywords_match and not exclude_match:
                 description = pattern.get('description', 'N/A')
 
                 if exp_manager:
-                    exp_manager.logger.write(f"다중 요청 감지: {keywords} (제외: {exclude_keywords}) → {tools}")
+                    pattern_info = f"키워드: {keywords}"
+                    if any_of_keywords:
+                        pattern_info += f" + 선택 키워드: {any_of_keywords}"
+                    if exclude_keywords:
+                        pattern_info += f" (제외: {exclude_keywords})"
+                    exp_manager.logger.write(f"다중 요청 감지: {pattern_info} → {tools}")
                     exp_manager.logger.write(f"패턴 설명: {description}")
                     if len(tools) > 1:
                         exp_manager.logger.write(f"순차 실행 도구: {' → '.join(tools)}")

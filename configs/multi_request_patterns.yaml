@@ -2,34 +2,30 @@ patterns:
 # ==================== 단일 도구 패턴 (Priority 150+) ==================== #
 # 최우선 순위: 명확한 단일 의도
 
-- keywords:
+- keywords: []
+  any_of_keywords:
   - 뭐야
+  - 뭔데
+  - 뭔지
+  - 무엇인지
+  - 어떤건지
+  - 어떤거야
   exclude_keywords:
   - 논문
   - 검색
   - 찾아
+  - 저장
   tools:
   - glossary
-  description: 용어 정의 질문 (뭐야 패턴)
+  description: 용어 정의 질문 (다양한 표현)
   priority: 200
   examples:
   - LLM이 뭐야?
-  - Transformer가 뭐야?
-  - RAG 뭐야?
-
-- keywords:
-  - 뭔지
-  exclude_keywords:
-  - 논문
-  - 검색
-  - 찾아
-  tools:
-  - glossary
-  description: 용어 정의 질문 (뭔지 패턴)
-  priority: 200
-  examples:
-  - GAN이 뭔지 알려줘
-  - Attention이 뭔지 설명해줘
+  - Transformer가 뭔지 알려줘
+  - RAG 뭔데?
+  - BERT가 무엇인지 설명해줘
+  - Attention 어떤건지 알려줘
+  - GPT 어떤거야?
 
 - keywords:
   - 전체
@@ -63,68 +59,54 @@ patterns:
 # 자주 사용되는 조합
 
 - keywords:
-  - 뭐야
   - 논문
+  any_of_keywords:
+  - 뭐야
+  - 뭔데
+  - 뭔지
+  - 무엇인지
+  - 어떤건지
+  - 어떤거야
   exclude_keywords:
   - 저장
   - 요약
   tools:
   - glossary
   - search_paper
-  description: 용어 정의 후 관련 논문 검색 (뭐야 패턴)
+  description: 용어 정의 후 관련 논문 검색 (다양한 표현)
   priority: 150
   examples:
   - RAG가 뭐야? 관련 논문도 보여줘
-  - Transformer가 뭐야? 논문도 찾아줘
-  - LLM이 뭐야 논문도 검색해줘
+  - Transformer가 뭔지 설명하고 논문도 찾아줘
+  - LLM이 뭔데? 논문도 검색해줘
+  - BERT가 무엇인지 알려주고 논문도 보여줘
+  - Attention 어떤건지 설명하고 논문도 찾아줘
+  - GPT 어떤거야? 논문 찾아줘
 
 - keywords:
-  - 뭔지
-  - 논문
-  exclude_keywords:
   - 저장
-  - 요약
-  tools:
-  - glossary
-  - search_paper
-  description: 용어 정의 후 관련 논문 검색 (뭔지 패턴)
-  priority: 150
-  examples:
-  - RAG가 뭔지 설명하고 관련 논문도 보여줘
-  - Transformer가 뭔지 알려주고 논문도 찾아줘
-  - GAN이 뭔지 검색하고 논문도 보여줘
-
-- keywords:
+  any_of_keywords:
   - 뭐야
-  - 저장
+  - 뭔데
+  - 뭔지
+  - 무엇인지
+  - 어떤건지
+  - 어떤거야
   exclude_keywords:
   - 전체
   - 논문
   tools:
   - glossary
   - save_file
-  description: 용어 정의 후 저장
+  description: 용어 정의 후 저장 (다양한 표현)
   priority: 140
   examples:
   - LLM이 뭐야? 저장해줘
-  - Transformer가 뭐야? 저장해줘
-  - RNN이 뭐야 찾아서 저장해줘
-
-- keywords:
-  - 뭔지
-  - 저장
-  exclude_keywords:
-  - 전체
-  - 논문
-  tools:
-  - glossary
-  - save_file
-  description: 용어 정의 후 저장
-  priority: 140
-  examples:
-  - AI가 뭔지 찾아서 저장해줘
-  - GAN이 뭔지 알려주고 저장해줘
-  - Transformer가 뭔지 검색해서 저장해줘
+  - Transformer가 뭔지 알려주고 저장해줘
+  - RAG 뭔데? 저장해줘
+  - BERT가 무엇인지 설명하고 저장해줘
+  - Attention 어떤건지 찾아서 저장해줘
+  - GPT 어떤거야? 저장해줘
 
 - keywords:
   - 논문
@@ -325,10 +307,10 @@ patterns:
 
 # ==================== 메타데이터 ==================== #
 metadata:
-  version: '3.3'
+  version: '3.4'
   created_date: '2025-11-05'
   updated_date: '2025-11-06'
-  description: 핵심 패턴만 선별 - 성능 최적화 + 완전한 파이프라인 지원
+  description: 핵심 패턴만 선별 - 성능 최적화 + 완전한 파이프라인 지원 + 키워드 변형 지원
   total_patterns: 19
   removed_patterns: 62
   pattern_breakdown:
@@ -355,7 +337,7 @@ metadata:
     통계_논문_저장: 1
     최신_분석_저장: 1
   notes:
-  - 76개 → 14개 → 17개 (복합 요청 패턴 추가)
+  - 76개 → 14개 → 17개 → 19개 (복합 요청 패턴 추가)
   - 단일 글자 키워드 완전 제거
   - exclude_keywords로 정확한 매칭 구현
   - 우선순위 재조정 (200 → 70)
@@ -363,3 +345,5 @@ metadata:
   - 용어 정의 + 저장 복합 패턴 추가
   - 논문 검색 단일 패턴 추가 (multi-turn 지원)
   - 논문 요약 패턴에 완전한 4단계 파이프라인 적용 (RAG → 웹 → 일반 → 요약)
+  - any_of_keywords 필드 추가: 키워드 변형 지원 (뭐야/뭔데/뭔지/무엇인지/어떤건지/어떤거야)
+  - nodes.py에 any_of_keywords OR 로직 구현 완료
