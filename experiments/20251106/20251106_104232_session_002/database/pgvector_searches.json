@@ -1,0 +1,12 @@
+[
+  {
+    "tool": "search_paper",
+    "collection": "paper_chunks",
+    "query_text": "RAG(Retrieval-Augmented Generation) 개념 설명 및 핵심 논문 요약",
+    "search_mode": "similarity",
+    "top_k": 5,
+    "use_multi_query": false,
+    "result_length": 4492,
+    "timestamp": "2025-11-06T10:42:44.849396"
+  }
+]

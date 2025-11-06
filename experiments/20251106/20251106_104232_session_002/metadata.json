@@ -1,0 +1,10 @@
+{
+  "session_id": "002",
+  "start_time": "2025-11-06T10:42:32.588313",
+  "difficulty": "easy",
+  "tool_used": "search_paper",
+  "user_query": "RAG가 뭔지 설명하고 관련 논문도 요약해서 저장해줘",
+  "success": true,
+  "response_time_ms": 21592,
+  "end_time": null
+}

@@ -1,0 +1,470 @@
+patterns:
+# ==================== 단일 도구 패턴 (Priority 150+) ==================== #
+# 최우선 순위: 명확한 단일 의도
+
+- keywords: []
+  any_of_keywords:
+  - 뭐야
+  - 뭔데
+  - 뭔지
+  - 무엇인지
+  - 어떤건지
+  - 어떤거야
+  exclude_keywords:
+  - 논문
+  - 검색
+  - 찾아
+  - 저장
+  tools:
+  - glossary
+  description: 용어 정의 질문 (다양한 표현)
+  priority: 200
+  examples:
+  - LLM이 뭐야?
+  - Transformer가 뭔지 알려줘
+  - RAG 뭔데?
+  - BERT가 무엇인지 설명해줘
+  - Attention 어떤건지 알려줘
+  - GPT 어떤거야?
+
+- keywords:
+  - 전체
+  - 저장
+  tools:
+  - save_file
+  description: 전체 대화 내용 저장
+  priority: 150
+  examples:
+  - 전체 저장해줘
+  - 전체 대화 저장해줘
+  - 전체 대화 내용 저장해줘
+
+- keywords:
+  - 왜
+  any_of_keywords:
+  - 쓰는거야
+  - 사용하는거야
+  - 사용하는지
+  - 알고싶어
+  - 하는거야
+  - 하는지
+  - 쓰는지
+  exclude_keywords:
+  - 논문
+  - 검색
+  - 찾아
+  - 저장
+  tools:
+  - general
+  description: 간단한 이유 질문 (왜 + 동사 조합)
+  priority: 150
+  examples:
+  - 왜 AI 학습에 GPU를 쓰는거야?
+  - Transformer가 왜 좋은지 알고싶어
+  - 왜 딥러닝을 사용하는거야?
+  - 배치 정규화를 왜 하는지 설명해줘
+  - 왜 GPU를 사용하는지 알려줘
+
+- keywords:
+  - 최신
+  exclude_keywords:
+  - 정보
+  - 정리
+  - 저장
+  - 분석
+  - 논문
+  - 찾
+  tools:
+  - web_search
+  - general
+  description: 최신 정보 조회 (웹 검색 우선)
+  priority: 140
+  examples:
+  - 최신 AI 뉴스 알려줘
+  - 최신 딥러닝 동향 알려줘
+  - 최근 AI 발전 상황 알려줘
+  - 최신 기술 트렌드 알려줘
+
+- keywords: []
+  any_of_keywords:
+  - 은?
+  - 는?
+  - 의?
+  - 이란?
+  exclude_keywords:
+  - 논문
+  - 최신
+  - 저장
+  - 검색
+  - 찾
+  - 요약
+  tools:
+  - glossary
+  - general
+  description: 단순 질문 (용어 우선 검색 후 일반 답변)
+  priority: 145
+  examples:
+  - Self-Attention의 시간 복잡도는?
+  - Transformer의 성능은?
+  - BERT의 특징은?
+  - GPT의 장점은?
+  - 배치 정규화란?
+
+- keywords:
+  - 논문
+  - 찾
+  exclude_keywords:
+  - 저장
+  - 요약
+  - 인용
+  - 많은
+  - 상위
+  - 통계
+  - 몇
+  tools:
+  - search_paper
+  description: 논문 검색 (찾기)
+  priority: 140
+  examples:
+  - Transformer 논문 찾아줘
+  - 관련 논문 찾아줘
+  - GPT 논문 검색해줘
+
+
+# ==================== 2-도구 패턴 (Priority 100-120) ==================== #
+# 자주 사용되는 조합
+
+- keywords:
+  - 논문
+  any_of_keywords:
+  - 뭐야
+  - 뭔데
+  - 뭔지
+  - 무엇인지
+  - 어떤건지
+  - 어떤거야
+  exclude_keywords:
+  - 저장
+  - 요약
+  tools:
+  - glossary
+  - search_paper
+  description: 용어 정의 후 관련 논문 검색 (다양한 표현)
+  priority: 150
+  examples:
+  - RAG가 뭐야? 관련 논문도 보여줘
+  - Transformer가 뭔지 설명하고 논문도 찾아줘
+  - LLM이 뭔데? 논문도 검색해줘
+  - BERT가 무엇인지 알려주고 논문도 보여줘
+  - Attention 어떤건지 설명하고 논문도 찾아줘
+  - GPT 어떤거야? 논문 찾아줘
+
+- keywords:
+  - 저장
+  any_of_keywords:
+  - 뭐야
+  - 뭔데
+  - 뭔지
+  - 무엇인지
+  - 어떤건지
+  - 어떤거야
+  exclude_keywords:
+  - 전체
+  - 논문
+  tools:
+  - glossary
+  - save_file
+  description: 용어 정의 후 저장 (다양한 표현)
+  priority: 140
+  examples:
+  - LLM이 뭐야? 저장해줘
+  - Transformer가 뭔지 알려주고 저장해줘
+  - RAG 뭔데? 저장해줘
+  - BERT가 무엇인지 설명하고 저장해줘
+  - Attention 어떤건지 찾아서 저장해줘
+  - GPT 어떤거야? 저장해줘
+
+- keywords:
+  - 논문
+  - 요약
+  exclude_keywords:
+  - 저장
+  tools:
+  - search_paper
+  - web_search
+  - general
+  - summarize
+  description: 논문 검색 후 요약 (4단계 파이프라인)
+  priority: 120
+  examples:
+  - Transformer 논문 요약해줘
+  - GPT 논문 찾아서 요약해줘
+  - Attention 논문 정리해줘
+  - Attention Is All You Need 논문 요약해줘
+
+- keywords:
+  - 최신
+  - 정보
+  exclude_keywords:
+  - 저장
+  tools:
+  - web_search
+  - summarize
+  description: 최신 정보 검색 후 요약
+  priority: 110
+  examples:
+  - 최신 AI 기술 정리해줘
+  - 최근 LLM 동향 요약해줘
+
+- keywords:
+  - 논문
+  any_of_keywords:
+  - 통계
+  - 인용
+  - 많은
+  - 상위
+  - 몇
+  exclude_keywords:
+  - 저장
+  - 요약
+  tools:
+  - text2sql
+  - search_paper
+  - web_search
+  - general
+  description: 논문 통계 조회 후 상세 검색 (4단계 파이프라인)
+  priority: 135
+  examples:
+  - 2024년 인용 상위 논문 찾아줘
+  - 인용 많은 AI 논문 보여줘
+  - 2023년 이후 인용 많은 논문 찾아줘
+  - 최근 3년간 상위 논문 보여줘
+  - 논문 몇 개 있어?
+
+- keywords:
+  - 용어
+  - 논문
+  exclude_keywords:
+  - 저장
+  - 요약
+  tools:
+  - glossary
+  - search_paper
+  description: 용어 설명 후 관련 논문 검색 ("용어" 명시 패턴)
+  priority: 90
+  examples:
+  - Transformer 용어 설명하고 관련 논문 보여줘
+  - RAG 용어 알려주고 논문도 찾아줘
+
+- keywords:
+  - 논문
+  - 찾
+  - 저장
+  exclude_keywords:
+  - 요약
+  tools:
+  - search_paper
+  - save_file
+  description: 논문 검색 후 저장
+  priority: 110
+  examples:
+  - Transformer 논문 찾아서 저장해줘
+  - GPT 논문 검색해서 저장해줘
+  - 관련 논문 찾아줘 저장해줘
+
+
+# ==================== 3-도구 패턴 (Priority 80-100) ==================== #
+# 복합 작업
+
+- keywords:
+  - 논문
+  - 요약
+  - 저장
+  tools:
+  - search_paper
+  - web_search
+  - general
+  - summarize
+  - save_file
+  description: 논문 검색, 요약 후 저장 (5단계 파이프라인)
+  priority: 100
+  examples:
+  - Attention 논문 요약해서 저장해줘
+  - BERT 논문 정리하고 저장해줘
+
+- keywords:
+  - 최신
+  - 정리
+  - 저장
+  tools:
+  - web_search
+  - summarize
+  - save_file
+  description: 최신 정보 검색, 정리 후 저장
+  priority: 90
+  examples:
+  - 최신 AI 트렌드 정리해서 저장해줘
+  - 최근 LLM 동향 찾아서 저장해줘
+
+- keywords:
+  - 통계
+  - 요약
+  - 저장
+  tools:
+  - text2sql
+  - summarize
+  - save_file
+  description: 통계 조회, 요약 후 저장
+  priority: 85
+  examples:
+  - 2024년 논문 통계 보고 요약해서 저장해줘
+  - AI 논문 수 조회하고 정리해서 저장해줘
+
+- keywords:
+  - 비교
+  - 분석
+  - 저장
+  tools:
+  - search_paper
+  - general
+  - save_file
+  description: 논문 비교 분석 후 저장
+  priority: 80
+  examples:
+  - BERT와 GPT 비교 분석해서 저장해줘
+  - Transformer 모델들 비교하고 저장해줘
+
+
+# ==================== 4-도구 패턴 (Priority 60-80) ==================== #
+# 복잡한 작업 흐름
+
+- keywords:
+  - 논문
+  - 요약
+  - 저장
+  any_of_keywords:
+  - 용어
+  - 뭐야
+  - 뭔지
+  - 뭔데
+  - 무엇인지
+  - 어떤건지
+  - 어떤거야
+  - 설명
+  - 개념
+  tools:
+  - glossary
+  - search_paper
+  - web_search
+  - general
+  - summarize
+  - save_file
+  description: 용어 설명, 논문 검색, 요약 후 저장 (6단계 파이프라인)
+  priority: 105
+  examples:
+  - Transformer 설명하고 논문 찾아서 요약하고 저장해줘
+  - RAG 개념 설명하고 관련 논문 정리해서 저장해줘
+  - RAG가 뭔지 설명하고 관련 논문도 요약해서 저장해줘
+  - BERT가 뭐야? 논문 찾아서 요약하고 저장해줘
+
+- keywords:
+  - 논문
+  - 요약
+  - 저장
+  any_of_keywords:
+  - 통계
+  - 인용
+  - 많은
+  - 상위
+  - 몇
+  tools:
+  - text2sql
+  - search_paper
+  - web_search
+  - general
+  - summarize
+  - save_file
+  description: 통계 조회, 논문 검색, 요약 후 저장 (6단계 파이프라인)
+  priority: 75
+  examples:
+  - 2024년 상위 인용 논문 통계 보고 찾아서 요약하고 저장해줘
+  - 인용 많은 AI 논문 조회하고 요약해서 저장해줘
+  - 2023년 이후 많이 인용된 논문 찾아서 요약하고 저장해줘
+
+- keywords:
+  - 최신
+  - 분석
+  - 정리
+  - 저장
+  tools:
+  - web_search
+  - general
+  - summarize
+  - save_file
+  description: 최신 정보 검색, 분석, 정리 후 저장
+  priority: 70
+  examples:
+  - 최신 AI 기술 찾아서 분석하고 정리해서 저장해줘
+  - 최근 딥러닝 동향 검색해서 분석하고 저장해줘
+
+
+# ==================== 메타데이터 ==================== #
+metadata:
+  version: '3.9'
+  created_date: '2025-11-05'
+  updated_date: '2025-11-06'
+  description: 핵심 패턴만 선별 - 성능 최적화 + 완전한 파이프라인 지원 + 키워드 변형 지원 + 통계 조회 패턴 강화 + 이유 질문 패턴 추가 + 최신 정보 조회 패턴 추가 + 용어 설명 패턴 강화 + 단순 질문 패턴 추가
+  total_patterns: 22
+  removed_patterns: 62
+  pattern_breakdown:
+    single_tool: 5
+    two_tool: 9
+    three_tool: 3
+    four_tool: 3
+    five_tool: 1
+    six_tool: 2
+  pattern_categories:
+    용어_정의: 2
+    전체_저장: 1
+    이유_질문: 1
+    최신_조회: 1
+    단순_질문: 1
+    논문_찾기: 1
+    용어_저장: 2
+    논문_요약: 1
+    최신_정보_요약: 1
+    통계_논문: 1
+    용어_논문: 1
+    논문_저장: 1
+    최신_정보_저장: 1
+    통계_저장: 1
+    비교_저장: 1
+    용어_논문_저장: 1
+    통계_논문_저장: 1
+    최신_분석_저장: 1
+  notes:
+  - 76개 → 14개 → 17개 → 19개 → 20개 → 21개 → 22개 (단순 질문 패턴 추가)
+  - 단일 글자 키워드 완전 제거
+  - exclude_keywords로 정확한 매칭 구현
+  - 우선순위 재조정 (200 → 70)
+  - 핵심 패턴만 유지하여 유지보수성 향상
+  - 용어 정의 + 저장 복합 패턴 추가
+  - 논문 검색 단일 패턴 추가 (multi-turn 지원)
+  - 논문 요약 패턴에 완전한 4단계 파이프라인 적용 (RAG → 웹 → 일반 → 요약)
+  - any_of_keywords 필드 추가: 키워드 변형 지원 (뭐야/뭔데/뭔지/무엇인지/어떤건지/어떤거야)
+  - nodes.py에 any_of_keywords OR 로직 구현 완료
+  - '통계 논문' 패턴 강화: any_of_keywords에 [통계, 인용, 많은, 상위, 몇] 추가 (v3.5)
+  - '통계 논문' 파이프라인 확장: text2sql → search_paper → web_search → general (v3.5)
+  - '논문 찾기' 패턴 exclude_keywords 확장: 통계 조회 키워드 추가하여 충돌 방지 (v3.5)
+  - '통계 논문 저장' 패턴에 any_of_keywords 일관성 적용 (v3.5)
+  - '이유 질문' 패턴 추가: 왜 + [쓰는거야/사용하는거야/사용하는지/알고싶어/하는거야/하는지/쓰는지] (v3.6)
+  - 간단한 이유 질문을 일반 답변으로 라우팅하여 논문 검색 오인 방지 (v3.6)
+  - '최신 조회' 패턴 추가: 최신 단독 키워드로 웹 검색 우선 실행 (v3.7)
+  - 웹 검색 실패 시 일반 답변으로 fallback 보장 (v3.7)
+  - exclude_keywords로 복합 최신 패턴과 충돌 방지 (v3.7)
+  - '용어 논문 저장' 패턴 강화: any_of_keywords에 [용어/뭐야/뭔지/뭔de/설명/개념] 추가 (v3.8)
+  - 우선순위 상승 (80 → 105)으로 [논문/요약/저장] 패턴보다 우선 매칭 (v3.8)
+  - "RAG가 뭔지 설명하고 논문 요약" 요청에서 glossary 도구 우선 실행 보장 (v3.8)
+  - '단순 질문' 패턴 추가: [은?/는?/의?/이란?] 패턴으로 짧은 질문 감지 (v3.9)
+  - glossary → general 파이프라인으로 용어 우선 검색 후 일반 답변 fallback (v3.9)
+  - "Self-Attention의 시간 복잡도는?" 같은 질문에서 논문 검색 오인 방지 (v3.9)

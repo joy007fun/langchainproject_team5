@@ -1,0 +1,131 @@
+[SYSTEM PROMPT - beginner]
+당신은 논문을 쉽게 설명하는 친절한 전문가입니다.
+
+답변 규칙:
+- 검색된 논문들을 번호로 정리하세요
+- 각 논문마다:
+  1. 제목 (저자, 연도)
+  2. 핵심 내용 3-5줄 요약
+  3. 왜 이 논문이 중요한지
+  4. 유사도 점수 (있으면)
+- 전문 용어는 괄호로 쉽게 설명
+- 최대 5개까지만 소개
+- 친근하고 이해하기 쉬운 톤
+
+[USER PROMPT]
+[논문 검색 결과]
+## 검색된 논문
+
+### 1. Retrieval-Augmented Generation: A Comprehensive Survey of Architectures, Enhancements, and Robustness Frontiers
+- **저자**: Chaitanya Sharma
+- **출판일**: 2025-05-28
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2506.00054v1
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 2.5840
+
+arXiv:2506.00054v1  [cs.IR]  28 May 2025This is a preprint under review at ACM TOIS. Do not redistribute the final version without permission.
+Retrieval-Augmented Generation: A Comprehensive Survey of Architectures,
+Enhancements, and Robustness Frontiers
+CHAITANYA SHARMA, Independent Researcher, United States
+Retrieval-Augmented Generation (RAG) has emerged as a powerful paradigm to enhance large language models (LLMs) by conditioning
+generation on external evidence retrieved at inference time. While RAG addresses critical limitations of parametric knowledge
+storage—such as factual inconsisten...
+
+---
+
+### 2. The 3rd Place Solution of CCIR CUP 2025: A Framework for Retrieval-Augmented Generation in Multi-Turn Legal Conversation
+- **저자**: Da Li, Zecheng Fang, Qiang Yan, Wei Huang, Xuanpu Luo
+- **출판일**: 2025-10-17
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2510.15722v1
+- **섹션**: 본문
+- **유사도 점수(낮을수록 유사)**: 0.8811
+
+on the first page. Copyrights for components of this work owned by others than the
+author(s) must be honored. Abstracting with credit is permitted. To copy otherwise, or
+republish, to post on servers or to redistribute to lists, requires prior specific permission
+and/or a fee. Request permissions from permissions@acm.org.
+Conference acronym ’XX, Woodstock, NY
+©2018 Copyright held by the owner/author(s). Publication rights licensed to ACM.
+ACM ISBN 978-1-4503-XXXX-X/2018/06
+https://doi.org/XXXXXXX.XXXXXXX1 Introduction
+Retrieval-Augmented Generation (RAG) has emerged as a powerful
+paradigm in n...
+
+---
+
+### 3. End-to-End Trainable Retrieval-Augmented Generation for Relation Extraction
+- **저자**: Kohei Makino, Makoto Miwa, Yutaka Sasaki
+- **출판일**: 2024-06-06
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2406.03790v2
+- **섹션**: 초록
+- **유사도 점수(낮을수록 유사)**: 0.3000
+
+This paper addresses a crucial challenge in retrieval-augmented
+generation-based relation extractors; the end-to-end training is not applicable
+to conventional retrieval-augmented generation due to the non-differentiable
+nature of instance retrieval. This problem prevents the instance retrievers
+from being optimized for the relation extraction task, and conventionally it
+must be trained with an objective different from that for relation extraction.
+To address this issue, we propose a novel End-to-end Trainable
+Retrieval-Augmented Generation (ETRAG), which allows end-to-end optimization of
+the ...
+
+---
+
+### 4. Meta-prompting Optimized Retrieval-augmented Generation
+- **저자**: João Rodrigues, António Branco
+- **출판일**: 2024-07-04
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2407.03955v1
+- **섹션**: 초록
+- **유사도 점수(낮을수록 유사)**: 0.3000
+
+Retrieval-augmented generation resorts to content retrieved from external
+sources in order to leverage the performance of large language models in
+downstream tasks. The excessive volume of retrieved content, the possible
+dispersion of its parts, or their out of focus range may happen nevertheless to
+eventually have a detrimental rather than an incremental effect. To mitigate
+this issue and improve retrieval-augmented generation, we propose a method to
+refine the retrieved content before it is included in the prompt by resorting
+to meta-prompting optimization. Put to empirical test with the dem...
+
+---
+
+### 5. DuetRAG: Collaborative Retrieval-Augmented Generation
+- **저자**: Dian Jiao, Li Cai, Jingsheng Huang, Wenqiao Zhang, Siliang Tang, Yueting Zhuang
+- **출판일**: 2024-05-12
+- **카테고리**: None
+- **인용수**: 0
+- **URL**: http://arxiv.org/pdf/2405.13002v1
+- **섹션**: 초록
+- **유사도 점수(낮을수록 유사)**: 0.3000
+
+Retrieval-Augmented Generation (RAG) methods augment the input of Large
+Language Models (LLMs) with relevant retrieved passages, reducing factual
+errors in knowledge-intensive tasks. However, contemporary RAG approaches
+suffer from irrelevant knowledge retrieval issues in complex domain questions
+(e.g., HotPot QA) due to the lack of corresponding domain knowledge, leading to
+low-quality generations. To address this issue, we propose a novel
+Collaborative Retrieval-Augmented Generation framework, DuetRAG. Our
+bootstrapping philosophy is to simultaneously integrate the domain fintuning
+and RAG m...
+
+---
+
+
+[질문]
+RAG (Retrieval-Augmented Generation) survey paper:arxiv
+
+위 검색 결과를 바탕으로 질문에 답변해주세요.
+
+===== 메타데이터 =====
+tool: search_paper
+difficulty: easy
+level: beginner
