@@ -102,7 +102,7 @@ patterns:
   - glossary
   - general
   description: 단순 질문 (용어 우선 검색 후 일반 답변)
-  priority: 130
+  priority: 145
   examples:
   - Self-Attention의 시간 복잡도는?
   - Transformer의 성능은?
